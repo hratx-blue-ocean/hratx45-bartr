@@ -1,0 +1,6 @@
+Get 1 row of data from each table @ these endpoints:
+http://api-server.escxwv87wi.us-west-2.elasticbeanstalk.com/api/testing/test-postgres/categories
+http://api-server.escxwv87wi.us-west-2.elasticbeanstalk.com/api/testing/test-postgres/products
+http://api-server.escxwv87wi.us-west-2.elasticbeanstalk.com/api/testing/test-postgres/users
+http://api-server.escxwv87wi.us-west-2.elasticbeanstalk.com/api/testing/test-postgres/wish-list
+
