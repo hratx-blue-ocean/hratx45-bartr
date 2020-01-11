@@ -1,4 +1,5 @@
 import React from "react";
+import { Button, Input } from "@material-ui/core";
 
 class FeedPage extends React.Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class FeedPage extends React.Component {
   render() {
     return (
       <div id="feedPageOuterContainer">
-        <input id="feedPageSearchField"></input>
+        <Input id="feedPageSearchField"></Input>
       </div>
     );
   }

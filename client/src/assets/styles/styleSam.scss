@@ -1,41 +1,6 @@
-button {
-  cursor: pointer;
-}
 #feedPageOuterContainer {
   display: flex;
   width: 100vw;
   height: 100vh;
   flex-direction: column;
-}
-
-#feedPageNavBar {
-  display: flex;
-  flex-direction: row;
-  height: 10%;
-  background-color: gray;
-  width: 100vw;
-  justify-content: space-between;
-}
-
-#menuButtonFeedPage {
-  font-size: xx-large;
-  margin-left: 2%;
-  margin-top: auto;
-  margin-bottom: auto;
-  cursor: pointer;
-}
-
-#feedPageMenu {
-  margin-left: 2%;
-  width: 20vw;
-  height: 100vh;
-  position: absolute;
-  z-index: 1;
-}
-
-#menuCloseFeedPage {
-  font-size: xx-large;
-  margin-top: 5%;
-  margin-bottom: auto;
-  cursor: pointer;
 }
