@@ -1,0 +1,14 @@
+#feedPageOuterContainer {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+}
+
+#feedPageNavBar {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  height: 10%;
+}
