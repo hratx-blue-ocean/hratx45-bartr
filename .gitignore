@@ -69,3 +69,4 @@ typings/
 
 # Webpack
 bundle.js
+/server/db/config.js
