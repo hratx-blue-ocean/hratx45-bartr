@@ -24,8 +24,6 @@ const getWishList = () => {
 	return pool.query({text:`select * from wish_list where wish_list_id = ${wishListId}`});
 };
 
-
-
 module.exports = {
     testPostgres,
     getCategory,
