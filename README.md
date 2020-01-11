@@ -1,1 +1,0 @@
-# hratx45-bartr
