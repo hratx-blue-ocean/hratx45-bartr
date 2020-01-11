@@ -6,33 +6,40 @@ const ENTRY_FILE = "./src/index.js";
 const config = {
   entry: ENTRY_FILE,
   output: {
-    filename: "bundle.js",
+    filename: 'bundle.js',
     path: DIST_FOLDER
   },
   resolve: {
-    extensions: ["*", ".js", ".jsx"]
+    extensions: ['*', '.js', '.jsx']
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        exclude: "/node_modules",
-        use: ["babel-loader"]
+        exclude: '/node_modules',
+        use: ['babel-loader'],
+        options: {
+          presets: ['@babel/preset-env', '@babel/preset-react'],
+          plugins: [
+            '@babel/plugin-proposal-class-properties',
+            '@babel/transform-runtime'
+          ]
+        }
       },
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"]
+        use: ['style-loader', 'css-loader']
       },
 
       {
         test: /\.(png|jpg|svg|gif|woff|ttf|woff2|eot)$/i,
         use: [
           {
-            loader: "file-loader",
+            loader: 'file-loader',
             options: {
               limit: 1024,
-              name: "assets/[path][name].[ext]",
-              context: "src/"
+              name: 'assets/[path][name].[ext]',
+              context: 'src/'
             }
           }
         ]
@@ -42,27 +49,27 @@ const config = {
         test: /\.s[ac]ss$/i,
         use: [
           // Creates `style` nodes from JS strings
-          "style-loader",
+          'style-loader',
           // Translates CSS into CommonJS
-          "css-loader",
+          'css-loader',
           // Compiles Sass to CSS
-          "sass-loader"
+          'sass-loader'
         ]
       }
     ]
   }
 };
 
-if (process.env.NODE_ENV === "development") {
-  config["mode"] = "development";
-  config["watch"] = true;
-  config["devServer"] = {
+if (process.env.NODE_ENV === 'development') {
+  config['mode'] = 'development';
+  config['watch'] = true;
+  config['devServer'] = {
     contentBase: DIST_FOLDER,
     compress: true,
     port: 9000
   };
-} else if (process.env.NODE_ENV === "production") {
-  config["mode"] = "production";
+} else if (process.env.NODE_ENV === 'production') {
+  config['mode'] = 'production';
 }
 
 module.exports = config;

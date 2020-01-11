@@ -1,0 +1,63 @@
+#ml-userProfile-master {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 0.5fr 0.5fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 1em;
+  height: 100vh;
+  width: 100vw;
+  font-size: 24px;
+}
+
+#ml-fake-navbar {
+  background-color: blue;
+  grid-column-start: 1;
+  grid-column-end: 11;
+  grid-row: 1/2;
+}
+#ml-avatar {
+  background-color: red;
+  grid-row: 2/4;
+  grid-column: 2/4;
+}
+#ml-username {
+  background-color: green;
+  grid-row: 2/3;
+  grid-column: 4/10;
+}
+#ml-location {
+  background-color: pink;
+  grid-row: 3/4;
+  grid-column: 4/10;
+}
+#ml-youritems {
+  background-color: orange;
+  grid-row: 4/5;
+  grid-column: 2/4;
+}
+#ml-wishlist {
+  background-color: orange;
+  grid-row: 4/5;
+  grid-column: 5/7;
+}
+#ml-activeoffers {
+  background-color: orange;
+  grid-row: 4/5;
+  grid-column: 8/10;
+}
+#ml-upload {
+  background-color: greenyellow;
+  grid-row: 5/6;
+  grid-column: 3/9;
+}
+
+#ml-recentactivity {
+  grid-row: 6/9;
+  grid-column: 2/10;
+  background-color: magenta;
+}
+
+#ml-completedbarters {
+  grid-row: 9/12;
+  grid-column: 2/10;
+  background-color: turquoise;
+}
