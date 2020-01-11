@@ -1,5 +1,5 @@
-const example = require('../routes/example');
+const example = require('../routes/testing');
 
 module.exports = function (app) {
-    app.use('/api/example', example);
+    app.use('/api/testing', example);
 };
