@@ -1,6 +1,6 @@
 export default (state=[], action) => {
   switch (action.type) {
-    case 'GET_HOME_FEED':
+    case 'FETCH_PRODUCTS':
       return action.payload;
     case 'GET_FEED':
       // Placeholder - no functionality yet
