@@ -7,7 +7,7 @@ const config = {
   entry: ENTRY_FILE,
   output: {
     filename: 'bundle.js',
-    path: DIST_FOLDER
+    path: DIST_FOLDER,
   },
   resolve: {
     extensions: ['*', '.js', '.jsx']
@@ -17,20 +17,13 @@ const config = {
       {
         test: /\.(js|jsx)$/,
         exclude: '/node_modules',
-        use: ['babel-loader'],
-        options: {
-          presets: ['@babel/preset-env', '@babel/preset-react'],
-          plugins: [
-            '@babel/plugin-proposal-class-properties',
-            '@babel/transform-runtime'
-          ]
-        }
+        use: ['babel-loader']
       },
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader']
       },
-
+      
       {
         test: /\.(png|jpg|svg|gif|woff|ttf|woff2|eot)$/i,
         use: [
@@ -40,11 +33,13 @@ const config = {
               limit: 1024,
               name: 'assets/[path][name].[ext]',
               context: 'src/'
+              
             }
-          }
-        ]
+            
+          },
+        ],
       },
-
+      
       {
         test: /\.s[ac]ss$/i,
         use: [
@@ -53,11 +48,11 @@ const config = {
           // Translates CSS into CommonJS
           'css-loader',
           // Compiles Sass to CSS
-          'sass-loader'
-        ]
+          'sass-loader',
+        ],
       }
     ]
-  }
+  },
 };
 
 if (process.env.NODE_ENV === 'development') {
@@ -73,3 +68,6 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 module.exports = config;
+
+
+
