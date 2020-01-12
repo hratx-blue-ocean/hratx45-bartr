@@ -8,6 +8,7 @@
     "devp": "NODE_ENV=production nodemon ./bin/www"
   },
   "dependencies": {
+    "@sentry/node": "^5.11.0",
     "bluebird": "^3.7.2",
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",

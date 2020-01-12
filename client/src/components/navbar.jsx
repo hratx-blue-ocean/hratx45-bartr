@@ -11,8 +11,12 @@ const Navbar = props => {
     <MDBNavbar color="indigo" dark>
       <MDBNavbarNav left>
         <MDBNavItem>
-          <MDBNavLink to="/dist/">Home</MDBNavLink>
+          <MDBNavLink to="/">Home</MDBNavLink>
         </MDBNavItem>
+        <MDBNavItem>
+          <MDBNavLink to="/signup">Signup</MDBNavLink>
+        </MDBNavItem>
+        
       </MDBNavbarNav>
       
       <MDBNavbarNav left>
