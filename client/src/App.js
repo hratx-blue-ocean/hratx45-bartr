@@ -1,9 +1,16 @@
 import React, { Component } from "react";
 import UserProfile from "./userProfile.jsx";
 
+import HomeScreen from "./screens/HomeScreen";
+
+
 class App extends Component {
   render() {
-    return <div>app loaded</div>;
+    return (
+      <div>
+        <HomeScreen/>
+      </div>
+    );
   }
 }
 
