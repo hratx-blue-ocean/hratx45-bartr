@@ -2,11 +2,14 @@ const express = require('express');
 const router = express.Router();
 
 const {
-    testPostgres,
-    getCategory,
-    getProduct,
-    getUser,
-    getWishList
+  testPostgres,
+  getCategory,
+  getCategories,
+  getProduct,
+  getProducts,
+  getUser,
+  getUsers,
+  getWishList
 } = require('../db/testing');
 
 // --------------------------------------------------------------------------------------------------
@@ -31,7 +34,7 @@ router.get('/test-postgres', (req, res) => {
 });
 
 
-router.get('/test-postgres/categories', (req, res) => {
+router.get('/test-postgres/category', (req, res) => {
     getCategory()
         .then(result => {
             res.send(result.rows);
@@ -41,7 +44,7 @@ router.get('/test-postgres/categories', (req, res) => {
         });
 });
 
-router.get('/test-postgres/products', (req, res) => {
+router.get('/test-postgres/product', (req, res) => {
     getProduct()
         .then(result => {
             res.send(result.rows);
@@ -51,7 +54,7 @@ router.get('/test-postgres/products', (req, res) => {
         });
 });
 
-router.get('/test-postgres/users', (req, res) => {
+router.get('/test-postgres/user', (req, res) => {
     getUser()
         .then(result => {
             res.send(result.rows);
@@ -60,6 +63,39 @@ router.get('/test-postgres/users', (req, res) => {
             res.sendStatus(500);
         });
 });
+
+
+router.get('/test-postgres/categories', (req, res) => {
+    getCategories()
+        .then(result => {
+            res.send(result.rows);
+        })
+        .catch(() => {
+            res.sendStatus(500);
+        });
+});
+
+router.get('/test-postgres/products', (req, res) => {
+    getProducts()
+        .then(result => {
+            res.send(result.rows);
+        })
+        .catch(() => {
+            res.sendStatus(500);
+        });
+});
+
+router.get('/test-postgres/users', (req, res) => {
+    getUsers()
+        .then(result => {
+            res.send(result.rows);
+        })
+        .catch(() => {
+            res.sendStatus(500);
+        });
+});
+
+
 
 router.get('/test-postgres/wish-list', (req, res) => {
     getWishList()
