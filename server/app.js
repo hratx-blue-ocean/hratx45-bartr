@@ -18,29 +18,29 @@ require("./startup/routes")(app);
 
 
 app.get('/', (req, res) => {
-    res.send('GET / success')
+  res.send('GET / success')
 });
 
 
 app.get('/test', (req, res) => {
-    res.send('GET /test success')
+  res.send('GET /test success')
 });
 
 // --------------------------------------------------------------------------------------------------
 
 // Catch 404 and forward to error handler
 app.use(function (req, res, next) {
-    next(createError(404));
+  next(createError(404));
 });
 
 // Error handler
 app.use(function (err, req, res, next) {
-    // Set locals, only providing error in development
-    res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
-    
-    console.log(err.status);
-    res.sendStatus(err.status || 500);
+  // Set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+  
+  console.log(err.status);
+  res.sendStatus(err.status || 500);
 });
 
 module.exports = app;
