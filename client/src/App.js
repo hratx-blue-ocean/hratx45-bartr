@@ -17,7 +17,6 @@ class App extends Component {
     return (
       <Router>
         <Navbar/>
-        
         <Switch>
           <Route exact path="/dist/">
             <HomeScreen />

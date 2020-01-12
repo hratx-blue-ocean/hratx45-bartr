@@ -1,6 +1,5 @@
 // https://mdbootstrap.com/docs/react/navigation/navbar/
 import React from 'react';
-
 import {
   MDBNavbar,MDBIcon, MDBNavbarNav, MDBNavItem, MDBNavLink,
   MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem
@@ -9,12 +8,14 @@ import {
 
 const Navbar = props => {
   return (
-    <MDBNavbar color="indigo" dark expand="md">
+    <MDBNavbar color="indigo" dark>
       <MDBNavbarNav left>
         <MDBNavItem>
           <MDBNavLink to="/dist/">Home</MDBNavLink>
         </MDBNavItem>
-        
+      </MDBNavbarNav>
+      
+      <MDBNavbarNav left>
         <MDBNavItem>
           <MDBDropdown>
             <MDBDropdownToggle nav caret>
@@ -28,9 +29,8 @@ const Navbar = props => {
             </MDBDropdownMenu>
           </MDBDropdown>
         </MDBNavItem>
-        
       </MDBNavbarNav>
-  
+    
       <MDBNavbarNav right>
         <MDBDropdown dropleft>
           <MDBDropdownToggle nav caret>
@@ -44,7 +44,7 @@ const Navbar = props => {
           </MDBDropdownMenu>
         </MDBDropdown>
       </MDBNavbarNav>
-      
+  
     </MDBNavbar>
   );
 };
