@@ -8,11 +8,7 @@ import {fetchProducts} from "../actions";
 const HomeScreen = props => {
   return (
     <div>
-      <MDBBtn
-        onClick={() => props.fetchProducts()}
-      >
-        Click here
-      </MDBBtn>
+
     </div>
   );
 };
