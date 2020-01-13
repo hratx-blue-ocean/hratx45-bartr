@@ -11,13 +11,16 @@ class App extends Component {
     return (
       <Router>
         <Navbar />
-        <FeedPage />
+        
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/dist/">
             <HomeScreen />
           </Route>
-          <Route exact path="/signup">
+          <Route exact path="/dist/signup">
             <SignupScreen />
+          </Route>
+          <Route exact path="/dist/feed">
+            <FeedPage />
           </Route>
         </Switch>
       </Router>

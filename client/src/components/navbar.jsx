@@ -12,18 +12,24 @@ import {
   MDBDropdownItem
 } from "mdbreact";
 
+/* Gets link button for navbar */
+const getLink = (title, link) => {
+  return (
+    <MDBNavbarNav left>
+      <MDBNavItem>
+        <MDBNavLink to={`/dist${link}`}>{title}</MDBNavLink>
+      </MDBNavItem>
+    </MDBNavbarNav>
+  );
+};
+
 const Navbar = props => {
   return (
     <MDBNavbar color="indigo" dark>
-      <MDBNavbarNav left>
-        <MDBNavItem>
-          <MDBNavLink to="/">Home</MDBNavLink>
-        </MDBNavItem>
-        <MDBNavItem>
-          <MDBNavLink to="/dist/feedpage">feedpage</MDBNavLink>
-        </MDBNavItem>
-      </MDBNavbarNav>
-
+      {getLink('Home', '/')}
+      {getLink('Feed', '/feed')}
+      
+      {/* Drop down button */}
       <MDBNavbarNav left>
         <MDBNavItem>
           <MDBDropdown>
@@ -39,7 +45,8 @@ const Navbar = props => {
           </MDBDropdown>
         </MDBNavItem>
       </MDBNavbarNav>
-
+      
+      {/* Profile icon drop down */}
       <MDBNavbarNav right>
         <MDBDropdown dropleft>
           <MDBDropdownToggle nav caret>
