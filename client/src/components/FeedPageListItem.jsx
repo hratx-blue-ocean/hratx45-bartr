@@ -11,9 +11,12 @@ import {
 
 const FeedPageListItem = props =>
   props.item.public ? (
-    <MDBContainer>
+    <MDBContainer style={{ borderTop: "1px solid gray" }}>
       <MDBContainer>Name: {props.item.product_name}</MDBContainer>
       <MDBContainer>Value: {props.item.value}</MDBContainer>
+      <MDBContainer>
+        Available? {props.item.up_for_trade ? "Yes" : "No"}
+      </MDBContainer>
     </MDBContainer>
   ) : null;
 

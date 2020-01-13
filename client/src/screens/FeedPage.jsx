@@ -15,17 +15,36 @@ class FeedPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentFilter: "Distance",
+      currentFilterText: "Distance",
       productsToDisplay: []
     };
-    this.handleFilter = this.handleFilter.bind(this);
+    this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
     this.getProducts = this.getProducts.bind(this);
   }
 
-  handleFilter(event) {
-    this.setState({
-      currentFilter: event
-    });
+  handleFilterTextChange(event) {
+    if (event === "Value (Highest First)") {
+      let arr = this.state.productsToDisplay;
+      let sortedArr = [];
+      for (let i = 0; i < arr.length; i++) {
+        sortedArr[arr[i].value] = arr[i];
+      }
+      this.setState({
+        productsToDisplay: sortedArr.filter(a => a !== undefined).reverse(),
+        currentFilterText: event
+      });
+    }
+    if (event === "Value (Lowest First)") {
+      let arr = this.state.productsToDisplay;
+      let sortedArr = [];
+      for (let i = 0; i < arr.length; i++) {
+        sortedArr[arr[i].value] = arr[i];
+      }
+      this.setState({
+        productsToDisplay: sortedArr.filter(a => a !== undefined),
+        currentFilterText: event
+      });
+    }
   }
 
   getProducts() {
@@ -64,7 +83,7 @@ class FeedPage extends React.Component {
                 value="Distance"
                 id="filterByDistance"
                 onClick={() =>
-                  this.handleFilter(
+                  this.handleFilterTextChange(
                     document.getElementById("filterByDistance").innerHTML
                   )
                 }
@@ -72,32 +91,43 @@ class FeedPage extends React.Component {
                 Distance
               </MDBDropdownItem>
               <MDBDropdownItem
-                value="Value"
-                id="filterByValue"
+                value="ValueHigh"
+                id="filterByValueHigh"
                 onClick={() =>
-                  this.handleFilter(
-                    document.getElementById("filterByValue").innerHTML
+                  this.handleFilterTextChange(
+                    document.getElementById("filterByValueHigh").innerHTML
                   )
                 }
               >
-                Value
+                Value (Highest First)
+              </MDBDropdownItem>
+              <MDBDropdownItem
+                value="ValueLow"
+                id="filterByValueLow"
+                onClick={() =>
+                  this.handleFilterTextChange(
+                    document.getElementById("filterByValueLow").innerHTML
+                  )
+                }
+              >
+                Value (Lowest First)
               </MDBDropdownItem>
               <MDBDropdownItem
                 value="Date"
                 id="filterByDate"
                 onClick={() =>
-                  this.handleFilter(
+                  this.handleFilterTextChange(
                     document.getElementById("filterByDate").innerHTML
                   )
                 }
               >
-                Date
+                Date Posted
               </MDBDropdownItem>
             </MDBDropdownMenu>
           </MDBDropdown>
 
           <div id="filteringByText">
-            Filtering by: {this.state.currentFilter}
+            Filtering by: {this.state.currentFilterText}
           </div>
         </div>
 
