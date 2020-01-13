@@ -1,3 +1,5 @@
+
+
 export const getLocation = () => {
   return async (dispatch, getState) =>  {
     if (!navigator.geolocation) {
@@ -17,6 +19,7 @@ export const getLocation = () => {
         },
         (error) => {
           console.error(`FILE: locationActions.js () | ERROR1: \n`, error);
+          
         }
       );
     

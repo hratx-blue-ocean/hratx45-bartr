@@ -1,91 +1,270 @@
-# hratx45-bartr
+# Welcome to Blue Ocean
+
+![](http://i.imgur.com/L3uCOf2.jpg?1)
 
 
-# Welcome to Blue Ocean!
-Congratulations and welcome to your first day at Blue Ocean! We are literally an underwater agile software development company.  
+Congratulations and welcome to your first day at Blue Ocean!
+
+At Blue Ocean we believe in the Agile software development process. You will be placed on a brand new project where we'll be using Agile tools to design, develop and deploy a finished product.
 
 Let's begin our tour (don't blink!)...
 
-Trello Board: https://trello.com/b/1Ry424Xs/hratx40-blue-ocean
+- [Welcome to Blue Ocean](#welcome-to-blue-ocean)
+  - [Objectives](#objectives)
+  - [Your Agile Process](#your-agile-process)
+  - [Minimum requirements](#minimum-requirements)
+  - [Meetings and Expectations](#meetings-and-expectations)
+  - [DAY 1 @ 9:30 - Kickoff and Ideation](#day-1---kickoff-and-ideation)
+  - [DAY 1 @ 10:30 - Sprint Planning and Proposal for Approval](#day-1---sprint-planning-and-proposal-for-approval)
+  - [DAY 1 Afternoon: Meet with user(stakeholder)](#day-1-afternoon-meet-with-userstakeholder)
+  - [Daily Standup](#daily-standup)
+  - [DAY 4: User Testing & Acceptance](#day-4-user-testing--acceptance)
+  - [DAY 7: Sprint Review](#day-7-sprint-review)
+  - [ROLES](#roles)
+    - [Product Manager (Elected by team)](#product-manager-elected-by-team)
+      - [Oversee the ticketing system](#oversee-the-ticketing-system)
+      - [Meet with user(stakeholder)](#meet-with-userstakeholder)
+      - [Run Daily Standups (see daily standups)](#run-daily-standups-see-daily-standups)
+      - [Some tips on creating user stories](#some-tips-on-creating-user-stories)
+    - [Stakeholder & User (If your idea is used by a team)](#stakeholder--user-if-your-idea-is-used-by-a-team)
+      - [Attend that teams' sprint planning for the first 10-15 minutes](#attend-that-teams-sprint-planning-for-the-first-10-15-minutes)
+      - [Attend User(stakeholder) Meeting for that team](#attend-userstakeholder-meeting-for-that-team)
+    - [Architecture Owner (Elected by team)](#architecture-owner-elected-by-team)
+    - [UI Owner (Elected by team)](#ui-owner-elected-by-team)
+    - [Developer (everyone)](#developer-everyone)
+______________________________________________
 
-How do you feel today? [![Build Status](https://travis-ci.com/hratx39-blue-ocean/deep-dive.svg?branch=master)](https://travis-ci.com/hratx39-blue-ocean/deep-dive)
+<!-- OBJECTIVES -->
+## Objectives
 
-By the end of this sprint, be sure to replace your readme and use this template as a guideline:
-[Readme Template](https://github.com/hratx-blue-ocean/reading/blob/master/template-readme.md)
+* Apply Modern Agile Practices
+* Use Modern Github Workflows
+* Use Modern Development and Deployment Workflows
+
+<!-- CI/CD -->
+<!-- Code Reviews -->
+
+<!-- OVERALL DELIVERABLES -->
+<!-- DAILY DELIVERABLES -->
+
+<!-- GETTING STARTED -->
+
+<!-- Attend Kickoff and planning meetings -->
+<!-- Get your local machine setup: Organization Link -->
+
 
 ## Your Agile Process
+
 Expect this project to push you outside of your comfort zone. Welcome to your first day of life as a professional developer with a professional workflow.
 
 You will be interacting with and playing various roles consistent with an agile work enviroment. We expect you to build software meeting each of our standards over the next week.
 
 ## Minimum requirements
-Work with your end user to understand what you are building
 
-Create a backlog of tickets to work through during the week
+* Build an application around an idea from an external end-user
 
-Participate in a Sprint Planning and a Sprint Retrospective
+* Create a backlog of tickets to work through during the week
+  - [Example Board](https://trello.com/b/FcySKoaf/example-trello-project)
+  - [More ticketing information](https://docs.google.com/document/d/1i79WKUQuhc8nqrkZ-VHDbWCUL94H1WoIHBhV7K3Lbw8/edit?usp=sharing)
 
-Attend Daily Standup Meetings
+* Participate in a Sprint Planning and a Sprint Retrospective
 
-Meet Acceptance Criteria determined by the user
+* Attend Daily Standup Meetings
 
-Minimum of 60% test coverage. Tests include unit and integration tests.
+* Meet Acceptance Criteria determined by the user
 
-Use contiuous integration and continous delivery practices
+* Minimum of 60% test coverage.  Tests include unit and integration tests.
 
-Deploy early, and often
-Always have a working application in master
-Create a professional quality Github repo including a Readme, Test Coverage, and Clean Code.
+* Use contiuous integration and continous delivery practices
+  * Deploy early, and often
+  * Always have a working application in master
 
-Atleast 50% of the tickets you worked on should be done with a pair. (Include co-authors in your commits)
+* Create a professional quality Github repo including a Readme, Test Coverage, and Clean Code.
+
+* At least 50% of the tickets you worked on should be done with a pair. (Include [co-authors in your commits](https://help.github.com/en/articles/creating-a-commit-with-multiple-authors))
 
 We're here to help guide you through this process...and potentially throw some wrenches in as well ;)
 
-## Get Started
-The PM should clone the repo down to their machine, rimraf the .git, and the create a new repo **on this organization** and push the code up to that repo. The naming convention should follow this format: hratx##-projectname (where ## is your cohort number and projectname is the name of your project).
+## Meetings and Expectations
 
-## Contribution Guidelines
-We expect our new software engineers to start contributing to our codebase immediately. That doesn't mean we want maverick manatees swimming wild and munching on whatever looks tastiest with no concern for what other herdmates are doing. That means:
-  1. No code shall be written except that which directly addresses a specific ticket.
-  2. If you unexpectedly need code which falls outside the scope of your ticket, write a new ticket which requires that code.
-  3. Blue Ocean is an agile workspace open to exploring any techniques which improve deliverable cycle speed. **We strongly encourage pair programming tickets with high point values.** Freeform collaboration between different teams on an as-needed basis is also encouraged.
-  4. All commit messages and pull request messages shall include the number of the ticket for which the code was written. That makes tracking the meaning behind changes easier over time.
-  5. If you have been working on something for several hours and you don't see an end soon in sight, double check the ticket parameters and make sure that you're still coloring within the lines. If that checks out, find a team member to talk with or work with about your ticket. Does it need to be broken into several smaller tickets? Is it too big to be worth working on at this stage of development? Are you approaching the ticket in a sane, process-driven way? Strongly consider pair programming the rest of the ticket if you check any of these boxes.
-  6. Each pull request will need to pass tests on Travis CI before it can be reviewed for acceptance.
-
-## Git Workflow
-We take version control very seriously here at Blue Ocean. You will be expected to:
-  1. Work on separate branches.
-  2. Commit often.
-  3. Write clear, concise, imperative-mood commit messages with leading ticket numbers. For example, "#21: Add list entry component".
-  4. Submit pull requests when looking to merge with the master branch.
-  5. **Always pull from master onto your working branch and fix conflicts before submitting a pull request to master.** 
-  6. Use `git rebase` to create a linear commit history when creating a pull request. [See details here](https://www.atlassian.com/git/tutorials/merging-vs-rebasing "Merging v. Rebasing"). Additionally use squashing when you rebase to make commit history more readable.
-  7. Approve pull requests only if you did not write any of the code submitted for review.
-  
-[More git workflow information](https://docs.google.com/document/d/1Kuvpv0rs9He9YRmbB_XVOfNKtakjioRAOjEUaGTqFtU/edit?usp=sharing)
-
-## Codebase Overview
-The deep-dive codebase is broken into two major pieces: the client and the server. The codebase has three separate package.json files and you will need to validate existing scripts and write new ones which are able to easily move between the top layer of the repo and the two lower layers to help you manage your Node packages. 
-
-## Grading Tickets
-We expect all of our software engineers to be capable of assessing the scope of a ticket and grade it on a point scale of difficulty where 1 point is small, 2 is a good size, 3 is large, 5 is huge, and anything above 5 needs to be broken into multiple tickets if possible. This will be tremendously helpful when assigning team members to tickets.
-
-Here are some good practices for arriving at a specific grade when approaching a new topic. You do not need to be familiar with all of these techniques; pick one that works for you and matches with what the rest of your group would pick and stick to it.
-
-### Consider the [Johari Window](https://www.communicationtheory.org/the-johari-window-model/ "Johari Window"). 
-  1. If something is a known-known (you have done this thing before more than once), the process to create will be predictable and consistent. That may mean that is a smaller ticket.
-  2. If something is a known-unknown (you haven't done it before but you know people who have and can consult them if you're stuck), the process to create will be predictable but inconsistent. That may mean a slightly larget ticket.
-  3. If something is an unknown-known or unknown-unknown (you haven't done it before, you're not sure it can be done in the way you imagine, and no one on the team is familiar with how to do it), the creation process will be unpredictable and inconsistent. That will probably mean a larger ticket.
-### Consider the breadth and depth of a given ticket. Tickets should be reasonably narrow and shallow.
-  1. A broad ticket is one which touches many components.
-  2. A deep ticket is one which adds a complex feature, changes many existing features, or adds many simple features within a single component.
-  
-[More ticketing information](https://docs.google.com/document/d/1i79WKUQuhc8nqrkZ-VHDbWCUL94H1WoIHBhV7K3Lbw8/edit?usp=sharing)
+## DAY 1 - Kickoff and Problem Exploration
 
 
-## Developer Operations
-Now that you're at a real company with many people who might all need simultaneous but separate access to a single deployed instance, it's time to think about SSH operational security and how to manage multiple users through AWS. Not every member of your team will need access to either AWS credentials or to an SSH key-pair (such a broad distribution can create chaos) but you shoud avoid bottlenecking by wisely distributing access across team members.
-  1. [Consult this page](https://docs.aws.amazon.com/IAM/latest/UserGuide/console.html) about setting up permissions from primary AWS account. You will need to set up Identity and Access Management on the primary account and then distribute login credentials to those members of your team who need them. **You should never share your personal credentials with anyone, including other members of your team.**
-  2. For SSH access, [review this page](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html). Each team member with an SSH key will be responsible for its security and should review this article on best practices for setting up secure access from your local machine. **You should never share your personal credentials with anyone, including other members of your team.**
-  3. You will use Travis CI to run tests, compare branches, and generally manage the quality of the code. [Take a look at their docs here](https://docs.travis-ci.com/user/for-beginners/).
+![ideation](./images/ideation.jpg)
+
+
+This is our meeting to discuss and plan the projects as a whole, and to lay out the process for the remaining days worth of work.
+
+Everyone plays the role of full-stack developer in this agile enviroment, some folks will have additional roles:
+
+(see **Roles** for additional information)
+
+* Product Manager (Elected by team)
+* User (If your idea is used by a team)
+* Architecture Owner (Elected by team)
+* UI Owner (Elected by team)
+* Developer (everyone)
+
+You cannot work on an idea of your own. Instead, if a team is working on your idea, you will have an additional role in that team as an end user.
+
+## DAY 1 - Meet the end user!
+
+**Deliverables:**
+* Project proposal
+  * Description of the project
+  * Project Name
+  * What problem does it solve?
+  * User Inputs/Outputs
+
+[Submit this form](https://docs.google.com/forms/d/e/1FAIpQLSfBmDge0dNNlEAH2WFTp4cfdDzFOLiCCiWluZJ53rxSs3KM0w/viewform)
+
+
+## DAY 1 - Sprint Planning and Proposal for Approval
+
+**Deliverables:**
+* Team roles
+* Starting technology stack and deployment strategy
+* Trello board with initial tickets assigned to team members
+* MVP Components and wireframes
+
+During this meeting, each person will share with their team:
+
+* What you feel you can help others with
+* What you feel you need to work on
+* What you enjoy doing the most
+* What additional role you would like to take on in addition to 'developer'
+
+Then you will elect roles, and discuss the project to flesh out your technology choices.
+
+By the end of this meeting, you will have MVP components that are broken down in to user-story tickets, with some setup and starter code tickets. The team will have a clearly defined scope of work, wireframes, and initial tickets chosen.
+
+The process looks like this:
+
+**Idea -> MVP Components -> Wireframes(Facilitated by UI owner) -> User Story Tickets -> Conversation Section (for later review with user) -> Acceptance Criteria**
+
+After the starting tickets are in, your team will work with instructional staff to assign points to each ticket. It is everyone's responsibility to ensure that we meet this goal together!
+
+MVP Components will involve the outside **user who came up with the idea to join this meeting.**
+
+There should be no more than 3-5 primary features that constitute MVP for the project. 
+
+**Do this as a team!**
+
+## DAY 1 Follow Up with End user
+
+**Deliverables:**
+
+- Validated user stories and wireframes
+- Acceptance Criteria for each user story
+
+During this meeting, your product manager and UI owner will need to ensure with the user that each user story ticket, and wireframe is consistent with the MVP.
+
+This is also the time to get specific user story questions answered and documented under a 'conversations' section of the ticket.
+
+Once all questions are answered, create user acceptance criteria.
+
+## Daily Standup
+These will happen at 10AM daily. As a group you will sort any tickets added to the inbox and move them to "To Do" if approved, then...
+
+Each person will go in order, and tell the group:
+1. What they worked on the previous day and if they have work that needs review
+2. What they intend to work on today
+3. If they are blocked by anything 
+4. If they need to have a breakout with any individuals after standup for a specific question, blocker, or decision
+
+## DAY 4: User Testing & Acceptance
+During this meeting, your user will test your app to find bugs and areas where the work doesn't meet expectations. From there, users will work with the team to create some new tickets and point out areas for improvement.
+
+## DAY 7: Sprint Review
+The final piece of the puzzle. Each team will discuss what worked well, what didn't, areas for improvement, and where the project currently stands. The goal of this meeting is to leave with action items for the next iteration of the sprint both in terms of process and the product as a whole. 
+
+After the sprint review, it will be up to *you* as a team to make sure that your Github Readme is well-written and your team's code is clean and well-tested. Ultimately, you should feel comfortable and confident sharing this work with any employers who ask to see your recent projects or code.  
+
+## ROLES
+
+### Product Manager (Elected by team)
+
+The product manager helps faciliate work efforts, manages tickets, and tracks progress towards completing all tasks scheduled for the current sprint.
+
+#### Oversee the ticketing system
+
+Ticketing will be done using Trello. Here is an example board for you to copy for your team: [Example Board](https://trello.com/b/FcySKoaf/example-trello-project). When you start, there will be a few high level user stories. You and your team might realize that it needs to break those down into smaller tickets, or that additional tickets will need to spawn for setup and configuration of new systems.
+
+* Write the user story tickets with the team for Day 1 (it is not normally done with the entire team, but do this so that everyone learns from the experience)
+* Walk your team through all of the tickets for Day 1.
+* You will also collect questions the development team might have for the user on specific user stories. The questions and the answers to those questions will be stored in the ticket under a "conversation" section.
+* Facilitate ticket assignments with the team, ensure tickets are assigned to team members
+* Ensure that team members are following the ticketing system, correctly adding new tickets, and moving tickets to the correct areas.
+
+#### Meet with user(stakeholder)
+
+The goal here to is get solid clarity on what the user has envisioned and how it should be described in the tickets. This way the development team can look at a ticket and know exactly what to do.
+
+* Meet with your user to ensure that each user story ticket is consistent with the MVP. 
+* Get answers to questions from development team concerning each user story.  
+* Adjust user stories accordingly
+* Develop acceptance criteria based on answers from the user.
+* Facilitate between UI owner and user to update any wireframes
+
+
+#### Run Daily Standups (see daily standups)
+
+
+#### Some tips on creating user stories
+
+[Some great advice on creating user stories...](https://techbeacon.com/app-dev-testing/agile-leaders-guide-writing-user-stories)
+>**INVEST:** The attributes of a solid user story
+>INVEST is an acronym that helps evaluate whether you have a high-quality user story. Here's how the attributes in the acronym apply to the story we’ve been working on. 
+>
+>**I** = Independent—Can this story be completed by the team? We want the team to be able to complete the whole story rather than be dependent on a different team to do the GUI, for example.
+>
+>**N** = Negotiable—The story is not so detailed as to describe exactly how long the fields should be or give specifics about date formats and the like. Most likely there will be common routines or libraries that will allow the development team to implement in the way that makes the most sense for them.
+>
+>**V** = Valuable—The product owner describes that the value being sought... This is clear in the "why" of the original statement and re-emphasized in the conversation.
+>
+>**E** = Estimable—The team will ask enough questions and gather the details to feel confident in their ability to estimate the story.
+>
+>**S** = Small—The team needs to feel confident that they’ll be able to complete the story within a sprint. If they do not, they might split the story. For instance, in our sample story, they may decide to make the ability to gather the student information be a different story and simply display information about the class for this story.
+>
+>**T** = Testable—With clear acceptance criteria, both the happy path and error conditions can be tested.
+
+**Important concepts**
+
+Happy path - What is the ideal path of interaction that a user takes when interacting with a feature, ignoring edge cases. It is helpful to think about this first in order to quickly develop a user story. *e.g. in an ideal scenario, when a user does x, y happens*
+
+Vertical Slice - User stories should be a vertical slice of the application (full stack)
+
+### Stakeholder & User (If your idea is used by a team)
+
+#### Attend that teams' sprint planning for the first 10-15 minutes
+
+Confirm idea and features that constitute an MVP.
+
+#### Attend User(stakeholder) Meeting for that team
+
+* Confirm user stories
+* Answer questions that help project manager derive acceptance criteria
+* Validate wireframes
+
+### Architecture Owner (Elected by team)
+
+You will faciliate with the team on agreeing upon the overall tech stack and making sure the team is informed of any system changes.  
+
+You will also faciliate and ensure team members are consistent with build tools, linters, workflow, and commits.
+
+### UI Owner (Elected by team)
+
+You will develop the initial wireframes that will help generate and ultimatey accompany the user stories.
+
+Design/Wireframe Resources:
+[Figma](https://www.figma.com/)
+[Figma Design School](https://www.figma.com/resources/learn-design/)
+[Example- Chickpeach Design Sheet](https://www.figma.com/file/JnKGDEIyFEjL456ZDV97XL/chickpeach?node-id=0%3A1)
+
+### Developer (everyone)
+
+If your only role is as a developer remember that you don't live in a box, you will help support all of the roles above as best you can. However, you will defer the decisions and reposibility of the areas concerning those roles with the person in that role.
+
+Follow your team's best practices and be a steward of a clean, readable code base.
+
+You will also naturally find areas that you gravitate towards or find yourself more specialized in. Be sure to make that known and pair accordingly to help others and recieve help. Software development is a team effort!
