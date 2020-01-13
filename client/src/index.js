@@ -3,10 +3,9 @@
 // import './assets/vendors/bootstrap.min.css';
 // import '../node_modules/mdbreact/dist/css/mdb.css';
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import './assets/styles/main.scss';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App2";
+import "./assets/styles/main.scss";
 
-ReactDOM.render(<App />, document.getElementById('app'));
-
+ReactDOM.render(<App />, document.getElementById("app"));
