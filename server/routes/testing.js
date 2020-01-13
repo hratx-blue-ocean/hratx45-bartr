@@ -95,8 +95,6 @@ router.get('/test-postgres/users', (req, res) => {
         });
 });
 
-
-
 router.get('/test-postgres/wish-list', (req, res) => {
     getWishList()
         .then(result => {
@@ -108,6 +106,10 @@ router.get('/test-postgres/wish-list', (req, res) => {
 });
 
 
+
+router.get('/debug-sentry', function mainHandler(req, res) {
+  throw new Error('Sentry error testing');
+});
 
 
 module.exports = router;

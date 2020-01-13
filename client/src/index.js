@@ -8,6 +8,10 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './assets/styles/main.scss';
 
+// Sentry error capturing - DONT MOVE - Logs errors to external server for deployment
+// import * as Sentry from '@sentry/browser';
+// Sentry.init({dsn: "https://7f28de32de2f4076aa054b2e8aaf4686@sentry.io/1878885"});
+
 // --------------------------------------------------------------------------------------------------
 // Redux
 import {createStore, applyMiddleware, compose} from "redux";

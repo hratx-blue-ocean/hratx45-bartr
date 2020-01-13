@@ -23,15 +23,18 @@ const config = {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader']
       },
-      
       {
-        test: /\.(png|jpg|svg|gif|woff|ttf|woff2|eot)$/i,
+        test: /\.svg$/,
+        loader: 'svg-inline-loader'
+      },
+      {
+        test: /\.(png|jpg|gif|woff|ttf|woff2|eot)$/i,
         use: [
           {
             loader: 'file-loader',
             options: {
               limit: 1024,
-              name: 'assets/[path][name].[ext]',
+              name: 'bundle/[path][name].[ext]',
               context: 'src/'
               
             }

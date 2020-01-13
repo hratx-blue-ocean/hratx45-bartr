@@ -18,10 +18,10 @@ class App extends Component {
       <Router>
         <Navbar/>
         <Switch>
-          <Route exact path="/dist/">
+          <Route exact path="/">
             <HomeScreen />
           </Route>
-          <Route exact path="/dist/signup">
+          <Route exact path="/signup">
             <SignupScreen />
           </Route>
         </Switch>
