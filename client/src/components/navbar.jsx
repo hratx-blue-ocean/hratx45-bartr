@@ -1,10 +1,16 @@
 // https://mdbootstrap.com/docs/react/navigation/navbar/
-import React from 'react';
+import React from "react";
 import {
-  MDBNavbar,MDBIcon, MDBNavbarNav, MDBNavItem, MDBNavLink,
-  MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem
+  MDBNavbar,
+  MDBIcon,
+  MDBNavbarNav,
+  MDBNavItem,
+  MDBNavLink,
+  MDBDropdown,
+  MDBDropdownToggle,
+  MDBDropdownMenu,
+  MDBDropdownItem
 } from "mdbreact";
-
 
 const Navbar = props => {
   return (
@@ -13,8 +19,11 @@ const Navbar = props => {
         <MDBNavItem>
           <MDBNavLink to="/dist/">Home</MDBNavLink>
         </MDBNavItem>
+        <MDBNavItem>
+          <MDBNavLink to="/dist/feedpage">feedpage</MDBNavLink>
+        </MDBNavItem>
       </MDBNavbarNav>
-      
+
       <MDBNavbarNav left>
         <MDBNavItem>
           <MDBDropdown>
@@ -30,7 +39,7 @@ const Navbar = props => {
           </MDBDropdown>
         </MDBNavItem>
       </MDBNavbarNav>
-    
+
       <MDBNavbarNav right>
         <MDBDropdown dropleft>
           <MDBDropdownToggle nav caret>
@@ -44,12 +53,10 @@ const Navbar = props => {
           </MDBDropdownMenu>
         </MDBDropdown>
       </MDBNavbarNav>
-  
     </MDBNavbar>
   );
 };
 
 export default Navbar;
-
 
 // --------------------------------------------------------------------------------------------------

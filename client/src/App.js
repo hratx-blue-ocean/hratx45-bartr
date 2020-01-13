@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Navbar from "./components/navbar";
 import HomeScreen from "./screens/HomeScreen.jsx";
 import SignupScreen from "./screens/SignupScreen.jsx";
-import FeedPage from "./components/FeedPage.jsx";
+import FeedPage from "./screens/FeedPage.jsx";
 
 class App extends Component {
   render() {
@@ -13,6 +13,9 @@ class App extends Component {
         <Navbar />
         <FeedPage />
         <Switch>
+          <Route exact path="/dist/feedpage">
+            <FeedPage />
+          </Route>
           <Route exact path="/dist/">
             <HomeScreen />
           </Route>
