@@ -60,7 +60,7 @@ class FeedScreen extends React.Component {
   }
 
   search(keyword) {
-    if (!keyword || typeof keyword !== "string") {
+    if (!keyword.length || typeof keyword !== "string") {
       this.setState({
         error: "Please enter a keyword."
       });
@@ -81,15 +81,18 @@ class FeedScreen extends React.Component {
   }
 
   clearFilters() {
-    this.setState(
-      {
-        productsToDisplay: this.state.productHoldWhileFiltered
-      },
-      () =>
-        this.setState({
-          productHoldWhileFiltered: []
-        })
-    );
+    console.log("hi");
+    this.state.productHoldWhileFiltered.length > 0
+      ? this.setState(
+          {
+            productsToDisplay: this.state.productHoldWhileFiltered
+          },
+          () =>
+            this.setState({
+              productHoldWhileFiltered: []
+            })
+        )
+      : null;
   }
 
   getProducts() {
