@@ -19,7 +19,7 @@ class App extends Component {
           <Route exact path="/dist/">
             <HomeScreen />
           </Route>
-          <Route exact path="/dist/signup">
+          <Route exact path="/signup">
             <SignupScreen />
           </Route>
         </Switch>
