@@ -18,11 +18,13 @@
   margin-left: 5px;
 }
 
-#feedPageProducrtListContainer {
+#feedPageProductListContainer {
   display: flex;
   flex-direction: column;
   margin: auto;
   text-align: center;
+  overflow-y: scroll;
+  height: 60vh;
 }
 
 .testButton {
