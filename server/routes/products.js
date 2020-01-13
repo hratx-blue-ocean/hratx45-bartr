@@ -2,8 +2,9 @@ const express = require("express");
 const router = express.Router();
 const db = require("../db/tables/products.js");
 
-router.get("/products/:productId", (req, res) => {
-  const productId = req.params.id;
+router.get("/productId", (req, res) => {
+  const productId = req.query.productId;
+  console.log(productId);
   db.getProductById(productId)
     .then(data => res.status(200).send(data))
     .catch(error => {
@@ -11,29 +12,28 @@ router.get("/products/:productId", (req, res) => {
     });
 });
 
-router.get("/products/category/:categoryId", (req, res) => {
-  const categoryId = req.params.categoryId;
+router.get("/category", (req, res) => {
+  const categoryId = req.query.categoryId;
   db.getProductsByCategory(categoryId)
     .then(data => res.status(200).send(data))
     .catch(error => res.status(404).send(error));
 });
 
-router.get("/products/user/:userId/distance/:proximity", (req, res) => {
-  const userId = req.params.userId;
-  const distance = req.params.proximity;
+router.get("/userIdProximity", (req, res) => {
+  const userId = req.query.userId;
+  const distance = req.query.proximity;
   db.getProductsByProximityByUserId(userId, distance)
     .then(data => res.status(200).send(data))
     .catch(error => res.status(404).send(error));
 });
 
-router.get(
-  "/products/longitude/:longitudePoint/latitude/:latitudePoint/distance:proximity",
-  (req, res) => {
-    const longitude = req.params.longitude;
-    const latitude = req.params.longitude;
-    const proximity = req.params.proximity;
-    db.getProductsByProximityByLongLat(longitude, latitude, proximity)
-      .then(data => res.status(200).send(data))
-      .catch(error => res.status(404).send(error));
-  }
-);
+router.get("/locationProximity", (req, res) => {
+  const longitude = req.query.longitude;
+  const latitude = req.query.longitude;
+  const proximity = req.query.proximity;
+  db.getProductsByProximityByLongLat(longitude, latitude, proximity)
+    .then(data => res.status(200).send(data))
+    .catch(error => res.status(404).send(error));
+});
+
+module.exports = router;
