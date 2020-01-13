@@ -104,16 +104,9 @@ class FeedPage extends React.Component {
         <div id="feedPageProductListContainer">
           {this.state.productsToDisplay
             ? this.state.productsToDisplay.map((item, key) => (
-                <FeedPageListItem
-                  key={key}
-                  itemProduct_id={item.product_id}
-                  itemUser_id={item.user_id}
-                  itemCategory={item.category_id}
-                  itemName={item.product_name}
-                  itemValue={item.value}
-                  itemUpForTrade={item.up_for_trade}
-                  itemPublic={item.public}
-                />
+                <div id="feedPageLIstItem" key={key}>
+                  <FeedPageListItem item={item} />
+                </div>
               ))
             : null}
         </div>

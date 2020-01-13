@@ -1,6 +1,8 @@
 const path = require("path");
+
 const DIST_FOLDER = path.resolve(__dirname, "dist");
 const ENTRY_FILE = "./src/index.js";
+
 const config = {
   entry: ENTRY_FILE,
   output: {
@@ -23,7 +25,7 @@ const config = {
       },
       {
         test: /\.svg$/,
-        loader: 'svg-inline-loader'
+        loader: "svg-inline-loader"
       },
       {
         test: /\.(png|jpg|gif|woff|ttf|woff2|eot)$/i,
@@ -32,13 +34,13 @@ const config = {
             loader: "file-loader",
             options: {
               limit: 1024,
-              name: 'bundle/[path][name].[ext]',
-              context: 'src/'
-              
+              name: "bundle/[path][name].[ext]",
+              context: "src/"
             }
           }
         ]
       },
+
       {
         test: /\.s[ac]ss$/i,
         use: [
@@ -53,6 +55,7 @@ const config = {
     ]
   }
 };
+
 if (process.env.NODE_ENV === "development") {
   config["mode"] = "development";
   config["watch"] = true;
@@ -64,4 +67,5 @@ if (process.env.NODE_ENV === "development") {
 } else if (process.env.NODE_ENV === "production") {
   config["mode"] = "production";
 }
+
 module.exports = config;

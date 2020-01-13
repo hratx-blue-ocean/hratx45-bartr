@@ -9,6 +9,12 @@ import {
   MDBInput
 } from "mdbreact";
 
-const FeedPageListItem = props => <MDBContainer>{props.itemName}</MDBContainer>;
+const FeedPageListItem = props =>
+  props.item.public ? (
+    <MDBContainer>
+      <MDBContainer>Name: {props.item.product_name}</MDBContainer>
+      <MDBContainer>Value: {props.item.value}</MDBContainer>
+    </MDBContainer>
+  ) : null;
 
 export default FeedPageListItem;
