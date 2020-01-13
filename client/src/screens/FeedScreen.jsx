@@ -1,6 +1,6 @@
 import React from "react";
 import Axios from "axios";
-import FeedPageListItem from "../components/FeedPageListItem.jsx";
+import FeedScreenListItem from "../components/FeedScreenListItem.jsx";
 import {
   MDBBtn,
   MDBContainer,
@@ -11,7 +11,7 @@ import {
   MDBInput
 } from "mdbreact";
 
-class FeedPage extends React.Component {
+class FeedScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -161,11 +161,11 @@ class FeedPage extends React.Component {
           </div>
         </div>
 
-        <div id="feedPageProductListContainer">
+        <div id="FeedScreenProductListContainer">
           {this.state.productsToDisplay
             ? this.state.productsToDisplay.map((item, key) => (
-                <div id="feedPageLIstItem" key={key}>
-                  <FeedPageListItem item={item} />
+                <div id="FeedScreenListItem" key={key}>
+                  <FeedScreenListItem item={item} />
                 </div>
               ))
             : null}
@@ -175,4 +175,4 @@ class FeedPage extends React.Component {
   }
 }
 
-export default FeedPage;
+export default FeedScreen;

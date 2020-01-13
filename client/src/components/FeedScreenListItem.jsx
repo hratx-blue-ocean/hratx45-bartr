@@ -9,7 +9,7 @@ import {
   MDBInput
 } from "mdbreact";
 
-const FeedPageListItem = props =>
+const FeedScreenListItem = props =>
   props.item.public ? (
     <MDBContainer style={{ borderTop: "1px solid gray" }}>
       <MDBContainer>Name: {props.item.product_name}</MDBContainer>
@@ -20,4 +20,4 @@ const FeedPageListItem = props =>
     </MDBContainer>
   ) : null;
 
-export default FeedPageListItem;
+export default FeedScreenListItem;

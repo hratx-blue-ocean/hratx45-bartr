@@ -20,7 +20,7 @@ const Navbar = props => {
           <MDBNavLink to="/">Home</MDBNavLink>
         </MDBNavItem>
         <MDBNavItem>
-          <MDBNavLink to="/dist/feedpage">feedpage</MDBNavLink>
+          <MDBNavLink to="/dist/FeedScreen">FeedScreen</MDBNavLink>
         </MDBNavItem>
       </MDBNavbarNav>
 
