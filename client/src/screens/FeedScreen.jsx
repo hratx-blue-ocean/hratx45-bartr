@@ -16,7 +16,9 @@ class FeedPage extends React.Component {
     super(props);
     this.state = {
       currentFilterText: "Distance",
-      productsToDisplay: []
+      productsToDisplay: [],
+      input: null,
+      error: null
     };
     this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
     this.getProducts = this.getProducts.bind(this);
@@ -46,8 +48,25 @@ class FeedPage extends React.Component {
       });
     }
     if (event === "Distance") {
+      // ! sort by proximity
     }
     if (event === "Date Posted") {
+      // ! sort by date
+    }
+  }
+
+  search(keyword) {
+    if (!keyword || typeof keyword !== "string") {
+      this.setState({
+        error: "Please enter a keyword."
+      });
+      return;
+    }
+    let arr = this.state.productsToDisplay;
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i].product_name.contains(keyword)) {
+        console.log(keyword, arr[i]);
+      }
     }
   }
 
@@ -71,8 +90,16 @@ class FeedPage extends React.Component {
   render() {
     return (
       <MDBContainer className="w-50 p-3">
-        <MDBInput label="Search by Keyword" size="lg"></MDBInput>
-        <MDBBtn className="testButton" size="lg">
+        <MDBInput
+          label="Search by Keyword"
+          size="lg"
+          onChangeText={text => this.setState({ input: text })}
+        ></MDBInput>
+        <MDBBtn
+          className="testButton"
+          size="lg"
+          onClick={() => this.search(this.state.input)}
+        >
           Search
         </MDBBtn>
 
