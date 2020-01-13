@@ -45,6 +45,10 @@ class FeedPage extends React.Component {
         currentFilterText: event
       });
     }
+    if (event === "Distance") {
+    }
+    if (event === "Date Posted") {
+    }
   }
 
   getProducts() {
@@ -52,7 +56,6 @@ class FeedPage extends React.Component {
     Axios.get(
       `http://api-server.escxwv87wi.us-west-2.elasticbeanstalk.com/api/testing/test-postgres/products`
     )
-
       .then(data =>
         this.setState({
           productsToDisplay: data.data
