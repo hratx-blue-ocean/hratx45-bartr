@@ -23,10 +23,10 @@ class FeedPage extends React.Component {
       styling: useStyles,
       currentFilter: null
     };
+    this.handleFilter = this.handleFilter.bind(this);
   }
 
   handleFilter(event) {
-    console.log(event);
     this.setState({
       currentFilter: event
     });
@@ -37,17 +37,12 @@ class FeedPage extends React.Component {
       <Container component="main" id="feedPageOuterContainer">
         <Container maxWidth="xs">
           <div className={this.state.styling.paper}>
-            <Typography component="h1" variant="h5">
-              Search
-            </Typography>
             <form className={this.state.styling.form} noValidate>
               <TextField
                 variant="outlined"
                 margin="normal"
-                required
                 fullWidth
-                id="email"
-                placeholder="Enter Keyword"
+                placeholder="Search by Keyword"
               />
               <Button
                 type="submit"
@@ -78,7 +73,12 @@ class FeedPage extends React.Component {
                     className="dropdown-item"
                     href="#"
                     value="Distance"
-                    onClick={() => this.handleFilter("Distance")}
+                    id="filterByDistance"
+                    onClick={() =>
+                      this.handleFilter(
+                        document.getElementById("filterByDistance").innerHTML
+                      )
+                    }
                   >
                     Distance
                   </a>
@@ -86,7 +86,12 @@ class FeedPage extends React.Component {
                     className="dropdown-item"
                     href="#"
                     value="Value"
-                    onClick={() => this.handleFilter("Value")}
+                    id="filterByValue"
+                    onClick={() =>
+                      this.handleFilter(
+                        document.getElementById("filterByDate").innerHTML
+                      )
+                    }
                   >
                     Value
                   </a>
@@ -94,7 +99,12 @@ class FeedPage extends React.Component {
                     className="dropdown-item"
                     href="#"
                     value="Date"
-                    onClick={() => this.handleFilter("Date")}
+                    id="filterByDate"
+                    onClick={() =>
+                      this.handleFilter(
+                        document.getElementById("filterByDate").innerHTML
+                      )
+                    }
                   >
                     Date
                   </a>
@@ -108,6 +118,9 @@ class FeedPage extends React.Component {
                 <div id="filteringByText">Filtering by: Distance</div>
               )}
             </div>
+          </div>
+          <div id="feedPageProducrtListContainer">
+            <div></div>
           </div>
         </Container>
       </Container>
