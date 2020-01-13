@@ -17,11 +17,15 @@ class FeedScreen extends React.Component {
     this.state = {
       currentFilterText: "Distance",
       productsToDisplay: [],
+      productHoldWhileFiltered: [],
       input: null,
       error: null
     };
     this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
     this.getProducts = this.getProducts.bind(this);
+    this.search = this.search.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.clearFilters = this.clearFilters.bind(this);
   }
 
   handleFilterTextChange(event) {
@@ -61,13 +65,31 @@ class FeedScreen extends React.Component {
         error: "Please enter a keyword."
       });
       return;
-    }
-    let arr = this.state.productsToDisplay;
-    for (let i = 0; i < arr.length; i++) {
-      if (arr[i].product_name.contains(keyword)) {
-        console.log(keyword, arr[i]);
+    } else {
+      let arr = this.state.productsToDisplay;
+      let searchedArr = [];
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i].product_name.toLowerCase().includes(keyword.toLowerCase())) {
+          searchedArr.push(arr[i]);
+        }
       }
+      this.setState({
+        productsToDisplay: searchedArr,
+        productHoldWhileFiltered: arr
+      });
     }
+  }
+
+  clearFilters() {
+    this.setState(
+      {
+        productsToDisplay: this.state.productHoldWhileFiltered
+      },
+      () =>
+        this.setState({
+          productHoldWhileFiltered: []
+        })
+    );
   }
 
   getProducts() {
@@ -77,7 +99,8 @@ class FeedScreen extends React.Component {
     )
       .then(data =>
         this.setState({
-          productsToDisplay: data.data
+          productsToDisplay: data.data,
+          productHoldWhileFiltered: data.data
         })
       )
       .catch(console.log);
@@ -87,22 +110,30 @@ class FeedScreen extends React.Component {
     this.getProducts();
   }
 
+  handleChange(event) {
+    this.setState({
+      input: event.target.value
+    });
+  }
   render() {
     return (
-      <MDBContainer className="w-50 p-3">
+      <MDBContainer>
         <MDBInput
           label="Search by Keyword"
           size="lg"
-          onChangeText={text => this.setState({ input: text })}
+          onChange={this.handleChange}
         ></MDBInput>
         <MDBBtn
           className="testButton"
           size="lg"
-          onClick={() => this.search(this.state.input)}
+          onClick={() => {
+            this.state.input
+              ? this.search(this.state.input)
+              : this.clearFilters();
+          }}
         >
           Search
         </MDBBtn>
-
         <div id="entireDropDownContainer">
           <MDBDropdown>
             <MDBDropdownToggle caret color="primary">
