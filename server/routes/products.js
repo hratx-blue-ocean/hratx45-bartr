@@ -29,7 +29,7 @@ router.get("/userIdProximity", (req, res) => {
 
 router.get("/locationProximity", (req, res) => {
   const longitude = req.query.longitude;
-  const latitude = req.query.longitude;
+  const latitude = req.query.latitude;
   const proximity = req.query.proximity;
   db.getProductsByProximityByLongLat(longitude, latitude, proximity)
     .then(data => res.status(200).send(data))
