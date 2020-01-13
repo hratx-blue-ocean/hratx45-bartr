@@ -6,6 +6,13 @@
 }
 
 #entireDropDownContainer {
+  margin-top: 5px;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+}
+#filteringByText {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 5px;
 }

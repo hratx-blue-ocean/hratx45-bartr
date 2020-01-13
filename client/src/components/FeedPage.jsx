@@ -16,79 +16,104 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 
-const FeedPage = () => {
-  const classes = useStyles();
+class FeedPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      styling: useStyles,
+      currentFilter: null
+    };
+  }
 
-  const filterFunc = (e = "Distance") => `Filtering by: ${e}`;
+  handleFilter(event) {
+    console.log(event);
+    this.setState({
+      currentFilter: event
+    });
+  }
 
-  return (
-    <Container component="main" id="feedPageOuterContainer">
-      <Container maxWidth="xs">
-        <div className={classes.paper}>
-          <Typography component="h1" variant="h5">
-            Search
-          </Typography>
-          <form className={classes.form} noValidate>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              placeholder="Enter Keyword"
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
+  render() {
+    return (
+      <Container component="main" id="feedPageOuterContainer">
+        <Container maxWidth="xs">
+          <div className={this.state.styling.paper}>
+            <Typography component="h1" variant="h5">
               Search
-            </Button>
-          </form>
-          <div id="entireDropDownContainer">
-            <div className="dropdown">
-              <button
-                className="btn btn-secondary dropdown-toggle"
-                type="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
+            </Typography>
+            <form className={this.state.styling.form} noValidate>
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                id="email"
+                placeholder="Enter Keyword"
+              />
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+                className={this.state.styling.submit}
               >
-                Filter by...
-              </button>
-              <div
-                className="dropdown-menu"
-                aria-labelledby="dropdownMenuButton"
-              >
-                <a
-                  className="dropdown-item"
-                  href="#"
-                  id="filterByDistance"
-                  onClick={() =>
-                    filterFunc(
-                      document.getElementById("filterByDistance").innerHTML
-                    )
-                  }
+                Search
+              </Button>
+            </form>
+            <div id="entireDropDownContainer">
+              <div className="dropdown">
+                <button
+                  className="btn btn-secondary dropdown-toggle"
+                  type="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
                 >
-                  Distance
-                </a>
-                <a className="dropdown-item" href="#">
-                  Value
-                </a>
-                <a className="dropdown-item" href="#">
-                  Date
-                </a>
+                  Filter by...
+                </button>
+                <div
+                  className="dropdown-menu"
+                  aria-labelledby="dropdownMenuButton"
+                >
+                  <a
+                    className="dropdown-item"
+                    href="#"
+                    value="Distance"
+                    onClick={() => this.handleFilter("Distance")}
+                  >
+                    Distance
+                  </a>
+                  <a
+                    className="dropdown-item"
+                    href="#"
+                    value="Value"
+                    onClick={() => this.handleFilter("Value")}
+                  >
+                    Value
+                  </a>
+                  <a
+                    className="dropdown-item"
+                    href="#"
+                    value="Date"
+                    onClick={() => this.handleFilter("Date")}
+                  >
+                    Date
+                  </a>
+                </div>
               </div>
+              {this.state.currentFilter ? (
+                <div id="filteringByText">
+                  Filtering by: {this.state.currentFilter}
+                </div>
+              ) : (
+                <div id="filteringByText">Filtering by: Distance</div>
+              )}
             </div>
-            <div id="filteringByText">{filterFunc()}</div>
           </div>
-        </div>
+        </Container>
       </Container>
-    </Container>
-  );
-};
+    );
+  }
+}
 
 export default FeedPage;
 
@@ -97,7 +122,8 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     width: "100vw",
     height: "100vh",
-    flexDirection: "column"
+    flexDirection: "column",
+    justifyContent: "center"
   },
   paper: {
     marginTop: theme.spacing(8),
