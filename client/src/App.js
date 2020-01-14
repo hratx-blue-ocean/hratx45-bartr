@@ -6,8 +6,8 @@ import SignupScreen from "./screens/SignupScreen.jsx";
 import UserProfile from "./screens/userProfileScreen.jsx";
 import FeedScreen from "../src/screens/FeedScreen.jsx";
 import ItemDetailScreen from './screens/ItemDetailScreen';
-import UploadItemScreen from './screens/UploadItemScreen';
-import MakeOfferScreen from './screens/MakeOfferScreen';
+// import UploadItemScreen from './screens/UploadItemScreen';
+// import MakeOfferScreen from './screens/MakeOfferScreen';
 
 class App extends Component {
   render() {
@@ -19,19 +19,19 @@ class App extends Component {
         {/* <ItemDetailPage /> */}
         {/* <!--<TestingScreen />  */}
         <Switch>
-          <Route exact path="/dist/">
+          <Route exact path="/">
             <HomeScreen />
           </Route>
-          <Route exact path="/dist/signup">
+          <Route exact path="/signup">
             <SignupScreen />
           </Route>
-          <Route exact path="/dist/feed">
+          <Route exact path="/feed">
             <FeedScreen />
           </Route>
-          <Route exact path="/dist/profile">
+          <Route exact path="/profile">
             <UserProfile />
           </Route>
-          <Route exact path="/dist/ItemDetail">
+          <Route exact path="/ItemDetail">
             <ItemDetailScreen />
           </Route>
         </Switch>
