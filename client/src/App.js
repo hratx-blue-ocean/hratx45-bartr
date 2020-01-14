@@ -10,6 +10,7 @@ import FeedPage from '../src/screens/FeedPage.jsx';
 
 import ItemDetailPage from './screens/ItemDetailPage';
 import UploadItemScreen from './screens/UploadItemScreen';
+import MakeOfferScreen from './screens/MakeOfferScreen';
 
 class App extends Component {
   render() {
@@ -17,7 +18,8 @@ class App extends Component {
       <Router>
         <Navbar />
         {/* <ItemDetailPage /> */}
-        <UploadItemScreen />
+        {/* <UploadItemScreen /> */}
+        <MakeOfferScreen />
         <Switch>
           <Route exact path="/dist/REMOVEBEFOREPUSH">
             <HomeScreen />
