@@ -1,0 +1,40 @@
+#feedPageOuterContainer {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+}
+
+#entireDropDownContainer {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#filteringByText {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 5px;
+}
+
+#feedPageProductListContainer {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  text-align: center;
+  overflow-y: scroll;
+  height: 60vh;
+}
+
+.testButton {
+  width: 100%;
+  margin: auto;
+}
+
+#feedPageLIstItem {
+  text-align: left;
+  cursor: pointer;
+  justify-content: left;
+}
