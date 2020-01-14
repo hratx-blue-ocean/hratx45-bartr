@@ -6,6 +6,7 @@ import HomeScreen from "./screens/HomeScreen.jsx";
 import SignupScreen from "./screens/SignupScreen.jsx";
 // import FeedPage from "../src/screens/FeedPage.jsx";
 import FeedPage from "../src/screens/ExampleFeedPage.jsx";
+import ItemDetailPage from "./screens/ItemDetailPage";
 
 
 class App extends Component {
@@ -13,7 +14,6 @@ class App extends Component {
     return (
       <Router>
         <Navbar />
-        
         <Switch>
           <Route exact path="/dist/">
             <HomeScreen />
