@@ -158,7 +158,7 @@ class FeedScreen extends React.Component {
           </div>
         </div>
 
-        <div id="FeedScreenProductListContainer">
+        <div id="feedScreenProductListContainer">
           {this.state.productsToDisplay
             ? this.state.productsToDisplay.map((item, key) => (
                 <div id="FeedScreenListItem" key={key}>

@@ -18,12 +18,11 @@
   margin-left: 5px;
 }
 
-#feedPageProductListContainer {
+#feedScreenProductListContainer {
   margin-top: 10px;
   display: flex;
   flex-direction: column;
   margin: auto;
-  text-align: center;
   overflow-y: scroll;
   height: 60vh;
 }
