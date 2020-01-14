@@ -1,5 +1,7 @@
 const pool = require("../postgres");
 
+//need to add username to schema
+
 const addNewUser = user => {
   let sql = `INSERT INTO users (email, password, first_name, last_name, phone_number, 
         age, state, address, city, zip_code, latitude, longitude) VALUES ('${user.email}', 
@@ -9,8 +11,10 @@ const addNewUser = user => {
   return pool.query({ text: sql });
 };
 
-const getHashById = userId => {
-  return pool.query({ text: `SELECT password FROM users WHERE id=${userId}` });
+const getHashByUsername = username => {
+  return pool.query({
+    text: `SELECT password FROM users WHERE username=${username}`
+  });
 };
 
 const getUserDataById = userId => {
@@ -19,4 +23,4 @@ const getUserDataById = userId => {
   return pool.query({ text: sql });
 };
 
-module.exports = { addNewUser, getHashById, getUserDataById };
+module.exports = { addNewUser, getHashByUsername, getUserDataById };
