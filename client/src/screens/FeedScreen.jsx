@@ -151,44 +151,28 @@ class FeedScreen extends React.Component {
               <MDBDropdownItem
                 value="Distance"
                 id="filterByDistance"
-                onClick={() =>
-                  this.handleFilterTextChange(
-                    document.getElementById("filterByDistance").innerHTML
-                  )
-                }
+                onClick={e => this.handleFilterTextChange(e.target.value)}
               >
                 Distance
               </MDBDropdownItem>
               <MDBDropdownItem
-                value="ValueHigh"
+                value="Value (Highest First)"
                 id="filterByValueHigh"
-                onClick={() =>
-                  this.handleFilterTextChange(
-                    document.getElementById("filterByValueHigh").innerHTML
-                  )
-                }
+                onClick={e => this.handleFilterTextChange(e.target.value)}
               >
                 Value (Highest First)
               </MDBDropdownItem>
               <MDBDropdownItem
-                value="ValueLow"
+                value="Value (Lowest First)"
                 id="filterByValueLow"
-                onClick={() =>
-                  this.handleFilterTextChange(
-                    document.getElementById("filterByValueLow").innerHTML
-                  )
-                }
+                onClick={e => this.handleFilterTextChange(e.target.value)}
               >
                 Value (Lowest First)
               </MDBDropdownItem>
               <MDBDropdownItem
-                value="Date"
+                value="Date Posted"
                 id="filterByDate"
-                onClick={() =>
-                  this.handleFilterTextChange(
-                    document.getElementById("filterByDate").innerHTML
-                  )
-                }
+                onClick={e => this.handleFilterTextChange(e.target.value)}
               >
                 Date Posted
               </MDBDropdownItem>
