@@ -92,12 +92,13 @@ class FeedScreen extends React.Component {
           },
           () =>
             this.setState({
-              productHoldWhileFiltered: [],
-              currentFilterText: "Distance",
-              input: null
+              productHoldWhileFiltered: []
             })
         )
-      : null;
+      : this.setState({
+          currentFilterText: "Distance",
+          input: null
+        });
   }
 
   getProducts() {
