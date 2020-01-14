@@ -1,6 +1,7 @@
 import React from "react";
 import Axios from "axios";
-import FeedPageListItem from "../components/FeedPageListItem.jsx";
+import FeedScreenListItem from "../components/FeedScreenListItem.jsx";
+import FeedScreenDropDown from "../components/FeedScreenDropDown.jsx";
 import {
   MDBBtn,
   MDBContainer,
@@ -11,40 +12,128 @@ import {
   MDBInput
 } from "mdbreact";
 
-class FeedPage extends React.Component {
+class FeedScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      filterOn: false,
       currentFilterText: "Distance",
-      productsToDisplay: []
+      productsToDisplay: [],
+      productHoldWhileFiltered: [],
+      input: null,
+      error: null
     };
     this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
     this.getProducts = this.getProducts.bind(this);
+    this.search = this.search.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.clearFilters = this.clearFilters.bind(this);
   }
 
   handleFilterTextChange(event) {
-    if (event === "Value (Highest First)") {
+    this.setState(
+      {
+        filterOn: true,
+        error: null,
+        productHoldWhileFiltered: this.state.productsToDisplay
+      },
+      () => {
+        if (event === "Value (Highest First)") {
+          let arr = this.state.productsToDisplay;
+          let sortedArr = [];
+          for (let i = 0; i < arr.length; i++) {
+            sortedArr[arr[i].value] = arr[i];
+          }
+          this.setState({
+            productsToDisplay: sortedArr.filter(a => a !== undefined).reverse(),
+            currentFilterText: event
+          });
+        }
+        if (event === "Value (Lowest First)") {
+          let arr = this.state.productsToDisplay;
+          let sortedArr = [];
+          for (let i = 0; i < arr.length; i++) {
+            sortedArr[arr[i].value] = arr[i];
+          }
+          this.setState({
+            productsToDisplay: sortedArr.filter(a => a !== undefined),
+            currentFilterText: event
+          });
+        }
+        if (event === "Distance") {
+          // ! sort by proximity
+        }
+        if (event === "Date (Oldest First)") {
+          let arr = this.state.productsToDisplay;
+          let newArr = arr.slice();
+          newArr.sort(
+            (a, b) => Date.parse(a.posted_date) - Date.parse(b.posted_date)
+          );
+          this.setState({
+            productsToDisplay: newArr,
+            currentFilterText: event
+          });
+        }
+        if (event === "Date (Newest First)") {
+          let arr = this.state.productsToDisplay;
+          let newArr = arr.slice();
+          newArr.sort(
+            (a, b) => Date.parse(b.posted_date) - Date.parse(a.posted_date)
+          );
+          this.setState({
+            productsToDisplay: newArr,
+            currentFilterText: event
+          });
+        }
+      }
+    );
+  }
+
+  search(keyword = null) {
+    if (!keyword || typeof keyword !== "string") {
+      this.setState({
+        error: "Please enter a keyword."
+      });
+      return;
+    } else {
       let arr = this.state.productsToDisplay;
-      let sortedArr = [];
+      let searchedArr = [];
       for (let i = 0; i < arr.length; i++) {
-        sortedArr[arr[i].value] = arr[i];
+        if (arr[i].product_name.toLowerCase().includes(keyword.toLowerCase())) {
+          searchedArr.push(arr[i]);
+        }
       }
       this.setState({
-        productsToDisplay: sortedArr.filter(a => a !== undefined).reverse(),
-        currentFilterText: event
+        productsToDisplay: searchedArr,
+        productHoldWhileFiltered: arr,
+        input: null
       });
     }
-    if (event === "Value (Lowest First)") {
-      let arr = this.state.productsToDisplay;
-      let sortedArr = [];
-      for (let i = 0; i < arr.length; i++) {
-        sortedArr[arr[i].value] = arr[i];
-      }
-      this.setState({
-        productsToDisplay: sortedArr.filter(a => a !== undefined),
-        currentFilterText: event
-      });
-    }
+  }
+
+  clearFilters() {
+    this.state.productHoldWhileFiltered.length > 0
+      ? this.setState(
+          {
+            productsToDisplay: this.state.productHoldWhileFiltered,
+            currentFilterText: "Distance",
+            input: null,
+            error: null,
+            filterOn: false
+          },
+          () =>
+            this.setState({
+              productHoldWhileFiltered: [],
+              error: null,
+              filterOn: false
+            })
+        )
+      : this.setState({
+          currentFilterText: "Distance",
+          input: null,
+          error: null,
+          filterOn: false
+        });
   }
 
   getProducts() {
@@ -52,10 +141,10 @@ class FeedPage extends React.Component {
     Axios.get(
       `http://api-server.escxwv87wi.us-west-2.elasticbeanstalk.com/api/testing/test-postgres/products`
     )
-
       .then(data =>
         this.setState({
-          productsToDisplay: data.data
+          productsToDisplay: data.data,
+          productHoldWhileFiltered: data.data
         })
       )
       .catch(console.log);
@@ -65,77 +154,56 @@ class FeedPage extends React.Component {
     this.getProducts();
   }
 
+  handleChange(event) {
+    this.setState({
+      input: event.target.value
+    });
+  }
   render() {
     return (
-      <MDBContainer className="w-50 p-3">
-        <MDBInput label="Search by Keyword" size="lg"></MDBInput>
-        <MDBBtn className="testButton" size="lg">
+      <MDBContainer>
+        <MDBInput
+          label="Search by Keyword"
+          size="lg"
+          onChange={this.handleChange}
+          // value={this.state.input}
+        ></MDBInput>
+        <MDBBtn
+          className="testButton"
+          size="lg"
+          onClick={() => {
+            this.state.input
+              ? this.search(this.state.input)
+              : this.state.filterOn
+              ? this.clearFilters()
+              : this.search();
+          }}
+        >
           Search
         </MDBBtn>
 
+        <div style={{ position: "absolute" }}>
+          {this.state.error ? this.state.error : null}
+        </div>
         <div id="entireDropDownContainer">
-          <MDBDropdown>
-            <MDBDropdownToggle caret color="primary">
-              Filter by...
-            </MDBDropdownToggle>
-            <MDBDropdownMenu basic>
-              <MDBDropdownItem
-                value="Distance"
-                id="filterByDistance"
-                onClick={() =>
-                  this.handleFilterTextChange(
-                    document.getElementById("filterByDistance").innerHTML
-                  )
-                }
-              >
-                Distance
-              </MDBDropdownItem>
-              <MDBDropdownItem
-                value="ValueHigh"
-                id="filterByValueHigh"
-                onClick={() =>
-                  this.handleFilterTextChange(
-                    document.getElementById("filterByValueHigh").innerHTML
-                  )
-                }
-              >
-                Value (Highest First)
-              </MDBDropdownItem>
-              <MDBDropdownItem
-                value="ValueLow"
-                id="filterByValueLow"
-                onClick={() =>
-                  this.handleFilterTextChange(
-                    document.getElementById("filterByValueLow").innerHTML
-                  )
-                }
-              >
-                Value (Lowest First)
-              </MDBDropdownItem>
-              <MDBDropdownItem
-                value="Date"
-                id="filterByDate"
-                onClick={() =>
-                  this.handleFilterTextChange(
-                    document.getElementById("filterByDate").innerHTML
-                  )
-                }
-              >
-                Date Posted
-              </MDBDropdownItem>
-            </MDBDropdownMenu>
-          </MDBDropdown>
-
+          <FeedScreenDropDown
+            handleFilterTextChange={this.handleFilterTextChange}
+          />
           <div id="filteringByText">
             Filtering by: {this.state.currentFilterText}
           </div>
+          <div id="clearButtonContainer">
+            <MDBBtn id="clearFilterButton" onClick={this.clearFilters}>
+              Clear Filter
+            </MDBBtn>
+          </div>
         </div>
 
-        <div id="feedPageProductListContainer">
+        <div id="feedScreenProductListContainer">
           {this.state.productsToDisplay
             ? this.state.productsToDisplay.map((item, key) => (
-                <div id="feedPageLIstItem" key={key}>
-                  <FeedPageListItem item={item} />
+                <div id="feedScreenListItem" key={key}>
+                  <FeedScreenListItem item={item} />
                 </div>
               ))
             : null}
@@ -145,4 +213,4 @@ class FeedPage extends React.Component {
   }
 }
 
-export default FeedPage;
+export default FeedScreen;

@@ -11,9 +11,8 @@ import {
   MDBInput
 } from "mdbreact";
 
-
-import {useSelector, useDispatch, connect} from "react-redux";
-import {fetchProductsByUserIdAndProximity} from "../actions";
+import { useSelector, useDispatch, connect } from "react-redux";
+import { fetchProductsByUserIdAndProximity } from "../actions";
 
 class FeedPage extends React.Component {
   constructor(props) {
@@ -25,7 +24,7 @@ class FeedPage extends React.Component {
     this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
     this.getProducts = this.getProducts.bind(this);
   }
-  
+
   handleFilterTextChange(event) {
     if (event === "Value (Highest First)") {
       let arr = this.state.productsToDisplay;
@@ -50,13 +49,13 @@ class FeedPage extends React.Component {
       });
     }
   }
-  
+
   getProducts() {
     // ! ping db using filter eventually, for now, this is unfiltered data
     Axios.get(
       `http://api-server.escxwv87wi.us-west-2.elasticbeanstalk.com/api/testing/test-postgres/products`
     )
-      
+
       .then(data =>
         this.setState({
           productsToDisplay: data.data
@@ -64,12 +63,12 @@ class FeedPage extends React.Component {
       )
       .catch(console.log);
   }
-  
+
   componentDidMount() {
     this.getProducts();
     this.props.fetchProductsByUserIdAndProximity(1, 100);
   }
-  
+
   render() {
     return (
       <MDBContainer className="w-50 p-3">
@@ -77,7 +76,7 @@ class FeedPage extends React.Component {
         <MDBBtn className="testButton" size="lg">
           Search
         </MDBBtn>
-        
+
         <div id="entireDropDownContainer">
           <MDBDropdown>
             <MDBDropdownToggle caret color="primary">
@@ -130,19 +129,19 @@ class FeedPage extends React.Component {
               </MDBDropdownItem>
             </MDBDropdownMenu>
           </MDBDropdown>
-          
+
           <div id="filteringByText">
             Filtering by: {this.state.currentFilterText}
           </div>
         </div>
-        
+
         <div id="feedPageProductListContainer">
           {this.state.productsToDisplay
             ? this.state.productsToDisplay.map((item, key) => (
-              <div id="feedPageLIstItem" key={key}>
-                <FeedPageListItem item={item} />
-              </div>
-            ))
+                <div id="feedPageLIstItem" key={key}>
+                  <FeedPageListItem item={item} />
+                </div>
+              ))
             : null}
         </div>
       </MDBContainer>
@@ -152,8 +151,9 @@ class FeedPage extends React.Component {
 
 // export default FeedPage;
 const mapStateToProps = state => {
-  return {products: state.products}
+  return { products: state.products };
 };
 
-
-export default connect(mapStateToProps, {fetchProductsByUserIdAndProximity})(FeedPage);
+export default connect(mapStateToProps, { fetchProductsByUserIdAndProximity })(
+  FeedPage
+);
