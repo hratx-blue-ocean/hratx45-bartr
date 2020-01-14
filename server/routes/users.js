@@ -1,25 +1,33 @@
-const router = require("./example");
+const express = require("express");
+const router = express.Router();
+
+const db = require("../db/tables/users.js");
+
 const bcrypt = require("bcrypt");
 const saltRounds = 12;
 
 router.post("/user/signup", (req, res) => {
-  const username = req.username;
-  const pw = req.password;
+  const user = req.query.userData;
+  const pw = user.password;
   bcrypt.genSalt(saltRounds, function(err, salt) {
     if (error) {
       console.log(err);
       res.status(400).end();
     } else {
       bcrypt.hash(pw, salt, function(err, hash) {
-        // db write to database
-        //params: username, firstname, last name, phone #, age, address, city, zip
-        res.status(200).send();
+        if (error) {
+          res.status(400).end();
+        }
+        user.password = hash;
+        db.addNewUser(user)
+          .then(result => res.status(200).send(result))
+          .catch(error => res.status(400).send(error));
       });
     }
   });
 });
 
-router.get("./users/auth", (req, res) => {
+router.get("/users/auth", (req, res) => {
   let username = req.username;
   let pw = req.password;
   let hash = bcrypt.compare(pw, hash, function(err, result) {
