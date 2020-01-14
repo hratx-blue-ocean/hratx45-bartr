@@ -7,7 +7,7 @@ const getProductById = (productId) => {
 
 /* Gets all products by their category */
 const getProductsByCategory = (categoryId) => {
-  return pool.query({ text: `select * from products where category_id = ${ categoryId }` });
+  return pool.query({ text: `select * from products where category_id = ${ categoryId } limit 200;` });
 };
 
 /* Returns all products by user id */
