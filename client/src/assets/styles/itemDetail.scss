@@ -1,5 +1,9 @@
-@import "../../../node_modules/mdbreact/dist/scss/custom-variables";
+// @import "../../../node_modules/mdbreact/dist/scss/custom-variables";
+@import "./variables";
 
+* {
+    color: $primary-color;
+}
 
 h4 {
     font-weight: bold;

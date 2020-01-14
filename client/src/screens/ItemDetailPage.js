@@ -1,8 +1,8 @@
 import React, { PureComponent } from "react";
-import ItemDetailPicture from "./ItemDetailPicture";
-import ItemDetailCarousel from "./ItemDetailPictureCarousel";
-import ItemDetailItemInfo from "./ItemDetailItemInfo";
-import ItemDetailMakeOfferButton from "./ItemDetailMakeOfferButton";
+import ItemDetailPicture from "../components/ItemDetailPicture";
+import ItemDetailCarousel from "../components/ItemDetailPictureCarousel";
+import ItemDetailItemInfo from "../components/ItemDetailItemInfo";
+import ItemDetailMakeOfferButton from "../components/ItemDetailMakeOfferButton";
 import "../assets/styles/itemDetail.scss";
 
 export default class ItemDetailPage extends PureComponent {
