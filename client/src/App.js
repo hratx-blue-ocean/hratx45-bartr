@@ -4,7 +4,7 @@ import Navbar from "./components/navbar";
 import HomeScreen from "./screens/HomeScreen.jsx";
 import SignupScreen from "./screens/SignupScreen.jsx";
 import UserProfile from "./screens/userProfileScreen.jsx";
-import FeedPage from "./screens/FeedScreen.jsx";
+import FeedScreen from "../src/screens/FeedScreen.jsx";
 import ItemDetailPage from "./screens/ItemDetailScreen.jsx";
 
 class App extends Component {
@@ -12,6 +12,8 @@ class App extends Component {
     return (
       <Router>
         <Navbar />
+        {/* <MessagesScreen /> */}
+        <FeedScreen />
         {/* <ItemDetailPage /> */}
         {/* <!--<TestingScreen />  */}
         <Switch>
@@ -22,7 +24,7 @@ class App extends Component {
             <SignupScreen />
           </Route>
           <Route exact path="/dist/feed">
-            <FeedPage />
+            <FeedScreen />
           </Route>
           <Route exact path="/dist/profile">
             <UserProfile />
