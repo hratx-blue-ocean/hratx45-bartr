@@ -1,8 +1,8 @@
 // https://mdbootstrap.com/docs/react/navigation/navbar/
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
-import '../assets/styles/navbar.scss';
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { BrowserRouter as Router, Link, useHistory } from "react-router-dom";
+import "../assets/styles/navbar.scss";
 import {
   MDBNavbar,
   MDBNavbarBrand,
@@ -11,23 +11,25 @@ import {
   MDBNavLink,
   MDBCollapse,
   MDBContainer,
-  MDBHamburgerToggler
-} from 'mdbreact';
+  MDBHamburgerToggler,
+  MDBBtn
+} from "mdbreact";
 
-const collapseType = 'collapse2';
+const collapseType = "collapse2";
 
-const Navbar = ({ title }) => {
+const Navbar = ({ title, location }) => {
   const [isOpen, setOpen] = useState(false);
-  console.log('re-render');
+  const history = useHistory();
+  console.log("re-render, browser location: ", location);
   // const newMessages = useSelector(store => store.messages).unread;
   return (
     <MDBNavbar className="main-color" dark>
       <MDBContainer>
         <MDBNavbarNav left>
           <MDBNavItem>
-            <MDBNavLink to={'#!'} className="main-color">
-              {'<=='}
-            </MDBNavLink>
+            <MDBBtn className="main-color" onClick={() => history.goBack()}>
+              {"<=="}
+            </MDBBtn>
           </MDBNavItem>
         </MDBNavbarNav>
         <MDBNavbarBrand className="navbar-title">Paperclips</MDBNavbarBrand>

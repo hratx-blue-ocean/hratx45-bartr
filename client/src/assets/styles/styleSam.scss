@@ -1,3 +1,5 @@
+@import "./variables";
+
 #feedPageOuterContainer {
   display: flex;
   width: 100vw;
@@ -6,10 +8,10 @@
 }
 
 #entireDropDownContainer {
-  margin-top: 5px;
+  margin-top: 25px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 #filteringByText {
@@ -18,12 +20,10 @@
   margin-left: 5px;
 }
 
-#feedPageProductListContainer {
-  margin-top: 10px;
+#feedScreenProductListContainer {
   display: flex;
   flex-direction: column;
   margin: auto;
-  text-align: center;
   overflow-y: scroll;
   height: 60vh;
 }
@@ -33,7 +33,7 @@
   margin: auto;
 }
 
-#feedPageLIstItem {
+#feedScreenListItem {
   text-align: left;
   cursor: pointer;
   justify-content: left;
