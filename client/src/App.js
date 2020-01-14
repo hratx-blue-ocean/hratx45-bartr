@@ -19,19 +19,19 @@ class App extends Component {
         {/* <ItemDetailPage /> */}
         {/* <!--<TestingScreen />  */}
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/dist/">
             <HomeScreen />
           </Route>
-          <Route exact path="/signup">
+          <Route exact path="/dist/signup">
             <SignupScreen />
           </Route>
-          <Route exact path="/feed">
+          <Route exact path="/dist/feed">
             <FeedScreen />
           </Route>
-          <Route exact path="/profile">
+          <Route exact path="/dist/profile">
             <UserProfile />
           </Route>
-          <Route exact path="/ItemDetail">
+          <Route exact path="/dist/ItemDetail">
             <ItemDetailScreen />
           </Route>
         </Switch>
