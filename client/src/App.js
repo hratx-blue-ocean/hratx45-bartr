@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./components/navbar";
 import HomeScreen from "./screens/HomeScreen.jsx";
 import SignupScreen from "./screens/SignupScreen.jsx";
+import LoginScreen from "./screens/LoginScreen.jsx";
 import UserProfile from "./screens/userProfileScreen.jsx";
 import FeedScreen from "../src/screens/FeedScreen.jsx";
 import ItemDetailScreen from "./screens/ItemDetailScreen";
