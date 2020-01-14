@@ -1,7 +1,8 @@
 // https://mdbootstrap.com/docs/react/navigation/navbar/
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
+import '../assets/styles/navbar.scss';
 import {
   MDBNavbar,
   MDBNavbarBrand,
@@ -13,49 +14,47 @@ import {
   MDBHamburgerToggler
 } from 'mdbreact';
 
-const collapseType = 'collapse1';
+const collapseType = 'collapse2';
 
 const Navbar = ({ title }) => {
   const [isOpen, setOpen] = useState(false);
   console.log('re-render');
   // const newMessages = useSelector(store => store.messages).unread;
   return (
-    <Router>
-      <MDBNavbar color="$default-color" dark>
-        <MDBContainer>
-          <MDBNavbarNav left>
+    <MDBNavbar className="main-color" dark>
+      <MDBContainer>
+        <MDBNavbarNav left>
+          <MDBNavItem>
+            <MDBNavLink to={'#!'} className="main-color">
+              {'<=='}
+            </MDBNavLink>
+          </MDBNavItem>
+        </MDBNavbarNav>
+        <MDBNavbarBrand className="navbar-title">Paperclips</MDBNavbarBrand>
+        <MDBHamburgerToggler
+          className="main-color"
+          id="navbar-hamburger"
+          onClick={() => {
+            setOpen(!isOpen);
+            console.log(isOpen);
+          }}
+          right
+        />
+        <MDBCollapse isOpen={isOpen} navbar>
+          <MDBNavbarNav right>
             <MDBNavItem>
-              <MDBNavLink to={'#!'} color="$secondary-color">
-                {'<=='}
-              </MDBNavLink>
+              <MDBNavLink to="/dist/profile">Profile</MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem>
+              <MDBNavLink to="/dist/feed">Feed</MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem>
+              <MDBNavLink to="/dist/messages">Messages</MDBNavLink>
             </MDBNavItem>
           </MDBNavbarNav>
-          <MDBNavbarBrand className="navbar-title">Paperclip</MDBNavbarBrand>
-          <MDBHamburgerToggler
-            color="$secondary-color"
-            id="navbar-hamburger"
-            onClick={() => {
-              setOpen(!isOpen);
-              console.log(isOpen);
-            }}
-            right
-          />
-          <MDBCollapse isOpen={isOpen} navbar>
-            <MDBNavbarNav right>
-              <MDBNavItem>
-                <MDBNavLink to="/profile">Profile</MDBNavLink>
-              </MDBNavItem>
-              <MDBNavItem>
-                <MDBNavLink to="/home">Home</MDBNavLink>
-              </MDBNavItem>
-              <MDBNavItem>
-                <MDBNavLink to="/messages">Messages</MDBNavLink>
-              </MDBNavItem>
-            </MDBNavbarNav>
-          </MDBCollapse>
-        </MDBContainer>
-      </MDBNavbar>
-    </Router>
+        </MDBCollapse>
+      </MDBContainer>
+    </MDBNavbar>
   );
 };
 
