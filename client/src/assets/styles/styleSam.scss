@@ -1,4 +1,4 @@
-#FeedScreenOuterContainer {
+#feedPageOuterContainer {
   display: flex;
   width: 100vw;
   height: 100vh;
@@ -9,7 +9,7 @@
   margin-top: 5px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 #filteringByText {
@@ -18,7 +18,7 @@
   margin-left: 5px;
 }
 
-#FeedScreenProductListContainer {
+#feedPageProductListContainer {
   margin-top: 10px;
   display: flex;
   flex-direction: column;
@@ -33,7 +33,7 @@
   margin: auto;
 }
 
-#FeedScreenListItem {
+#feedPageLIstItem {
   text-align: left;
   cursor: pointer;
   justify-content: left;

@@ -75,21 +75,25 @@ class FeedScreen extends React.Component {
       }
       this.setState({
         productsToDisplay: searchedArr,
-        productHoldWhileFiltered: arr
+        productHoldWhileFiltered: arr,
+        input: null
       });
     }
   }
 
   clearFilters() {
-    console.log("hi");
     this.state.productHoldWhileFiltered.length > 0
       ? this.setState(
           {
-            productsToDisplay: this.state.productHoldWhileFiltered
+            productsToDisplay: this.state.productHoldWhileFiltered,
+            currentFilterText: "Distance",
+            input: null
           },
           () =>
             this.setState({
-              productHoldWhileFiltered: []
+              productHoldWhileFiltered: [],
+              currentFilterText: "Distance",
+              input: null
             })
         )
       : null;
@@ -125,6 +129,7 @@ class FeedScreen extends React.Component {
           label="Search by Keyword"
           size="lg"
           onChange={this.handleChange}
+          value={this.state.input}
         ></MDBInput>
         <MDBBtn
           className="testButton"
@@ -192,6 +197,11 @@ class FeedScreen extends React.Component {
 
           <div id="filteringByText">
             Filtering by: {this.state.currentFilterText}
+          </div>
+          <div id="clearButtonContainer">
+            <MDBBtn id="clearFilterButton" onClick={this.clearFilters}>
+              Clear Filter
+            </MDBBtn>
           </div>
         </div>
 
