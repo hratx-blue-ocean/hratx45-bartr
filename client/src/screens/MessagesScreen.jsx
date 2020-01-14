@@ -9,6 +9,7 @@ import {
   MDBInput
 } from "mdbreact";
 import MessageString from "../components/MessageString.jsx";
+
 class Messages extends React.Component {
   constructor(props) {
     super(props);
@@ -19,8 +20,7 @@ class Messages extends React.Component {
   }
 
   getUserMessageStrings() {
-    // ! ping server for user messages
-
+    // ! ping server for user messageStrings
     this.setState({
       messageStrings: [1, 2, 3, 4, 5, 6, 7]
     });

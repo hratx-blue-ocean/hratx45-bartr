@@ -161,7 +161,7 @@ class FeedScreen extends React.Component {
   }
   render() {
     return (
-      <MDBContainer>
+      <MDBContainer id="feed-screen">
         <MDBInput
           label="Search by Keyword"
           size="lg"
