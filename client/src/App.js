@@ -7,6 +7,7 @@ import SignupScreen from "./screens/SignupScreen.jsx";
 import UserProfile from "./screens/userProfile.jsx";
 import FeedPage from "../src/screens/FeedPage.jsx";
 import ItemDetailPage from "../src/screens/ItemDetailPage.js";
+import TestingScreen from "./screens/testing/TestingScreen";
 
 class App extends Component {
   render() {
