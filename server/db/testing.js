@@ -1,3 +1,5 @@
+// Testing queries
+
 const pool = require('./postgres');
 
 const testPostgres = () => {
@@ -20,24 +22,24 @@ const getProduct = () => {
 };
 
 const getProducts = () => {
-  let offset = Math.floor(Math.random() * 1450);
+  let offset = Math.floor(Math.random() * 1000000);
   return pool.query({ text: `select * from products offset ${offset} limit 50;` });
 };
 
 
 const getUser = () => {
-  let userId = Math.floor(Math.random() * 1500);
+  let userId = Math.floor(Math.random() * 100000);
   return pool.query({ text: `select * from users where user_id = ${ userId }` });
 };
 
 const getUsers = () => {
-  let offset = Math.floor(Math.random() * 1450);
+  let offset = Math.floor(Math.random() * 9950);
   return pool.query({ text: `select * from users offset ${offset} limit 50;` });
 };
 
 
 const getWishList = () => {
-  let wishListId = Math.floor(Math.random() * 500);
+  let wishListId = Math.floor(Math.random() * 1000000);
   return pool.query({ text: `select * from wish_list where wish_list_id = ${ wishListId }` });
 };
 

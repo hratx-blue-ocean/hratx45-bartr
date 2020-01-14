@@ -60,7 +60,9 @@ if (process.env.NODE_ENV === "development") {
   config["mode"] = "development";
   config["watch"] = true;
   config["devServer"] = {
-    contentBase: DIST_FOLDER,
+    historyApiFallback: true,
+    contentBase: './',
+    hot: true,
     compress: true,
     port: 9000
   };
