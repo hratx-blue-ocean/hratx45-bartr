@@ -6,8 +6,8 @@ import SignupScreen from "./screens/SignupScreen.jsx";
 import UserProfile from "./screens/userProfileScreen.jsx";
 import FeedScreen from "../src/screens/FeedScreen.jsx";
 import ItemDetailScreen from './screens/ItemDetailScreen';
-// import UploadItemScreen from './screens/UploadItemScreen';
-// import MakeOfferScreen from './screens/MakeOfferScreen';
+import UploadItemScreen from './screens/UploadItemScreen';
+import MakeOfferScreen from './screens/MakeOfferScreen';
 
 class App extends Component {
   render() {
