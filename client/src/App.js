@@ -8,7 +8,7 @@ import SignupScreen from './screens/SignupScreen.jsx';
 import FeedPage from '../src/screens/FeedPage.jsx';
 // import FeedPage from "../src/screens/ExampleFeedPage.jsx";
 
-import ItemDetailPage from './screens/ItemDetailPage';
+import ItemDetailScreen from './screens/ItemDetailScreen';
 import UploadItemScreen from './screens/UploadItemScreen';
 import MakeOfferScreen from './screens/MakeOfferScreen';
 
@@ -17,18 +17,21 @@ class App extends Component {
     return (
       <Router>
         <Navbar />
-        {/* <ItemDetailPage /> */}
-        {/* <UploadItemScreen /> */}
-        <MakeOfferScreen />
         <Switch>
-          <Route exact path="/dist/REMOVEBEFOREPUSH">
+          <Route exact path="/dist/">
             <HomeScreen />
           </Route>
           <Route exact path="/dist/signup">
             <SignupScreen />
           </Route>
           <Route exact path="/dist/feed">
-            <FeedPage />
+            <FeedScreen />
+          </Route>
+          <Route exact path="/dist/profile">
+            <UserProfile />
+          </Route>
+          <Route exact path="/dist/ItemDetail">
+            <ItemDetailScreen />
           </Route>
         </Switch>
       </Router>

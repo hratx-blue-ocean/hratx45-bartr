@@ -23,43 +23,76 @@ export default class MakeOfferForm extends PureComponent {
           name: "One paperclip",
           value: 936,
           image:
-            "https://a.1stdibscdn.com/tiffany-co-paper-clip-14k-yellow-gold-vintage-fine-jewelry-money-mens-jewelry-for-sale/1121189/j_71011511563797289160/7101151_master.jpg"
+            "https://a.1stdibscdn.com/tiffany-co-paper-clip-14k-yellow-gold-vintage-fine-jewelry-money-mens-jewelry-for-sale/1121189/j_71011511563797289160/7101151_master.jpg",
+          selected: false
         },
         {
           id: 2,
           name: "Rare antique cute baby doll",
           value: 3,
           image:
-            "http://crazysven.com/wp/wp-content/uploads/yapb_cache/weird_antiques_kewpie_lamp.bsn7luzlsw004wkc4cc0sw8co.6ylu316ao144c8c4woosog48w.th.JPG"
+            "http://crazysven.com/wp/wp-content/uploads/yapb_cache/weird_antiques_kewpie_lamp.bsn7luzlsw004wkc4cc0sw8co.6ylu316ao144c8c4woosog48w.th.JPG",
+          selected: false
         },
         {
           id: 3,
           name: "Nicholas Cage Christmas ornament",
           value: 10000,
           image:
-            "https://i.etsystatic.com/18008672/r/il/5dd61b/2089294108/il_1588xN.2089294108_m951.jpg"
+            "https://i.etsystatic.com/18008672/r/il/5dd61b/2089294108/il_1588xN.2089294108_m951.jpg",
+          selected: false
         }
       ],
+      indexMap: { 1: 0, 2: 1, 3: 2 },
       selectedItems: []
     };
 
     this.toggle = this.toggle.bind(this);
+    this.addToOffer = this.addToOffer.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.submit = this.submit.bind(this);
   }
 
   toggle() {
     this.setState({ modalOpen: !this.state.modalOpen });
   }
 
-  selectItem(item) {
-    let { selectedItems } = this.state;
-    selectedItems.push(item);
-    this.setState({ selectedItems });
+  addToOffer() {
+    let { availableItems, selectedItems } = this.state;
+    selectedItems = availableItems.filter(item => item.selected);
+    this.setState({ selectedItems }, () => {
+      this.toggle();
+    });
   }
 
-  deselectItem(itemId) {
-    let { selectedItems } = this.state;
-    selectedItems = selectedItems.filter(item => item.id !== itemId);
-    this.setState({ selectedItems });
+  handleClick(e) {
+    let { indexMap, availableItems } = this.state;
+    let id = e.currentTarget.id;
+
+    availableItems[indexMap[id]].selected = !availableItems[indexMap[id]]
+      .selected;
+
+    this.setState({ availableItems }, () => {
+      console.log(
+        "New state: ",
+        this.state.availableItems[indexMap[id]].selected
+      );
+      this.forceUpdate();
+    });
+  }
+
+  submit() {
+    let data = new FormData();
+
+    // {offerer: "Collin", offeree: "Alyssa", desiredItem: ""}
+
+    data.append("date", new Date());
+    data.append("desiredItem", this.state.name);
+    data.append("value", this.state.value);
+    data.append("description", this.state.description);
+    data.append("desiredTrade", this.state.desiredTrade);
+    data.append("timeConstraints", this.state.timeConstraints);
+    this.state.fileList.forEach(file => data.append("file", file, file.name));
   }
 
   render() {
@@ -74,71 +107,50 @@ export default class MakeOfferForm extends PureComponent {
               <MDBModalHeader>Your Items</MDBModalHeader>
               <MDBModalBody>
                 <ul>
-                  <li className="oneItem" id={1}>
-                    <div className="itemSelector">
-                      <MDBInput type="checkbox" />
-                    </div>
-                    <div className="itemContainer">
-                      <div className="itemImage">
-                        <img
-                          width="100px"
-                          src="https://a.1stdibscdn.com/tiffany-co-paper-clip-14k-yellow-gold-vintage-fine-jewelry-money-mens-jewelry-for-sale/1121189/j_71011511563797289160/7101151_master.jpg"
-                        />
+                  {this.state.availableItems.map((item, index) => (
+                    <li
+                      onClick={this.handleClick}
+                      className={item.selected ? "oneItem selected" : "oneItem"}
+                      id={item.id}
+                      key={index}
+                    >
+                      <div className="itemContainer">
+                        <div className="itemImage">
+                          <img width="100px" src={item.image} />
+                        </div>
+                        <div className="itemInfo">
+                          <h3>{item.name}</h3>
+                          <p>
+                            Value: <span>{item.value}</span>
+                          </p>
+                        </div>
                       </div>
-                      <div className="itemInfo">
-                        <h3>One paperclip</h3>
-                        <p>Value: <span>936</span></p>
-                      </div>
-                    </div>
-                  </li>
-                  <li className="oneItem" id={2}>
-                    <div className="itemSelector">
-                      <MDBInput type="checkbox" />
-                    </div>
-                    <div className="itemContainer">
-                      <div className="itemImage">
-                        <img
-                          width="100px"
-                          src="http://crazysven.com/wp/wp-content/uploads/yapb_cache/weird_antiques_kewpie_lamp.bsn7luzlsw004wkc4cc0sw8co.6ylu316ao144c8c4woosog48w.th.JPG"
-                        />
-                      </div>
-                      <div className="itemInfo">
-                        <h3>Rare antique cute baby doll</h3>
-                        <p>Value: <span>3</span></p>
-                      </div>
-                    </div>
-                  </li>
-                  <li className="oneItem" id={3}>
-                    <div className="itemSelector">
-                      <MDBInput type="checkbox" />
-                    </div>
-                    <div className="itemContainer">
-                      <div className="itemImage">
-                        <img
-                          width="100px"
-                          src="https://i.etsystatic.com/18008672/r/il/5dd61b/2089294108/il_1588xN.2089294108_m951.jpg"
-                        />
-                      </div>
-                      <div className="itemInfo">
-                        <h3>Nicholas Cage Christmas ornament</h3>
-                        <p>Value: <span>10000</span></p>
-                      </div>
-                    </div>
-                  </li>
+                    </li>
+                  ))}
                 </ul>
               </MDBModalBody>
               <MDBModalFooter>
-                <MDBBtn color="warning" onClick={this.toggle}>
+                <MDBBtn color="warning" onClick={this.addToOffer}>
                   Add to Offer
                 </MDBBtn>
               </MDBModalFooter>
             </MDBModal>
+            <div className="selectedItemsContainer">
+              {this.state.selectedItems.map(item => (
+                <div className="selectedItem">
+                  <img src={item.image} width="50px" />
+                  <h4 className="selectedItemName">{item.name}</h4>
+                </div>
+              ))}
+            </div>
             <MDBInput
               type="textarea"
               label="Send a message with your offer?"
               outline
             />
-            <MDBBtn color="danger">Send Your Offer!</MDBBtn>
+            <MDBBtn color="danger" onClick={this.submit}>
+              Send Your Offer!
+            </MDBBtn>
           </MDBContainer>
         </form>
       </div>

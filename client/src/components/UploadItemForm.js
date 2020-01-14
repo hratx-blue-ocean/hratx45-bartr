@@ -62,12 +62,15 @@ export default class UploadItemForm extends PureComponent {
   submit() {
     let data = new FormData();
 
+    data.append("date", new Date());
     data.append("name", this.state.name);
     data.append("value", this.state.value);
     data.append("description", this.state.description);
     data.append("desiredTrade", this.state.desiredTrade);
     data.append("timeConstraints", this.state.timeConstraints);
-    this.state.fileList.forEach(file => data.append("file", file, file.name));
+    this.state.fileList.forEach(file => data.append("image", file, file.name));
+
+
   }
 
   render() {
