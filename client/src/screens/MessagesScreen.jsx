@@ -8,12 +8,12 @@ import {
   MDBDropdownToggle,
   MDBInput
 } from "mdbreact";
-
+import MessageString from "../components/MessageString.jsx";
 class Messages extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      messageStrings: []
+      messageStrings: null
     };
     this.getUserMessageStrings = this.getUserMessageStrings.bind(this);
   }
@@ -21,7 +21,9 @@ class Messages extends React.Component {
   getUserMessageStrings() {
     // ! ping server for user messages
 
-    this.setState({});
+    this.setState({
+      messageStrings: [1, 2, 3, 4, 5, 6, 7]
+    });
   }
 
   componentDidMount() {
@@ -30,12 +32,16 @@ class Messages extends React.Component {
 
   render() {
     return (
-      <MDBContainer>
+      <MDBContainer id="message-screen">
         <MDBContainer style={{ textAlign: "center" }}>Inbox</MDBContainer>
         <MDBContainer id="messageScreenListOfMessagesContainer">
           {this.state.messageStrings
             ? this.state.messageStrings.map((messageString, key) => (
-                <Message key={key} message={messageString} />
+                <MessageString
+                  key={key}
+                  num={key}
+                  messageString={messageString}
+                />
               ))
             : null}
         </MDBContainer>

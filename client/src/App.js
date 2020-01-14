@@ -6,14 +6,15 @@ import SignupScreen from "./screens/SignupScreen.jsx";
 import UserProfile from "./screens/userProfileScreen.jsx";
 import FeedScreen from "../src/screens/FeedScreen.jsx";
 import ItemDetailPage from "./screens/ItemDetailScreen.jsx";
+import MessagesScreen from "./screens/MessagesScreen.jsx";
 
 class App extends Component {
   render() {
     return (
       <Router>
         <Navbar />
-        {/* <MessagesScreen /> */}
-        <FeedScreen />
+        <MessagesScreen />
+        {/* <FeedScreen /> */}
         {/* <ItemDetailPage /> */}
         {/* <!--<TestingScreen />  */}
         <Switch>

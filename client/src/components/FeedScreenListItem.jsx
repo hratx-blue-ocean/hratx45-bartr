@@ -11,7 +11,10 @@ import {
 
 const FeedScreenListItem = props =>
   props.item.public ? (
-    <MDBContainer style={{ borderTop: "1px solid gray" }}>
+    <MDBContainer
+      id="feed-screen-list-item"
+      style={{ borderTop: "1px solid gray" }}
+    >
       <MDBContainer>Name: {props.item.product_name}</MDBContainer>
       <MDBContainer className="font-italic">
         {props.item.product_description}

@@ -166,7 +166,6 @@ class FeedScreen extends React.Component {
           label="Search by Keyword"
           size="lg"
           onChange={this.handleChange}
-          // value={this.state.input}
         ></MDBInput>
         <MDBBtn
           className="testButton"
