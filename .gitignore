@@ -70,3 +70,4 @@ typings/
 # Webpack
 bundle.js
 /server/db/config.js
+/server/package-lock.json
