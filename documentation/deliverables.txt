@@ -1,0 +1,23 @@
+Features
+1  - All users have wishlist for items theyre looking for
+2  - Should be able to look for stuff that people have listed
+3  - Sort by items for trade where people are looking for items that I have listed
+4  - Products can be Public or Private
+5  - When user is uploading item, assign it a value
+6  - Search by keywords
+7  - Sort by value of items
+8  - Sort by distance on map *within 5 miles?
+9  - Items should have multiple images
+10 - Should be able to manage my inventory of items
+11 - Should be able to trade multiple items for one item
+12 - Should be able to make offer, have some reject or accept
+13 - Bidding on products
+14 - Facilitate shipping
+
+
+Stretch Goals
+trade item and cash amount
+accept/reject trades and leave a comment
+looks good on mobile
+
+build mobile first

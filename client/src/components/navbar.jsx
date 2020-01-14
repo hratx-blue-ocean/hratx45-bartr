@@ -21,18 +21,18 @@ const Navbar = ({ title }) => {
   // const newMessages = useSelector(store => store.messages).unread;
   return (
     <Router>
-      <MDBNavbar color="default-color" dark>
+      <MDBNavbar color="$default-color" dark>
         <MDBContainer>
           <MDBNavbarNav left>
             <MDBNavItem>
-              <MDBNavLink to={'#!'} color="secondary-color">
+              <MDBNavLink to={'#!'} color="$secondary-color">
                 {'<=='}
               </MDBNavLink>
             </MDBNavItem>
           </MDBNavbarNav>
           <MDBNavbarBrand className="navbar-title">Paperclip</MDBNavbarBrand>
           <MDBHamburgerToggler
-            color="secondary-color"
+            color="$secondary-color"
             id="navbar-hamburger"
             onClick={() => {
               setOpen(!isOpen);
