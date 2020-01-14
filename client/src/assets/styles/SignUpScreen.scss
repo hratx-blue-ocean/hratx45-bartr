@@ -1,0 +1,17 @@
+@import "./variables";
+
+#signup-screen {
+	signup-container: {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+	}
+	signup-form: {
+		width: "100%";
+		margin-top: 0;
+	}
+	first-last: {
+		display: flex;
+		flex-direction: row;
+	}
+}
