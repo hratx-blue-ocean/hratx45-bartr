@@ -18,7 +18,7 @@ export default class UploadItemForm extends PureComponent {
           <MDBInput type="textarea" label="Description" outline size="lg"/>
           <MDBInput label="Desired Trade(s)" outline size="lg"/>
           <MDBInput label="Time Constraints" outline size="lg"/>
-          <MDBFileInput multiple />
+          <MDBFileInput btnTitle="Choose File(s)" textFieldTitle="Upload Images" btnColor="danger" multiple />
           <MDBBtn>Upload Item</MDBBtn>
         </form>
       </div>
