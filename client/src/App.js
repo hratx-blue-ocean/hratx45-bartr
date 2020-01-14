@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import HomeScreen from './screens/HomeScreen.jsx';
 import SignupScreen from './screens/SignupScreen.jsx';
-import UpForTradePage from './screens/UpForTradePage';
+import UpForTradeScreen from './screens/UpForTradeScreen';
 
 import FeedPage from '../src/screens/FeedPage.jsx';
 // import FeedPage from "../src/screens/ExampleFeedPage.jsx";
@@ -28,7 +28,7 @@ class App extends Component {
             <FeedPage />
           </Route>
           <Route exact path="/dist/trade">
-            <UpForTradePage />
+            <UpForTradeScreen />
           </Route>
         </Switch>
       </Router>
