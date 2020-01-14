@@ -13,13 +13,11 @@ export default class UploadItemForm extends PureComponent {
     return (
       <div>
         <form className="md-form">
-          <input type="text" id="itemNameInput" placeholder="Item Name*" />
-          <br></br>
-          <input type="text" id="itemValueInput" placeholder="Item Value*" />
-          <textarea className="md-textarea form-control" id="itemDescription" placeholder="Description" rows="3"></textarea>
-          <input type="text" id="itemDesiredTradeInput" placeholder="Desired Trades?" />
-          <br></br>
-          <input type="text" id="itemTimeConstraintsInput" placeholder="Any time constraints?" />
+          <MDBInput label="Item Name*" outline size="lg"/>
+          <MDBInput label="Item Value*" outline size="lg"/>
+          <MDBInput type="textarea" label="Description" outline size="lg"/>
+          <MDBInput label="Desired Trade(s)" outline size="lg"/>
+          <MDBInput label="Time Constraints" outline size="lg"/>
           <MDBFileInput multiple />
           <MDBBtn>Upload Item</MDBBtn>
         </form>
