@@ -1,0 +1,123 @@
+@import "../../../node_modules/mdbreact/dist/scss/custom-variables";
+
+
+h4 {
+    font-weight: bold;
+}
+
+.itemDetailPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #fff;
+}
+
+.itemTitleContainer {
+    display: flex;
+    justify-content: left;
+    font-weight: bold;
+    font-size: 2em;
+    background-color: $default-color;
+    color: $secondary-color;
+    padding: 15px;
+}
+
+.itemTitle {
+    font-weight: bold;
+    text-shadow: 5px 5px 2px 2px $primary-color;
+}
+
+.itemDetailImageContainer, .itemImageCarouselContainer, .itemInfoContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 30px 0;
+}
+
+.itemInfoContainer {
+    margin: 0;
+}
+
+.itemValueContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.itemInfo {
+    flex-direction: column; 
+    justify-content: center;
+    padding: 0px 15px;
+}
+
+.imageWindow {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    border: 2px solid $primary-color;
+    box-shadow: 5px 5px 5px 5px #9ea2a3 inset, -5px -5px 5px 5px #9ea2a3 inset;
+    background-color: $secondary-color;
+    width: 75%;
+    padding: 50px 0;
+    
+}
+
+.itemImageCarousel {
+    display: flex;
+    justify-content: space-evenly;
+    width: 50%;
+    border: 2px solid $primary-color;
+    padding: 20px;
+    box-shadow: 2px 2px 2px 2px #9ea2a3 inset, -2px -2px 2px 2px #9ea2a3 inset;
+    background-color: $secondary-color;
+}
+
+.itemImageCarouselContainer.condensed {
+    margin: 0;
+}
+
+.itemImageCarousel.condensed {
+    border: none;
+    padding: 0;
+    box-shadow: none;
+    background-color: #fff;
+}
+
+.mainImage {
+    display: inline-block;
+    box-shadow: 5px 5px 5px 5px #9ea2a3;
+    width: 75%;
+}
+
+.thumbnail {
+    box-shadow: 2px 2px 2px 2px #9ea2a3;
+}
+
+.makeOffer{
+    background-color: $default-color;
+    color: $secondary-color;
+    cursor: pointer;
+}
+
+.thumbnail.selected {
+    border: 3px solid $warning-color;
+}
+
+.descriptionElement {
+    margin-bottom: 15px;
+}
+
+.makeOfferButtonContainer {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.itemOfferCountContainer {
+    margin-left: 15px;
+}
+
+.itemPostedDateContainer p {
+    display: inline-block;
+}
+
