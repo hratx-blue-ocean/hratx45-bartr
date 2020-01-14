@@ -31,7 +31,7 @@ export const fetchProductsByProductId = prodId => {
     });
     dispatch({
       type: "FETCH_PRODUCTS_BY_PRODUCT_ID",
-      payload: response.data
+      payload: response.data.rows[0]
     });
   };
 };
@@ -46,7 +46,7 @@ export const fetchProductsByCategoryId = catId => {
     });
     dispatch({
       type: "FETCH_PRODUCTS_BY_CATEGORY_ID",
-      payload: response.data
+      payload: response.data.rows
     });
   };
 };
