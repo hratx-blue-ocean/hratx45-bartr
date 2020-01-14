@@ -23,7 +23,7 @@ const UserProfile = ({}) => {
   return (
     <MDBContainer>
       <MDBRow id="red">
-        <MDBCol className="col-test">this is also navbar</MDBCol>
+        <MDBCol className="col-test"></MDBCol>
       </MDBRow>
       <MDBRow>
         <MDBCol className="col-test">

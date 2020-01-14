@@ -5,8 +5,14 @@ import HomeScreen from "./screens/HomeScreen.jsx";
 import SignupScreen from "./screens/SignupScreen.jsx";
 import UserProfile from "./screens/userProfileScreen.jsx";
 import FeedScreen from "../src/screens/FeedScreen.jsx";
+<<<<<<< HEAD
 import ItemDetailPage from "./screens/ItemDetailScreen.jsx";
 import MessagesScreen from "./screens/MessagesScreen.jsx";
+=======
+import ItemDetailScreen from './screens/ItemDetailScreen';
+import UploadItemScreen from './screens/UploadItemScreen';
+import MakeOfferScreen from './screens/MakeOfferScreen';
+>>>>>>> 452848c744016ac4fb80865881bfba4af3df71b8
 
 class App extends Component {
   render() {
@@ -31,7 +37,7 @@ class App extends Component {
             <UserProfile />
           </Route>
           <Route exact path="/dist/ItemDetail">
-            <ItemDetailPage />
+            <ItemDetailScreen />
           </Route>
         </Switch>
       </Router>

@@ -5,7 +5,7 @@ import ItemDetailItemInfo from "../components/ItemDetailItemInfo";
 import ItemDetailMakeOfferButton from "../components/ItemDetailMakeOfferButton";
 import "../assets/styles/itemDetail.scss";
 
-export default class ItemDetailPage extends PureComponent {
+export default class ItemDetailScreen extends PureComponent {
   render() {
     return (
       <div className="itemDetailPage">
