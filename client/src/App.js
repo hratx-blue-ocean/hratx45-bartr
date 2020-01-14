@@ -1,15 +1,12 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Navbar from './components/navbar';
-import HomeScreen from './screens/HomeScreen.jsx';
-import SignupScreen from './screens/SignupScreen.jsx';
-import TestingScreen from "./screens/testing/TestingScreen";
-
-import FeedPage from '../src/screens/FeedPage.jsx';
-// import FeedPage from "../src/screens/ExampleFeedPage.jsx";
-
-import ItemDetailPage from './screens/ItemDetailPage';
+import Navbar from "./components/navbar";
+import HomeScreen from "./screens/HomeScreen.jsx";
+import SignupScreen from "./screens/SignupScreen.jsx";
+import UserProfile from "./screens/userProfile.jsx";
+import FeedPage from "../src/screens/FeedPage.jsx";
+import ItemDetailPage from "../src/screens/ItemDetailPage.js";
 
 class App extends Component {
   render() {
@@ -17,7 +14,7 @@ class App extends Component {
       <Router>
         <Navbar />
         {/* <ItemDetailPage /> */}
-        <TestingScreen/>
+        <TestingScreen />
         <Switch>
           <Route exact path="/dist/">
             <HomeScreen />
@@ -27,6 +24,9 @@ class App extends Component {
           </Route>
           <Route exact path="/dist/feed">
             <FeedPage />
+          </Route>
+          <Route exact path="/dist/profile">
+            <UserProfile />
           </Route>
         </Switch>
       </Router>
