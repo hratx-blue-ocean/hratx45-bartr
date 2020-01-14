@@ -1,4 +1,5 @@
 import React from "react";
+import Axios from "axios";
 import {
   MDBBtn,
   MDBContainer,
@@ -14,6 +15,7 @@ class Messages extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      currentUser: 4,
       messageStrings: null
     };
     this.getUserMessageStrings = this.getUserMessageStrings.bind(this);
@@ -21,9 +23,30 @@ class Messages extends React.Component {
 
   getUserMessageStrings() {
     // ! ping server for user messageStrings
-    this.setState({
-      messageStrings: [1, 2, 3, 4, 5, 6, 7]
-    });
+    Axios.get(
+      `https://paperclip.link/api/messages?userId=${this.state.currentUser}`
+    )
+      .then(data => data.data)
+      .then(data => {
+        let thread1 = [];
+        let thread2 = [];
+        for (let i = 0; i < data.length; i++) {
+          if (
+            data[i].sender_id < this.state.currentUser ||
+            data[i].recipient_id < this.state.currentUser
+          ) {
+            thread1.push(data[i]);
+          } else {
+            thread2.push(data[i]);
+          }
+        }
+        return this.setState(
+          {
+            messageStrings: [thread1, thread2]
+          },
+          () => console.log(this.state)
+        );
+      });
   }
 
   componentDidMount() {

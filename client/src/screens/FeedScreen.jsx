@@ -117,7 +117,6 @@ class FeedScreen extends React.Component {
           {
             productsToDisplay: this.state.productHoldWhileFiltered,
             currentFilterText: "Distance",
-            input: null,
             error: null,
             filterOn: false
           },
@@ -130,7 +129,6 @@ class FeedScreen extends React.Component {
         )
       : this.setState({
           currentFilterText: "Distance",
-          input: null,
           error: null,
           filterOn: false
         });
