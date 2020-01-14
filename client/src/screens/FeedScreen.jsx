@@ -31,38 +31,47 @@ class FeedScreen extends React.Component {
   }
 
   handleFilterTextChange(event) {
-    this.setState({
-      filterOn: true,
-      error: null
-    });
-    if (event === "Value (Highest First)") {
-      let arr = this.state.productsToDisplay;
-      let sortedArr = [];
-      for (let i = 0; i < arr.length; i++) {
-        sortedArr[arr[i].value] = arr[i];
+    this.setState(
+      {
+        filterOn: true,
+        error: null,
+        productHoldWhileFiltered: this.state.productsToDisplay
+      },
+      () => {
+        if (event === "Value (Highest First)") {
+          let arr = this.state.productsToDisplay;
+          let sortedArr = [];
+          for (let i = 0; i < arr.length; i++) {
+            sortedArr[arr[i].value] = arr[i];
+          }
+          this.setState({
+            productsToDisplay: sortedArr.filter(a => a !== undefined).reverse(),
+            currentFilterText: event
+          });
+        }
+        if (event === "Value (Lowest First)") {
+          let arr = this.state.productsToDisplay;
+          let sortedArr = [];
+          for (let i = 0; i < arr.length; i++) {
+            sortedArr[arr[i].value] = arr[i];
+          }
+          this.setState({
+            productsToDisplay: sortedArr.filter(a => a !== undefined),
+            currentFilterText: event
+          });
+        }
+        if (event === "Distance") {
+          // ! sort by proximity
+        }
+        if (event === "Date Posted") {
+          // ! sort by date
+          let arr = this.state.productsToDisplay;
+          let sortedArr = [];
+          console.log(arr);
+          for (let i = 0; i < arr.length; i++) {}
+        }
       }
-      this.setState({
-        productsToDisplay: sortedArr.filter(a => a !== undefined).reverse(),
-        currentFilterText: event
-      });
-    }
-    if (event === "Value (Lowest First)") {
-      let arr = this.state.productsToDisplay;
-      let sortedArr = [];
-      for (let i = 0; i < arr.length; i++) {
-        sortedArr[arr[i].value] = arr[i];
-      }
-      this.setState({
-        productsToDisplay: sortedArr.filter(a => a !== undefined),
-        currentFilterText: event
-      });
-    }
-    if (event === "Distance") {
-      // ! sort by proximity
-    }
-    if (event === "Date Posted") {
-      // ! sort by date
-    }
+    );
   }
 
   search(keyword = null) {
