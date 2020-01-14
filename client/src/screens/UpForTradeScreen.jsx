@@ -38,7 +38,7 @@ const UpForTradeScreen = () => {
                 p.up_for_trade
             )
             .map(p => (
-              <div>
+              <div key={p.product_id}>
                 {`ID: ${p.product_id}\nName: ${p.product_name}\nValue: ${p.value}\nUpForTrad: ${p.up_for_trade}\nImage: `}
                 <img
                   src="https://i.kym-cdn.com/entries/icons/mobile/000/025/765/Screen_Shot_2018-03-23_at_1.55.44_PM.jpg"
