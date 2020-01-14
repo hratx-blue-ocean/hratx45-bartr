@@ -9,6 +9,7 @@ import FeedPage from "../src/screens/FeedPage.jsx";
 // import FeedPage from "../src/screens/ExampleFeedPage.jsx";
 
 import ItemDetailPage from "./screens/ItemDetailPage";
+import UploadItemScreen from "./screens/UploadItemScreen";
 
 
 class App extends Component {
@@ -16,9 +17,8 @@ class App extends Component {
     return (
       <Router>
         <Navbar />
-        <ItemDetailPage />
         <Switch>
-          <Route exact path="/dist/">
+          <Route exact path="/dist/REMOVEBEFOREPUSH">
             <HomeScreen />
           </Route>
           <Route exact path="/dist/signup">
