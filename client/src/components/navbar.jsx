@@ -1,55 +1,64 @@
 // https://mdbootstrap.com/docs/react/navigation/navbar/
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom';
 import {
-  MDBNavbar,MDBIcon, MDBNavbarNav, MDBNavItem, MDBNavLink,
-  MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem
-} from "mdbreact";
+  MDBNavbar,
+  MDBNavbarBrand,
+  MDBNavbarNav,
+  MDBNavItem,
+  MDBNavLink,
+  MDBCollapse,
+  MDBContainer,
+  MDBHamburgerToggler
+} from 'mdbreact';
 
+const collapseType = 'collapse1';
 
-const Navbar = props => {
+const Navbar = ({ title }) => {
+  const [isOpen, setOpen] = useState(false);
+  console.log('re-render');
+  // const newMessages = useSelector(store => store.messages).unread;
   return (
-    <MDBNavbar color="indigo" dark>
-      <MDBNavbarNav left>
-        <MDBNavItem>
-          <MDBNavLink to="/dist/">Home</MDBNavLink>
-        </MDBNavItem>
-      </MDBNavbarNav>
-      
-      <MDBNavbarNav left>
-        <MDBNavItem>
-          <MDBDropdown>
-            <MDBDropdownToggle nav caret>
-              <span className="mr-2">Dropdown</span>
-            </MDBDropdownToggle>
-            <MDBDropdownMenu>
-              <MDBDropdownItem href="#!">Item 1</MDBDropdownItem>
-              <MDBDropdownItem href="#!">Item 2</MDBDropdownItem>
-              <MDBDropdownItem href="#!">Item 3</MDBDropdownItem>
-              <MDBDropdownItem href="#!">Item 4</MDBDropdownItem>
-            </MDBDropdownMenu>
-          </MDBDropdown>
-        </MDBNavItem>
-      </MDBNavbarNav>
-    
-      <MDBNavbarNav right>
-        <MDBDropdown dropleft>
-          <MDBDropdownToggle nav caret>
-            <MDBIcon icon="user" />
-          </MDBDropdownToggle>
-          <MDBDropdownMenu className="dropdown-default">
-            <MDBDropdownItem href="#!">Item 1</MDBDropdownItem>
-            <MDBDropdownItem href="#!">Item 2</MDBDropdownItem>
-            <MDBDropdownItem href="#!">Item 3</MDBDropdownItem>
-            <MDBDropdownItem href="#!">Item 4</MDBDropdownItem>
-          </MDBDropdownMenu>
-        </MDBDropdown>
-      </MDBNavbarNav>
-  
-    </MDBNavbar>
+    <Router>
+      <MDBNavbar color="default-color" dark>
+        <MDBContainer>
+          <MDBNavbarNav left>
+            <MDBNavItem>
+              <MDBNavLink to={'#!'} color="secondary-color">
+                {'<=='}
+              </MDBNavLink>
+            </MDBNavItem>
+          </MDBNavbarNav>
+          <MDBNavbarBrand className="navbar-title">Paperclip</MDBNavbarBrand>
+          <MDBHamburgerToggler
+            color="secondary-color"
+            id="navbar-hamburger"
+            onClick={() => {
+              setOpen(!isOpen);
+              console.log(isOpen);
+            }}
+            right
+          />
+          <MDBCollapse isOpen={isOpen} navbar>
+            <MDBNavbarNav right>
+              <MDBNavItem>
+                <MDBNavLink to="/profile">Profile</MDBNavLink>
+              </MDBNavItem>
+              <MDBNavItem>
+                <MDBNavLink to="/home">Home</MDBNavLink>
+              </MDBNavItem>
+              <MDBNavItem>
+                <MDBNavLink to="/messages">Messages</MDBNavLink>
+              </MDBNavItem>
+            </MDBNavbarNav>
+          </MDBCollapse>
+        </MDBContainer>
+      </MDBNavbar>
+    </Router>
   );
 };
 
 export default Navbar;
-
 
 // --------------------------------------------------------------------------------------------------
