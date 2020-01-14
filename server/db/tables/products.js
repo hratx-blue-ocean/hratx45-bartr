@@ -50,6 +50,7 @@ const getProductsByProximityByLongLat = (longitude, latitude, miles) => {
 };
 
 
+
 module.exports = {
   getProductById,
   getProductsByCategory,
