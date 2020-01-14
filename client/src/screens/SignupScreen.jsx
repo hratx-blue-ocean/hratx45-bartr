@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { MDBBtn, MDBContainer, MDBInput } from "mdbreact";
 
-class SignUpScreen extends Component {
+class SignupScreen extends Component {
 	constructor() {
 		super();
 		this.state = {
@@ -116,4 +116,4 @@ class SignUpScreen extends Component {
 	}
 }
 
-export default SignUpScreen;
+export default SignupScreen;
