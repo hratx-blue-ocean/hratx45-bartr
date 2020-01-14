@@ -40,12 +40,9 @@ class Messages extends React.Component {
             thread2.push(data[i]);
           }
         }
-        return this.setState(
-          {
-            messageStrings: [thread1, thread2]
-          },
-          () => console.log(this.state)
-        );
+        return this.setState({
+          messageStrings: [thread1, thread2]
+        });
       });
   }
 
@@ -60,11 +57,13 @@ class Messages extends React.Component {
         <MDBContainer id="messageScreenListOfMessagesContainer">
           {this.state.messageStrings
             ? this.state.messageStrings.map((messageString, key) => (
-                <MessageString
-                  key={key}
-                  num={key}
-                  messageString={messageString}
-                />
+                <MDBContainer key={key}>
+                  <MessageString
+                    key={key}
+                    num={key}
+                    messageString={messageString}
+                  />
+                </MDBContainer>
               ))
             : null}
         </MDBContainer>
