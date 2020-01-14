@@ -16,8 +16,9 @@ class App extends Component {
 			<Router>
 				<Navbar />
 				{/* <MessagesScreen /> */}
-				<FeedScreen />
-				{/* <ItemDetailPage /> */}
+				{/* <FeedScreen /> */}
+				<ItemDetailScreen />
+        {/* <UploadItemScreen /> */}
 				{/* <!--<TestingScreen />  */}
 				<Switch>
 					<Route exact path="/dist/">
