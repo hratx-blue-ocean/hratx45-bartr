@@ -1,7 +1,5 @@
 const pool = require("../postgres");
 
-//need to add username to schema
-
 const addNewUser = user => {
   let sql = `INSERT INTO users (email, password, first_name, last_name, phone_number, 
         age, state, address, city, zip_code, latitude, longitude) VALUES ('${user.email}', 

@@ -26,8 +26,6 @@ router.post("/user/signup", (req, res) => {
   });
 });
 
-// will not work until username added to schema!!!!!!!
-
 router.get("/users/auth", (req, res) => {
   let username = req.query.username;
   let pw = req.query.password;
