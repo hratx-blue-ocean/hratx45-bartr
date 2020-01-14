@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
 import Navbar from "./components/navbar";
 import HomeScreen from "./screens/HomeScreen.jsx";
 import SignupScreen from "./screens/SignupScreen.jsx";
-import UserProfile from "./screens/userProfile.jsx";
-import FeedPage from "../src/screens/FeedPage.jsx";
-import ItemDetailPage from "../src/screens/ItemDetailPage.js";
+import UserProfile from "./screens/userProfileScreen.jsx";
+import FeedPage from "./screens/FeedScreen.jsx";
+import ItemDetailPage from "./screens/ItemDetailScreen.jsx";
 
 class App extends Component {
   render() {
@@ -14,7 +13,7 @@ class App extends Component {
       <Router>
         <Navbar />
         {/* <ItemDetailPage /> */}
-        <TestingScreen />
+        {/* <!--<TestingScreen />  */}
         <Switch>
           <Route exact path="/dist/">
             <HomeScreen />
@@ -27,6 +26,9 @@ class App extends Component {
           </Route>
           <Route exact path="/dist/profile">
             <UserProfile />
+          </Route>
+          <Route exact path="/dist/ItemDetail">
+            <ItemDetailPage />
           </Route>
         </Switch>
       </Router>
