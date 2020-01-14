@@ -1,0 +1,29 @@
+-----------------------------------------------------------------------------------------------------
+Collin's requests
+*1 - Item name
+2 - Number of people who have already placed offer on product
+-- 3 - Item images (potentially multiple files - would be nice to have as an array)
+*4 - Item value (text/number, however we want to do this)
+5 - Item description (text field input)
+6 - Desired Trades for item (text field input)
+7 - Timeline (text field input)
+8 - Post date
+
+-----------------------------------------------------------------------------------------------------
+Matt's requests
+
+-- 9 - Profile pictures
+10 - Recent activity
+11 - Completed offers
+
+
+
+Tables:
+	Users
+		9 - profile pics
+
+	Products
+		3 - Item images
+
+
+
