@@ -5,11 +5,8 @@ import Navbar from "./components/navbar";
 import HomeScreen from "./screens/HomeScreen.jsx";
 import SignupScreen from "./screens/SignupScreen.jsx";
 import UserProfile from "./screens/userProfile.jsx";
-
 import FeedPage from "../src/screens/FeedPage.jsx";
-// import FeedPage from "../src/screens/ExampleFeedPage.jsx";
-
-import ItemDetailPage from "./screens/ItemDetailPage";
+import ItemDetailPage from "../src/screens/ItemDetailPage.js";
 
 class App extends Component {
   render() {
