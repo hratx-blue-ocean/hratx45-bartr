@@ -29,9 +29,17 @@ export const fetchProductsByProductId = prodId => {
         productId: prodId
       }
     });
+    const photos = await paperclips.get("/products/productPhotos", {
+      params: {
+        productId: prodId
+      }
+    });
+    let data = response.data.rows[0];
+    console.log(data);
+    data.photos = photos.data.rows;
     dispatch({
       type: "FETCH_PRODUCTS_BY_PRODUCT_ID",
-      payload: response.data.rows[0]
+      payload: data
     });
   };
 };

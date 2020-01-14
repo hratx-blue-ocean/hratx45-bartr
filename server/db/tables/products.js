@@ -3,14 +3,14 @@ const pool = require("../postgres");
 /* Returns products by their id*/
 const getProductById = productId => {
   return pool.query({
-    text: `select * from products where product_id = ${productId}`
+    text: `select * from products where product_id = ${productId};`
   });
 };
 
 /* Gets all photos for product by id*/
 const getProductPhotosById = productId => {
   return pool.query({
-    text: `select * from product_images where product_id = ${productId}`
+    text: `select * from images_test where product_id = ${productId}`
   });
 };
 
