@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { MDBBtn, MDBContainer, MDBInput } from "mdbreact";
 
-export default class LoginScreen extends Component() {
+class LoginScreen extends Component() {
 	constructor() {
 		super();
 		this.state = {
@@ -11,14 +11,25 @@ export default class LoginScreen extends Component() {
 
 		this.usernameHandler = this.usernameHandler.bind(this);
 		this.passwordHandler = this.passwordHandler.bind(this);
+		this.clickHandler = this.clickHandler.bind(this);
 	}
 
 	usernameHandler(e) {
-		console.log("username");
+		let username = e.target.value;
+		this.setState = {
+			username: username
+		};
 	}
 
 	passwordHandler(e) {
-		console.log("password");
+		let password = e.target.value;
+		this.setState = {
+			password: password
+		};
+	}
+
+	clickHandler() {
+		console.log("click!");
 	}
 
 	render() {
@@ -47,10 +58,14 @@ export default class LoginScreen extends Component() {
 							error="wrong"
 							success="right"
 						/>
-						<MDBBtn color="default">Login</MDBBtn>
+						<MDBBtn color="default" onClick={this.clickHandler}>
+							Login
+						</MDBBtn>
 					</form>
 				</div>
 			</MDBContainer>
 		);
 	}
 }
+
+export default LoginScreen;

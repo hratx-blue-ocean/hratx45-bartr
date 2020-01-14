@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { MDBBtn, MDBContainer, MDBInput } from "mdbreact";
 
-export default class SignUpScreen extends Component {
+class SignUpScreen extends Component {
 	constructor() {
 		super();
 		this.state = {
@@ -19,34 +19,53 @@ export default class SignUpScreen extends Component {
 		this.passwordHandler = this.passwordHandler.bind(this);
 		this.emailHandler = this.emailHandler.bind(this);
 		this.zipcodeHandler = this.zipcodeHandler.bind(this);
+		this.clickHandler = this.clickHandler.bind(this);
 	}
 
 	firstNameHandler(e) {
-		console.log("first name");
+		let firstName = e.target.value;
+		this.setState = {
+			firstName: firstName
+		};
 	}
 
 	lastNameHandler(e) {
-		console.log("last name");
+		let lastName = e.target.value;
+		this.setState = {
+			lastName: lastName
+		};
 	}
 
 	usernameHandler(e) {
-		console.log("username");
+		let username = e.target.value;
+		this.setState = {
+			username: username
+		};
 	}
 
 	passwordHandler(e) {
-		console.log("password");
+		let password = e.target.value;
+		this.setState = {
+			password: password
+		};
 	}
 
 	emailHandler(e) {
-		console.log("email");
+		let email = e.target.value;
+		this.setState = {
+			email: email
+		};
 	}
 
 	zipcodeHandler(e) {
-		console.log("zipcode");
+		let zipcode = e.target.value;
+		this.setState = {
+			zipcode: zipcode
+		};
 	}
 
-	keywordHandler(e) {
-		console.log("keyword");
+	clickHandler() {
+		console.log("click!");
 	}
 
 	render() {
@@ -87,10 +106,14 @@ export default class SignUpScreen extends Component {
 							label="Zipcode"
 							onChange={this.zipcodeHandler}
 						/>
-						<MDBBtn color="default">Sign-Up</MDBBtn>
+						<MDBBtn color="default" onClick={this.clickHandler}>
+							Sign-Up
+						</MDBBtn>
 					</form>
 				</div>
 			</MDBContainer>
 		);
 	}
 }
+
+export default SignUpScreen;

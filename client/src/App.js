@@ -3,10 +3,9 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Navbar from "./components/navbar";
 import HomeScreen from "./screens/HomeScreen.jsx";
-import SignupScreen from "./screens/SignupScreen.jsx";
 import TestingScreen from "./screens/testing/TestingScreen";
 import LoginScreen from "./screens/LoginScreen";
-import SignUpScreen from "./screens/SignupScreen";
+import SignUpScreen from "./screens/SignUpScreen";
 
 import FeedPage from "../src/screens/FeedPage.jsx";
 // import FeedPage from "../src/screens/ExampleFeedPage.jsx";
@@ -26,9 +25,9 @@ class App extends Component {
 					<Route exact path="/dist/">
 						<HomeScreen />
 					</Route>
-					<Route exact path="/dist/signup">
+					{/* <Route exact path="/dist/signup">
 						<SignUpScreen />
-					</Route>
+					</Route> */}
 					<Route exact path="/dist/feed">
 						<FeedPage />
 					</Route>
