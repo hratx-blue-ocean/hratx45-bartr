@@ -45,13 +45,13 @@ const Navbar = ({ title, location }) => {
         <MDBCollapse isOpen={isOpen} navbar>
           <MDBNavbarNav right>
             <MDBNavItem>
-              <MDBNavLink to="/dist/profile">Profile</MDBNavLink>
+              <MDBNavLink to="/profile">Profile</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBNavLink to="/dist/feed">Feed</MDBNavLink>
+              <MDBNavLink to="/feed">Feed</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBNavLink to="/dist/messages">Messages</MDBNavLink>
+              <MDBNavLink to="/messages">Messages</MDBNavLink>
             </MDBNavItem>
           </MDBNavbarNav>
         </MDBCollapse>
