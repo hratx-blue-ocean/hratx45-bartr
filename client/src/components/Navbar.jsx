@@ -53,6 +53,9 @@ const Navbar = ({ title, location }) => {
             <MDBNavItem>
               <MDBNavLink to="/dist/messages">Messages</MDBNavLink>
             </MDBNavItem>
+            <MDBNavItem>
+              <MDBNavLink to="/dist/trade">Up For Trade</MDBNavLink>
+            </MDBNavItem>
           </MDBNavbarNav>
         </MDBCollapse>
       </MDBContainer>
