@@ -63,12 +63,27 @@ class FeedScreen extends React.Component {
         if (event === "Distance") {
           // ! sort by proximity
         }
-        if (event === "Date Posted") {
-          // ! sort by date
+        if (event === "Date (Oldest First)") {
           let arr = this.state.productsToDisplay;
-          let sortedArr = [];
-          console.log(arr);
-          for (let i = 0; i < arr.length; i++) {}
+          let newArr = arr.slice();
+          newArr.sort(
+            (a, b) => Date.parse(a.posted_date) - Date.parse(b.posted_date)
+          );
+          this.setState({
+            productsToDisplay: newArr,
+            currentFilterText: event
+          });
+        }
+        if (event === "Date (Newest First)") {
+          let arr = this.state.productsToDisplay;
+          let newArr = arr.slice();
+          newArr.sort(
+            (a, b) => Date.parse(b.posted_date) - Date.parse(a.posted_date)
+          );
+          this.setState({
+            productsToDisplay: newArr,
+            currentFilterText: event
+          });
         }
       }
     );
@@ -79,7 +94,6 @@ class FeedScreen extends React.Component {
       this.setState({
         error: "Please enter a keyword."
       });
-      console.log("errrrr");
       return;
     } else {
       let arr = this.state.productsToDisplay;

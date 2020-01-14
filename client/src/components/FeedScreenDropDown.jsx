@@ -34,11 +34,18 @@ const FeedScreenDropDown = props => (
         Value (Lowest First)
       </MDBDropdownItem>
       <MDBDropdownItem
-        value="Date Posted"
-        id="filterByDate"
+        value="Date (Newest First)"
+        id="filterByDateNew"
         onClick={e => props.handleFilterTextChange(e.target.value)}
       >
-        Date Posted
+        Date (Newest First)
+      </MDBDropdownItem>
+      <MDBDropdownItem
+        value="Date (Oldest First)"
+        id="filterByDateOld"
+        onClick={e => props.handleFilterTextChange(e.target.value)}
+      >
+        Date (Oldest First)
       </MDBDropdownItem>
     </MDBDropdownMenu>
   </MDBDropdown>
