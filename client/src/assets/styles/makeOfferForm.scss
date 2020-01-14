@@ -1,0 +1,45 @@
+@import "./variables.scss";
+
+#makeOfferForm {
+  .oneItem,
+  .itemContainer {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .oneItem {
+      margin-bottom: 10px;
+  }
+
+ .selected {
+      outline: 3px solid #ffc793;
+  }
+
+  .form-check {
+      z-index: 500;
+      border: 2px solid black;
+  }
+
+  .itemSelector {
+      flex-basis: 25px;
+      flex-shrink: 0;
+  }
+
+  .selectedItemsContainer {
+      margin: 15px 0;
+      border: 2px solid #e5eaea;
+      padding: 15px;
+  }
+
+  .selectedItem {
+      display: flex;
+      flex-direction: row;
+      margin: 10px;
+      justify-content: left;
+  }
+
+  .selectedItemName {
+      margin-left: 10px;
+  }
+
+}

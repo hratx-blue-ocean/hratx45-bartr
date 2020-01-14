@@ -5,7 +5,9 @@ import HomeScreen from "./screens/HomeScreen.jsx";
 import SignupScreen from "./screens/SignupScreen.jsx";
 import UserProfile from "./screens/userProfileScreen.jsx";
 import FeedScreen from "../src/screens/FeedScreen.jsx";
-import ItemDetailPage from "./screens/ItemDetailScreen.jsx";
+import ItemDetailScreen from './screens/ItemDetailScreen';
+import UploadItemScreen from './screens/UploadItemScreen';
+import MakeOfferScreen from './screens/MakeOfferScreen';
 
 class App extends Component {
   render() {
@@ -30,7 +32,7 @@ class App extends Component {
             <UserProfile />
           </Route>
           <Route exact path="/dist/ItemDetail">
-            <ItemDetailPage />
+            <ItemDetailScreen />
           </Route>
         </Switch>
       </Router>
