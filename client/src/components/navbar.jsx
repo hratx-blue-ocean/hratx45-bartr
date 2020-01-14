@@ -1,24 +1,35 @@
 // https://mdbootstrap.com/docs/react/navigation/navbar/
-import React from 'react';
+import React from "react";
 import {
-  MDBNavbar,MDBIcon, MDBNavbarNav, MDBNavItem, MDBNavLink,
-  MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem
+  MDBNavbar,
+  MDBIcon,
+  MDBNavbarNav,
+  MDBNavItem,
+  MDBNavLink,
+  MDBDropdown,
+  MDBDropdownToggle,
+  MDBDropdownMenu,
+  MDBDropdownItem
 } from "mdbreact";
 
+/* Gets link button for navbar */
+const getLink = (title, link) => {
+  return (
+    <MDBNavbarNav left>
+      <MDBNavItem>
+        <MDBNavLink to={`/dist${link}`}>{title}</MDBNavLink>
+      </MDBNavItem>
+    </MDBNavbarNav>
+  );
+};
 
 const Navbar = props => {
   return (
     <MDBNavbar color="indigo" dark>
-      <MDBNavbarNav left>
-        <MDBNavItem>
-          <MDBNavLink to="/">Home</MDBNavLink>
-        </MDBNavItem>
-        <MDBNavItem>
-          <MDBNavLink to="/signup">Signup</MDBNavLink>
-        </MDBNavItem>
-        
-      </MDBNavbarNav>
+      {getLink('Home', '/')}
+      {getLink('Feed', '/feed')}
       
+      {/* Drop down button */}
       <MDBNavbarNav left>
         <MDBNavItem>
           <MDBDropdown>
@@ -34,7 +45,8 @@ const Navbar = props => {
           </MDBDropdown>
         </MDBNavItem>
       </MDBNavbarNav>
-    
+      
+      {/* Profile icon drop down */}
       <MDBNavbarNav right>
         <MDBDropdown dropleft>
           <MDBDropdownToggle nav caret>
@@ -48,12 +60,10 @@ const Navbar = props => {
           </MDBDropdownMenu>
         </MDBDropdown>
       </MDBNavbarNav>
-  
     </MDBNavbar>
   );
 };
 
 export default Navbar;
-
 
 // --------------------------------------------------------------------------------------------------

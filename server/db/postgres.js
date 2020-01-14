@@ -1,3 +1,4 @@
+// PostgresSQL connection
 const { Pool } = require('pg');
 
 let config;
