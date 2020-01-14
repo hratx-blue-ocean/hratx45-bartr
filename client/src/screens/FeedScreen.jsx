@@ -16,6 +16,7 @@ class FeedScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      filterOn: false,
       currentFilterText: "Distance",
       productsToDisplay: [],
       productHoldWhileFiltered: [],
@@ -30,6 +31,10 @@ class FeedScreen extends React.Component {
   }
 
   handleFilterTextChange(event) {
+    this.setState({
+      filterOn: true,
+      error: null
+    });
     if (event === "Value (Highest First)") {
       let arr = this.state.productsToDisplay;
       let sortedArr = [];
@@ -60,11 +65,12 @@ class FeedScreen extends React.Component {
     }
   }
 
-  search(keyword) {
-    if (!keyword.length || typeof keyword !== "string") {
+  search(keyword = null) {
+    if (!keyword || typeof keyword !== "string") {
       this.setState({
         error: "Please enter a keyword."
       });
+      console.log("errrrr");
       return;
     } else {
       let arr = this.state.productsToDisplay;
@@ -88,16 +94,22 @@ class FeedScreen extends React.Component {
           {
             productsToDisplay: this.state.productHoldWhileFiltered,
             currentFilterText: "Distance",
-            input: null
+            input: null,
+            error: null,
+            filterOn: false
           },
           () =>
             this.setState({
-              productHoldWhileFiltered: []
+              productHoldWhileFiltered: [],
+              error: null,
+              filterOn: false
             })
         )
       : this.setState({
           currentFilterText: "Distance",
-          input: null
+          input: null,
+          error: null,
+          filterOn: false
         });
   }
 
@@ -139,12 +151,17 @@ class FeedScreen extends React.Component {
           onClick={() => {
             this.state.input
               ? this.search(this.state.input)
-              : this.clearFilters();
+              : this.state.filterOn
+              ? this.clearFilters()
+              : this.search();
           }}
         >
           Search
         </MDBBtn>
 
+        <div style={{ position: "absolute" }}>
+          {this.state.error ? this.state.error : null}
+        </div>
         <div id="entireDropDownContainer">
           <FeedScreenDropDown
             handleFilterTextChange={this.handleFilterTextChange}

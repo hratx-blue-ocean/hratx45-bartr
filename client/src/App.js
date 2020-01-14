@@ -16,6 +16,7 @@ class App extends Component {
     return (
       <Router>
         <Navbar />
+        <FeedScreen />
         {/* <ItemDetailPage /> */}
         <Messages />
         <Route exact path="/dist/feed">
