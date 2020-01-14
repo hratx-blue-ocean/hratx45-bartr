@@ -16,9 +16,9 @@ const FeedScreenListItem = props =>
       style={{ borderTop: "1px solid gray" }}
     >
       <MDBContainer>Name: {props.item.product_name}</MDBContainer>
-      <MDBContainer className="font-italic">
+      {/* <MDBContainer className="font-italic">
         {props.item.product_description}
-      </MDBContainer>
+      </MDBContainer> */}
       <MDBContainer>Value: {props.item.value}</MDBContainer>
       <MDBContainer>Date Posted: {props.item.posted_date}</MDBContainer>
       <MDBContainer>
