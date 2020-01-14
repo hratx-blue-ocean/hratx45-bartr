@@ -1,6 +1,7 @@
 import React from "react";
 import Axios from "axios";
 import FeedScreenListItem from "../components/FeedScreenListItem.jsx";
+import FeedScreenDropDown from "../components/FeedScreenDropDown.jsx";
 import {
   MDBBtn,
   MDBContainer,
@@ -129,7 +130,7 @@ class FeedScreen extends React.Component {
           label="Search by Keyword"
           size="lg"
           onChange={this.handleChange}
-          value={this.state.input}
+          // value={this.state.input}
         ></MDBInput>
         <MDBBtn
           className="testButton"
@@ -142,43 +143,11 @@ class FeedScreen extends React.Component {
         >
           Search
         </MDBBtn>
-        <div id="entireDropDownContainer">
-          <MDBDropdown>
-            <MDBDropdownToggle caret color="primary">
-              Filter by...
-            </MDBDropdownToggle>
-            <MDBDropdownMenu basic>
-              <MDBDropdownItem
-                value="Distance"
-                id="filterByDistance"
-                onClick={e => this.handleFilterTextChange(e.target.value)}
-              >
-                Distance
-              </MDBDropdownItem>
-              <MDBDropdownItem
-                value="Value (Highest First)"
-                id="filterByValueHigh"
-                onClick={e => this.handleFilterTextChange(e.target.value)}
-              >
-                Value (Highest First)
-              </MDBDropdownItem>
-              <MDBDropdownItem
-                value="Value (Lowest First)"
-                id="filterByValueLow"
-                onClick={e => this.handleFilterTextChange(e.target.value)}
-              >
-                Value (Lowest First)
-              </MDBDropdownItem>
-              <MDBDropdownItem
-                value="Date Posted"
-                id="filterByDate"
-                onClick={e => this.handleFilterTextChange(e.target.value)}
-              >
-                Date Posted
-              </MDBDropdownItem>
-            </MDBDropdownMenu>
-          </MDBDropdown>
 
+        <div id="entireDropDownContainer">
+          <FeedScreenDropDown
+            handleFilterTextChange={this.handleFilterTextChange}
+          />
           <div id="filteringByText">
             Filtering by: {this.state.currentFilterText}
           </div>
