@@ -27,7 +27,7 @@ const getProductsByProximityByUserId = (userId, miles) => {
                     ${miles} *1609,
                     false
       )
-    );
+    ) limit 200;
   `;
   return pool.query({ text: sql });
 };
@@ -43,7 +43,8 @@ const getProductsByProximityByLongLat = (longitude, latitude, miles) => {
         ST_MakePoint(${longitude},${latitude}),
         ${miles} *1609,
         false
-        );
+        )
+    limit 200;
   `;
   return pool.query({ text: sql });
 };

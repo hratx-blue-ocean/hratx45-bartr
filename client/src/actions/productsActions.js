@@ -21,9 +21,10 @@ export const fetchProductsTest = () => {
   };
 };
 
+/* Fetch products by product id */
 export const fetchProductsByProductId = prodId => {
   return async (dispatch, getState) => {
-    const response = await paperclips.get("/productId", {
+    const response = await paperclips.get("/products/productId", {
       params: {
         productId: prodId
       }
@@ -35,9 +36,10 @@ export const fetchProductsByProductId = prodId => {
   };
 };
 
+/* Fetch products by category id */
 export const fetchProductsByCategoryId = catId => {
   return async (dispatch, getState) => {
-    const response = await paperclips.get("/category", {
+    const response = await paperclips.get("/products/category", {
       params: {
         categoryId: catId
       }
@@ -49,14 +51,16 @@ export const fetchProductsByCategoryId = catId => {
   };
 };
 
+/* Fetch products by user id & distance within miles */
 export const fetchProductsByUserIdAndProximity = (userid, proximityInMiles) => {
   return async (dispatch, getState) => {
-    const response = await paperclips.get("/userIdProximity", {
+    const response = await paperclips.get("/products/userIdProximity", {
       params: {
         userId: userid,
         proximity: proximityInMiles
       }
     });
+    console.log(`FILE: productsActions.js () | value: \n`, response);
     dispatch({
       type: "FETCH_PRODUCTS_BY_USERID_AND_PROXIMITY",
       payload: response.data
@@ -64,13 +68,14 @@ export const fetchProductsByUserIdAndProximity = (userid, proximityInMiles) => {
   };
 };
 
+/* Fetch products by latitude and longitude proximity */
 export const fetchProductsByLatitudeLongitudeProximity = (
   latitideCoordinate,
   longitudeCoordinate,
   proximityInMiles
 ) => {
   return async (dispatch, getState) => {
-    const response = await paperclips.get("/locationProximity", {
+    const response = await paperclips.get("/products/locationProximity", {
       params: {
         longitude: longitudeCoordinate,
         latitude: latitideCoordinate,
