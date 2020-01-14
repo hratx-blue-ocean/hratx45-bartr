@@ -1,18 +1,31 @@
-const pool = require('../postgres');
+const pool = require("../postgres");
 
-/* Returns products by their */
-const getProductById = (productId) => {
-  return pool.query({ text: `select * from products where product_id = ${ productId }` });
+/* Returns products by their id*/
+const getProductById = productId => {
+  return pool.query({
+    text: `select * from products where product_id = ${productId};`
+  });
+};
+
+/* Gets all photos for product by id*/
+const getProductPhotosById = productId => {
+  return pool.query({
+    text: `select * from images_test where product_id = ${productId}`
+  });
 };
 
 /* Gets all products by their category */
-const getProductsByCategory = (categoryId) => {
-  return pool.query({ text: `select * from products where category_id = ${ categoryId } limit 200;` });
+const getProductsByCategory = categoryId => {
+  return pool.query({
+    text: `select * from products where category_id = ${categoryId}`
+  });
 };
 
 /* Returns all products by user id */
-const getProductsByUser = (userId) => {
-  return pool.query({ text: `select * from products where user_id = ${ userId }` });
+const getProductsByUser = userId => {
+  return pool.query({
+    text: `select * from products where user_id = ${userId}`
+  });
 };
 
 /* Returns all products by users longitude and latitude */
@@ -34,8 +47,7 @@ const getProductsByProximityByUserId = (userId, miles) => {
 
 /* Returns all products within x miles by longitude and latitude */
 const getProductsByProximityByLongLat = (longitude, latitude, miles) => {
- 
-	let sql = `
+  let sql = `
 	  SELECT latitude, longitude, state
     FROM users
     WHERE ST_DWithin(
@@ -49,13 +61,11 @@ const getProductsByProximityByLongLat = (longitude, latitude, miles) => {
   return pool.query({ text: sql });
 };
 
-
-
 module.exports = {
   getProductById,
   getProductsByCategory,
   getProductsByUser,
   getProductsByProximityByUserId,
-  getProductsByProximityByLongLat
+  getProductsByProximityByLongLat,
+  getProductPhotosById
 };
-

@@ -11,6 +11,9 @@ import {
   MDBInput
 } from "mdbreact";
 
+import { useSelector, useDispatch, connect } from "react-redux";
+import { fetchProductsByUserIdAndProximity } from "../actions";
+
 class FeedPage extends React.Component {
   constructor(props) {
     super(props);
@@ -63,6 +66,7 @@ class FeedPage extends React.Component {
 
   componentDidMount() {
     this.getProducts();
+    this.props.fetchProductsByUserIdAndProximity(1, 100);
   }
 
   render() {
@@ -145,4 +149,11 @@ class FeedPage extends React.Component {
   }
 }
 
-export default FeedPage;
+// export default FeedPage;
+const mapStateToProps = state => {
+  return { products: state.products };
+};
+
+export default connect(mapStateToProps, { fetchProductsByUserIdAndProximity })(
+  FeedPage
+);

@@ -1,21 +1,23 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
 import Navbar from "./components/navbar";
 import HomeScreen from "./screens/HomeScreen.jsx";
 import SignupScreen from "./screens/SignupScreen.jsx";
-import UserProfile from "./screens/userProfile.jsx";
-import FeedPage from "../src/screens/FeedPage.jsx";
-import ItemDetailPage from "../src/screens/ItemDetailPage.js";
-import TestingScreen from "./screens/testing/TestingScreen";
+import UserProfile from "./screens/userProfileScreen.jsx";
+import FeedScreen from "../src/screens/FeedScreen.jsx";
+import ItemDetailScreen from './screens/ItemDetailScreen';
+import UploadItemScreen from './screens/UploadItemScreen';
+import MakeOfferScreen from './screens/MakeOfferScreen';
 
 class App extends Component {
   render() {
     return (
       <Router>
         <Navbar />
+        {/* <MessagesScreen /> */}
+        <FeedScreen />
         {/* <ItemDetailPage /> */}
-        <TestingScreen />
+        {/* <!--<TestingScreen />  */}
         <Switch>
           <Route exact path="/dist/">
             <HomeScreen />
@@ -24,10 +26,13 @@ class App extends Component {
             <SignupScreen />
           </Route>
           <Route exact path="/dist/feed">
-            <FeedPage />
+            <FeedScreen />
           </Route>
           <Route exact path="/dist/profile">
             <UserProfile />
+          </Route>
+          <Route exact path="/dist/ItemDetail">
+            <ItemDetailScreen />
           </Route>
         </Switch>
       </Router>

@@ -6,7 +6,7 @@ const db = require("../db/tables/users.js");
 const bcrypt = require("bcrypt");
 const saltRounds = 12;
 
-router.post("/user/signup", (req, res) => {
+router.post("/signup", (req, res) => {
   const user = req.query.userData;
   const pw = user.password;
   bcrypt.genSalt(saltRounds, function(err, salt) {
@@ -26,7 +26,7 @@ router.post("/user/signup", (req, res) => {
   });
 });
 
-router.get("/users/auth", (req, res) => {
+router.get("/authentication", (req, res) => {
   let username = req.query.username;
   let pw = req.query.password;
   db.getHashByUsername(username)
@@ -42,5 +42,18 @@ router.get("/users/auth", (req, res) => {
     .catch(error => res.status(400).send(false));
 });
 
+router.get("/userInformationUsername", (req, res) => {
+  let username = req.query.username;
+  db.getUserDataByUsername(username)
+    .then(data => res.status(200).send(data))
+    .catch(error => res.status(400).send(error));
+});
+
+router.get("/userInformationId", (req, res) => {
+  let userId = req.query.id;
+  db.getUserDataById(userId)
+    .then(data => res.status(200).send(data))
+    .catch(error => res.status(400).send(error));
+});
 
 module.exports = router;
