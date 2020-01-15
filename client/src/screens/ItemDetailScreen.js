@@ -16,17 +16,15 @@ class ItemDetailScreen extends PureComponent {
     super(props);
 
     this.state = {
-      productInfo: {photos: []}
-    }
+      productInfo: { photos: [] }
+    };
   }
 
   componentDidMount() {
     this.props.fetchProductsByProductId(5);
   }
 
-  componentDidUpdate() {
-
-  }
+  componentDidUpdate() {}
 
   render() {
     return (
@@ -38,7 +36,7 @@ class ItemDetailScreen extends PureComponent {
           3 people have bid on this item
         </div> */}
         <div className="itemDetailImageContainer">
-          <ItemDetailPicture photos={this.props.products.photos}/>
+          <ItemDetailPicture photos={this.props.products.photos} />
         </div>
         <div className="itemImageCarouselContainer condensed">
           <ItemDetailCarousel />
@@ -52,7 +50,10 @@ class ItemDetailScreen extends PureComponent {
           <ItemDetailMakeOfferButton />
         </div>
         <div className="itemInfoContainer">
-          <ItemDetailItemInfo postedDate={this.props.products.posted_date} description={this.props.products.product_description}/>
+          <ItemDetailItemInfo
+            postedDate={this.props.products.posted_date}
+            description={this.props.products.product_description}
+          />
         </div>
       </div>
     );
