@@ -16,7 +16,7 @@ class ItemDetailScreen extends PureComponent {
     super(props);
 
     this.state = {
-      productInfo: {}
+      productInfo: {photos: []}
     }
   }
 
@@ -24,8 +24,11 @@ class ItemDetailScreen extends PureComponent {
     this.props.fetchProductsByProductId(8);
   }
 
+  componentDidUpdate() {
+
+  }
+
   render() {
-    console.log("Props: ", this.props);
     return (
       <div id="itemDetailScreen">
         <div className="itemTitleContainer">
@@ -35,7 +38,7 @@ class ItemDetailScreen extends PureComponent {
           3 people have bid on this item
         </div> */}
         <div className="itemDetailImageContainer">
-          <ItemDetailPicture />
+          <ItemDetailPicture photos={this.props.products.photos}/>
         </div>
         <div className="itemImageCarouselContainer condensed">
           <ItemDetailCarousel />

@@ -35,8 +35,9 @@ export const fetchProductsByProductId = prodId => {
       }
     });
     let data = response.data.rows[0];
-    console.log(data);
+
     data.photos = photos.data.rows;
+    console.log(data);
     dispatch({
       type: "FETCH_PRODUCTS_BY_PRODUCT_ID",
       payload: data

@@ -70,8 +70,6 @@ export default class UploadItemForm extends PureComponent {
     data.append("desiredTrade", this.state.desiredTrade);
     data.append("timeConstraints", this.state.timeConstraints);
     this.state.fileList.forEach(file => data.append("image", file, file.name));
-
-    
   }
 
   render() {
