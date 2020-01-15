@@ -5,7 +5,9 @@ import HomeScreen from './screens/HomeScreen.jsx';
 import SignupScreen from './screens/SignupScreen.jsx';
 import UserProfile from './screens/userProfileScreen.jsx';
 import FeedScreen from '../src/screens/FeedScreen.jsx';
-import ItemDetailPage from './screens/ItemDetailScreen.jsx';
+import ItemDetailScreen from './screens/ItemDetailScreen';
+import UploadItemScreen from './screens/UploadItemScreen';
+import MakeOfferScreen from './screens/MakeOfferScreen';
 import UpForTradeScreen from './screens/UpForTradeScreen';
 
 class App extends Component {
@@ -14,7 +16,7 @@ class App extends Component {
       <Router>
         <Navbar />
         {/* <MessagesScreen /> */}
-        <FeedScreen />
+        {/* <FeedScreen /> */}
         {/* <ItemDetailPage /> */}
         {/* <!--<TestingScreen />  */}
         <Switch>
@@ -31,7 +33,7 @@ class App extends Component {
             <UserProfile />
           </Route>
           <Route exact path="/dist/ItemDetail">
-            <ItemDetailPage />
+            <ItemDetailScreen />
           </Route>
           <Route exact path="/dist/trade">
             <UpForTradeScreen />
