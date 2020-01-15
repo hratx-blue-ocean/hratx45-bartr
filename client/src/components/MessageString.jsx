@@ -1,29 +1,58 @@
 import React from "react";
-import { MDBContainer } from "mdbreact";
+import { MDBContainer, MDBBtn } from "mdbreact";
 import Message from "../components/Message.jsx";
+class MessageString extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      messageOpen: false
+    };
+    this.openMessage = this.openMessage.bind(this);
+    this.closeMessage = this.closeMessage.bind(this);
+  }
 
-const MessageString = props => (
-  <MDBContainer
-    id="message-string"
-    value="5"
-    onClick={e => props.openMessage(e)}
-  >
-    <MDBContainer>
-      Messages with user: {props.messageString[props.num].sender_id}
-    </MDBContainer>
-    <MDBContainer>
-      {props.messageString
-        ? props.messageString.map((message, key) => (
-            <Message
-              key={key}
-              message={message}
-              num={props.num}
-              messageStringOpen={props.messageStringOpen}
-            />
-          ))
-        : null}
-    </MDBContainer>
-  </MDBContainer>
-);
+  openMessage() {
+    this.setState({
+      messageOpen: true
+    });
+  }
 
+  closeMessage() {
+    this.setState({
+      messageOpen: false
+    });
+  }
+  render() {
+    return this.state.messageOpen ? (
+      <MDBContainer id="message-string" value="5">
+        <MDBContainer
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between"
+          }}
+        >
+          Messages with user:{" "}
+          {this.props.messageString[this.props.num].sender_id}
+          <MDBBtn onClick={this.closeMessage}>close</MDBBtn>
+        </MDBContainer>
+
+        <MDBContainer>
+          {this.props.messageString
+            ? this.props.messageString.map((message, key) => (
+                <Message key={key} message={message} num={this.props.num} />
+              ))
+            : null}
+        </MDBContainer>
+      </MDBContainer>
+    ) : (
+      <MDBContainer id="message-string" value="5" onClick={this.openMessage}>
+        <MDBContainer>
+          Messages with user:{" "}
+          {this.props.messageString[this.props.num].sender_id}
+        </MDBContainer>
+      </MDBContainer>
+    );
+  }
+}
 export default MessageString;
