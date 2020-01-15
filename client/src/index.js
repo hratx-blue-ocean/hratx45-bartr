@@ -25,8 +25,8 @@ const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)));
 // --------------------------------------------------------------------------------------------------
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById("app")
+	<Provider store={store}>
+		<App />
+	</Provider>,
+	document.getElementById("app")
 );

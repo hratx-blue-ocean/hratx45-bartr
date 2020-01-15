@@ -1,9 +1,7 @@
-import userDb from '../dummy_data/users';
-
-export default (state = { ...userDb[2] }, action) => {
+export default (state = '', action) => {
   switch (action.type) {
-    case 'SET_USER':
-      return { ...userDb[action.id] };
+    case 'TESTING_TESTING':
+      return action.payload;
     default:
       return state;
   }
