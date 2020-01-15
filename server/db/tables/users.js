@@ -27,9 +27,16 @@ const getUserDataByUsername = userName => {
   return pool.query({ text: sql });
 };
 
+const getUsernameById = userId => {
+  return pool.query({
+    text: `SELECT username FROM users WHERE userid=${userId}`
+  });
+};
+
 module.exports = {
   addNewUser,
   getHashByUsername,
   getUserDataById,
-  getUserDataByUsername
+  getUserDataByUsername,
+  getUsernameById
 };

@@ -61,11 +61,20 @@ const getProductsByProximityByLongLat = (longitude, latitude, miles) => {
   return pool.query({ text: sql });
 };
 
+const addNewProduct = item => {
+  let sql = `INSERT INTO users (user_id, category_id, product_name, product_description, value, up_for_trade, sold, posted_date)
+   VALUES ('${item.user_id}', '${item.category_id}', '${item.name}, '${item.description}', '${item.value}', 
+   'TRUE', 'FALSE', ${item.posted_date});`;
+  return pool.query({ text: sql });
+};
+//not currently handling desired trades
+
 module.exports = {
   getProductById,
   getProductsByCategory,
   getProductsByUser,
   getProductsByProximityByUserId,
   getProductsByProximityByLongLat,
-  getProductPhotosById
+  getProductPhotosById,
+  addNewProduct
 };
