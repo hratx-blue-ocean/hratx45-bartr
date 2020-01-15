@@ -13,6 +13,7 @@ import {
 
 import { connect, useSelector } from "react-redux";
 import { fetchProductsTest, getLocation } from "../actions/locationActions";
+import "../assets/styles/mattstyles.scss";
 
 const HomeScreen = props => {
   const username = useSelector(store => store.username);
@@ -49,7 +50,7 @@ const HomeScreen = props => {
         </MDBRow>
       </MDBContainer>
       <MDBContainer className="mt-8">
-        <MDBRow className>
+        <MDBRow>
           <MDBCol md="6">
             <MDBNavLink
               to={
