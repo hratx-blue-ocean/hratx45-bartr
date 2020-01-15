@@ -10,7 +10,7 @@ const getProductById = productId => {
 /* Gets all photos for product by id*/
 const getProductPhotosById = productId => {
   return pool.query({
-    text: `select * from images_test where product_id = ${productId}`
+    text: `select * from images_test where product_id = ${productId};`
   });
 };
 
@@ -24,7 +24,7 @@ const getProductsByCategory = categoryId => {
 /* Returns all products by user id */
 const getProductsByUser = userId => {
   return pool.query({
-    text: `select * from products where user_id = ${userId}`
+    text: `select * from products where user_id = ${userId} and up_for_trade='True'`
   });
 };
 

@@ -11,6 +11,7 @@ if (process.env.NODE_ENV === 'production') {
     password: process.env.POSTGRES_PASSWORD,
     database: process.env.POSTGRES_DATABASE
   }
+  
 } else {
   config = require('./config');
 }

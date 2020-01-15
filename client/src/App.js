@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./components/navbar";
 import HomeScreen from "./screens/HomeScreen.jsx";
 import SignupScreen from "./screens/SignupScreen.jsx";
+import LoginScreen from "./screens/LoginScreen.jsx";
 import UserProfile from "./screens/userProfileScreen.jsx";
 import FeedScreen from "../src/screens/FeedScreen.jsx";
 import ItemDetailScreen from "./screens/ItemDetailScreen";
@@ -10,15 +11,14 @@ import UploadItemScreen from "./screens/UploadItemScreen";
 import MakeOfferScreen from "./screens/MakeOfferScreen";
 import TestingScreen from "./screens/testing/TestingScreen";
 
+import MessagesScreen from "./screens/MessagesScreen";
 class App extends Component {
   render() {
     return (
       <Router>
         <Navbar />
-        {/* <MessagesScreen /> */}
-        <FeedScreen />
         {/* <ItemDetailPage /> */}
-        <TestingScreen />
+        {/* <TestingScreen /> */}
         <Switch>
           <Route exact path="/dist/">
             <HomeScreen />
@@ -34,6 +34,9 @@ class App extends Component {
           </Route>
           <Route exact path="/dist/ItemDetail">
             <ItemDetailScreen />
+          </Route>
+          <Route exact path="/dist/messages">
+            <MessagesScreen />
           </Route>
         </Switch>
       </Router>
