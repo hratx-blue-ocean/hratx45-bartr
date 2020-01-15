@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Navbar from "./components/navbar";
+import Navbar from "./components/Navbar";
 import HomeScreen from "./screens/HomeScreen.jsx";
 import SignupScreen from "./screens/SignupScreen.jsx";
 import LoginScreen from "./screens/LoginScreen.jsx";
@@ -10,6 +10,7 @@ import ItemDetailScreen from "./screens/ItemDetailScreen";
 import UploadItemScreen from "./screens/UploadItemScreen";
 import MakeOfferScreen from "./screens/MakeOfferScreen";
 import MessagesScreen from "./screens/MessagesScreen";
+import UpForTradeScreen from "./screens/UpForTradeScreen";
 import PastTransactionsScreen from "./screens/PastTransactionsScreen";
 
 class App extends Component {
@@ -17,10 +18,8 @@ class App extends Component {
 		return (
 			<Router>
 				<Navbar />
-
 				{/* <ItemDetailPage /> */}
 				{/* <!--<TestingScreen />  */}
-
 				<Switch>
 					<Route exact path="/dist/">
 						<HomeScreen />
@@ -49,7 +48,10 @@ class App extends Component {
 					<Route exact path="/dist/messages">
 						<MessagesScreen />
 					</Route>
-					<Route exact path="/dist/pasttransactions">
+					<Route exact path="/dist/trade">
+						<UpForTradeScreen />
+					</Route>
+					<Route exact path="/dist/past-transactions">
 						<PastTransactionsScreen />
 					</Route>
 				</Switch>
@@ -57,5 +59,4 @@ class App extends Component {
 		);
 	}
 }
-
 export default App;
