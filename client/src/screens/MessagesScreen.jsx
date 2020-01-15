@@ -31,14 +31,10 @@ class Messages extends React.Component {
         let thread1 = [];
         let thread2 = [];
         for (let i = 0; i < data.length; i++) {
-          if (
-            data[i].sender_id < this.state.currentUser ||
-            data[i].recipient_id < this.state.currentUser
-          ) {
-            thread1.push(data[i]);
-          } else {
-            thread2.push(data[i]);
-          }
+          data[i].sender_id < this.state.currentUser ||
+          data[i].recipient_id < this.state.currentUser
+            ? thread1.push(data[i])
+            : thread2.push(data[i]);
         }
         return this.setState({
           messageStrings: [thread1, thread2]

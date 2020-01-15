@@ -34,6 +34,7 @@ class FeedScreen extends React.Component {
     this.setState(
       {
         filterOn: true,
+        currentFilterText: event,
         error: null,
         productHoldWhileFiltered: this.state.productsToDisplay
       },
@@ -45,8 +46,7 @@ class FeedScreen extends React.Component {
             sortedArr[arr[i].value] = arr[i];
           }
           this.setState({
-            productsToDisplay: sortedArr.filter(a => a !== undefined).reverse(),
-            currentFilterText: event
+            productsToDisplay: sortedArr.filter(a => a !== undefined).reverse()
           });
         }
         if (event === "Value (Lowest First)") {
@@ -56,8 +56,7 @@ class FeedScreen extends React.Component {
             sortedArr[arr[i].value] = arr[i];
           }
           this.setState({
-            productsToDisplay: sortedArr.filter(a => a !== undefined),
-            currentFilterText: event
+            productsToDisplay: sortedArr.filter(a => a !== undefined)
           });
         }
         if (event === "Distance") {
@@ -70,8 +69,7 @@ class FeedScreen extends React.Component {
             (a, b) => Date.parse(a.posted_date) - Date.parse(b.posted_date)
           );
           this.setState({
-            productsToDisplay: newArr,
-            currentFilterText: event
+            productsToDisplay: newArr
           });
         }
         if (event === "Date (Newest First)") {
@@ -81,8 +79,7 @@ class FeedScreen extends React.Component {
             (a, b) => Date.parse(b.posted_date) - Date.parse(a.posted_date)
           );
           this.setState({
-            productsToDisplay: newArr,
-            currentFilterText: event
+            productsToDisplay: newArr
           });
         }
       }
