@@ -10,6 +10,22 @@ import paperclips from '../apis/paperclips';
 // const singupNewUser()
 
 /* Authenticate Username and Password. Returns a boolean. */
+<<<<<<< HEAD
+// export const authenticateUser = (username, password) => {
+//   return async (dispatch, getState) => {
+//     const response = await paperclips.get("/users/authentication", {
+//       params: {
+//         username: username,
+//         password: password
+//       }
+//     });
+//     dispatch({
+//       type: "AUTHENTICATE_USER",
+//       payload: response.data
+//     });
+//   };
+// };
+=======
 export const authenticateUser = (username, password) => {
   return async (dispatch, getState) => {
     const response = await paperclips.get('/users/authentication', {
@@ -24,6 +40,7 @@ export const authenticateUser = (username, password) => {
     });
   };
 };
+>>>>>>> 6ae7925d8e125622e37ef25d45f99f6b42c2fccb
 
 export const fetchUserInformationByUsername = username => {
   return async (dispatch, getState) => {
