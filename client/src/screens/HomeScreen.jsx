@@ -9,7 +9,7 @@ import {
 } from "mdbreact";
 
 import { connect } from "react-redux";
-import { fetchProductsTest, getLocation } from "../actions";
+import { fetchProductsTest, getLocation } from "../actions/locationActions";
 
 const HomeScreen = props => {
   return (

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import data from "../dummy_data/users.js";
 import {
   MDBBtn,
   MDBCard,
@@ -18,6 +19,7 @@ import {
 //author -- Matt Lucas
 
 const UserProfile = ({}) => {
+  console.log(data);
   const [collapse1, setCollapse1] = useState(false);
   const [collapse2, setCollapse2] = useState(false);
   return (
