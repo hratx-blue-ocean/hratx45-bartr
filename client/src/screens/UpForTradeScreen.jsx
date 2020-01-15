@@ -9,7 +9,7 @@ import TradeItem from '../components/TradeItem';
 import '../assets/styles/upForTradeScreen.scss';
 
 const UpForTradeScreen = () => {
-  const user = useSelector(store => store.user);
+  const user = userDb[2];
   console.log(user);
   const [searchTerm, setSearchTerm] = useState('');
   return (
