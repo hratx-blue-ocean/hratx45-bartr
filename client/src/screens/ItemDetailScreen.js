@@ -22,7 +22,7 @@ class ItemDetailScreen extends PureComponent {
 
   componentDidMount() {
     let {id} = useParams();
-    this.props.fetchProductsByProductId(id);
+    this.props.fetchProductsByProductId(parseInt(id));
   }
 
   componentDidUpdate() {
