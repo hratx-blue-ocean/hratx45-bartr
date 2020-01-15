@@ -1,12 +1,16 @@
 import React, { Component } from "react";
 import { MDBBtn, MDBContainer, MDBInput } from "mdbreact";
+import { Link } from "react-router-dom";
+import { login } from "../actions/userActions";
+import { connect } from "react-redux";
 
 class LoginScreen extends Component {
 	constructor() {
 		super();
 		this.state = {
 			username: "",
-			password: ""
+			password: "",
+			authenticate: false
 		};
 
 		this.usernameHandler = this.usernameHandler.bind(this);
@@ -29,12 +33,12 @@ class LoginScreen extends Component {
 	}
 
 	clickHandler() {
-		console.log("click!");
+		this.props.login("collin");
 	}
 
 	render() {
 		return (
-			<MDBContainer id="login-screen">
+			<MDBContainer id="login-screen" fluid>
 				<div className="login-container">
 					<MDBContainer>Login</MDBContainer>
 					<form className="login-form">
@@ -58,9 +62,11 @@ class LoginScreen extends Component {
 							error="wrong"
 							success="right"
 						/>
-						<MDBBtn color="default" onClick={this.clickHandler}>
-							Login
-						</MDBBtn>
+						<Link to="/dist/feed">
+							<MDBBtn color="default" onClick={this.clickHandler}>
+								Login
+							</MDBBtn>
+						</Link>
 					</form>
 				</div>
 			</MDBContainer>
@@ -68,4 +74,5 @@ class LoginScreen extends Component {
 	}
 }
 
-export default LoginScreen;
+// * mapstatetoprops, mapdispatchtoprops (action creators)
+export default connect(null, { login })(LoginScreen);

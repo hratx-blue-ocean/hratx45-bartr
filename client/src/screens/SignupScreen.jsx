@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { MDBBtn, MDBContainer, MDBInput } from "mdbreact";
+import { MDBBtn, MDBContainer, MDBInput, MDBFileInput } from "mdbreact";
+import { Link } from "react-router-dom";
 
 class SignupScreen extends Component {
 	constructor() {
@@ -10,7 +11,8 @@ class SignupScreen extends Component {
 			username: "",
 			password: "",
 			email: "",
-			zipcode: ""
+			zipcode: "",
+			image: null
 		};
 
 		this.firstNameHandler = this.firstNameHandler.bind(this);
@@ -19,58 +21,78 @@ class SignupScreen extends Component {
 		this.passwordHandler = this.passwordHandler.bind(this);
 		this.emailHandler = this.emailHandler.bind(this);
 		this.zipcodeHandler = this.zipcodeHandler.bind(this);
-		this.clickHandler = this.clickHandler.bind(this);
+		this.uploadHandler = this.uploadHandler.bind(this);
+		this.submit = this.submit.bind(this);
 	}
 
 	firstNameHandler(e) {
 		let firstName = e.target.value;
-		this.setState = {
+		this.setState({
 			firstName: firstName
-		};
+		});
 	}
 
 	lastNameHandler(e) {
 		let lastName = e.target.value;
-		this.setState = {
+		this.setState({
 			lastName: lastName
-		};
+		});
 	}
 
 	usernameHandler(e) {
 		let username = e.target.value;
-		this.setState = {
+		this.setState({
 			username: username
-		};
+		});
 	}
 
 	passwordHandler(e) {
 		let password = e.target.value;
-		this.setState = {
+		this.setState({
 			password: password
-		};
+		});
 	}
 
 	emailHandler(e) {
 		let email = e.target.value;
-		this.setState = {
+		this.setState({
 			email: email
-		};
+		});
 	}
 
 	zipcodeHandler(e) {
 		let zipcode = e.target.value;
-		this.setState = {
+		this.setState({
 			zipcode: zipcode
-		};
+		});
 	}
 
-	clickHandler() {
-		console.log("click!");
+	uploadHandler(e) {
+		let image = e;
+		this.setState(
+			{
+				image: image
+			},
+			() => {
+				console.log(this.state.image);
+			}
+		);
+	}
+
+	submit() {
+		let data = new FormData();
+
+		data.append("first name", this.state.firstName);
+		data.append("last name", this.state.lastName);
+		data.append("username", this.state.username);
+		data.append("password", this.state.password);
+		data.append("email", this.state.email);
+		data.append("zipcode", this.state.zipcode);
 	}
 
 	render() {
 		return (
-			<MDBContainer id="signup-screen">
+			<MDBContainer id="signup-screen" fluid>
 				<div className="container">
 					<MDBContainer>Sign-Up</MDBContainer>
 					<form className="signup-form">
@@ -94,6 +116,7 @@ class SignupScreen extends Component {
 						<MDBInput
 							className="password"
 							label="Password"
+							type="password"
 							onChange={this.passwordHandler}
 						/>
 						<MDBInput
@@ -106,9 +129,16 @@ class SignupScreen extends Component {
 							label="Zipcode"
 							onChange={this.zipcodeHandler}
 						/>
-						<MDBBtn color="default" onClick={this.clickHandler}>
-							Sign-Up
-						</MDBBtn>
+						<MDBContainer>Upload Profile Picture</MDBContainer>
+						<MDBFileInput
+							getValue={this.uploadHandler}
+							btnTitle="Choose File"
+							textFieldTitle="Upload Image"
+							btnColor="danger"
+						/>
+						<Link to="/dist/login">
+							<MDBBtn btnColor="default">Sign-Up</MDBBtn>
+						</Link>
 					</form>
 				</div>
 			</MDBContainer>

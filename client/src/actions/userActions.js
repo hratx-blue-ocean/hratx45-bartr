@@ -52,3 +52,13 @@ export const fetchUserInformationById = userId => {
     });
   };
 };
+
+// * Ben and Collin Login Action
+export const login = username => {
+  return (dispatch, getState) => {
+    dispatch({
+      type: "TESTING_TESTING",
+      payload: username
+    });
+  };
+};

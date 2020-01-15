@@ -5,7 +5,7 @@ const db = require("../db/tables/users.js");
 
 // const bcrypt = require("bcrypt");
 // const saltRounds = 12;
-//
+
 // router.post("/signup", (req, res) => {
 //   const user = req.query.userData;
 //   const pw = user.password;
@@ -25,7 +25,7 @@ const db = require("../db/tables/users.js");
 //     }
 //   });
 // });
-//
+
 // router.get("/authentication", (req, res) => {
 //   let username = req.query.username;
 //   let pw = req.query.password;
@@ -46,14 +46,20 @@ router.get("/userInformationUsername", (req, res) => {
   let username = req.query.username;
   db.getUserDataByUsername(username)
     .then(data => res.status(200).send(data))
-    .catch(error => res.status(400).send(error));
+    .catch(error => {
+      console.log(error);
+      res.status(400).send(error);
+    });
 });
 
 router.get("/userInformationId", (req, res) => {
   let userId = req.query.id;
   db.getUserDataById(userId)
     .then(data => res.status(200).send(data))
-    .catch(error => res.status(400).send(error));
+    .catch(error => {
+      console.log(error);
+      res.status(400).send(error);
+    });
 });
 
 module.exports = router;

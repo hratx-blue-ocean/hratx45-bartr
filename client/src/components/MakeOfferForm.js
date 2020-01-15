@@ -72,19 +72,13 @@ export default class MakeOfferForm extends PureComponent {
     availableItems[indexMap[id]].selected = !availableItems[indexMap[id]]
       .selected;
 
-    this.setState({ availableItems }, () => {
-      console.log(
-        "New state: ",
-        this.state.availableItems[indexMap[id]].selected
-      );
-      this.forceUpdate();
-    });
+    this.setState({ availableItems }, () => this.forceUpdate());
   }
 
   submit() {
     let data = new FormData();
 
-    // {offerer: "Collin", offeree: "Alyssa", desiredItem: ""}
+    // Offer: {id: 1, offerer: 43, offeree: 27, desiredItem: 7, offeredItem: 1, offeredItem: 2, date: new Date(), message: "Hi! When are you free to meet up and exchange?" }
 
     data.append("date", new Date());
     data.append("desiredItem", this.state.name);
