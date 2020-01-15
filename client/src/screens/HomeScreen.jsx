@@ -50,7 +50,7 @@ const HomeScreen = props => {
         </MDBRow>
       </MDBContainer>
       <MDBContainer className="mt-8">
-        <MDBRow className>
+        <MDBRow>
           <MDBCol md="6">
             <MDBNavLink
               to={

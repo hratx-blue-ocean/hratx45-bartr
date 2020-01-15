@@ -1,0 +1,19 @@
+#past-transactions {
+	.past-transaction-item {
+		display: flex;
+		justify-content: space-between;
+	}
+	.transaction-info-item {
+		display: flex;
+		flex-direction: row;
+	}
+	.labels {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+	}
+	.transaction-info-label {
+		display: flex;
+		flex-direction: row;
+	}
+}
