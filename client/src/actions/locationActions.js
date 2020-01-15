@@ -1,31 +1,26 @@
-
-
 export const getLocation = () => {
-  return async (dispatch, getState) =>  {
+  return async (dispatch, getState) => {
     if (!navigator.geolocation) {
-      console.log(`FILE: locationActions.js getLocation() Get location not supported`);
+      console.log(
+        `FILE: locationActions.js getLocation() Get location not supported`
+      );
     } else {
       navigator.geolocation.getCurrentPosition(
-        (location) => {
+        location => {
           console.log(location);
-          
+
           dispatch({
-            type: 'GET_LOCATION',
+            type: "GET_LOCATION",
             payload: {
               latitude: location.coords.latitude,
-              longitude: location.coords.longitude,
+              longitude: location.coords.longitude
             }
           });
         },
-        (error) => {
+        error => {
           console.error(`FILE: locationActions.js () | ERROR1: \n`, error);
-          
         }
       );
-    
     }
-  }
-
-  
+  };
 };
-
