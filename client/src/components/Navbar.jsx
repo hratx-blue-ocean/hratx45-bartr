@@ -1,8 +1,8 @@
 // https://mdbootstrap.com/docs/react/navigation/navbar/
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { BrowserRouter as Router, Link, useHistory } from "react-router-dom";
-import "../assets/styles/navbar.scss";
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { BrowserRouter as Router, Link, useHistory } from 'react-router-dom';
+import '../assets/styles/navbar.scss';
 import {
   MDBNavbar,
   MDBNavbarBrand,
@@ -13,22 +13,22 @@ import {
   MDBContainer,
   MDBHamburgerToggler,
   MDBBtn
-} from "mdbreact";
+} from 'mdbreact';
 
-const collapseType = "collapse2";
+const collapseType = 'collapse2';
 
 const Navbar = ({ title, location }) => {
   const [isOpen, setOpen] = useState(false);
   const history = useHistory();
-  console.log("re-render, browser location: ", location);
+  console.log('re-render, browser location: ', location);
   // const newMessages = useSelector(store => store.messages).unread;
   return (
-    <MDBNavbar className="main-color" dark>
+    <MDBNavbar id="nav-bar" className="main-color" dark>
       <MDBContainer>
         <MDBNavbarNav left>
           <MDBNavItem>
             <MDBBtn className="main-color" onClick={() => history.goBack()}>
-              {"<=="}
+              {'<=='}
             </MDBBtn>
           </MDBNavItem>
         </MDBNavbarNav>

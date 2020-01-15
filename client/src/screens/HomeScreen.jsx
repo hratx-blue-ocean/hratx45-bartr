@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   MDBBtn,
   MDBRow,
@@ -6,10 +6,10 @@ import {
   MDBContainer,
   MDBMask,
   MDBView
-} from "mdbreact";
+} from 'mdbreact';
 
-import { connect } from "react-redux";
-import { fetchProductsTest, getLocation } from "../actions";
+import { connect } from 'react-redux';
+import { fetchProductsTest, getLocation } from '../actions';
 
 const HomeScreen = props => {
   return (
