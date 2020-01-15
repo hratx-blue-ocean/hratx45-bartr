@@ -4,7 +4,16 @@ import { MDBBtn, MDBContainer, MDBInput, MDBListGroupItem } from "mdbreact";
 const PastTransaction = props => {
 	return (
 		<MDBContainer key={props.offerID} fluid>
-			<MDBListGroupItem key={props.offerID}>Hello</MDBListGroupItem>
+			<MDBListGroupItem
+				key={props.offerID}
+				className="past-transaction-item"
+			>
+				<div className="transaction-info-item">OfferID</div>
+				<div className="transaction-info-item">Item</div>
+				<div className="transaction-info-item">Offerer</div>
+				<div className="transaction-info-item">Offeree</div>
+				<div className="transaction-info-item">Status</div>
+			</MDBListGroupItem>
 		</MDBContainer>
 	);
 };

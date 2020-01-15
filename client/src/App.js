@@ -23,8 +23,7 @@ class App extends Component {
 
 				<Switch>
 					<Route exact path="/dist/">
-						{/* <HomeScreen /> */}
-						<PastTransactionsScreen />
+						<HomeScreen />
 					</Route>
 					<Route exact path="/dist/signup">
 						<SignupScreen />
@@ -40,6 +39,12 @@ class App extends Component {
 					</Route>
 					<Route exact path="/dist/ItemDetail">
 						<ItemDetailScreen />
+					</Route>
+					<Route exact path="/dist/makeOffer">
+						<MakeOfferScreen />
+					</Route>
+					<Route exact path="/dist/uploadItem">
+						<UploadItemScreen />
 					</Route>
 					<Route exact path="/dist/messages">
 						<MessagesScreen />
