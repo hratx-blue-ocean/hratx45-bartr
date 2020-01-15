@@ -216,6 +216,7 @@ const homepageItem = {
     item_id: "int"
 }    
 
+//Probably not using this
 const loggedInUserInfo = {
     id: "int",
     userProfile: {

@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import {
   fetchProductsByProductId,
   fetchProductsByUserIdAndProximity
@@ -21,7 +21,8 @@ class ItemDetailScreen extends PureComponent {
   }
 
   componentDidMount() {
-    this.props.fetchProductsByProductId(5);
+    let {id} = useParams();
+    this.props.fetchProductsByProductId(id);
   }
 
   componentDidUpdate() {
