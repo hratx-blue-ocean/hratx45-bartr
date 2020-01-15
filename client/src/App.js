@@ -15,8 +15,6 @@ class App extends Component {
     return (
       <Router>
         <Navbar />
-        <MessagesScreen />
-        {/* <FeedScreen /> */}
         {/* <ItemDetailPage /> */}
         {/* <!--<TestingScreen />  */}
         <Switch>
@@ -34,6 +32,9 @@ class App extends Component {
           </Route>
           <Route exact path="/dist/ItemDetail">
             <ItemDetailScreen />
+          </Route>
+          <Route exact path="/dist/messages">
+            <MessagesScreen />
           </Route>
         </Switch>
       </Router>

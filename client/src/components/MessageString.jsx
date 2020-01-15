@@ -26,6 +26,7 @@ class MessageString extends React.Component {
     return this.state.messageOpen ? (
       <MDBContainer id="message-string" value="5">
         <MDBContainer
+          id="topPartOfMessage"
           style={{
             display: "flex",
             flexDirection: "row",
