@@ -80,14 +80,7 @@ const UserProfile = ({}) => {
           </MDBCollapseHeader>
           <MDBCollapse id="collapse1" isOpen={collapse1}>
             <MDBCardBody>
-              <p>
-                Anim pariatur cliche reprehenderit, enim eiusmod high life
-                accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                non cupidatat skateboard dolor brunch. Food truck quinoa
-                nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua
-                put a bird on it squid single-origin coffee nulla assumenda
-                shoreditch et.
-              </p>
+              <p>Coming in Version 2.0!</p>
             </MDBCardBody>
           </MDBCollapse>
 
@@ -100,12 +93,11 @@ const UserProfile = ({}) => {
           <MDBCollapse id="collapse2" isOpen={collapse2}>
             <MDBCardBody>
               <p>
-                Anim pariatur cliche reprehenderit, enim eiusmod high life
-                accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                non cupidatat skateboard dolor brunch. Food truck quinoa
-                nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua
-                put a bird on it squid single-origin coffee nulla assumenda
-                shoreditch et.
+                You traded a paperclip for a house
+                <hr />
+                You traded a laptop for a used laptop
+                <hr />
+                You traded a pizza for a pineapple
               </p>
             </MDBCardBody>
           </MDBCollapse>
