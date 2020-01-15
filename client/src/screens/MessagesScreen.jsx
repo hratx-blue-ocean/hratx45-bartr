@@ -16,9 +16,11 @@ class Messages extends React.Component {
     super(props);
     this.state = {
       currentUser: 4,
-      messageStrings: null
+      messageStrings: null,
+      messageStringOpen: null
     };
     this.getUserMessageStrings = this.getUserMessageStrings.bind(this);
+    this.openMessage = this.openMessage.bind(this);
   }
 
   getUserMessageStrings() {
@@ -42,6 +44,13 @@ class Messages extends React.Component {
       });
   }
 
+  openMessage(event) {
+    console.log("e8h");
+    this.setState({
+      messageStringOpen: event.target.value
+    });
+  }
+
   componentDidMount() {
     this.getUserMessageStrings();
   }
@@ -58,6 +67,8 @@ class Messages extends React.Component {
                     key={key}
                     num={key}
                     messageString={messageString}
+                    openMessage={this.openMessage}
+                    messageStringOpen={this.state.messageStringOpen}
                   />
                 </MDBContainer>
               ))

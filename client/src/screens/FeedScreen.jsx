@@ -145,15 +145,16 @@ class FeedScreen extends React.Component {
       .catch(console.log);
   }
 
-  componentDidMount() {
-    this.getProducts();
-  }
-
   handleChange(event) {
     this.setState({
       input: event.target.value
     });
   }
+
+  componentDidMount() {
+    this.getProducts();
+  }
+
   render() {
     return (
       <MDBContainer id="feed-screen">
