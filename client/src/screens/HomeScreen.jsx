@@ -12,7 +12,8 @@ import {
 } from "mdbreact";
 
 import { connect, useSelector } from "react-redux";
-import { fetchProductsTest, getLocation } from "../actions/locationActions";
+import { getLocation } from "../actions/locationActions";
+import { fetchProductsTest } from "../actions/productsActions";
 
 const HomeScreen = props => {
   const username = useSelector(store => store.username);
