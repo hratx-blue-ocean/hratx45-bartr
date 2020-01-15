@@ -19,10 +19,10 @@ const FeedScreenListItem = props =>
       {/* <MDBContainer className="font-italic">
         {props.item.product_description}
       </MDBContainer> */}
-      <MDBContainer>Value: {props.item.value}</MDBContainer>
+      <MDBContainer>Value: {+props.item.value}</MDBContainer>
       <MDBContainer>Date Posted: {props.item.posted_date}</MDBContainer>
       <MDBContainer>
-        Available? {props.item.up_for_trade ? "Yes" : "No"}
+        Available? {props.item.up_for_trade === "True" ? "Yes" : "No"}
       </MDBContainer>
     </MDBContainer>
   ) : null;
