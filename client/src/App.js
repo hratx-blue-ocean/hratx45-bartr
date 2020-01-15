@@ -36,7 +36,7 @@ class App extends Component {
 					<Route exact path="/dist/profile">
 						<UserProfile />
 					</Route>
-					<Route exact path="/dist/ItemDetail">
+					<Route exact path="/dist/ItemDetail/:id">
 						<ItemDetailScreen />
 					</Route>
 					<Route exact path="/dist/makeOffer">
