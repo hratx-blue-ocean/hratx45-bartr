@@ -70,18 +70,6 @@ export default class UploadItemForm extends PureComponent {
     data.append("desiredTrade", this.state.desiredTrade);
     data.append("timeConstraints", this.state.timeConstraints);
     this.state.fileList.forEach(file => data.append("image", file, file.name));
-<<<<<<< HEAD
-    //test route for AW
-    axios
-      .post(
-        "http://localhost:3000/api/products/products",
-        data.getBuffer(),
-        formData.getHeaders()
-      )
-      .then(result => console.log(result))
-      .catch(error => console.log(error));
-=======
->>>>>>> 8890bf9ad91a837cead9fc5fb7dcdee0a2257f4b
   }
 
   render() {
