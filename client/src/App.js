@@ -10,19 +10,27 @@ import ItemDetailScreen from "./screens/ItemDetailScreen";
 import UploadItemScreen from "./screens/UploadItemScreen";
 import MakeOfferScreen from "./screens/MakeOfferScreen";
 import MessagesScreen from "./screens/MessagesScreen";
+import PastTransactionsScreen from "./screens/PastTransactionsScreen";
+
 class App extends Component {
 	render() {
 		return (
 			<Router>
 				<Navbar />
+
 				{/* <ItemDetailPage /> */}
 				{/* <!--<TestingScreen />  */}
+
 				<Switch>
 					<Route exact path="/dist/">
-						<HomeScreen />
+						{/* <HomeScreen /> */}
+						<PastTransactionsScreen />
 					</Route>
 					<Route exact path="/dist/signup">
 						<SignupScreen />
+					</Route>
+					<Route exact path="/dist/login">
+						<LoginScreen />
 					</Route>
 					<Route exact path="/dist/feed">
 						<FeedScreen />
@@ -35,6 +43,9 @@ class App extends Component {
 					</Route>
 					<Route exact path="/dist/messages">
 						<MessagesScreen />
+					</Route>
+					<Route exact path="/dist/pasttransactions">
+						<PastTransactionsScreen />
 					</Route>
 				</Switch>
 			</Router>
