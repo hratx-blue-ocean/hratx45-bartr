@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   MDBBtn,
   MDBRow,
@@ -9,11 +9,11 @@ import {
   MDBJumbotron,
   MDBCardTitle,
   MDBNavLink
-} from "mdbreact";
+} from 'mdbreact';
 
-import { connect, useSelector } from "react-redux";
-import { getLocation } from "../actions/locationActions";
-import { fetchProductsTest } from "../actions/productsActions";
+import { connect, useSelector } from 'react-redux';
+import { getLocation } from '../actions/locationActions';
+import { fetchProductsTest } from '../actions/productsActions';
 
 const HomeScreen = props => {
   const username = useSelector(store => store.username);
@@ -56,7 +56,7 @@ const HomeScreen = props => {
               to={
                 username.length > 0
                   ? `/dist/ItemDetail/${props.item_id}`
-                  : "/dist/signup"
+                  : '/dist/signup'
               }
             >
               <MDBView hover>
@@ -78,7 +78,7 @@ const HomeScreen = props => {
               to={
                 username.length > 0
                   ? `/dist/ItemDetail/${props.item_id}`
-                  : "/dist/signup"
+                  : '/dist/signup'
               }
             >
               <MDBView hover>
@@ -100,7 +100,7 @@ const HomeScreen = props => {
               to={
                 username.length > 0
                   ? `/dist/ItemDetail/${props.item_id}`
-                  : "/dist/signup"
+                  : '/dist/signup'
               }
             >
               <MDBView hover>
@@ -122,7 +122,7 @@ const HomeScreen = props => {
               to={
                 username.length > 0
                   ? `/dist/ItemDetail/${props.item_id}`
-                  : "/dist/signup"
+                  : '/dist/signup'
               }
             >
               <MDBView hover>
@@ -144,7 +144,7 @@ const HomeScreen = props => {
               to={
                 username.length > 0
                   ? `/dist/ItemDetail/${props.item_id}`
-                  : "/dist/signup"
+                  : '/dist/signup'
               }
             >
               <MDBView hover>
@@ -166,7 +166,7 @@ const HomeScreen = props => {
               to={
                 username.length > 0
                   ? `/dist/ItemDetail/${props.item_id}`
-                  : "/dist/signup"
+                  : '/dist/signup'
               }
             >
               <MDBView hover>
@@ -188,7 +188,7 @@ const HomeScreen = props => {
               to={
                 username.length > 0
                   ? `/dist/ItemDetail/${props.item_id}`
-                  : "/dist/signup"
+                  : '/dist/signup'
               }
             >
               <MDBView hover>
@@ -210,7 +210,7 @@ const HomeScreen = props => {
               to={
                 username.length > 0
                   ? `/dist/ItemDetail/${props.item_id}`
-                  : "/dist/signup"
+                  : '/dist/signup'
               }
             >
               <MDBView hover>
@@ -232,7 +232,7 @@ const HomeScreen = props => {
               to={
                 username.length > 0
                   ? `/dist/ItemDetail/${props.item_id}`
-                  : "/dist/signup"
+                  : '/dist/signup'
               }
             >
               <MDBView hover>
