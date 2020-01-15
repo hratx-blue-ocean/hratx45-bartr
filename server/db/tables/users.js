@@ -16,20 +16,27 @@ const getHashByUsername = username => {
 };
 
 const getUserDataById = userId => {
-  let sql = `SELECT id, username, email, first_name, last_name, phone_number, 
-  age, state, address, city, zip_code, latitude, longitude FROM users WHERE id=${userId}`;
+  let sql = `SELECT user_id, username, email, first_name, last_name, phone_number, 
+  age, profile_photo, state, address, city, zip_code, latitude, longitude FROM users WHERE user_id=${userId}`;
   return pool.query({ text: sql });
 };
 
 const getUserDataByUsername = userName => {
-  let sql = `SELECT id, username, email, first_name, last_name, phone_number, 
-    age, state, address, city, zip_code, latitude, longitude FROM users WHERE username=${userName}`;
+  let sql = `SELECT user_id, username, email, first_name, last_name, phone_number, 
+    age, profile_photo,  state, address, city, zip_code, latitude, longitude FROM users WHERE username='${userName}'`;
   return pool.query({ text: sql });
+};
+
+const getUsernameById = userId => {
+  return pool.query({
+    text: `SELECT username FROM users WHERE user_id=${userId}`
+  });
 };
 
 module.exports = {
   addNewUser,
   getHashByUsername,
   getUserDataById,
-  getUserDataByUsername
+  getUserDataByUsername,
+  getUsernameById
 };
