@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import data from "../dummy_data/users.js";
 import {
   MDBBtn,
   MDBCard,
@@ -13,11 +14,13 @@ import {
   MDBCollapse,
   MDBCollapseHeader,
   MDBListGroup,
-  MDBListGroupItem
+  MDBListGroupItem,
+  MDBNavLink
 } from "mdbreact";
 //author -- Matt Lucas
 
 const UserProfile = ({}) => {
+  console.log(data);
   const [collapse1, setCollapse1] = useState(false);
   const [collapse2, setCollapse2] = useState(false);
   return (
@@ -62,7 +65,9 @@ const UserProfile = ({}) => {
       </MDBRow>
       <MDBRow>
         <MDBCol className="col-test">
-          <MDBBtn>Upload an Item</MDBBtn>
+          <MDBNavLink to="/dist/upload">
+            <MDBBtn>Upload an Item</MDBBtn>
+          </MDBNavLink>
         </MDBCol>
       </MDBRow>
       <MDBContainer>
@@ -75,14 +80,7 @@ const UserProfile = ({}) => {
           </MDBCollapseHeader>
           <MDBCollapse id="collapse1" isOpen={collapse1}>
             <MDBCardBody>
-              <p>
-                Anim pariatur cliche reprehenderit, enim eiusmod high life
-                accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                non cupidatat skateboard dolor brunch. Food truck quinoa
-                nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua
-                put a bird on it squid single-origin coffee nulla assumenda
-                shoreditch et.
-              </p>
+              <p>Coming in Version 2.0!</p>
             </MDBCardBody>
           </MDBCollapse>
 
@@ -95,12 +93,11 @@ const UserProfile = ({}) => {
           <MDBCollapse id="collapse2" isOpen={collapse2}>
             <MDBCardBody>
               <p>
-                Anim pariatur cliche reprehenderit, enim eiusmod high life
-                accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                non cupidatat skateboard dolor brunch. Food truck quinoa
-                nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua
-                put a bird on it squid single-origin coffee nulla assumenda
-                shoreditch et.
+                You traded a paperclip for a house
+                <hr />
+                You traded a laptop for a used laptop
+                <hr />
+                You traded a pizza for a pineapple
               </p>
             </MDBCardBody>
           </MDBCollapse>
