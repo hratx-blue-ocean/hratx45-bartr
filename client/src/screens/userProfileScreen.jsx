@@ -25,7 +25,7 @@ const UserProfile = ({}) => {
   const [collapse2, setCollapse2] = useState(false);
   return (
     <MDBContainer>
-      <MDBRow id="red">
+      <MDBRow>
         <MDBCol className="col-test"></MDBCol>
       </MDBRow>
       <MDBRow>
@@ -34,21 +34,24 @@ const UserProfile = ({}) => {
             <MDBContainer className="col-test">
               <MDBRow>
                 <MDBCol className="col-test">
-                  <MDBCardImage src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).jpg" />
+                  <MDBCardImage
+                    src="https://ca.slack-edge.com/T2SVC7RB3-ULBGPCN2Y-ba2e48877a9b-512"
+                    className="img-fluid img-thumbnail rounded mx-auto d-block"
+                  />
                 </MDBCol>
               </MDBRow>
               <MDBRow>
                 <MDBCol className="col-test">
-                  <MDBCardTitle>City, State, Country</MDBCardTitle>
+                  <MDBCardTitle>Austin, TX</MDBCardTitle>
                 </MDBCol>
               </MDBRow>
               <MDBRow>
                 <MDBCol className="col-test">
-                  <MDBCardText>User Name</MDBCardText>
+                  <MDBCardText>Arohan Dutt</MDBCardText>
                 </MDBCol>
               </MDBRow>
               <hr />
-              <MDBRow>
+              <MDBRow className="mx-auto">
                 <MDBCol className="col-test">
                   <MDBBtn>Your Items</MDBBtn>
                 </MDBCol>
@@ -64,7 +67,7 @@ const UserProfile = ({}) => {
         </MDBCol>
       </MDBRow>
       <MDBRow>
-        <MDBCol className="col-test">
+        <MDBCol className="text-center">
           <MDBNavLink to="/dist/upload">
             <MDBBtn>Upload an Item</MDBBtn>
           </MDBNavLink>
