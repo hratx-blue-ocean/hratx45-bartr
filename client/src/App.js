@@ -11,6 +11,8 @@ import UploadItemScreen from "./screens/UploadItemScreen";
 import MakeOfferScreen from "./screens/MakeOfferScreen";
 import MessagesScreen from "./screens/MessagesScreen";
 import UpForTradeScreen from "./screens/UpForTradeScreen";
+import PastTransactionsScreen from "./screens/PastTransactionsScreen";
+
 class App extends Component {
   render() {
     return (
@@ -24,6 +26,9 @@ class App extends Component {
           </Route>
           <Route exact path="/dist/signup">
             <SignupScreen />
+          </Route>
+          <Route exact path="/dist/login">
+            <LoginScreen />
           </Route>
           <Route exact path="/dist/feed">
             <FeedScreen />
@@ -45,6 +50,9 @@ class App extends Component {
           </Route>
           <Route exact path="/dist/trade">
             <UpForTradeScreen />
+          </Route>
+          <Route exact path="/dist/past-transactions">
+            <PastTransactionsScreen />
           </Route>
         </Switch>
       </Router>

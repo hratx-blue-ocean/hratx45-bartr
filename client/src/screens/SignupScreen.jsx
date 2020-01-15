@@ -92,7 +92,7 @@ class SignupScreen extends Component {
 
 	render() {
 		return (
-			<MDBContainer id="signup-screen">
+			<MDBContainer id="signup-screen" fluid>
 				<div className="container">
 					<MDBContainer>Sign-Up</MDBContainer>
 					<form className="signup-form">
@@ -116,6 +116,7 @@ class SignupScreen extends Component {
 						<MDBInput
 							className="password"
 							label="Password"
+							type="password"
 							onChange={this.passwordHandler}
 						/>
 						<MDBInput
