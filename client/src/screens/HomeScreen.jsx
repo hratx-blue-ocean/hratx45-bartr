@@ -11,19 +11,19 @@ import {
   MDBNavLink
 } from "mdbreact";
 
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import { fetchProductsTest, getLocation } from "../actions/locationActions";
 
 const HomeScreen = props => {
+  const username = useSelector(store => store.username);
   return (
     <div>
-      Home
       <MDBContainer>
         <MDBRow>
           <MDBCol>
-            <MDBJumbotron style={{ padding: 0 }}>
+            <MDBJumbotron style={{ padding: 0, margin: 0 }}>
               <MDBCol
-                className="text-white text-center py-5 px-4 my-5"
+                className="text-white text-center py-0 px-0 my-0"
                 style={{
                   backgroundImage: `url(https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/f_auto,q_auto,w_1100/v1555444084/shape/mentalfloss/istock_000016776361_full.jpg)`
                 }}
@@ -42,8 +42,6 @@ const HomeScreen = props => {
                   <MDBBtn onClick={() => props.getLocation()}>
                     get location
                   </MDBBtn>
-                  <div>Lat: {props.location.latitude}</div>
-                  <div>Long: {props.location.longitude}</div>
                 </MDBCol>
               </MDBCol>
             </MDBJumbotron>
@@ -53,7 +51,13 @@ const HomeScreen = props => {
       <MDBContainer className="mt-8">
         <MDBRow className>
           <MDBCol md="6">
-            <MDBNavLink to="/dist/ItemDetail">
+            <MDBNavLink
+              to={
+                username.length > 0
+                  ? `/dist/ItemDetail/${props.item_id}`
+                  : "/dist/signup"
+              }
+            >
               <MDBView hover>
                 <img
                   src="https://mdbootstrap.com/img/Photos/Slides/img%20(137).jpg"
@@ -69,113 +73,177 @@ const HomeScreen = props => {
 
         <MDBRow> */}
           <MDBCol md="6">
-            <MDBView hover>
-              <img
-                src="https://mdbootstrap.com/img/Photos/Slides/img%20(137).jpg"
-                className="img-fluid"
-              />
-              <MDBMask className="flex-center">
-                <p className="white-text">Insert Item Name Here</p>
-              </MDBMask>
-            </MDBView>
+            <MDBNavLink
+              to={
+                username.length > 0
+                  ? `/dist/ItemDetail/${props.item_id}`
+                  : "/dist/signup"
+              }
+            >
+              <MDBView hover>
+                <img
+                  src="https://mdbootstrap.com/img/Photos/Slides/img%20(137).jpg"
+                  className="img-fluid"
+                />
+                <MDBMask className="flex-center" overlay="red-light">
+                  <p className="white-text">Insert Item Name Here</p>
+                </MDBMask>
+              </MDBView>
+            </MDBNavLink>
           </MDBCol>
         </MDBRow>
 
         <MDBRow>
           <MDBCol md="12">
-            <MDBView hover>
-              <img
-                src="https://mdbootstrap.com/img/Photos/Slides/img%20(137).jpg"
-                className="img-fluid"
-              />
-              <MDBMask className="flex-center">
-                <p className="white-text">Insert Item Name Here</p>
-              </MDBMask>
-            </MDBView>
+            <MDBNavLink
+              to={
+                username.length > 0
+                  ? `/dist/ItemDetail/${props.item_id}`
+                  : "/dist/signup"
+              }
+            >
+              <MDBView hover>
+                <img
+                  src="https://mdbootstrap.com/img/Photos/Slides/img%20(137).jpg"
+                  className="img-fluid"
+                />
+                <MDBMask className="flex-center" overlay="red-light">
+                  <p className="white-text">Insert Item Name Here</p>
+                </MDBMask>
+              </MDBView>
+            </MDBNavLink>
           </MDBCol>
         </MDBRow>
 
         <MDBRow>
           <MDBCol md="4">
-            <MDBView hover>
-              <img
-                src="https://mdbootstrap.com/img/Photos/Slides/img%20(137).jpg"
-                className="img-fluid"
-              />
-              <MDBMask className="flex-center">
-                <p className="white-text">Insert Item Name Here</p>
-              </MDBMask>
-            </MDBView>
+            <MDBNavLink
+              to={
+                username.length > 0
+                  ? `/dist/ItemDetail/${props.item_id}`
+                  : "/dist/signup"
+              }
+            >
+              <MDBView hover>
+                <img
+                  src="https://mdbootstrap.com/img/Photos/Slides/img%20(137).jpg"
+                  className="img-fluid"
+                />
+                <MDBMask className="flex-center" overlay="red-light">
+                  <p className="white-text">Insert Item Name Here</p>
+                </MDBMask>
+              </MDBView>
+            </MDBNavLink>
           </MDBCol>
           {/* </MDBRow>
 
         <MDBRow> */}
           <MDBCol md="4">
-            <MDBView hover>
-              <img
-                src="https://mdbootstrap.com/img/Photos/Slides/img%20(137).jpg"
-                className="img-fluid"
-              />
-              <MDBMask className="flex-center">
-                <p className="white-text">Insert Item Name Here</p>
-              </MDBMask>
-            </MDBView>
+            <MDBNavLink
+              to={
+                username.length > 0
+                  ? `/dist/ItemDetail/${props.item_id}`
+                  : "/dist/signup"
+              }
+            >
+              <MDBView hover>
+                <img
+                  src="https://mdbootstrap.com/img/Photos/Slides/img%20(137).jpg"
+                  className="img-fluid"
+                />
+                <MDBMask className="flex-center" overlay="red-light">
+                  <p className="white-text">Insert Item Name Here</p>
+                </MDBMask>
+              </MDBView>
+            </MDBNavLink>
           </MDBCol>
           {/* </MDBRow>
 
         <MDBRow> */}
           <MDBCol md="4">
-            <MDBView hover>
-              <img
-                src="https://mdbootstrap.com/img/Photos/Slides/img%20(137).jpg"
-                className="img-fluid"
-              />
-              <MDBMask className="flex-center">
-                <p className="white-text">Insert Item Name Here</p>
-              </MDBMask>
-            </MDBView>
+            <MDBNavLink
+              to={
+                username.length > 0
+                  ? `/dist/ItemDetail/${props.item_id}`
+                  : "/dist/signup"
+              }
+            >
+              <MDBView hover>
+                <img
+                  src="https://mdbootstrap.com/img/Photos/Slides/img%20(137).jpg"
+                  className="img-fluid"
+                />
+                <MDBMask className="flex-center" overlay="red-light">
+                  <p className="white-text">Insert Item Name Here</p>
+                </MDBMask>
+              </MDBView>
+            </MDBNavLink>
           </MDBCol>
         </MDBRow>
 
         <MDBRow>
           <MDBCol md="6">
-            <MDBView hover>
-              <img
-                src="https://mdbootstrap.com/img/Photos/Slides/img%20(137).jpg"
-                className="img-fluid"
-              />
-              <MDBMask className="flex-center">
-                <p className="white-text">Insert Item Name Here</p>
-              </MDBMask>
-            </MDBView>
+            <MDBNavLink
+              to={
+                username.length > 0
+                  ? `/dist/ItemDetail/${props.item_id}`
+                  : "/dist/signup"
+              }
+            >
+              <MDBView hover>
+                <img
+                  src="https://mdbootstrap.com/img/Photos/Slides/img%20(137).jpg"
+                  className="img-fluid"
+                />
+                <MDBMask className="flex-center" overlay="red-light">
+                  <p className="white-text">Insert Item Name Here</p>
+                </MDBMask>
+              </MDBView>
+            </MDBNavLink>
           </MDBCol>
           {/* </MDBRow>
 
         <MDBRow> */}
           <MDBCol md="6">
-            <MDBView hover>
-              <img
-                src="https://mdbootstrap.com/img/Photos/Slides/img%20(137).jpg"
-                className="img-fluid"
-              />
-              <MDBMask className="flex-center">
-                <p className="white-text">Insert Item Name Here</p>
-              </MDBMask>
-            </MDBView>
+            <MDBNavLink
+              to={
+                username.length > 0
+                  ? `/dist/ItemDetail/${props.item_id}`
+                  : "/dist/signup"
+              }
+            >
+              <MDBView hover>
+                <img
+                  src="https://mdbootstrap.com/img/Photos/Slides/img%20(137).jpg"
+                  className="img-fluid"
+                />
+                <MDBMask className="flex-center" overlay="red-light">
+                  <p className="white-text">Insert Item Name Here</p>
+                </MDBMask>
+              </MDBView>
+            </MDBNavLink>
           </MDBCol>
         </MDBRow>
 
         <MDBRow>
           <MDBCol md="12">
-            <MDBView hover>
-              <img
-                src="https://mdbootstrap.com/img/Photos/Slides/img%20(137).jpg"
-                className="img-fluid"
-              />
-              <MDBMask className="flex-center">
-                <p className="white-text">Insert Item Name Here</p>
-              </MDBMask>
-            </MDBView>
+            <MDBNavLink
+              to={
+                username.length > 0
+                  ? `/dist/ItemDetail/${props.item_id}`
+                  : "/dist/signup"
+              }
+            >
+              <MDBView hover>
+                <img
+                  src="https://mdbootstrap.com/img/Photos/Slides/img%20(137).jpg"
+                  className="img-fluid"
+                />
+                <MDBMask className="flex-center" overlay="red-light">
+                  <p className="white-text">Insert Item Name Here</p>
+                </MDBMask>
+              </MDBView>
+            </MDBNavLink>
           </MDBCol>
         </MDBRow>
       </MDBContainer>
