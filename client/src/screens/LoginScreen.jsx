@@ -38,7 +38,7 @@ class LoginScreen extends Component {
 
 	render() {
 		return (
-			<MDBContainer id="login-screen">
+			<MDBContainer id="login-screen" fluid>
 				<div className="login-container">
 					<MDBContainer>Login</MDBContainer>
 					<form className="login-form">
