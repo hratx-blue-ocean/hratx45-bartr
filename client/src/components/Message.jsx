@@ -1,0 +1,17 @@
+import React from "react";
+import { MDBContainer } from "mdbreact";
+
+const Message = props => (
+  <MDBContainer>
+    <MDBContainer>
+      <MDBContainer>____________________________</MDBContainer>
+      <MDBContainer>From: {props.message.sender_id}</MDBContainer>
+      <MDBContainer>To: {props.message.recipient_id}</MDBContainer>
+      <MDBContainer>Date: {props.message.date.slice(0, 10)}</MDBContainer>
+      <MDBContainer>Time: {props.message.date.slice(11, 16)}</MDBContainer>
+      <MDBContainer>{props.message.message}</MDBContainer>
+    </MDBContainer>
+  </MDBContainer>
+);
+
+export default Message;

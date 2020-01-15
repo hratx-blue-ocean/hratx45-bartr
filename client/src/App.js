@@ -9,22 +9,20 @@ import FeedScreen from "../src/screens/FeedScreen.jsx";
 import ItemDetailScreen from "./screens/ItemDetailScreen";
 import UploadItemScreen from "./screens/UploadItemScreen";
 import MakeOfferScreen from "./screens/MakeOfferScreen";
-import PastTransactionsScreen from "./screens/PastTransactionsScreen";
-
+import MessagesScreen from "./screens/MessagesScreen";
 class App extends Component {
 	render() {
 		return (
 			<Router>
 				<Navbar />
+				{/* <ItemDetailPage /> */}
+				{/* <!--<TestingScreen />  */}
 				<Switch>
 					<Route exact path="/dist/">
 						<HomeScreen />
 					</Route>
 					<Route exact path="/dist/signup">
 						<SignupScreen />
-					</Route>
-					<Route exact path="/dist/login">
-						<LoginScreen />
 					</Route>
 					<Route exact path="/dist/feed">
 						<FeedScreen />
@@ -34,6 +32,9 @@ class App extends Component {
 					</Route>
 					<Route exact path="/dist/ItemDetail">
 						<ItemDetailScreen />
+					</Route>
+					<Route exact path="/dist/messages">
+						<MessagesScreen />
 					</Route>
 				</Switch>
 			</Router>

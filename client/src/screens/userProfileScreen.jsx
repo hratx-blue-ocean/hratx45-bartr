@@ -73,16 +73,18 @@ const UserProfile = ({}) => {
           >
             Recent Activity
           </MDBCollapseHeader>
-          <MDBCollapse id="collapse1" isOpen={collapse1}></MDBCollapse>
-          <MDBCardBody>
-            <p>
-              Anim pariatur cliche reprehenderit, enim eiusmod high life
-              accusamus terry richardson ad squid. 3 wolf moon officia aute, non
-              cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
-              laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-              on it squid single-origin coffee nulla assumenda shoreditch et.
-            </p>
-          </MDBCardBody>
+          <MDBCollapse id="collapse1" isOpen={collapse1}>
+            <MDBCardBody>
+              <p>
+                Anim pariatur cliche reprehenderit, enim eiusmod high life
+                accusamus terry richardson ad squid. 3 wolf moon officia aute,
+                non cupidatat skateboard dolor brunch. Food truck quinoa
+                nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua
+                put a bird on it squid single-origin coffee nulla assumenda
+                shoreditch et.
+              </p>
+            </MDBCardBody>
+          </MDBCollapse>
 
           <MDBCollapseHeader
             onClick={() => setCollapse2(collapse2 === false ? true : false)}
@@ -90,16 +92,18 @@ const UserProfile = ({}) => {
           >
             Completed Barters
           </MDBCollapseHeader>
-          <MDBCollapse id="collapse1" isOpen={collapse2}></MDBCollapse>
-          <MDBCardBody>
-            <p>
-              Anim pariatur cliche reprehenderit, enim eiusmod high life
-              accusamus terry richardson ad squid. 3 wolf moon officia aute, non
-              cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
-              laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-              on it squid single-origin coffee nulla assumenda shoreditch et.
-            </p>
-          </MDBCardBody>
+          <MDBCollapse id="collapse2" isOpen={collapse2}>
+            <MDBCardBody>
+              <p>
+                Anim pariatur cliche reprehenderit, enim eiusmod high life
+                accusamus terry richardson ad squid. 3 wolf moon officia aute,
+                non cupidatat skateboard dolor brunch. Food truck quinoa
+                nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua
+                put a bird on it squid single-origin coffee nulla assumenda
+                shoreditch et.
+              </p>
+            </MDBCardBody>
+          </MDBCollapse>
         </MDBCard>
       </MDBContainer>
     </MDBContainer>
