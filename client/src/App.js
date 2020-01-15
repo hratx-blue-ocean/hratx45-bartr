@@ -34,6 +34,13 @@ class App extends Component {
           <Route exact path="/dist/ItemDetail">
             <ItemDetailScreen />
           </Route>
+<<<<<<< HEAD
+          <Route exact path="/dist/messages">
+            <MessagesScreen />
+          </Route>
+          <Route exact path="/dist/upload">
+            <UploadItemScreen />
+=======
           <Route exact path="/dist/makeOffer">
             <MakeOfferScreen />
           </Route>
@@ -45,6 +52,7 @@ class App extends Component {
           </Route>
           <Route exact path="/dist/trade">
             <UpForTradeScreen />
+>>>>>>> 7e734c7fc26dec13ea3c115516a8f51400c1cf06
           </Route>
         </Switch>
       </Router>
