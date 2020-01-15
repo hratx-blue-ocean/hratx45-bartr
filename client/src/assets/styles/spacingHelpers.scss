@@ -1,0 +1,449 @@
+@import '../scss/mdb.scss';
+
+$I: !important;
+$____: 0;
+$HALF: 0.5rem;
+$NORM: 1rem;
+$PLUS: 1.5rem;
+$DUBL: 2rem;
+
+$-HALF: -0.5rem;
+$-NORM: -1rem;
+$-PLUS: -1.5rem;
+$-DUBL: -2rem;
+
+$MICRO: 0.125rem;
+$MINI: 0.25rem;
+
+$SHADOW_A: rgba(0, 0, 0, 0.16);
+$SHADOW_B: rgba(0, 0, 0, 0.12);
+
+$BACKGROUND: #fff;
+$PRIMARY: $primary-color;
+$SECONDARY: $secondary-color;
+$MAIN: #5f9ea0; // $default-color
+$MAIN_DARK: #5f9ea0;
+$WARNING: #ffc793; // $warning-color;
+$WARN_DARK: #ffaf66;
+$DANGER: $danger-color;
+$DANG_DARK: #d15345;
+
+// COLOR THEME HELPERS
+.cancel {
+  &.dark {
+    color: $BACKGROUND $I;
+    background-color: $DANGER $I;
+    &.border {
+      border-color: $DANG_DARK $I;
+    }
+  }
+  &.light {
+    color: $DANG_DARK $I;
+    background-color: $BACKGROUND $I;
+    &.border {
+      border-color: $DANG_DARK $I;
+    }
+  }
+}
+.warning {
+  &.dark {
+    color: $BACKGROUND $I;
+    background-color: $WARNING $I;
+    &.border {
+      border-color: $WARN_DARK $I;
+    }
+  }
+  &.light {
+    color: $WARNING $I;
+    background-color: $BACKGROUND $I;
+    &.border {
+      border-color: $WARNING $I;
+    }
+  }
+}
+.border {
+  border-style: solid $I;
+  border-width: $MINI $I;
+  &-double {
+    border-style: double $I;
+    border-width: $MINI $I;
+  }
+  &-dashed {
+    border-style: dashed $I;
+    border-width: $MINI $I;
+  }
+  &-dotted {
+    border-style: dotted $I;
+    border-width: $MINI $I;
+  }
+}
+.rounded {
+  border-radius: $MINI $I;
+  &-small {
+    border-radius: $MICRO $I;
+  }
+  &-med {
+    border-radius: $MINI $I;
+  }
+  &-large {
+    border-radius: $HALF $I;
+  }
+}
+// CONTENT ADJUSTMENT
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &-v {
+    display: flex;
+    justify-content: center;
+  }
+  &-h {
+    display: flex;
+    align-items: center;
+  }
+  &-vh {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+// PADDING HELPERS
+.pad-none {
+  padding: $____;
+}
+.margin-none {
+  margin: $____;
+}
+.box-shadow {
+  box-shadow: 0 2px 5px 0 $SHADOW_A, 0 2px 10px 0 $SHADOW_B;
+}
+.pad-all {
+  padding: $NORM;
+  &-half {
+    padding: $HALF;
+  }
+  &-norm {
+    padding: $NORM;
+  }
+  &-plus {
+    padding: $PLUS;
+  }
+  &-dubl {
+    padding: $DUBL;
+  }
+}
+// Pad Element on 3 sides,
+// leaving a space on one side so siblings
+// dont double pad their common edge
+// Example usage:
+//   "pad-bucket"  -> 1rem padding on all sides but top
+//   "pad-bucket-plus" -> 1.5rem padding on all sides but top
+//   "pad-bucket-bottom-dubl" 2rem padding on all sides but bottom
+.pad-bucket {
+  padding: $____ $NORM $NORM $NORM;
+  &-half {
+    padding: $____ $HALF $HALF $HALF;
+  }
+  &-norm {
+    padding: $____ $NORM $NORM $NORM;
+  }
+  &-plus {
+    padding: $____ $PLUS $PLUS $PLUS;
+  }
+  &-dubl {
+    padding: $____ $DUBL $DUBL $DUBL;
+  }
+  &-top {
+    padding: $____ $NORM $NORM $NORM;
+    &-half {
+      padding: $____ $HALF $HALF $HALF;
+    }
+    &-norm {
+      padding: $____ $NORM $NORM $NORM;
+    }
+    &-plus {
+      padding: $____ $PLUS $PLUS $PLUS;
+    }
+    &-dubl {
+      padding: $____ $DUBL $DUBL $DUBL;
+    }
+  }
+  &-left {
+    padding: $NORM $NORM $NORM $____;
+    &-half {
+      padding: $HALF $HALF $HALF $____;
+    }
+    &-norm {
+      padding: $NORM $NORM $NORM $____;
+    }
+    &-plus {
+      padding: $PLUS $PLUS $PLUS $____;
+    }
+    &-dubl {
+      padding: $DUBL $DUBL $DUBL $____;
+    }
+  }
+  &-right {
+    padding: $NORM $____ $NORM $NORM;
+    &-half {
+      padding: $HALF $____ $HALF $HALF;
+    }
+    &-norm {
+      padding: $NORM $____ $NORM $NORM;
+    }
+    &-plus {
+      padding: $PLUS $____ $PLUS $PLUS;
+    }
+    &-dubl {
+      padding: $DUBL $____ $DUBL $DUBL;
+    }
+  }
+  &-bottom {
+    padding: $NORM $NORM $____ $NORM;
+    &-half {
+      padding: $HALF $HALF $____ $HALF;
+    }
+    &-norm {
+      padding: $NORM $NORM $____ $NORM;
+    }
+    &-plus {
+      padding: $PLUS $PLUS $____ $PLUS;
+    }
+    &-dubl {
+      padding: $DUBL $DUBL $____ $DUBL;
+    }
+  }
+}
+// Pad Element on 1 side,
+// used when you only need padding on one side
+// Example usage:
+//   "pad-edge"  -> 1rem padding on bottom only
+//   "pad-edge-plus" -> 1.5rem padding on bottom only
+//   "pad-edge-top-dubl" 2rem padding on top only
+.pad-edge {
+  padding: $____ $____ $NORM $____;
+  &-half {
+    padding: $____ $____ $HALF $____;
+  }
+  &-norm {
+    padding: $____ $____ $NORM $____;
+  }
+  &-plus {
+    padding: $____ $____ $PLUS $____;
+  }
+  &-dubl {
+    padding: $____ $____ $DUBL $____;
+  }
+  &-bottom {
+    padding: $____ $____ $NORM $____;
+    &-half {
+      padding: $____ $____ $HALF $____;
+    }
+    &-norm {
+      padding: $____ $____ $NORM $____;
+    }
+    &-plus {
+      padding: $____ $____ $PLUS $____;
+    }
+    &-dubl {
+      padding: $____ $____ $DUBL $____;
+    }
+  }
+  &-left {
+    padding: $____ $____ $____ $NORM;
+    &-half {
+      padding: $____ $____ $____ $HALF;
+    }
+    &-norm {
+      padding: $____ $____ $____ $NORM;
+    }
+    &-plus {
+      padding: $____ $____ $____ $PLUS;
+    }
+    &-dubl {
+      padding: $____ $____ $____ $DUBL;
+    }
+  }
+  &-right {
+    padding: $____ $NORM $____ $____;
+    &-half {
+      padding: $____ $HALF $____ $____;
+    }
+    &-norm {
+      padding: $____ $NORM $____ $____;
+    }
+    &-plus {
+      padding: $____ $PLUS $____ $____;
+    }
+    &-dubl {
+      padding: $____ $DUBL $____ $____;
+    }
+  }
+  &-top {
+    padding: $NORM $____ $____ $____;
+    &-half {
+      padding: $HALF $____ $____ $____;
+    }
+    &-norm {
+      padding: $NORM $____ $____ $____;
+    }
+    &-plus {
+      padding: $PLUS $____ $____ $____;
+    }
+    &-dubl {
+      padding: $DUBL $____ $____ $____;
+    }
+  }
+}
+//
+// POSITION HELPERS
+//
+
+// Cause Element to float outside its designated area
+// Example usage:
+//   "clip"  -> Element shifts left and up 1rem
+//   "clip-half" -> Element shifts left and up 0.5rem
+//   "clip-right-up" -> Element shifts right and up 1rem
+//   "clip-right-down-plus" -> Element shifts right and down 1.5rem
+.clip {
+  position: relative;
+  left: $-NORM;
+  top: $-NORM;
+  &-half {
+    position: relative;
+    left: $-HALF;
+    top: $-HALF;
+  }
+  &-norm {
+    position: relative;
+    left: $-NORM;
+    top: $-NORM;
+  }
+  &-plus {
+    position: relative;
+    left: $-PLUS;
+    top: $-PLUS;
+  }
+  &-dubl {
+    position: relative;
+    left: $-DUBL;
+    top: $-DUBL;
+  }
+  &-left {
+    &-up {
+      position: relative;
+      left: $-NORM;
+      top: $-NORM;
+      &-half {
+        position: relative;
+        left: $-HALF;
+        top: $-HALF;
+      }
+      &-norm {
+        position: relative;
+        left: $-NORM;
+        top: $-NORM;
+      }
+      &-plus {
+        position: relative;
+        left: $-PLUS;
+        top: $-PLUS;
+      }
+      &-dubl {
+        position: relative;
+        left: $-DUBL;
+        top: $-DUBL;
+      }
+    }
+    &-down {
+      position: relative;
+      left: $-NORM;
+      top: $NORM;
+      &-half {
+        position: relative;
+        left: $-HALF;
+        top: $HALF;
+      }
+      &-norm {
+        position: relative;
+        left: $-NORM;
+        top: $NORM;
+      }
+      &-plus {
+        position: relative;
+        left: $-PLUS;
+        top: $PLUS;
+      }
+      &-dubl {
+        position: relative;
+        left: $-DUBL;
+        top: $DUBL;
+      }
+    }
+  }
+  &-right {
+    &-up {
+      position: relative;
+      left: $NORM;
+      top: $-NORM;
+      &-half {
+        position: relative;
+        left: $HALF;
+        top: $-HALF;
+      }
+      &-norm {
+        position: relative;
+        left: $NORM;
+        top: $-NORM;
+      }
+      &-plus {
+        position: relative;
+        left: $PLUS;
+        top: $-PLUS;
+      }
+      &-dubl {
+        position: relative;
+        left: $DUBL;
+        top: $-DUBL;
+      }
+    }
+    &-down {
+      position: relative;
+      left: $NORM;
+      top: $NORM;
+      &-half {
+        position: relative;
+        left: $HALF;
+        top: $HALF;
+      }
+      &-norm {
+        position: relative;
+        left: $NORM;
+        top: $NORM;
+      }
+      &-plus {
+        position: relative;
+        left: $PLUS;
+        top: $PLUS;
+      }
+      &-dubl {
+        position: relative;
+        left: $DUBL;
+        top: $DUBL;
+      }
+    }
+  }
+}
+
+//
+// SIZE HELPERS
+//
+.width-contain {
+  width: 100%;
+  height: auto;
+}
+.fill {
+  width: 100%;
+  height: 100%;
+}
