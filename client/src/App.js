@@ -36,6 +36,9 @@ class App extends Component {
           <Route exact path="/dist/messages">
             <MessagesScreen />
           </Route>
+          <Route exact path="/dist/upload">
+            <UploadItemScreen />
+          </Route>
         </Switch>
       </Router>
     );

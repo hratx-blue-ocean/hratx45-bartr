@@ -14,7 +14,8 @@ import {
   MDBCollapse,
   MDBCollapseHeader,
   MDBListGroup,
-  MDBListGroupItem
+  MDBListGroupItem,
+  MDBNavLink
 } from "mdbreact";
 //author -- Matt Lucas
 
@@ -64,7 +65,9 @@ const UserProfile = ({}) => {
       </MDBRow>
       <MDBRow>
         <MDBCol className="col-test">
-          <MDBBtn>Upload an Item</MDBBtn>
+          <MDBNavLink to="/dist/upload">
+            <MDBBtn>Upload an Item</MDBBtn>
+          </MDBNavLink>
         </MDBCol>
       </MDBRow>
       <MDBContainer>
