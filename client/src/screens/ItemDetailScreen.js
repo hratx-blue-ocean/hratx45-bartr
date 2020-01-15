@@ -21,12 +21,7 @@ class ItemDetailScreen extends PureComponent {
   }
 
   componentDidMount() {
-    let {id} = useParams();
-    this.props.fetchProductsByProductId(parseInt(id));
-  }
-
-  componentDidUpdate() {
-
+    this.props.fetchProductsByProductId(5);
   }
 
   render() {
