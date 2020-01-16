@@ -14,6 +14,9 @@ import UpForTradeScreen from "./screens/UpForTradeScreen";
 import PastTransactionsScreen from "./screens/PastTransactionsScreen";
 import ActiveOffersScreen from "./screens/ActiveOffersScreen";
 
+
+//HI SAM
+
 class App extends Component {
   render() {
     return (
