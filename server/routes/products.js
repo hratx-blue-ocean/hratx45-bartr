@@ -5,7 +5,9 @@ const Promise = require("bluebird");
 const fs = Promise.promisifyAll(require("fs"));
 
 router.post("/product", (req, res) => {
-  const item = req.query.item;
+  const item = req.body;
+  console.log(req);
+  res.end();
   // db.addNewProduct(item)
   //   .then(data => res.status(200).send(data))
   //   .catch(error => res.status(400).send(error));
@@ -20,6 +22,7 @@ router.get("/productId", (req, res) => {
       res.status(200).send(data);
     })
     .catch(error => {
+      console.log(error);
       res.status(404).send(error);
     });
 });

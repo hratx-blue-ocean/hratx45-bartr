@@ -6,5 +6,5 @@ import userReducer from "./userReducer";
 export default combineReducers({
   products: productsReducer,
   location: locationReducer,
-  username: userReducer
+  userInfo: userReducer
 });
