@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { MDBBtn, MDBContainer, MDBInput, MDBListGroupItem } from "mdbreact";
 
-const PastTransaction = props => {
+const PastOffer = props => {
 	return (
 		<MDBContainer key={props.offerID} fluid>
 			<MDBListGroupItem
@@ -18,4 +18,4 @@ const PastTransaction = props => {
 	);
 };
 
-export default PastTransaction;
+export default PastOffer;
