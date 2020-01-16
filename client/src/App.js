@@ -12,6 +12,7 @@ import MakeOfferScreen from "./screens/MakeOfferScreen";
 import MessagesScreen from "./screens/MessagesScreen";
 import UpForTradeScreen from "./screens/UpForTradeScreen";
 import PastTransactionsScreen from "./screens/PastTransactionsScreen";
+import ActiveOffersScreen from "./screens/ActiveOffersScreen";
 
 class App extends Component {
   render() {
@@ -21,38 +22,41 @@ class App extends Component {
         {/* <ItemDetailPage /> */}
         {/* <!--<TestingScreen />  */}
         <Switch>
-          <Route exact path="/dist/">
+          <Route exact path="/">
             <HomeScreen />
           </Route>
-          <Route exact path="/dist/signup">
+          <Route exact path="/signup">
             <SignupScreen />
           </Route>
-          <Route exact path="/dist/login">
+          <Route exact path="/login">
             <LoginScreen />
           </Route>
-          <Route exact path="/dist/feed">
+          <Route exact path="/feed">
             <FeedScreen />
           </Route>
-          <Route exact path="/dist/profile">
+          <Route exact path="/profile">
             <UserProfile />
           </Route>
-          <Route exact path="/dist/ItemDetail/:id">
+          <Route exact path="/ItemDetail/:id">
             <ItemDetailScreen />
           </Route>
-          <Route exact path="/dist/makeOffer">
+          <Route exact path="/makeOffer">
             <MakeOfferScreen />
           </Route>
-          <Route exact path="/dist/uploadItem">
+          <Route exact path="/uploadItem">
             <UploadItemScreen />
           </Route>
-          <Route exact path="/dist/messages">
+          <Route exact path="/messages">
             <MessagesScreen />
           </Route>
-          <Route exact path="/dist/trade">
+          <Route exact path="/trade">
             <UpForTradeScreen />
           </Route>
-          <Route exact path="/dist/past-transactions">
+          <Route exact path="/past-transactions">
             <PastTransactionsScreen />
+          </Route>
+          <Route exact path="/active-offers">
+            <ActiveOffersScreen />
           </Route>
         </Switch>
       </Router>
