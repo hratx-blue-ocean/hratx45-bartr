@@ -3,28 +3,28 @@ const pool = require("../postgres");
 /* Returns products by their id*/
 const getProductById = productId => {
   return pool.query({
-    text: `select * from products where product_id = ${ productId };`
+    text: `select * from products where product_id = ${productId};`
   });
 };
 
 /* Returns all photos for product by id*/
 const getProductPhotosById = productId => {
   return pool.query({
-    text: `select * from images_test where product_id = ${ productId };`
+    text: `select * from images_test where product_id = ${productId};`
   });
 };
 
 /* Returns all products by their category */
 const getProductsByCategory = categoryId => {
   return pool.query({
-    text: `select * from products where category_id = ${ categoryId }`
+    text: `select * from products where category_id = ${categoryId}`
   });
 };
 
 /* Returns all products by user id */
 const getProductsByUser = userId => {
   return pool.query({
-    text: `select * from products where user_id = ${ userId } and up_for_trade='True'`
+    text: `select * from products where user_id = ${userId} and up_for_trade='True'`
   });
 };
 
@@ -36,7 +36,7 @@ const getProductsByPostDate = () => {
 };
 
 /* Returns all products by users longitude and latitude */
-const getProductsByProximityByUserId = (userId, miles, limit=50) => {
+const getProductsByProximityByUserId = (userId, miles, limit = 50) => {
   let sql = `
       select b.username, a.*, c.image
       from products as a,
@@ -63,7 +63,12 @@ const getProductsByProximityByUserId = (userId, miles, limit=50) => {
 };
 
 /* Returns all products within x miles by longitude and latitude */
-const getProductsByProximityByLongLat = (longitude, latitude, miles, limit = 50) => {
+const getProductsByProximityByLongLat = (
+  longitude,
+  latitude,
+  miles,
+  limit = 50
+) => {
   let sql = `
       select b.username, a.*, c.image from
                                           products as a,
@@ -74,8 +79,8 @@ const getProductsByProximityByLongLat = (longitude, latitude, miles, limit = 50)
           FROM users
           WHERE ST_DWithin(
                         geom,
-                        ST_MakePoint(${ longitude }, ${ latitude }),
-                        ${ miles } *1609,
+                        ST_MakePoint(${longitude}, ${latitude}),
+                        ${miles} *1609,
                         false
                     )
       )
@@ -83,22 +88,24 @@ const getProductsByProximityByLongLat = (longitude, latitude, miles, limit = 50)
         and a.public = 'True'
         and a.user_id = b.user_id
         and a.product_id = c.product_id
-      limit ${ limit };`;
+      limit ${limit};`;
   return pool.query({ text: sql });
 };
 
 const addNewProduct = item => {
-  let sql = `INSERT INTO users (user_id, category_id, product_name, product_description, value, up_for_trade, sold, posted_date)
-   VALUES ('${ item.user_id }', '${ item.category_id }', '${ item.name }, '${ item.description }', '${ item.value }',
-   'TRUE', 'FALSE', ${ item.posted_date });`;
+  let sql = `INSERT INTO users (user_id, product_name, product_description, value, up_for_trade, sold, posted_date)
+   VALUES (${item.user_id}, ${item.name}, '${item.description}', '${item.value}',
+   'TRUE', 'FALSE', ${item.date});`;
+  return pool.query({ text: sql });
+};
+
+const addNewProductPhotos = (itemId, photoString) => {
+  let sql = `INSERT INTO product_images(product_id, image) VALUES (${itemId}, '${photoString}')`;
   return pool.query({ text: sql });
 };
 
 /* Returns all products with username, and one photo */
-const getProductsList = () => {
-
-};
-
+const getProductsList = () => {};
 
 //not currently handling desired trades
 
@@ -110,8 +117,8 @@ module.exports = {
   getProductsByProximityByLongLat,
   getProductPhotosById,
   addNewProduct,
-  getProductsByPostDate
+  getProductsByPostDate,
+  addNewProductPhotos
 };
-
 
 // Get products, username, 1 photo

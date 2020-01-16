@@ -21,6 +21,8 @@ export default class UploadItemForm extends PureComponent {
       timeConstraints: "",
       fileList: []
     };
+    
+    this.id = 
 
     this.handleNameInput = this.handleNameInput.bind(this);
     this.handleValueInput = this.handleValueInput.bind(this);
@@ -67,9 +69,18 @@ export default class UploadItemForm extends PureComponent {
     data.append("name", this.state.name);
     data.append("value", this.state.value);
     data.append("description", this.state.description);
-    data.append("desiredTrade", this.state.desiredTrade);
-    data.append("timeConstraints", this.state.timeConstraints);
+    data.append("desired_trade", this.state.desiredTrade);
+    data.append("time_constraints", this.state.timeConstraints);
+    data.append("owner_username", "collin");
+    data.append("owner_id", 26);
     this.state.fileList.forEach(file => data.append("image", file, file.name));
+
+    axios
+      .post("http://localhost:3000/api/productsNew/product", data, {
+        headers: { "Content-Type": "multipart/form-data" }
+      })
+      .then(result => console.log(result))
+      .catch(error => console.log(error));
   }
 
   render() {
@@ -125,3 +136,5 @@ export default class UploadItemForm extends PureComponent {
     );
   }
 }
+
+

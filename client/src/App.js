@@ -10,9 +10,9 @@ import ItemDetailScreen from './screens/ItemDetailScreen';
 import UploadItemScreen from './screens/UploadItemScreen';
 import MakeOfferScreen from './screens/MakeOfferScreen';
 import MessagesScreen from './screens/MessagesScreen';
+import UpForTradeScreen from './screens/UpForTradeScreen';
 import PastOffersScreen from './screens/PastOffersScreen';
 import ActiveOffersScreen from './screens/ActiveOffersScreen';
-import UpForTradeScreen from './screens/UpForTradeScreen';
 
 class App extends Component {
 	render() {
@@ -23,9 +23,7 @@ class App extends Component {
 				{/* <!--<TestingScreen />  */}
 				<Switch>
 					<Route exact path="/">
-						{/* <HomeScreen /> */}
-						{/* <LoginScreen />
-                        <SignupScreen /> */}
+						<HomeScreen />
 						<PastOffersScreen />
 					</Route>
 					<Route exact path="/signup">
