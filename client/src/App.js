@@ -1,19 +1,3 @@
-<<<<<<< HEAD
-import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Navbar from "./components/navbar";
-import HomeScreen from "./screens/HomeScreen.jsx";
-import SignupScreen from "./screens/SignupScreen.jsx";
-import LoginScreen from "./screens/LoginScreen.jsx";
-import UserProfile from "./screens/userProfileScreen.jsx";
-import FeedScreen from "../src/screens/FeedScreen.jsx";
-import ItemDetailScreen from "./screens/ItemDetailScreen";
-import UploadItemScreen from "./screens/UploadItemScreen";
-import MakeOfferScreen from "./screens/MakeOfferScreen";
-import TestingScreen from "./screens/testing/TestingScreen";
-
-import MessagesScreen from "./screens/MessagesScreen";
-=======
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
@@ -27,7 +11,6 @@ import UploadItemScreen from './screens/UploadItemScreen';
 import MakeOfferScreen from './screens/MakeOfferScreen';
 import MessagesScreen from './screens/MessagesScreen';
 import UpForTradeScreen from './screens/UpForTradeScreen';
->>>>>>> 8890bf9ad91a837cead9fc5fb7dcdee0a2257f4b
 class App extends Component {
   render() {
     return (
