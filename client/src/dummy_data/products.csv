@@ -1,0 +1,101 @@
+product_id,user_id,category_id,product_name,product_description,value,up_for_trade,public,sold,sold_date,posted_date
+1,1,8,BMW 3 Series,Born around defense week we up.,3990,False,False,False,,2017-03-24
+2,2,19,Renault Clio,Professor both research.,4645,False,False,True,2018-01-29,2017-03-06
+3,3,2,Ford Falcon,Begin describe land group nor.,109,True,True,True,2018-12-18,2017-11-15
+4,4,11,Alfa Romeo Alfasud,Teacher recent plan future movement south perhaps.,3154,False,False,True,2018-09-06,2017-07-27
+5,5,3,Volkswagen Golf,Example claim collection wall we.,4807,True,True,True,2018-06-24,2017-01-24
+6,6,18,Rambler Classic,Song film small wish resource agency near.,4040,False,True,True,2018-10-07,2017-05-31
+7,7,16,Mazda Familia,Program board dog art late.,729,True,False,False,,2017-03-29
+8,8,19,Ford F-Series,Road level front week and drive.,3107,True,True,True,2018-01-28,2017-04-09
+9,9,8,Tesla Model S,Site hundred street beautiful theory.,6695,False,True,True,2018-06-25,2017-06-20
+10,10,6,Frazer Standard,President would partner simple meeting.,8119,False,True,True,2018-07-06,2017-10-03
+11,11,17,Mercedes-Benz C-Class,Just student different debate fill.,7418,False,False,True,2018-03-15,2017-03-22
+12,12,0,Rambler Classic,Half home ball authority.,2765,True,True,True,2018-09-19,2017-04-02
+13,13,4,Pontiac Grand Am,Behind member month cause that.,5508,False,True,True,2018-08-10,2017-07-22
+14,14,0,Crosley,During compare value population most fine.,9206,False,True,True,2018-03-19,2017-10-20
+15,15,16,ZAZ Zaporozhets,Sit current memory green local.,6301,True,True,False,,2017-02-14
+16,16,7,ZAZ Zaporozhets,Only soon identify throughout according toward contain.,5348,True,False,True,2018-01-04,2017-07-19
+17,17,10,Citroën 2CV,Floor all business good send.,3493,True,False,False,,2017-10-17
+18,18,15,Eagle Talon,Dinner defense sense child.,5469,False,False,False,,2017-06-22
+19,19,5,Maserati Biturbo,Green still assume everyone true no go.,1562,False,False,True,2018-04-20,2017-11-23
+20,20,18,Checker Marathon,North fire certainly skin cultural impact.,4078,True,True,True,2018-02-24,2017-09-13
+21,21,18,Ford Falcon,Hair commercial local energy animal southern.,7494,False,False,True,2018-07-29,2017-08-26
+22,22,13,Toyota Prius,Without dog important fill past.,8430,False,False,True,2018-10-04,2017-08-31
+23,23,3,Toyota Prius,Image think region word agree trouble only.,4681,True,False,True,2018-12-11,2017-12-09
+24,24,9,Škoda Octavia,Simple international suffer vote.,2650,False,False,False,,2017-12-21
+25,25,9,Chevrolet Impala,Have suggest successful receive ask consumer.,5607,True,False,False,,2017-04-16
+26,26,19,Imperial Crown,High plant nation expect.,9444,False,True,True,2018-09-21,2017-04-24
+27,27,14,Bugatti Type 40,Put family Republican include whom thank.,2418,False,True,True,2018-04-30,2017-12-04
+28,28,4,Cadillac De Ville,Item what day evening market network.,6520,True,False,True,2018-07-23,2017-09-04
+29,29,8,Tesla Model S,Relationship chance tree by within speak point name.,5732,True,True,True,2018-08-17,2017-03-22
+30,30,5,Rambler Classic,Happen live thus key.,6248,False,True,False,,2017-09-30
+31,31,4,AMC Hornet,Lawyer inside their plant imagine door huge would.,6426,False,False,True,2018-05-11,2017-04-02
+32,32,10,Crosley,Surface issue same send.,7470,False,False,False,,2017-09-19
+33,33,2,Jaguar XJ,Scene those ten kitchen.,5283,True,True,False,,2017-05-07
+34,34,12,Opel Corsa,Person our color speak actually account.,5511,True,False,False,,2017-05-28
+35,35,9,Nissan Leaf,Art half question financial.,2848,False,True,False,,2017-08-13
+36,36,1,Simca 1100,According inside choice interest Congress many.,5296,True,True,False,,2017-02-27
+37,37,11,Renault Clio,Never force into if.,5367,False,True,True,2018-08-29,2017-09-09
+38,38,8,De Tomaso Pantera,Life become in company adult wide.,5402,True,False,True,2018-07-27,2017-01-14
+39,39,16,Imperial Crown,However performance sell capital her beautiful.,8770,False,False,True,2018-02-11,2017-09-10
+40,40,18,Plymouth Fury,Product month improve carry more staff result.,8241,False,False,False,,2017-08-09
+41,41,5,Renault Symbol,Administration step city fill fish east.,5043,False,False,False,,2017-08-17
+42,42,13,Perodua Myvi,Drive process series may ago dream gun reduce.,8552,False,True,False,,2017-08-19
+43,43,13,Hindustan Ambassador,Any hospital your fill write.,2441,False,True,False,,2017-10-29
+44,44,5,Saab 900,Find huge sit past all.,7478,False,False,False,,2017-12-14
+45,45,19,Hudson Super,Him under she despite challenge.,8845,False,False,False,,2017-09-17
+46,46,13,Subaru Legacy,Base tend goal compare bar.,6424,True,True,False,,2017-12-31
+47,47,8,Zaporozhets,Across go sport bill.,6127,False,False,True,2018-12-06,2017-10-05
+48,48,15,BMW 3 Series,Policy south question pretty thousand lose.,8599,True,True,False,,2017-01-15
+49,49,2,SEAT Ibiza,Eye field every themselves agree.,6830,False,False,True,2018-07-14,2017-01-27
+50,50,7,Aston Martin DB7,Attorney cold perform interview hot thus both.,4458,True,True,True,2018-07-28,2017-04-25
+51,51,0,Ford F-Series,System these better hundred very later movie.,3968,True,True,False,,2017-02-21
+52,52,17,Fiat Uno,Weight wear bad letter argue something positive.,9218,True,False,True,2018-09-02,2017-01-21
+53,53,18,Nissan Z-cars,Art down sing.,3504,False,True,True,2018-08-30,2017-12-09
+54,54,12,Continental Mark II,Crime I whole seat PM bed it.,7174,False,False,False,,2017-08-20
+55,55,13,Citroën 2CV,Near college thus another loss change.,7129,False,True,False,,2017-05-29
+56,56,9,Peugeot 206,Unit most area PM wife fund gas.,7836,False,False,True,2018-07-08,2017-01-27
+57,57,17,Studebaker Champion,Eight class better effort air indicate.,3039,False,True,False,,2017-01-29
+58,58,5,Series/Defender,Democratic pay able.,2659,False,True,False,,2017-12-11
+59,59,7,Ford F-Series,You best even skin dark many.,9998,True,True,False,,2017-05-21
+60,60,8,Toyota Prius,Down across letter its series.,9320,True,False,True,2018-03-18,2017-10-06
+61,61,19,Facellia,Film whole hand defense case present company.,4263,False,True,False,,2017-04-22
+62,62,19,Chevrolet Impala,Nor rise paper page save care this.,6798,True,True,True,2018-09-26,2017-08-31
+63,63,7,Volkswagen Gol,Past eight involve.,4026,True,False,False,,2017-02-19
+64,64,15,Oldsmobile Cutlass,Stock lot employee number doctor.,9328,False,True,True,2018-09-11,2017-04-29
+65,65,14,Fiat Uno,Age experience long can while rule.,5428,False,False,False,,2017-04-22
+66,66,10,Fiat Uno,Short top since agree analysis final.,7894,True,True,True,2018-01-31,2017-06-30
+67,67,0,De Tomaso Pantera,Do garden rule.,6397,False,False,False,,2017-08-23
+68,68,18,Autobianchi A112,Peace perform sort include whole respond next.,5839,False,False,False,,2017-08-24
+69,69,19,Renault Clio,Machine Democrat animal music their customer fine.,1514,True,True,True,2018-07-01,2017-12-04
+70,70,0,Mitsubishi Lancer,Animal fill determine ball forward.,1071,False,True,True,2018-08-17,2017-07-26
+71,71,15,Crosley,Rock candidate rate side.,3485,False,True,True,2018-07-23,2017-05-22
+72,72,14,Zaporozhets,Enough suffer floor indeed measure itself near.,4195,False,True,False,,2017-03-23
+73,73,12,Nash Statesman,Item audience activity we it.,6964,False,True,False,,2017-01-31
+74,74,9,Saab 900,Call true evidence able.,8525,False,False,False,,2017-06-29
+75,75,11,Volkswagen Gol,True car both body since send government.,2013,True,True,False,,2017-10-17
+76,76,2,Chevrolet Volt,Real natural sister both since.,7535,False,True,False,,2017-08-26
+77,77,8,Continental Mark II,Room student world since market either project.,6000,True,True,True,2018-02-02,2017-12-26
+78,78,8,Hudson Super,East win bag and.,3637,False,False,True,2018-08-03,2017-02-21
+79,79,11,Studebaker Champion,Night official great central knowledge.,1228,True,True,True,2018-04-03,2017-05-18
+80,80,6,Messerschmitt KR200,Couple account indicate size discuss ten.,6419,False,False,False,,2017-01-26
+81,81,2,Frazer Standard,Pattern trouble work character thus charge.,4916,True,False,False,,2017-02-15
+82,82,5,Rambler Classic,Discuss respond partner south indeed night purpose.,8267,True,True,True,2018-02-11,2017-10-29
+83,83,18,Renault Clio,Find space suggest they teach seven end.,5416,False,True,False,,2017-01-17
+84,84,9,De Tomaso Pantera,People face teach bag.,908,False,False,False,,2017-08-13
+85,85,15,Toyota Corolla,Body eat season form property lawyer.,3362,False,True,True,2018-06-12,2017-11-27
+86,86,5,Eagle Talon,Main whether lead way expert.,371,False,True,False,,2017-09-20
+87,87,6,Perodua Myvi,Down keep amount view sure of well.,6096,False,True,False,,2017-12-25
+88,88,0,McLaren 12C,International single rich glass her end born.,7468,False,True,True,2018-09-18,2017-10-05
+89,89,0,Volkswagen Beetle,Travel sister if case summer college.,2747,True,False,True,2018-04-25,2017-09-21
+90,90,5,Series/Defender,Ago growth theory authority laugh space.,6485,True,False,True,2018-12-16,2017-12-23
+91,91,9,Edsel Ranger,Ability decision a challenge.,2495,False,False,False,,2017-11-30
+92,92,3,ZAZ Zaporozhets,Collection talk director speech hundred recognize operation.,6614,True,False,False,,2017-03-16
+93,93,5,Fiat Uno,Can boy pressure think past foreign.,8756,False,True,True,2018-10-29,2017-11-03
+94,94,3,Toyota Prius,Style wind throw determine.,4712,True,True,True,2018-04-18,2017-07-25
+95,95,2,Zaporozhets,Month only customer rate article might ground.,9588,False,False,False,,2017-02-06
+96,96,8,Ford F-Series,Ever government back figure me name seek agreement.,5635,False,True,False,,2017-07-20
+97,97,13,Volkswagen Type 2,Goal building call suddenly indicate.,2316,True,True,True,2018-05-30,2017-08-30
+98,98,4,Dodge Coronet,Condition research road even lead analysis local.,2481,False,True,False,,2017-12-22
+99,99,5,Nash Statesman,House so evidence us huge by.,5064,True,False,False,,2017-05-04
+100,100,3,Toyota Corolla,Organization price figure argue imagine citizen north.,2624,False,False,False,,2017-05-24
