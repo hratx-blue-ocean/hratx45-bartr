@@ -4,6 +4,17 @@
   #message-string {
     border-top: 1px solid gray;
     cursor: pointer;
+    #closeButton {
+      font-size: 0.75em;
+      height: fit-content;
+    }
+    #replyButton {
+      font-size: 0.75em;
+      height: fit-content;
+    }
+    .Ripple-parent {
+      overflow: visible;
+    }
   }
   #topPartOfMessage {
     display: flex;

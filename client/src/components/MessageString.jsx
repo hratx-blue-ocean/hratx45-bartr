@@ -45,8 +45,14 @@ class MessageString extends React.Component {
         >
           Messages with user:{" "}
           {this.props.messageString[this.props.num].sender_id}
-          <MDBBtn onClick={this.closeMessage}>close</MDBBtn>
-          <MDBBtn onClick={this.replyToMessage}>Reply</MDBBtn>
+        </MDBContainer>
+        <MDBContainer>
+          <MDBBtn id="closeButton" onClick={this.closeMessage}>
+            close
+          </MDBBtn>
+          <MDBBtn id="replyButton" onClick={this.replyToMessage}>
+            Reply
+          </MDBBtn>
         </MDBContainer>
         {this.state.replyOpen ? (
           <MDBContainer>
