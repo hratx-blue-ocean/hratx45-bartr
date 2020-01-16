@@ -13,14 +13,6 @@ import "../assets/styles/itemDetail.scss";
 
 const ItemDetailScreen = props => {
   let { id } = useParams();
-<<<<<<< HEAD
-  fetchProductsByProductId(id);
-
-  return (
-    <div id="itemDetailScreen">
-      <div className="itemTitleContainer">
-        <h1 className="itemTitle">{testProducts.product_name}</h1>
-=======
 
   props.fetchProductsByProductId(id);
 
@@ -28,7 +20,6 @@ const ItemDetailScreen = props => {
     <div id="itemDetailScreen">
       <div className="itemTitleContainer">
         <h1 className="itemTitle">{props.products.product_name}</h1>
->>>>>>> 25f9e01308e48c86e2160e09fa05a1da46db7792
       </div>
       {/* <div className="itemOfferCountContainer">
           3 people have bid on this item
