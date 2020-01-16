@@ -51,7 +51,6 @@ class MessageString extends React.Component {
         {this.state.replyOpen ? (
           <MDBContainer>
             <ReplyMessage />
-            <MDBBtn>Send</MDBBtn>
           </MDBContainer>
         ) : null}
 

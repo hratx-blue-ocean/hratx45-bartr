@@ -15,9 +15,15 @@ let getNineItemsByLocation = {
     response: [homepageItem/*(x9)*/]
 } //homepage
 
-let getFiftyItemsByValue = {
+let getFiftyItemsByHighValue = {
     type: "get",
-    request: "itemValue",
+    request: null,
+    response: [itemListView/*(x50)*/]
+} //feed
+
+let getFiftyItemsByLowValue = {
+    type: "get",
+    request: null,
     response: [itemListView/*(x50)*/]
 } //feed
 
@@ -48,6 +54,12 @@ let getMessageThreadsByUserId = {
     response: [messageThread, messageThread, ...] //message threads should include logged-in user
 } //message inbox
 
+let getUpForTradeItemsByUserId = {
+    type: "get",
+    request: "userId",
+    response: [itemListView, itemListView, ...]
+}
+
 let getHasNewMessageBool = {
     type: "get",
     request: "userId",
@@ -64,7 +76,7 @@ let getClosedOffersByUserId = {
     type: "get",
     request: "userId",
     response: [offerGet, offerGet, ...] //offers should include logged-in user id and have the status "rejected" or "accepted"
-}
+} //past offers
 
 //POST
 
@@ -163,7 +175,7 @@ const itemListView = {
     name: "text",
     image: "image",
     value: "text",
-    owner: "text",
+    owner_username: "text",
     owner_id: "int",
     location: "location",
     post_date: "date",
@@ -210,6 +222,7 @@ const homepageItem = {
     item_id: "int"
 }    
 
+//Probably not using this
 const loggedInUserInfo = {
     id: "int",
     userProfile: {
