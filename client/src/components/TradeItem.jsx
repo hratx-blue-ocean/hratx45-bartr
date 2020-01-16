@@ -16,7 +16,14 @@ import {
 } from 'mdbreact';
 import '../assets/styles/spacingHelpers.scss';
 
-const TradeItem = ({ data, onClick, onDelete, image, ownItem = true }) => {
+const TradeItem = ({
+  data,
+  onClick,
+  onDelete,
+  image,
+  ownItem = true,
+  showDelete = true
+}) => {
   const {
     product_id,
     user_id,
@@ -57,13 +64,17 @@ const TradeItem = ({ data, onClick, onDelete, image, ownItem = true }) => {
             ''
           )}
         </MDBCol>
-        <MDBCol
-          className="pad-none cancel dark center border rounded"
-          size="1"
-          xs="1"
-        >
-          <MDBIcon className="cancel dark" far icon="times-circle" />
-        </MDBCol>
+        {showDelete ? (
+          <MDBCol
+            className="pad-none cancel dark center border rounded"
+            size="1"
+            xs="1"
+          >
+            <MDBIcon className="cancel dark" far icon="times-circle" />
+          </MDBCol>
+        ) : (
+          ''
+        )}
       </MDBRow>
     </MDBCard>
   );
