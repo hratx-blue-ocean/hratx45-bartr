@@ -12,6 +12,7 @@ class MessageString extends React.Component {
     this.openMessage = this.openMessage.bind(this);
     this.closeMessage = this.closeMessage.bind(this);
     this.replyToMessage = this.replyToMessage.bind(this);
+    this.closeReply = this.closeReply.bind(this);
   }
 
   openMessage() {
@@ -22,13 +23,20 @@ class MessageString extends React.Component {
 
   closeMessage() {
     this.setState({
-      messageOpen: false
+      messageOpen: false,
+      replyOpen: false
     });
   }
 
   replyToMessage() {
     this.setState({
       replyOpen: true
+    });
+  }
+
+  closeReply() {
+    this.setState({
+      replyOpen: false
     });
   }
 
@@ -50,7 +58,12 @@ class MessageString extends React.Component {
           <MDBBtn id="closeButton" onClick={this.closeMessage}>
             close
           </MDBBtn>
-          <MDBBtn id="replyButton" onClick={this.replyToMessage}>
+          <MDBBtn
+            id="replyButton"
+            onClick={
+              this.state.replyOpen ? this.closeReply : this.replyToMessage
+            }
+          >
             Reply
           </MDBBtn>
         </MDBContainer>

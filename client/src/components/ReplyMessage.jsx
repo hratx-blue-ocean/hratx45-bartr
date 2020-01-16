@@ -2,9 +2,9 @@ import React from "react";
 import { MDBContainer, MDBInput, MDBBtn } from "mdbreact";
 
 const ReplyMessage = props => (
-  <MDBContainer>
+  <MDBContainer id="reply-component">
     <MDBInput placeHolder="Reply..."></MDBInput>
-    <MDBBtn>Send</MDBBtn>
+    <MDBBtn id="sendReplyButton">Send</MDBBtn>
   </MDBContainer>
 );
 
