@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import data from "../dummy_data/users.js";
+import data from "../dummy_data/products";
 import {
   MDBBtn,
   MDBCard,
