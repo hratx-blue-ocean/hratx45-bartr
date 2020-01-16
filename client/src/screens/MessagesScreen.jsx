@@ -8,9 +8,11 @@ class Messages extends React.Component {
     super(props);
     this.state = {
       currentUser: 10,
-      messageStrings: null
+      messageStrings: null,
+      recipient_id: null
     };
     this.getUserMessageStrings = this.getUserMessageStrings.bind(this);
+    this.showReply = this.showReply.bind(this);
   }
 
   getUserMessageStrings() {
@@ -33,6 +35,35 @@ class Messages extends React.Component {
       });
   }
 
+  showReply(msg, threadNum) {
+    let arr = this.state.messageStrings;
+    let tempHold = arr[threadNum].slice();
+    console.log(tempHold);
+    this.setState(
+      {
+        recipient_id: this.state.recipient_id
+          ? this.state.recipient_id
+          : tempHold[1].recipient_id
+      },
+      () => {
+        tempHold.unshift({
+          sender_id: this.state.currentUser,
+          recipient_id:
+            arr[threadNum] > this.state.currentUser
+              ? arr[threadNum][1].sender_id
+              : arr[threadNum][0].sender_id,
+          date: new Date().toJSON(),
+          message: msg
+        });
+
+        arr[threadNum] = tempHold;
+        this.setState({
+          messageStrings: arr
+        });
+      }
+    );
+  }
+
   componentDidMount() {
     this.getUserMessageStrings();
   }
@@ -49,6 +80,8 @@ class Messages extends React.Component {
                     key={key}
                     num={key}
                     messageString={messageString}
+                    currentUser={this.state.currentUser}
+                    showReply={this.showReply}
                   />
                 </MDBContainer>
               ))

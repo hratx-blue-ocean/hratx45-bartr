@@ -2,6 +2,7 @@
 
 #message-screen {
   #message-string {
+    overflow-y: scroll;
     border-top: 1px solid gray;
     cursor: pointer;
     #closeButton {
@@ -22,10 +23,5 @@
     .Ripple-parent {
       overflow: visible;
     }
-  }
-  #topPartOfMessage {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
   }
 }

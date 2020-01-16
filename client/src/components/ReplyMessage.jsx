@@ -3,8 +3,19 @@ import { MDBContainer, MDBInput, MDBBtn } from "mdbreact";
 
 const ReplyMessage = props => (
   <MDBContainer id="reply-component">
-    <MDBInput placeHolder="Reply..."></MDBInput>
-    <MDBBtn id="sendReplyButton">Send</MDBBtn>
+    {console.log(props)}
+    <MDBInput id="replyInputField" placeHolder="Reply..."></MDBInput>
+    <MDBBtn
+      id="sendReplyButton"
+      onClick={() =>
+        props.showReply(
+          document.getElementById("replyInputField").value,
+          props.num
+        )
+      }
+    >
+      Send
+    </MDBBtn>
   </MDBContainer>
 );
 
