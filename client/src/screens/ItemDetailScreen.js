@@ -11,9 +11,11 @@ import ItemDetailItemInfo from "../components/ItemDetailItemInfo";
 import ItemDetailMakeOfferButton from "../components/ItemDetailMakeOfferButton";
 import "../assets/styles/itemDetail.scss";
 
-let ItemDetailScreen = (props) => {
+let ItemDetailScreen = props => {
   let { id } = useParams();
-  useEffect(() => {props.fetchProductsByProductId(id);}, [id])
+  useEffect(() => {
+    props.fetchProductsByProductId(id);
+  }, [id]);
 
   return (
     <div id="itemDetailScreen">
