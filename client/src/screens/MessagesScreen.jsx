@@ -1,28 +1,19 @@
 import React from "react";
 import Axios from "axios";
-import {
-  MDBBtn,
-  MDBContainer,
-  MDBDropdown,
-  MDBDropdownItem,
-  MDBDropdownMenu,
-  MDBDropdownToggle,
-  MDBInput
-} from "mdbreact";
+import { MDBContainer } from "mdbreact";
 import MessageString from "../components/MessageString.jsx";
 
 class Messages extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentUser: 4,
+      currentUser: 10,
       messageStrings: null
     };
     this.getUserMessageStrings = this.getUserMessageStrings.bind(this);
   }
 
   getUserMessageStrings() {
-    // ! ping server for user messageStrings
     Axios.get(
       `https://paperclip.link/api/messages?userId=${this.state.currentUser}`
     )

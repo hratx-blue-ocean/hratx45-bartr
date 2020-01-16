@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
@@ -11,6 +12,24 @@ import UploadItemScreen from './screens/UploadItemScreen';
 import MakeOfferScreen from './screens/MakeOfferScreen';
 import MessagesScreen from './screens/MessagesScreen';
 import UpForTradeScreen from './screens/UpForTradeScreen';
+=======
+import React, { Component } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import HomeScreen from "./screens/HomeScreen.jsx";
+import SignupScreen from "./screens/SignupScreen.jsx";
+import LoginScreen from "./screens/LoginScreen.jsx";
+import UserProfile from "./screens/userProfileScreen.jsx";
+import FeedScreen from "../src/screens/FeedScreen.jsx";
+import ItemDetailScreen from "./screens/ItemDetailScreen";
+import UploadItemScreen from "./screens/UploadItemScreen";
+import MakeOfferScreen from "./screens/MakeOfferScreen";
+import MessagesScreen from "./screens/MessagesScreen";
+import UpForTradeScreen from "./screens/UpForTradeScreen";
+import PastTransactionsScreen from "./screens/PastTransactionsScreen";
+import ActiveOffersScreen from "./screens/ActiveOffersScreen";
+
+>>>>>>> 25f9e01308e48c86e2160e09fa05a1da46db7792
 class App extends Component {
   render() {
     return (
@@ -19,51 +38,45 @@ class App extends Component {
         {/* <ItemDetailPage /> */}
         {/* <!--<TestingScreen />  */}
         <Switch>
-          <Route exact path="/dist/">
+          <Route exact path="/">
             <HomeScreen />
           </Route>
-          <Route exact path="/dist/signup">
+          <Route exact path="/signup">
             <SignupScreen />
           </Route>
-          <Route exact path="/dist/feed">
+          <Route exact path="/login">
+            <LoginScreen />
+          </Route>
+          <Route exact path="/feed">
             <FeedScreen />
           </Route>
-          <Route exact path="/dist/profile">
+          <Route exact path="/profile">
             <UserProfile />
           </Route>
-          <Route exact path="/dist/ItemDetail">
+          <Route exact path="/ItemDetail/:id">
             <ItemDetailScreen />
           </Route>
-<<<<<<< HEAD
-          <Route exact path="/dist/messages">
-            <MessagesScreen />
-          </Route>
-=======
-<<<<<<< HEAD
-          <Route exact path="/dist/messages">
-            <MessagesScreen />
-          </Route>
-          <Route exact path="/dist/upload">
-            <UploadItemScreen />
-=======
-          <Route exact path="/dist/makeOffer">
+          <Route exact path="/makeOffer">
             <MakeOfferScreen />
           </Route>
-          <Route exact path="/dist/uploadItem">
+          <Route exact path="/uploadItem">
             <UploadItemScreen />
           </Route>
-          <Route exact path="/dist/messages">
+          <Route exact path="/messages">
             <MessagesScreen />
           </Route>
-          <Route exact path="/dist/trade">
+          <Route exact path="/trade">
             <UpForTradeScreen />
->>>>>>> 7e734c7fc26dec13ea3c115516a8f51400c1cf06
           </Route>
->>>>>>> 8890bf9ad91a837cead9fc5fb7dcdee0a2257f4b
+          <Route exact path="/past-transactions">
+            <PastTransactionsScreen />
+          </Route>
+          <Route exact path="/active-offers">
+            <ActiveOffersScreen />
+          </Route>
         </Switch>
       </Router>
     );
   }
 }
-
 export default App;

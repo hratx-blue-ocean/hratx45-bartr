@@ -133,9 +133,7 @@ class FeedScreen extends React.Component {
 
   getProducts() {
     // ! ping db using filter eventually, for now, this is unfiltered data
-    Axios.get(
-      `http://api-server.escxwv87wi.us-west-2.elasticbeanstalk.com/api/testing/test-postgres/products`
-    )
+    Axios.get(`https://paperclip.link/api/testing/test-postgres/products`)
       .then(data =>
         this.setState({
           productsToDisplay: data.data,
@@ -197,7 +195,11 @@ class FeedScreen extends React.Component {
         <div id="feedScreenProductListContainer">
           {this.state.productsToDisplay
             ? this.state.productsToDisplay.map((item, key) => (
-                <div id="feedScreenListItem" key={key}>
+                <div
+                  id="feedScreenListItem"
+                  key={key}
+                  style={{ color: "black" }}
+                >
                   <FeedScreenListItem item={item} />
                 </div>
               ))

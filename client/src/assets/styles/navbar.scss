@@ -6,10 +6,14 @@
 }
 
 #nav-bar {
+  position: fixed;
+  z-index: 1000;
   color: $secondary-color;
   background-color: $default_color;
   height: 6rem;
-  padding: 0.5rem 1rem;
+  width: 100vw;
+  bottom: 0;
+  left: 0;
   .title {
     font-size: 2rem;
     font-weight: bold;
