@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
 	MDBBtn,
 	MDBContainer,
@@ -7,17 +7,17 @@ import {
 	MDBCol,
 	MDBCard,
 	MDBCardBody
-} from "mdbreact";
-import { Link } from "react-router-dom";
-import { login } from "../actions/userActions";
-import { connect } from "react-redux";
+} from 'mdbreact';
+import { Link } from 'react-router-dom';
+import { login } from '../actions/userActions';
+import { connect } from 'react-redux';
 
 class LoginScreen extends Component {
 	constructor() {
 		super();
 		this.state = {
-			username: "",
-			password: "",
+			username: '',
+			password: '',
 			authenticate: false
 		};
 
@@ -41,7 +41,7 @@ class LoginScreen extends Component {
 	}
 
 	clickHandler() {
-		this.props.login("collin");
+		this.props.login(this.state.username);
 	}
 
 	render() {
@@ -79,12 +79,14 @@ class LoginScreen extends Component {
 									/>
 								</div>
 								<div>
-									<MDBBtn
-										color="danger"
-										onClick={this.clickHandler}
-									>
-										Login
-									</MDBBtn>
+									<Link to="/dist/feed">
+										<MDBBtn
+											color="danger"
+											onClick={this.clickHandler}
+										>
+											Login
+										</MDBBtn>
+									</Link>
 								</div>
 							</form>
 						</MDBCardBody>

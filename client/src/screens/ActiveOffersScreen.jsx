@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { MDBContainer, MDBCol, MDBRow, MDBCollapse, MDBBtn } from 'mdbreact';
 // import Navbar from '../components/Navbar';
-import userDb from '../dummy_data/users';
-import productDb from '../dummy_data/products';
 import Searchbar from '../components/Searchbar';
 import TradeItem from '../components/TradeItem';
 // import '../assets/styles/upForTradeScreen.scss';
