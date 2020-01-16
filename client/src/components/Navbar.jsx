@@ -54,16 +54,19 @@ const Navbar = ({ title, location }) => {
             </MDBDropdownToggle>
             <MDBDropdownMenu right basic>
               <MDBDropdownItem>
-                <MDBNavLink to="/dist/profile">Profile</MDBNavLink>
+                <MDBNavLink to="/profile">Profile</MDBNavLink>
               </MDBDropdownItem>
               <MDBDropdownItem>
-                <MDBNavLink to="/dist/feed">Feed</MDBNavLink>
+                <MDBNavLink to="/feed">Feed</MDBNavLink>
               </MDBDropdownItem>
               <MDBDropdownItem>
-                <MDBNavLink to="/dist/messages">Messages</MDBNavLink>
+                <MDBNavLink to="/messages">Messages</MDBNavLink>
               </MDBDropdownItem>
               <MDBDropdownItem>
-                <MDBNavLink to="/dist/trade">Up For Trade</MDBNavLink>
+                <MDBNavLink to="/trade">Up For Trade</MDBNavLink>
+              </MDBDropdownItem>
+              <MDBDropdownItem>
+                <MDBNavLink to="/active-offers">Active Offers</MDBNavLink>
               </MDBDropdownItem>
             </MDBDropdownMenu>
           </MDBDropdown>
