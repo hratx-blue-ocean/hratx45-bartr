@@ -14,12 +14,15 @@ class MessageString extends React.Component {
     super(props);
     this.state = {
       messageOpen: false,
-      replyOpen: false
+      replyOpen: false,
+      replies: [],
+      currString: null
     };
     this.openMessage = this.openMessage.bind(this);
     this.closeMessage = this.closeMessage.bind(this);
     this.replyToMessage = this.replyToMessage.bind(this);
     this.closeReply = this.closeReply.bind(this);
+    this.showReply = this.showReply.bind(this);
   }
 
   openMessage() {
@@ -54,6 +57,34 @@ class MessageString extends React.Component {
     // ! send reply to database
   }
 
+  showReply(msg = null, threadNum) {
+    if (!msg) {
+      return;
+    }
+    let replyArr = this.state.replies;
+    let origArr = this.props.messageString;
+    replyArr;
+    // replyArr.unshift({
+    //   sender_id: this.props.currentUser,
+    //   recipient_id:
+    //     origArr[threadNum][0].sender_id === this.props.currentUser
+    //       ? origArr[threadNum][1].sender_id
+    //       : origArr[threadNum][0].sender_id,
+    //   date: new Date().toJSON(),
+    //   message: msg
+    // });
+
+    return this.setState({
+      replies: replyArr
+    });
+  }
+
+  componentDidMount() {
+    this.setState({
+      currString: this.props.messageString
+    });
+  }
+
   render() {
     return this.state.messageOpen ? (
       <MDBContainer id="message-string">
@@ -67,15 +98,26 @@ class MessageString extends React.Component {
             {this.state.replyOpen ? (
               <MDBContainer>
                 <ReplyMessage
-                  showReply={this.props.showReply}
+                  showReply={this.showReply}
                   messageString={this.props.messageString}
                   num={this.props.num}
                 />
               </MDBContainer>
             ) : null}
             <MDBContainer>
-              {this.props.messageString
-                ? this.props.messageString.map((message, key) => (
+              {this.state.replies
+                ? this.state.replies.map((message, key) =>
+                    message.sender_id === this.props.currentUser ? (
+                      <Message
+                        key={key}
+                        message={message}
+                        num={this.props.num}
+                      />
+                    ) : null
+                  )
+                : null}
+              {this.state.currString
+                ? this.state.currString.map((message, key) => (
                     <Message key={key} message={message} num={this.props.num} />
                   ))
                 : null}
