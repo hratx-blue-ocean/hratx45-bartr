@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   MDBBtn,
   MDBRow,
@@ -19,33 +19,31 @@ import {
 } from "../actions/productsActions";
 
 const HomeScreen = props => {
-  const username = useSelector(store => store.username);
+  const userInfo = useSelector(store => store.userInfo);
   const products = useSelector(store => store.products);
   const location = useSelector(store => store.location);
-  const [randomArray, setRandomArray] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
+  //const [randomArray, setRandomArray] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
   useEffect(() => {
     props.fetchProductsByLatitudeLongitudeProximity(
       location.latitude,
       location.longitude,
       10
     );
+    // .then(() => {
+    //   let numProds = products.rows.length;
+    //   let numProdsArray = [];
+    //   if (numProds > 9) {
+    //     while (numProdsArray.length < 9) {
+    //       let checkNum = Math.floor(Math.random() * numProds);
+    //       if (numProdsArray.indexOf(checkNum) === -1) {
+    //         numProdsArray.push(checkNum);
+    //       }
+    //     }
+    //     setRandomArray(numProdsArray);
+    //   }
+    // });
   }, [location]);
-
-  useEffect(() => {
-    let numProds = products.rows.length;
-    let numProdsArray = [];
-    if (numProds > 9) {
-      while (numProdsArray.length < 9) {
-        let checkNum = Math.floor(Math.random() * numProds);
-        if (numProdsArray.indexOf(checkNum) === -1) {
-          numProdsArray.push(checkNum);
-        }
-      }
-      setRandomArray(numProdsArray);
-    }
-  }, [location]);
-
-  console.log("this is products: ", products);
+  console.log("this is products ", products);
 
   return (
     <div>
@@ -90,7 +88,7 @@ const HomeScreen = props => {
           <MDBCol md="6">
             <MDBNavLink
               to={
-                username.length > 0 ? `/ItemDetail/${props.item_id}` : "/signup"
+                userInfo.length > 0 ? `/ItemDetail/${props.item_id}` : "/signup"
               }
             >
               <MDBView hover>
@@ -110,7 +108,7 @@ const HomeScreen = props => {
           <MDBCol md="6">
             <MDBNavLink
               to={
-                username.length > 0 ? `/ItemDetail/${props.item_id}` : "/signup"
+                userInfo.length > 0 ? `/ItemDetail/${props.item_id}` : "/signup"
               }
             >
               <MDBView hover>
@@ -130,7 +128,7 @@ const HomeScreen = props => {
           <MDBCol md="12">
             <MDBNavLink
               to={
-                username.length > 0 ? `/ItemDetail/${props.item_id}` : "/signup"
+                userInfo.length > 0 ? `/ItemDetail/${props.item_id}` : "/signup"
               }
             >
               <MDBView hover>
@@ -150,7 +148,7 @@ const HomeScreen = props => {
           <MDBCol md="4">
             <MDBNavLink
               to={
-                username.length > 0 ? `/ItemDetail/${props.item_id}` : "/signup"
+                userInfo.length > 0 ? `/ItemDetail/${props.item_id}` : "/signup"
               }
             >
               <MDBView hover>
@@ -170,7 +168,7 @@ const HomeScreen = props => {
           <MDBCol md="4">
             <MDBNavLink
               to={
-                username.length > 0 ? `/ItemDetail/${props.item_id}` : "/signup"
+                userInfo.length > 0 ? `/ItemDetail/${props.item_id}` : "/signup"
               }
             >
               <MDBView hover>
@@ -190,7 +188,7 @@ const HomeScreen = props => {
           <MDBCol md="4">
             <MDBNavLink
               to={
-                username.length > 0
+                userInfo.length > 0
                   ? `/dist/ItemDetail/${props.item_id}`
                   : "/dist/signup"
               }
@@ -212,7 +210,7 @@ const HomeScreen = props => {
           <MDBCol md="6">
             <MDBNavLink
               to={
-                username.length > 0
+                userInfo.length > 0
                   ? `/dist/ItemDetail/${props.item_id}`
                   : "/dist/signup"
               }
@@ -234,7 +232,7 @@ const HomeScreen = props => {
           <MDBCol md="6">
             <MDBNavLink
               to={
-                username.length > 0
+                userInfo.length > 0
                   ? `/dist/ItemDetail/${props.item_id}`
                   : "/dist/signup"
               }
@@ -256,7 +254,7 @@ const HomeScreen = props => {
           <MDBCol md="12">
             <MDBNavLink
               to={
-                username.length > 0
+                userInfo.length > 0
                   ? `/dist/ItemDetail/${props.item_id}`
                   : "/dist/signup"
               }
