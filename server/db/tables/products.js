@@ -28,6 +28,13 @@ const getProductsByUser = userId => {
   });
 };
 
+/* Returns 50 products by post date */
+const getProductsByPostDate = () => {
+  return pool.query({
+    text: "select * from products ORDER BY posted_date DESC LIMIT 50;"
+  });
+};
+
 /* Returns all products by users longitude and latitude */
 const getProductsByProximityByUserId = (userId, miles) => {
   let sql = `
@@ -56,7 +63,7 @@ const getProductsByProximityByLongLat = (longitude, latitude, miles) => {
         ${miles} *1609,
         false
         )
-    limit 200;
+    limit 50;
   `;
   return pool.query({ text: sql });
 };
@@ -76,5 +83,6 @@ module.exports = {
   getProductsByProximityByUserId,
   getProductsByProximityByLongLat,
   getProductPhotosById,
-  addNewProduct
+  addNewProduct,
+  getProductsByPostDate
 };
