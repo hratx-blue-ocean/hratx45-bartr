@@ -29,10 +29,13 @@ class MessageString extends React.Component {
   }
 
   closeMessage() {
-    this.setState({
-      messageOpen: false,
-      replyOpen: false
-    });
+    this.setState(
+      {
+        messageOpen: false,
+        replyOpen: false
+      },
+      () => this.props.resetRecipientID
+    );
   }
 
   replyToMessage() {

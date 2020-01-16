@@ -13,6 +13,7 @@ class Messages extends React.Component {
     };
     this.getUserMessageStrings = this.getUserMessageStrings.bind(this);
     this.showReply = this.showReply.bind(this);
+    this.resetRecipientID = this.resetRecipientID.bind(this);
   }
 
   getUserMessageStrings() {
@@ -48,10 +49,9 @@ class Messages extends React.Component {
       () => {
         tempHold.unshift({
           sender_id: this.state.currentUser,
-          recipient_id:
-            arr[threadNum] > this.state.currentUser
-              ? arr[threadNum][1].sender_id
-              : arr[threadNum][0].sender_id,
+          recipient_id: this.state.recipient_id
+            ? this.state.recipient_id
+            : tempHold[2].sender_id,
           date: new Date().toJSON(),
           message: msg
         });
@@ -64,6 +64,11 @@ class Messages extends React.Component {
     );
   }
 
+  resetRecipientID() {
+    this.setState({
+      recipient_id: null
+    });
+  }
   componentDidMount() {
     this.getUserMessageStrings();
   }
@@ -82,6 +87,7 @@ class Messages extends React.Component {
                     messageString={messageString}
                     currentUser={this.state.currentUser}
                     showReply={this.showReply}
+                    resetRecipientID={this.resetRecipientID}
                   />
                 </MDBContainer>
               ))
