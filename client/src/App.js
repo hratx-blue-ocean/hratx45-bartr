@@ -12,6 +12,7 @@ import MakeOfferScreen from './screens/MakeOfferScreen';
 import MessagesScreen from './screens/MessagesScreen';
 import UpForTradeScreen from './screens/UpForTradeScreen';
 import PastTransactionsScreen from './screens/PastTransactionsScreen';
+import ActiveOffersScreen from './screens/ActiveOffersScreen';
 
 class App extends Component {
   render() {
@@ -53,6 +54,9 @@ class App extends Component {
           </Route>
           <Route exact path="/past-transactions">
             <PastTransactionsScreen />
+          </Route>
+          <Route exact path="/active-offers">
+            <ActiveOffersScreen />
           </Route>
         </Switch>
       </Router>
