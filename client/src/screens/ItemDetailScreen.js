@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent, memo } from "react";
 import { connect } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import {
