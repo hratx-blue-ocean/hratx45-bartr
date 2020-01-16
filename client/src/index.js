@@ -21,12 +21,16 @@ import thunk from "redux-thunk";
 import reducers from "./reducers";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)));
+const store = createStore(
+  reducers,
+  { products: { photos: [{ blob: "" }] } },
+  composeEnhancers(applyMiddleware(thunk))
+);
 // --------------------------------------------------------------------------------------------------
 
 ReactDOM.render(
-	<Provider store={store}>
-		<App />
-	</Provider>,
-	document.getElementById("app")
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("app")
 );
