@@ -19,16 +19,16 @@ const UpForTradeScreen = () => {
           <Navbar />
         </MDBCol>
       </MDBRow> */}
-			<MDBRow className="pad-all">
-				<MDBCol className="pad-none" size="12" xs="12">
-					Up For Trade
-				</MDBCol>
-			</MDBRow>
-			<MDBRow className="pad-bucket">
-				<MDBCol size="12" xs="12">
-					<Searchbar onChange={e => setSearchTerm(e.target.value)} />
-				</MDBCol>
-			</MDBRow>
+      <MDBRow className="pad-all">
+        <MDBCol className="pad-none" size="12" xs="12">
+          Up For Trade
+        </MDBCol>
+      </MDBRow>
+      <MDBRow className="pad-bucket">
+        <MDBCol size="12" xs="12">
+          <Searchbar onChange={e => setSearchTerm(e.target.value)} />
+        </MDBCol>
+      </MDBRow>
 
       {productDb
         .filter(
