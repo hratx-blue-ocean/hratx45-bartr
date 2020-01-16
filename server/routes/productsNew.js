@@ -13,6 +13,7 @@ router.get("/itemsByDistance", (req, res) => {
 });
 
 /*Sends list item by post date*/
+
 router.get("/itemsByPostDate", (req, res) => {
   db.getProductsByPostDate()
     .then(data => res.status(200).send(data))
@@ -44,5 +45,13 @@ router.get("/productPhotos", (req, res) => {
 });
 
 // router.get("/itemsByNameIncludes", (req, res));
+
+/* Post new product to database */
+router.post("/product", (req, res) => {
+  const item = req.query.item;
+  // db.addNewProduct(item)
+  //   .then(data => res.status(200).send(data))
+  //   .catch(error => res.status(400).send(error));
+});
 
 module.exports = router;
