@@ -50,7 +50,6 @@ class Messages extends React.Component {
                     num={key}
                     messageString={messageString}
                     currentUser={this.state.currentUser}
-                    showReply={this.showReply}
                   />
                 </MDBContainer>
               ))

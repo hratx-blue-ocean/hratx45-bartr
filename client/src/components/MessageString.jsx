@@ -14,15 +14,12 @@ class MessageString extends React.Component {
     super(props);
     this.state = {
       messageOpen: false,
-      replyOpen: false,
-      replies: [],
-      currString: null
+      replyOpen: false
     };
     this.openMessage = this.openMessage.bind(this);
     this.closeMessage = this.closeMessage.bind(this);
     this.replyToMessage = this.replyToMessage.bind(this);
     this.closeReply = this.closeReply.bind(this);
-    this.showReply = this.showReply.bind(this);
   }
 
   openMessage() {
@@ -57,32 +54,8 @@ class MessageString extends React.Component {
     // ! send reply to database
   }
 
-  showReply(msg = null, threadNum) {
-    if (!msg) {
-      return;
-    }
-    let replyArr = this.state.replies;
-    let origArr = this.props.messageString;
-    replyArr;
-    // replyArr.unshift({
-    //   sender_id: this.props.currentUser,
-    //   recipient_id:
-    //     origArr[threadNum][0].sender_id === this.props.currentUser
-    //       ? origArr[threadNum][1].sender_id
-    //       : origArr[threadNum][0].sender_id,
-    //   date: new Date().toJSON(),
-    //   message: msg
-    // });
-
-    return this.setState({
-      replies: replyArr
-    });
-  }
-
   componentDidMount() {
-    this.setState({
-      currString: this.props.messageString
-    });
+    this.setState({ currString: this.props.messageString });
   }
 
   render() {
@@ -91,7 +64,7 @@ class MessageString extends React.Component {
         <MDBModal isOpen={this.state.messageOpen}>
           <MDBModalHeader>
             Messages with user:{" "}
-            {this.props.messageString[this.props.num].sender_id}
+            {this.props.messageString[this.props.num].sender_username}
           </MDBModalHeader>
           <MDBModalBody>
             {" "}
@@ -142,7 +115,7 @@ class MessageString extends React.Component {
       <MDBContainer id="message-string" onClick={this.openMessage}>
         <MDBContainer>
           Messages with user:{" "}
-          {this.props.messageString[this.props.num].sender_id}
+          {this.props.messageString[this.props.num].sender_username}
         </MDBContainer>
       </MDBContainer>
     );

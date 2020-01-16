@@ -154,7 +154,6 @@ class FeedScreen extends React.Component {
   }
 
   render() {
-    console.log(this.state.productsToDisplay);
     return (
       <MDBContainer id="feed-screen">
         <MDBInput
