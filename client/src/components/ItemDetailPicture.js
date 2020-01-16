@@ -5,11 +5,11 @@ export default class ItemDetailPicture extends PureComponent {
     super(props);
   }
 
-componentDidUpdate(prevProps) {
-  if (this.props !== prevProps) {
-    this.forceUpdate();
-  }
-}
+// componentDidUpdate(prevProps) {
+//   if (this.props !== prevProps) {
+//     this.forceUpdate();
+//   }
+// }
 
   render() {
     return (
@@ -21,7 +21,7 @@ componentDidUpdate(prevProps) {
         /> */}
         <img
           className="mainImage"
-          src={this.props.photos ? this.props.photos[0].blob : ""}
+          src={this.props.photos[0] ? this.props.photos[0].blob : ""}
         />
         <span className="arrow rightArrow">&raquo;</span>
       </div>

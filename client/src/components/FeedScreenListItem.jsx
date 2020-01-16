@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 
 const FeedScreenListItem = props =>
   props.item.public ? (
-    <Link to={`/dist/ItemDetail/${props.item.product_id}`}>
+    <Link to={`/ItemDetail/${props.item.product_id}`}>
       <MDBContainer
         id="feed-screen-list-item"
         style={{ borderTop: "1px solid gray" }}

@@ -37,7 +37,7 @@ class App extends Component {
           <Route exact path="/profile">
             <UserProfile />
           </Route>
-          <Route exact path="/ItemDetail">
+          <Route exact path="/ItemDetail/:id">
             <ItemDetailScreen />
           </Route>
           <Route exact path="/makeOffer">
