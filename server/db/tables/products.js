@@ -28,6 +28,13 @@ const getProductsByUser = userId => {
   });
 };
 
+/* Returns 50 products by post date */
+const getProductsByPostDate = () => {
+  return pool.query({
+    text: "select * from products ORDER BY posted_date DESC LIMIT 50;"
+  });
+};
+
 /* Returns all products by users longitude and latitude */
 const getProductsByProximityByUserId = (userId, miles, limit=50) => {
   let sql = `
@@ -102,7 +109,8 @@ module.exports = {
   getProductsByProximityByUserId,
   getProductsByProximityByLongLat,
   getProductPhotosById,
-  addNewProduct
+  addNewProduct,
+  getProductsByPostDate
 };
 
 

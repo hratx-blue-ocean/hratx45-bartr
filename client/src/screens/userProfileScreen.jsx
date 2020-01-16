@@ -68,7 +68,7 @@ const UserProfile = ({}) => {
       </MDBRow>
       <MDBRow>
         <MDBCol className="text-center">
-          <MDBNavLink to="/dist/uploadItem">
+          <MDBNavLink to="/uploadItem">
             <MDBBtn>Upload an Item</MDBBtn>
           </MDBNavLink>
         </MDBCol>
