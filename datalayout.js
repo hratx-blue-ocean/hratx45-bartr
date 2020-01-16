@@ -15,9 +15,15 @@ let getNineItemsByLocation = {
     response: [homepageItem/*(x9)*/]
 } //homepage
 
-let getFiftyItemsByValue = {
+let getFiftyItemsByHighValue = {
     type: "get",
-    request: "itemValue",
+    request: null,
+    response: [itemListView/*(x50)*/]
+} //feed
+
+let getFiftyItemsByLowValue = {
+    type: "get",
+    request: null,
     response: [itemListView/*(x50)*/]
 } //feed
 
