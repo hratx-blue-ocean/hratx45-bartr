@@ -1,3 +1,18 @@
+<<<<<<< HEAD
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import HomeScreen from './screens/HomeScreen.jsx';
+import SignupScreen from './screens/SignupScreen.jsx';
+import LoginScreen from './screens/LoginScreen.jsx';
+import UserProfile from './screens/userProfileScreen.jsx';
+import FeedScreen from '../src/screens/FeedScreen.jsx';
+import ItemDetailScreen from './screens/ItemDetailScreen';
+import UploadItemScreen from './screens/UploadItemScreen';
+import MakeOfferScreen from './screens/MakeOfferScreen';
+import MessagesScreen from './screens/MessagesScreen';
+import UpForTradeScreen from './screens/UpForTradeScreen';
+=======
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
@@ -14,8 +29,12 @@ import UpForTradeScreen from "./screens/UpForTradeScreen";
 import PastTransactionsScreen from "./screens/PastTransactionsScreen";
 import ActiveOffersScreen from "./screens/ActiveOffersScreen";
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 25f9e01308e48c86e2160e09fa05a1da46db7792
+>>>>>>> 3fdf7e62a955f6ed2df6b74eecee2464dcf7aed2
 class App extends Component {
   render() {
     return (
