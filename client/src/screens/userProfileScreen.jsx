@@ -51,7 +51,7 @@ const UserProfile = ({}) => {
                 </MDBCol>
               </MDBRow>
               <hr />
-              <MDBRow className="mx-auto">
+              <MDBRow>
                 <MDBCol className="col-test">
                   <MDBBtn>Your Items</MDBBtn>
                 </MDBCol>
@@ -68,7 +68,7 @@ const UserProfile = ({}) => {
       </MDBRow>
       <MDBRow>
         <MDBCol className="text-center">
-          <MDBNavLink to="/dist/upload">
+          <MDBNavLink to="/dist/uploadItem">
             <MDBBtn>Upload an Item</MDBBtn>
           </MDBNavLink>
         </MDBCol>
