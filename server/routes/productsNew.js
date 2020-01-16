@@ -65,32 +65,34 @@ router.get("/productPhotos", (req, res) => {
 router.post("/product", upload.array("image"), (req, res) => {
   const item = req.body;
   const files = req.files;
+  console.log(item);
+  console.log(files);
   let base64Array = [];
-  for (let i = 0; i < files.length; i++) {
-    let image =
-      "data:" +
-      files[i].mimetype +
-      ";base64, " +
-      files[i].buffer.toString("base64");
-    base64Array.push(image);
-  }
-  db.addNewProduct(item)
-    .then(result => {
-      console.log(result);
-      //get id of inserted from result
-      let promises = [];
-      for (let i = 0; i < base64Array.length; i++) {
-        promises.push(db.addNewProductPhotos(id, base64Array[i]));
-      }
-      Promise.all(promises)
-        .then(result => {
-          res.status(200).send("ok");
-        })
-        .catch(errror => res.status(400).send(error));
-    })
-    .catch(error => {
-      res.status(400).send(error);
-    });
+  // for (let i = 0; i < files.length; i++) {
+  //   let image =
+  //     "data:" +
+  //     files[i].mimetype +
+  //     ";base64, " +
+  //     files[i].buffer.toString("base64");
+  //   base64Array.push(image);
+  // }
+  // db.addNewProduct(item)
+  //   .then(result => {
+  //     console.log(result);
+  //     //get id of inserted from result
+  //     let promises = [];
+  //     for (let i = 0; i < base64Array.length; i++) {
+  //       promises.push(db.addNewProductPhotos(id, base64Array[i]));
+  //     }
+  //     Promise.all(promises)
+  //       .then(result => {
+  //         res.status(200).send("ok");
+  //       })
+  //       .catch(errror => res.status(400).send(error));
+  //   })
+  //   .catch(error => {
+  //     res.status(400).send(error);
+  //   });
   res.status(200).send(base64Array);
 });
 
