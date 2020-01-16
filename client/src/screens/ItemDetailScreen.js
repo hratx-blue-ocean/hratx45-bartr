@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { connect } from "react-redux";
+import { connect, useSelector, useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import {
   fetchProductsByProductId,

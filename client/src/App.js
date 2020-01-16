@@ -29,7 +29,12 @@ import UpForTradeScreen from "./screens/UpForTradeScreen";
 import PastTransactionsScreen from "./screens/PastTransactionsScreen";
 import ActiveOffersScreen from "./screens/ActiveOffersScreen";
 
+<<<<<<< HEAD
+
+
+=======
 >>>>>>> 25f9e01308e48c86e2160e09fa05a1da46db7792
+>>>>>>> 3fdf7e62a955f6ed2df6b74eecee2464dcf7aed2
 class App extends Component {
   render() {
     return (
