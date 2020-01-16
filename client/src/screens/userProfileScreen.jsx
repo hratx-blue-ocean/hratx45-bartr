@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import data from "../dummy_data/users.js";
+import data from "../dummy_data/products";
 import {
   MDBBtn,
   MDBCard,
@@ -68,7 +68,7 @@ const UserProfile = ({}) => {
       </MDBRow>
       <MDBRow>
         <MDBCol className="text-center">
-          <MDBNavLink to="/dist/uploadItem">
+          <MDBNavLink to="/uploadItem">
             <MDBBtn>Upload an Item</MDBBtn>
           </MDBNavLink>
         </MDBCol>

@@ -1,5 +1,5 @@
-import React, { PureComponent } from "react";
-import { connect } from "react-redux";
+import React, { PureComponent, useEffect } from "react";
+import { connect, useSelector, useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import {
   fetchProductsByProductId,
@@ -11,10 +11,9 @@ import ItemDetailItemInfo from "../components/ItemDetailItemInfo";
 import ItemDetailMakeOfferButton from "../components/ItemDetailMakeOfferButton";
 import "../assets/styles/itemDetail.scss";
 
-const ItemDetailScreen = props => {
+let ItemDetailScreen = (props) => {
   let { id } = useParams();
-
-  props.fetchProductsByProductId(id);
+  useEffect(() => {props.fetchProductsByProductId(id);}, [id])
 
   return (
     <div id="itemDetailScreen">
