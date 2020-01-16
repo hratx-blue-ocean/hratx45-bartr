@@ -1,5 +1,10 @@
 const express = require("express");
 const router = express.Router();
+var multer = require("multer");
+const upload = multer();
+
+router.use(express.json());
+
 const db = require("../db/tables/products.js");
 
 /*Sends list item information by distance*/
@@ -47,8 +52,12 @@ router.get("/productPhotos", (req, res) => {
 // router.get("/itemsByNameIncludes", (req, res));
 
 /* Post new product to database */
-router.post("/product", (req, res) => {
-  const item = req.query.item;
+router.post("/product", upload.array("image"), (req, res) => {
+  const item = req.body;
+  const files = req.files;
+  console.log(item);
+  console.log(files);
+  res.send("ok");
   // db.addNewProduct(item)
   //   .then(data => res.status(200).send(data))
   //   .catch(error => res.status(400).send(error));
