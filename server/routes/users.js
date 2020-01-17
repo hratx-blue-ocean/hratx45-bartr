@@ -1,12 +1,14 @@
 const express = require("express");
 const router = express.Router();
+const multer = require("multer");
+const upload = multer();
 
 const db = require("../db/tables/users.js");
 
 router.post("/signup", (req, res) => {
   let item = req.body;
   console.log(item);
-  res.status.send("ok");
+  res.send("ok");
 });
 
 // router.get("/authentication", (req, res) => {
