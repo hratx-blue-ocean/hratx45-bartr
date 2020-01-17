@@ -74,6 +74,7 @@ const TradeItem = ({
               <MDBBtn
                 style={{ margin: '0' }}
                 className="pad-all-half fill color-none "
+                color="default"
               >
                 <Icon
                   className="color-inherit"
