@@ -157,7 +157,6 @@ const ActiveOffersScreen = () => {
                         id={`collapse_yours${i}`}
                         isOpen={open}
                       >
-                        <Divider label="Your Items" />
                         <Row key={i}>
                           <Col
                             className="pad-none center"
@@ -165,6 +164,7 @@ const ActiveOffersScreen = () => {
                             tablet="6"
                           >
                             <Grid>
+                              <Divider label="Your Items" />
                               {o.Offerer.items.map((item, i) => (
                                 <Row>
                                   <Col
@@ -177,7 +177,7 @@ const ActiveOffersScreen = () => {
                                         product_name: item.name,
                                         value: item.value
                                       }}
-                                      showDelete={false}
+                                      showDel={false}
                                       onClick={() => {}}
                                       image={item.image}
                                     />
@@ -186,17 +186,22 @@ const ActiveOffersScreen = () => {
                               ))}
                             </Grid>
                           </Col>
-                          <Col className="center" mobile="12" tablet="6">
+                          <Col
+                            className="pad-none center"
+                            mobile="12"
+                            tablet="6"
+                          >
                             <Grid>
+                              <Divider label="Their Items" />
                               {o.Offeree.items.map((item, i) => (
                                 <Row>
-                                  <Col>
+                                  <Col nopad className="pad-edge-bottom">
                                     <TradeItem
                                       data={{
                                         product_name: item.name,
                                         value: item.value
                                       }}
-                                      showDelete={false}
+                                      showDel={false}
                                       onClick={() => {}}
                                       image={item.image}
                                     />

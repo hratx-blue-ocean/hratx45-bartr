@@ -81,13 +81,11 @@ export const Divider = ({ className = '', nopad = false, label = '' }) => (
   <Grid className={className}>
     <Row>
       <Col>
-        <Row className="border-bottom"></Row>
-        <Row></Row>
+        <hr />
       </Col>
-      <Col>{label}</Col>
+      <Col className="center">{label}</Col>
       <Col>
-        <Row className="border-bottom"></Row>
-        <Row></Row>
+        <hr />
       </Col>
     </Row>
   </Grid>

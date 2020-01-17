@@ -38,7 +38,7 @@ const TradeItem = ({
         <Col nopad className="pad-none" mobile="4">
           <img
             src={image}
-            className="width-contain rounded clip-half shadow"
+            className="image-fit-crop rounded clip-half shadow "
             alt={data.product_name}
           />
         </Col>
