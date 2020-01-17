@@ -53,28 +53,29 @@
   }
 
   .carouselContainer {
-      display: flex;
+    display: flex;
+    justify-content: center;
   }
 
   .imageCarousel {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-grow: 0;
-      height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 0;
+    height: 30vh;
   }
 
   .carouselItem {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .carousel-item.active.carousel-slide-item.carouselView {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
   }
 
   .imageWindow {
@@ -138,6 +139,6 @@
   }
 
   .carousel-fade .carousel-item {
-      display: flex !important;
+    display: flex !important;
   }
 }
