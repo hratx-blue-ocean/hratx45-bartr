@@ -20,9 +20,11 @@ import {
 //author -- Matt Lucas
 
 const UserProfile = ({}) => {
-  console.log(data);
-  const [collapse1, setCollapse1] = useState(false);
+  const userInfo = useSelector(store => store.userInfo);
+  const products = useSelector(store => store.products);
+  const location = useSelector(store => store.location);
   const [collapse2, setCollapse2] = useState(false);
+  console.log(userInfo);
   return (
     <MDBContainer>
       <MDBRow>
@@ -98,13 +100,13 @@ const UserProfile = ({}) => {
     </MDBContainer>
   );
 };
-export default UserProfile;
 
-// <MDBCardImage
-//           cascade
-//           src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).jpg"
-//         />
-//         <MDBCardTitle>User Name</MDBCardTitle>
+const mapStateToProps = state => {
+  return {
+    products: state.products,
+    location: state.location,
+    userInfo: state.userInfo
+  };
+};
 
-//         <MDBCard narrow>
-//       </MDBCard>
+export default connect(mapStateToProps, {})(UserProfile);
