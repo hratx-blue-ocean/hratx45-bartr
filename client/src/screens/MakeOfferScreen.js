@@ -1,7 +1,9 @@
 import React, { PureComponent } from "react";
+import {connect} from "react-redux";
 import { Link } from "react-router-dom";
 import "../assets/styles/makeOffer.scss";
 import MakeOfferForm from "../components/MakeOfferForm";
+import HomeScreen from "./HomeScreen";
 
 import {
   MDBModal,
@@ -28,17 +30,21 @@ class MakeOfferScreen extends PureComponent {
   }
 
   render() {
-    return (
-      <div id="makeOfferScreen">
-        <h1>Make An Offer</h1>
-        <MakeOfferForm toggleConfirmationModal={this.toggleConfirmation} />
-        <MDBModal
-          isOpen={this.state.modalOpen}
-          toggle={this.toggle}
-          size="fluid"
-          centered
-          className="confirmationModal"
-        >
+    console.log("current userId: ", this.props.userId);
+    if (this.props.userId === null) {
+      return <HomeScreen />;
+    } else {
+      return (
+        <div id="makeOfferScreen">
+          <h1>Make An Offer</h1>
+          <MakeOfferForm toggleConfirmationModal={this.toggleConfirmation} />
+          <MDBModal
+            isOpen={this.state.modalOpen}
+            toggle={this.toggle}
+            size="fluid"
+            centered
+            className="confirmationModal"
+          >
             <div className="modalTitle">
               <h1>Your offer has been placed!</h1>
             </div>
@@ -59,10 +65,15 @@ class MakeOfferScreen extends PureComponent {
                 </MDBBtn>
               </Link>
             </div>
-        </MDBModal>
-      </div>
-    );
+          </MDBModal>
+        </div>
+      );
+    }
   }
 }
 
-export default MakeOfferScreen;
+const mapStateToProps = state => {
+  return {userId: state.userInfo.userId}
+}
+
+export default connect(mapStateToProps)(MakeOfferScreen);

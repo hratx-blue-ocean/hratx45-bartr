@@ -40,7 +40,7 @@ export default class ItemDetailPicture extends PureComponent {
               ))
             ) : (
               <MDBCarouselItem itemId={1}>
-                  <img src="../assets/images/no_images.png" className="mainImage" />
+                  <img src="../assets/images/no_images2.png" className="mainImage" />
               </MDBCarouselItem>
             )}
           </MDBCarouselInner>
