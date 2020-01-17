@@ -50,7 +50,7 @@ let ItemDetailScreen = props => {
         </h4>
       </div>
       <div className="makeOfferButtonContainer">
-        <ItemDetailMakeOfferButton />
+        <ItemDetailMakeOfferButton/>
       </div>
       <div className="itemInfoContainer">
         <ItemDetailItemInfo

@@ -22,6 +22,7 @@ class App extends Component {
         {/* <ItemDetailPage /> */}
         {/* <!--<TestingScreen />  */}
         {/* <UploadItemScreen /> */}
+        {/* <MakeOfferScreen /> */}
         <Switch>
           <Route exact path="/">
             <HomeScreen />
@@ -41,7 +42,7 @@ class App extends Component {
           <Route exact path="/ItemDetail/:id">
             <ItemDetailScreen />
           </Route>
-          <Route exact path="/makeOffer/:id">
+          <Route exact path="/makeOffer/">
             <MakeOfferScreen />
           </Route>
           <Route exact path="/uploadItem">

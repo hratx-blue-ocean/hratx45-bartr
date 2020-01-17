@@ -3,16 +3,16 @@ import "../assets/styles/makeOffer.scss";
 import MakeOfferForm from "../components/MakeOfferForm";
 
 const MakeOfferScreen = props => {
-  let { id } = useParams();
+  // let { id } = useParams();
 
   // useEffect(() => {
   //   props.fetchProductsByProductId(id);
   // }, [id]);
 
   return (
-    <div>
+    <div id="makeOfferScreen">
       <h1>Make An Offer</h1>
-      <MakeOfferForm productId={id}/>
+      <MakeOfferForm />
     </div>
   );
 };

@@ -107,7 +107,7 @@ export default class UploadItemForm extends PureComponent {
   render() {
     return (
       <div>
-        <MDBCard>
+        <MDBCard className="postItemFormCard">
           {/* <MDBCardTitle>
             <h1>Post an Item</h1>
           </MDBCardTitle> */}
