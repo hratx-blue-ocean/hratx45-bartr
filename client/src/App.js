@@ -24,6 +24,7 @@ class App extends Component {
         <Navbar />
         {/* <ItemDetailPage /> */}
         {/* <!--<TestingScreen />  */}
+        <ItemDetailScreen />
         <Switch>
           <Route exact path="/">
             <HomeScreen />
