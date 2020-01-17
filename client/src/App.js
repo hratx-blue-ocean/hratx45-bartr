@@ -22,10 +22,11 @@ class App extends Component {
 				{/* <ItemDetailScreen /> */}
 				{/* <!--<TestingScreen />  */}
 				{/* <UploadItemScreen />   */}
-        {/* <MakeOfferScreen /> */}
+				{/* <MakeOfferScreen /> */}
 				<Switch>
 					<Route exact path="/">
-						<HomeScreen />
+						{/* <HomeScreen /> */}
+						<PastOffersScreen />
 					</Route>
 					<Route exact path="/signup">
 						<SignupScreen />

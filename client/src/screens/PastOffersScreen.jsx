@@ -124,7 +124,7 @@ class PastOffersScreen extends Component {
 		// ! I need offers ID, offerer/offeree, item, status
 		this.state = {
 			username: '',
-			offersIDs: [1, 2, 3, 4]
+			offersIDs: []
 		};
 	}
 
