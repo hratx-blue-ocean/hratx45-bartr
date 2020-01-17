@@ -125,7 +125,7 @@ class MakeOfferForm extends PureComponent {
           <MDBContainer>
             <MDBCard className="makeOfferFormCard">
               <div className="desiredItemContainer">
-              <h3 className="sectionTitle">Chosen Item: </h3>
+              <h3 className="sectionTitle">Item you've chosen: </h3>
                 <MDBCard className="desiredItem">
                   
                   {this.props.itemDetails.photos &&
