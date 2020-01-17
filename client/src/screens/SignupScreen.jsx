@@ -97,6 +97,12 @@ class SignupScreen extends Component {
     data.append('email', this.state.email);
     data.append('zipcode', this.state.zipcode);
     data.append('image', this.state.image, this.state.image.name);
+    axios
+      .post('http://localhost:3000/api/users/signup', data, {
+        headers: { 'Content-Type': 'multipart/form-data' }
+      })
+      .then(result => console.log(result))
+      .catch(error => console.log(error));
   }
 
   render() {

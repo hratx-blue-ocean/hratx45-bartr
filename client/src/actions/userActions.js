@@ -54,11 +54,11 @@ export const fetchUserInformationById = userId => {
 };
 
 // * Ben and Collin Login Action
-export const login = userName => {
+export const login = username => {
   return (dispatch, getState) => {
     dispatch({
-      type: 'FETCH_USER_ID',
-      payload: { userName, userId }
+      type: 'FETCH_USER_INFORMATION_BY_USERNAME',
+      payload: { username: username }
     });
   };
 };
