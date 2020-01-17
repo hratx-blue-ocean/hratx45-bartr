@@ -21,10 +21,10 @@ class App extends Component {
 				<Navbar />
 				{/* <ItemDetailPage /> */}
 				{/* <!--<TestingScreen />  */}
+				{/* <UploadItemScreen /> */}
 				<Switch>
 					<Route exact path="/">
-						{/* <HomeScreen /> */}
-						<PastOffersScreen />
+						<HomeScreen />
 					</Route>
 					<Route exact path="/signup">
 						<SignupScreen />

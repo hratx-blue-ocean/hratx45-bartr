@@ -5,8 +5,8 @@ import UploadItemForm from "../components/UploadItemForm";
 export default class UploadItemScreen extends PureComponent {
   render() {
     return (
-      <div>
-        <h1>Upload an Item</h1>
+      <div id="postItemScreen">
+       <h1>Post an Item</h1>
         <UploadItemForm />
       </div>
     );

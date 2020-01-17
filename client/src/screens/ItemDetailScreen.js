@@ -11,9 +11,11 @@ import ItemDetailItemInfo from "../components/ItemDetailItemInfo";
 import ItemDetailMakeOfferButton from "../components/ItemDetailMakeOfferButton";
 import "../assets/styles/itemDetail.scss";
 
-let ItemDetailScreen = (props) => {
+let ItemDetailScreen = props => {
   let { id } = useParams();
-  useEffect(() => {props.fetchProductsByProductId(id);}, [id])
+  useEffect(() => {
+    props.fetchProductsByProductId(id);
+  }, [id]);
 
   return (
     <div id="itemDetailScreen">
@@ -25,9 +27,22 @@ let ItemDetailScreen = (props) => {
         </div> */}
       <div className="itemDetailImageContainer">
         <ItemDetailPicture photos={props.products.photos} />
-      </div>
-      <div className="itemImageCarouselContainer condensed">
-        <ItemDetailCarousel />
+        {/* <ItemDetailPicture
+          photos={[
+            {
+              blob:
+                "https://d17fnq9dkz9hgj.cloudfront.net/uploads/2018/01/shutterstock_587562362.jpg"
+            },
+            {
+              blob:
+                "https://static.parade.com/wp-content/uploads/2018/03/golden-puppy-life-national-geographic-ftr-1.jpg"
+            },
+            {
+              blob:
+                "https://static.boredpanda.com/blog/wp-content/uploads/2018/10/cutest-puppy-dog-pictures-coverimage.jpg"
+            }
+          ]}
+        /> */}
       </div>
       <div className="itemValueContainer">
         <h4>

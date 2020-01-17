@@ -9,7 +9,6 @@ import {
 	MDBCol
 } from 'mdbreact';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 
 class SignupScreen extends Component {
 	constructor() {
