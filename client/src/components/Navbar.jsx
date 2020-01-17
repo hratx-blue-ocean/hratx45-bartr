@@ -1,9 +1,17 @@
 // https://mdbootstrap.com/docs/react/navigation/navbar/
+<<<<<<< HEAD
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Link, useHistory } from 'react-router-dom';
 import '../assets/styles/navbar.scss';
 import '../assets/styles/theme.scss';
+=======
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { BrowserRouter as Router, Link, useHistory } from "react-router-dom";
+import "../assets/styles/navbar.scss";
+import "../assets/styles/spacingHelpers.scss";
+>>>>>>> 0e5bac199b8ed56dbca963b99004dd1dd39e37b1
 import {
   MDBNavbar,
   MDBNavbarBrand,
@@ -21,14 +29,14 @@ import {
   MDBDropdownItem,
   MDBDropdownToggle,
   MDBIcon
-} from 'mdbreact';
+} from "mdbreact";
 
-const collapseType = 'collapse2';
+const collapseType = "collapse2";
 
 const Navbar = ({ title, location }) => {
   const [isOpen, setOpen] = useState(false);
   const history = useHistory();
-  console.log('re-render, browser location: ', location);
+  console.log("re-render, browser location: ", location);
   // const newMessages = useSelector(store => store.messages).unread;
   return (
     <MDBContainer

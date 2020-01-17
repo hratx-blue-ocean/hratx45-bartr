@@ -11,11 +11,12 @@ import UploadItemScreen from './screens/UploadItemScreen';
 import MakeOfferScreen from './screens/MakeOfferScreen';
 import MessagesScreen from './screens/MessagesScreen';
 import UpForTradeScreen from './screens/UpForTradeScreen';
-import PastTransactionsScreen from './screens/PastTransactionsScreen';
+import PastOffersScreen from './screens/PastOffersScreen';
 import ActiveOffersScreen from './screens/ActiveOffersScreen';
 import ThemeSandbox from './screens/testing/ThemeSandbox';
 
 class App extends Component {
+<<<<<<< HEAD
   render() {
     return (
       <Router>
@@ -66,5 +67,55 @@ class App extends Component {
       </Router>
     );
   }
+=======
+	render() {
+		return (
+			<Router>
+				<Navbar />
+				{/* <ItemDetailPage /> */}
+				{/* <!--<TestingScreen />  */}
+				{/* <UploadItemScreen /> */}
+				<Switch>
+					<Route exact path="/">
+						<HomeScreen />
+					</Route>
+					<Route exact path="/signup">
+						<SignupScreen />
+					</Route>
+					<Route exact path="/login">
+						<LoginScreen />
+					</Route>
+					<Route exact path="/feed">
+						<FeedScreen />
+					</Route>
+					<Route exact path="/profile">
+						<UserProfile />
+					</Route>
+					<Route exact path="/ItemDetail/:id">
+						<ItemDetailScreen />
+					</Route>
+					<Route exact path="/makeOffer">
+						<MakeOfferScreen />
+					</Route>
+					<Route exact path="/uploadItem">
+						<UploadItemScreen />
+					</Route>
+					<Route exact path="/messages">
+						<MessagesScreen />
+					</Route>
+					<Route exact path="/trade">
+						<UpForTradeScreen />
+					</Route>
+					<Route exact path="/pastOffers">
+						<PastOffersScreen />
+					</Route>
+					<Route exact path="/active-offers">
+						<ActiveOffersScreen />
+					</Route>
+				</Switch>
+			</Router>
+		);
+	}
+>>>>>>> 0e5bac199b8ed56dbca963b99004dd1dd39e37b1
 }
 export default App;

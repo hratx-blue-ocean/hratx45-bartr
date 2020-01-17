@@ -1,18 +1,22 @@
-#past-transactions {
-	.past-transaction-item {
+#past-offers {
+	.past-offerer {
 		display: flex;
 		justify-content: space-between;
 	}
-	.transaction-info-item {
+	.past-offeree {
+		display: flex;
+		justify-content: space-between;
+	}
+	.offer-info-item {
 		display: flex;
 		flex-direction: row;
 	}
 	.labels {
 		display: flex;
 		flex-direction: row;
-		justify-content: space-around;
+		justify-content: space-between;
 	}
-	.transaction-info-label {
+	.offer-info-label {
 		display: flex;
 		flex-direction: row;
 	}

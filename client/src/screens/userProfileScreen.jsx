@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import data from "../dummy_data/users.js";
+import data from "../dummy_data/products";
 import {
   MDBBtn,
   MDBCard,
@@ -20,9 +20,11 @@ import {
 //author -- Matt Lucas
 
 const UserProfile = ({}) => {
-  console.log(data);
-  const [collapse1, setCollapse1] = useState(false);
+  const userInfo = useSelector(store => store.userInfo);
+  const products = useSelector(store => store.products);
+  const location = useSelector(store => store.location);
   const [collapse2, setCollapse2] = useState(false);
+  console.log(userInfo);
   return (
     <MDBContainer>
       <MDBRow>
@@ -33,7 +35,7 @@ const UserProfile = ({}) => {
           <MDBCard>
             <MDBContainer className="col-test">
               <MDBRow>
-                <MDBCol className="col-test">
+                <MDBCol md="12" className="col-test">
                   <MDBCardImage
                     src="https://ca.slack-edge.com/T2SVC7RB3-ULBGPCN2Y-ba2e48877a9b-512"
                     className="img-fluid img-thumbnail rounded mx-auto d-block"
@@ -51,15 +53,16 @@ const UserProfile = ({}) => {
                 </MDBCol>
               </MDBRow>
               <hr />
-              <MDBRow className="mx-auto">
+              <MDBRow>
                 <MDBCol className="col-test">
-                  <MDBBtn>Your Items</MDBBtn>
+                  <MDBNavLink to="/trade">
+                    <MDBBtn>Your Items</MDBBtn>
+                  </MDBNavLink>
                 </MDBCol>
                 <MDBCol className="col-test">
-                  <MDBBtn>Wish List</MDBBtn>
-                </MDBCol>
-                <MDBCol className="col-test">
-                  <MDBBtn>Active Offers</MDBBtn>
+                  <MDBNavLink to="/active-offers">
+                    <MDBBtn>Active Offers</MDBBtn>
+                  </MDBNavLink>
                 </MDBCol>
               </MDBRow>
             </MDBContainer>
@@ -68,25 +71,13 @@ const UserProfile = ({}) => {
       </MDBRow>
       <MDBRow>
         <MDBCol className="text-center">
-          <MDBNavLink to="/dist/upload">
+          <MDBNavLink to="/uploadItem">
             <MDBBtn>Upload an Item</MDBBtn>
           </MDBNavLink>
         </MDBCol>
       </MDBRow>
       <MDBContainer>
         <MDBCard>
-          <MDBCollapseHeader
-            onClick={() => setCollapse1(collapse1 === false ? true : false)}
-            tag="h4"
-          >
-            Recent Activity
-          </MDBCollapseHeader>
-          <MDBCollapse id="collapse1" isOpen={collapse1}>
-            <MDBCardBody>
-              <p>Coming in Version 2.0!</p>
-            </MDBCardBody>
-          </MDBCollapse>
-
           <MDBCollapseHeader
             onClick={() => setCollapse2(collapse2 === false ? true : false)}
             tag="h4"
@@ -95,13 +86,13 @@ const UserProfile = ({}) => {
           </MDBCollapseHeader>
           <MDBCollapse id="collapse2" isOpen={collapse2}>
             <MDBCardBody>
-              <p>
+              <div>
                 You traded a paperclip for a house
                 <hr />
                 You traded a laptop for a used laptop
                 <hr />
                 You traded a pizza for a pineapple
-              </p>
+              </div>
             </MDBCardBody>
           </MDBCollapse>
         </MDBCard>
@@ -109,13 +100,13 @@ const UserProfile = ({}) => {
     </MDBContainer>
   );
 };
-export default UserProfile;
 
-// <MDBCardImage
-//           cascade
-//           src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).jpg"
-//         />
-//         <MDBCardTitle>User Name</MDBCardTitle>
+const mapStateToProps = state => {
+  return {
+    products: state.products,
+    location: state.location,
+    userInfo: state.userInfo
+  };
+};
 
-//         <MDBCard narrow>
-//       </MDBCard>
+export default connect(mapStateToProps, {})(UserProfile);
