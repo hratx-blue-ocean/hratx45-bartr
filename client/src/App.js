@@ -15,7 +15,6 @@ import PastOffersScreen from './screens/PastOffersScreen';
 import ActiveOffersScreen from './screens/ActiveOffersScreen';
 
 class App extends Component {
-<<<<<<< HEAD
   render() {
     return (
       <Router>
@@ -66,52 +65,5 @@ class App extends Component {
       </Router>
     );
   }
-=======
-	render() {
-		return (
-			<Router>
-				<Navbar />
-				<Switch>
-					<Route exact path="/">
-						<HomeScreen />
-					</Route>
-					<Route exact path="/signup">
-						<SignupScreen />
-					</Route>
-					<Route exact path="/login">
-						<LoginScreen />
-					</Route>
-					<Route exact path="/feed">
-						<FeedScreen />
-					</Route>
-					<Route exact path="/profile">
-						<UserProfile />
-					</Route>
-					<Route exact path="/ItemDetail/:id">
-						<ItemDetailScreen />
-					</Route>
-					<Route exact path="/makeOffer">
-						<MakeOfferScreen />
-					</Route>
-					<Route exact path="/uploadItem">
-						<UploadItemScreen />
-					</Route>
-					<Route exact path="/messages">
-						<MessagesScreen />
-					</Route>
-					<Route exact path="/trade">
-						<UpForTradeScreen />
-					</Route>
-					<Route exact path="/pastOffers">
-						<PastOffersScreen />
-					</Route>
-					<Route exact path="/active-offers">
-						<ActiveOffersScreen />
-					</Route>
-				</Switch>
-			</Router>
-		);
-	}
->>>>>>> de5aa8a05601b26ac0ca92711b4f3cb742656f46
 }
 export default App;
