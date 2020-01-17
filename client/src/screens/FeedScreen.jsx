@@ -11,7 +11,6 @@ import {
 	MDBDropdownToggle,
 	MDBInput
 } from 'mdbreact';
-import { store } from '../index';
 
 class FeedScreen extends React.Component {
 	constructor(props) {
@@ -152,7 +151,6 @@ class FeedScreen extends React.Component {
 
 	componentDidMount() {
 		this.getProducts();
-		console.log(store.getState());
 	}
 
 	render() {
