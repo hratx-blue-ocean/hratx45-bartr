@@ -41,7 +41,7 @@ class App extends Component {
           <Route exact path="/ItemDetail/:id">
             <ItemDetailScreen />
           </Route>
-          <Route exact path="/makeOffer">
+          <Route exact path="/makeOffer/:id">
             <MakeOfferScreen />
           </Route>
           <Route exact path="/uploadItem">

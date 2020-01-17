@@ -9,7 +9,29 @@ import {
   MDBModalFooter
 } from "mdbreact";
 
+import {connect} from "react-redux";
+
 import "../assets/styles/makeOfferForm.scss";
+
+const getDate = () => {
+  let dt = new Date();
+  return `${dt
+    .getFullYear()
+    .toString()
+    .padStart(4, "0")}-${(dt.getMonth() + 1).toString().padStart(2, "0")}-${dt
+    .getDate()
+    .toString()
+    .padStart(2, "0")} ${dt
+    .getHours()
+    .toString()
+    .padStart(2, "0")}:${dt
+    .getMinutes()
+    .toString()
+    .padStart(2, "0")}:${dt
+    .getSeconds()
+    .toString()
+    .padStart(2, "0")}`;
+};
 
 export default class MakeOfferForm extends PureComponent {
   constructor(props) {
@@ -44,7 +66,8 @@ export default class MakeOfferForm extends PureComponent {
         }
       ],
       indexMap: { 1: 0, 2: 1, 3: 2 },
-      selectedItems: []
+      selectedItems: [],
+      message: ""
     };
 
     this.toggle = this.toggle.bind(this);
@@ -77,16 +100,15 @@ export default class MakeOfferForm extends PureComponent {
 
   submit() {
     let data = new FormData();
+    let ids = this.state.selectedItems.map((item) => item.id);
 
-    // Offer: {id: 1, offerer: 43, offeree: 27, desiredItem: 7, offeredItem: 1, offeredItem: 2, date: new Date(), message: "Hi! When are you free to meet up and exchange?" }
-
-    data.append("date", new Date());
-    data.append("desiredItem", this.state.name);
-    data.append("value", this.state.value);
-    data.append("description", this.state.description);
-    data.append("desiredTrade", this.state.desiredTrade);
-    data.append("timeConstraints", this.state.timeConstraints);
-    this.state.fileList.forEach(file => data.append("file", file, file.name));
+    data.append("offer_made_date", getDate());
+    data.append("offer_closed_date", null);
+    data.append("offerer_id", this.props.userId)
+    data.append("offeree", )
+    data.append("desired_product_id", this.props.productId);
+    data.append("message", this.state.message);
+    ids.forEach(id => data.append("offered_product_id", id));
   }
 
   render() {
@@ -151,3 +173,14 @@ export default class MakeOfferForm extends PureComponent {
     );
   }
 }
+
+let mapStateToProps = state => {
+  let {userInfo} = state;
+
+  let username = userInfo.username;
+  let userId = userInfo.userId;
+
+  return {username, userId}
+}
+
+export default connect(mapStateToProps)(MakeOfferForm);
