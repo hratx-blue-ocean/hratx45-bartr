@@ -10,7 +10,7 @@ const getProductById = productId => {
 /* Returns all photos for product by id*/
 const getProductPhotosById = productId => {
   return pool.query({
-    text: `select * from images_test where product_id = ${productId};`
+    text: `select * from product_images where product_id = ${productId};`
   });
 };
 
