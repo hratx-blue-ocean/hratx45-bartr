@@ -2,9 +2,8 @@ import React, { PureComponent, useEffect } from "react";
 import { connect, useSelector, useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import {
-  fetchProductsByProductId,
-  fetchProductsByUserIdAndProximity
-} from "../actions/productsActions";
+  fetchItemDetailsByItemId
+} from "../actions/itemDetailsActions";
 import ItemDetailPicture from "../components/ItemDetailPicture";
 import ItemDetailCarousel from "../components/ItemDetailPictureCarousel";
 import ItemDetailItemInfo from "../components/ItemDetailItemInfo";
@@ -14,19 +13,19 @@ import "../assets/styles/itemDetail.scss";
 let ItemDetailScreen = props => {
   let { id } = useParams();
   useEffect(() => {
-    props.fetchProductsByProductId(id);
+    props.fetchItemDetailsByItemId(id);
   }, [id]);
 
   return (
     <div id="itemDetailScreen">
       <div className="itemTitleContainer">
-        <h1 className="itemTitle">{props.products.product_name}</h1>
+        <h1 className="itemTitle">{props.itemDetails.product_name}</h1>
       </div>
       {/* <div className="itemOfferCountContainer">
           3 people have bid on this item
         </div> */}
       <div className="itemDetailImageContainer">
-        <ItemDetailPicture photos={props.products.photos} />
+        <ItemDetailPicture photos={props.itemDetails.photos} />
         {/* <ItemDetailPicture
           photos={[
             {
@@ -46,16 +45,16 @@ let ItemDetailScreen = props => {
       </div>
       <div className="itemValueContainer">
         <h4>
-          Value: <span>{props.products.value}</span>
+          Value: <span>{props.itemDetails.value}</span>
         </h4>
       </div>
       <div className="makeOfferButtonContainer">
-        <ItemDetailMakeOfferButton />
+        <ItemDetailMakeOfferButton/>
       </div>
       <div className="itemInfoContainer">
         <ItemDetailItemInfo
-          postedDate={props.products.posted_date}
-          description={props.products.product_description}
+          postedDate={props.itemDetails.posted_date}
+          description={props.itemDetails.product_description}
         />
       </div>
     </div>
@@ -63,10 +62,10 @@ let ItemDetailScreen = props => {
 };
 
 const mapStateToProps = state => {
-  const { products } = state;
-  return { products };
+  const { itemDetails } = state;
+  return { itemDetails };
 };
 
-export default connect(mapStateToProps, { fetchProductsByProductId })(
+export default connect(mapStateToProps, { fetchItemDetailsByItemId })(
   ItemDetailScreen
 );

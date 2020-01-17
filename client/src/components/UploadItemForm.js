@@ -45,7 +45,7 @@ export default class UploadItemForm extends PureComponent {
       fileList: []
     };
 
-    this.id = this.handleNameInput = this.handleNameInput.bind(this);
+   this.handleNameInput = this.handleNameInput.bind(this);
     this.handleValueInput = this.handleValueInput.bind(this);
     this.handleDescriptionInput = this.handleDescriptionInput.bind(this);
     this.handleDesiredTradeInput = this.handleDesiredTradeInput.bind(this);
@@ -107,7 +107,7 @@ export default class UploadItemForm extends PureComponent {
   render() {
     return (
       <div>
-        <MDBCard>
+        <MDBCard className="postItemFormCard">
           {/* <MDBCardTitle>
             <h1>Post an Item</h1>
           </MDBCardTitle> */}
