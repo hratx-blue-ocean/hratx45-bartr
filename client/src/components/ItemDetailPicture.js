@@ -30,7 +30,7 @@ export default class ItemDetailPicture extends PureComponent {
           length={this.props.photos ? this.props.photos.length : 1}
         >
           <MDBCarouselInner className="imageWindow">
-            {this.props.photos[0] ? (
+            {this.props.photos ? (
               this.props.photos.map((photo, index) => (
                 <MDBCarouselItem key={index} itemId={index + 1}>
                   {/* <MDBView className="carouselView"> */}

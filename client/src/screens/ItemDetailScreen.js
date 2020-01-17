@@ -44,9 +44,6 @@ let ItemDetailScreen = props => {
           ]}
         /> */}
       </div>
-      {/* <div className="itemImageCarouselContainer condensed">
-        <ItemDetailCarousel />
-      </div> */}
       <div className="itemValueContainer">
         <h4>
           Value: <span>{props.products.value}</span>

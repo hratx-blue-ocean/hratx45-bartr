@@ -5,7 +5,10 @@ import {
   MDBCol,
   MDBBtn,
   MDBInput,
-  MDBFileInput
+  MDBFileInput,
+  MDBCard,
+  MDBCardTitle,
+  MDBCardBody
 } from "mdbreact";
 import axios from "axios";
 
@@ -104,52 +107,56 @@ export default class UploadItemForm extends PureComponent {
   render() {
     return (
       <div>
-        <form className="md-form">
-          <MDBInput
-            label="Item Name*"
-            onChange={this.handleNameInput}
-            value={this.state.name}
-            outline
-            size="lg"
-          />
-          <MDBInput
-            label="Item Value*"
-            onChange={this.handleValueInput}
-            value={this.state.value}
-            outline
-            size="lg"
-          />
-          <MDBInput
-            type="textarea"
-            label="Description"
-            onChange={this.handleDescriptionInput}
-            value={this.state.description}
-            outline
-            size="lg"
-          />
-          <MDBInput
-            label="Desired Trade(s)"
-            onChange={this.handleDesiredTradeInput}
-            value={this.state.desiredTrade}
-            outline
-            size="lg"
-          />
-          <MDBInput
-            label="Time Constraints"
-            onChange={this.handleTimeConstraintInput}
-            value={this.state.timeConstraints}
-            outline
-            size="lg"
-          />
-          <MDBFileInput
-            getValue={this.handleFileInput}
-            btnTitle="Choose File(s)"
-            textFieldTitle="Upload Images"
-            btnColor="danger"
-            multiple
-          />
-          <MDBBtn onClick={this.submit}>Upload Item</MDBBtn>
-        </form>
+        <MDBCard>
+          {/* <MDBCardTitle>
+            <h1>Post an Item</h1>
+          </MDBCardTitle> */}
+          <MDBCardBody>
+            <form className="md-form postItemForm">
+              <MDBInput
+                label="Item Name*"
+                onChange={this.handleNameInput}
+                value={this.state.name}
+                size="lg"
+              />
+              <MDBInput
+                label="Item Value*"
+                onChange={this.handleValueInput}
+                value={this.state.value}
+                size="lg"
+              />
+              <MDBInput
+                type="textarea"
+                label="Description"
+                onChange={this.handleDescriptionInput}
+                value={this.state.description}
+                size="lg"
+              />
+              <MDBInput
+                label="Desired Trade(s)"
+                onChange={this.handleDesiredTradeInput}
+                value={this.state.desiredTrade}
+                size="lg"
+              />
+              <MDBInput
+                label="Time Constraints"
+                onChange={this.handleTimeConstraintInput}
+                value={this.state.timeConstraints}
+                size="lg"
+              />
+              <MDBFileInput
+                getValue={this.handleFileInput}
+                className="imageInput"
+                btnTitle="Choose File(s)"
+                textFieldTitle="Upload Images"
+                btnColor="danger"
+                multiple
+              />
+              <MDBBtn onClick={this.submit}>Upload Item</MDBBtn>
+              <p>* = required</p>
+            </form>
+          </MDBCardBody>
+        </MDBCard>
       </div>
     );
   }
