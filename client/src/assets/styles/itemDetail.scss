@@ -52,25 +52,40 @@
     padding: 0px 15px;
   }
 
+  .carouselContainer {
+      display: flex;
+  }
+
+  .imageCarousel {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-grow: 0;
+      height: 30vh;
+  }
+
+  .carouselItem {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .carousel-item.active.carousel-slide-item.carouselView {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 50px;
+  }
+
   .imageWindow {
     display: flex;
     justify-content: space-between;
     align-content: center;
-    border: 2px solid $primary-color;
-    box-shadow: 5px 5px 5px 5px #9ea2a3 inset, -5px -5px 5px 5px #9ea2a3 inset;
-    background-color: $secondary-color;
-    width: 75%;
-    padding: 50px 0;
-  }
-
-  .itemImageCarousel {
-    display: flex;
-    justify-content: space-evenly;
-    width: 50%;
-    border: 2px solid $primary-color;
-    padding: 20px;
-    box-shadow: 2px 2px 2px 2px #9ea2a3 inset, -2px -2px 2px 2px #9ea2a3 inset;
-    background-color: $secondary-color;
+    // border: 2px solid $primary-color;
+    box-shadow: 5px 5px 5px 5px #9ea2a3;
+    // background-color: $secondary-color;
+    width: 85%;
+    // padding: 50px 0;
   }
 
   .itemImageCarouselContainer.condensed {
@@ -86,12 +101,12 @@
 
   .mainImage {
     display: inline-block;
-    box-shadow: 5px 5px 5px 5px #9ea2a3;
-    width: 75%;
+    // box-shadow: 5px 5px 5px 5px #9ea2a3;
+    width: 100%;
   }
 
   .thumbnail {
-    box-shadow: 2px 2px 2px 2px #9ea2a3;
+    // box-shadow: 2px 2px 2px 2px #9ea2a3;
   }
 
   .makeOffer {
@@ -120,5 +135,9 @@
 
   .itemPostedDateContainer p {
     display: inline-block;
+  }
+
+  .carousel-fade .carousel-item {
+      display: flex !important;
   }
 }
