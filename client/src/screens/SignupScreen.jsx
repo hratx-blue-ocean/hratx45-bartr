@@ -158,6 +158,77 @@ class SignupScreen extends Component {
       </MDBContainer>
     );
   }
+<<<<<<< HEAD
+=======
+		data.append('first name', this.state.firstName);
+		data.append('last name', this.state.lastName);
+		data.append('username', this.state.username);
+		data.append('password', this.state.password);
+		data.append('email', this.state.email);
+		data.append('zipcode', this.state.zipcode);
+		data.append('image', this.state.image, this.state.image.name);
+	}
+
+	render() {
+		return (
+			<MDBContainer id="signup-screen" fluid>
+				<MDBCol md="4">
+					<MDBCard>
+						<MDBCardBody>
+							<div className="container">
+								<MDBContainer>Sign-Up</MDBContainer>
+								<form className="signup-form">
+									<div className="first-last">
+										<MDBInput
+											className="first-name"
+											label="First Name"
+											onChange={this.firstNameHandler}
+										/>
+										<MDBInput
+											className="last-name"
+											label="Last Name"
+											onChange={this.lastNameHandler}
+										/>
+									</div>
+									<MDBInput
+										className="username"
+										label="Username"
+										onChange={this.usernameHandler}
+									/>
+									<MDBInput
+										className="password"
+										label="Password"
+										type="password"
+										onChange={this.passwordHandler}
+									/>
+									<MDBInput
+										className="email"
+										label="E-mail"
+										onChange={this.emailHandler}
+									/>
+									<MDBInput
+										className="zipcode"
+										label="Zipcode"
+										onChange={this.zipcodeHandler}
+									/>
+									<MDBFileInput
+										getValue={this.uploadHandler}
+										btnTitle="Choose File"
+										textFieldTitle="Upload Profile Picture"
+										btnColor="danger"
+									/>
+									<Link to="/dist/login">
+										<MDBBtn color="default">Sign-Up</MDBBtn>
+									</Link>
+								</form>
+							</div>
+						</MDBCardBody>
+					</MDBCard>
+				</MDBCol>
+			</MDBContainer>
+		);
+	}
+>>>>>>> d5150480061ede90ece003936f5c2a28edb0bf70
 }
 
 export default SignupScreen;
