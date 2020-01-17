@@ -116,6 +116,10 @@ class MakeOfferForm extends PureComponent {
     data.append("desired_product_id", this.props.productId);
     data.append("message", this.state.message);
     ids.forEach(id => data.append("offered_product_id", id));
+
+    //axios post request
+
+    this.props.toggleConfirmationModal();
   }
 
   render() {

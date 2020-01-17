@@ -94,4 +94,29 @@
   .messageInput {
     margin: 5px auto;
   }
+
+  .modal-content {
+    height: 50vh;
+    padding: 15px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-row-gap: 2.5rem;
+  }
+
+  .modalTitle {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .modalButtons {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .modalButton {
+    margin: 5px auto;
+  }
 }
