@@ -41,33 +41,29 @@ const TradeItem = ({
   return (
     <Card className={className}>
       <Row nopad className="pad-none">
-        <Col nopad className="pad-none" mobile="4">
+        <Col nopad className="pad-edge-right-half" mobile="4">
           <img
             src={image}
             className="image-fit-clip rounded clip-half shadow "
             alt={data.product_name}
           />
         </Col>
-        <Col nopad mobile={contentSize} className="pad-none">
+        <Col nopad mobile={contentSize} className="pad-edge-right">
           <Row nopad className="pad-none">
-            <Col nopad className="pad-edge-top-half" mobile="12">
+            <Col nopad className="pad-edge-top-half font-bigger" mobile="12">
               {product_name}
             </Col>
-          </Row>
-          <Row nopad className="pad-none">
-            <Col nopad className="pad-edge-top-half" mobile="12">
+            <Col nopad className="pad-edge-top-half font-bigger" mobile="12">
               Value: {value}
             </Col>
-          </Row>
-          {!showLoc ? (
-            <Row nopad className="pad-none">
-              <Col nopad className="pad-edge-top-half" mobile="12">
+            {!showLoc ? (
+              <Col nopad className="pad-edge-top-half font-bigger" mobile="12">
                 Location: {location}
               </Col>
-            </Row>
-          ) : (
-            ''
-          )}
+            ) : (
+              ''
+            )}
+          </Row>
         </Col>
         {showDel ? (
           <Col nopad mobile="2" className="center pad-all-half">

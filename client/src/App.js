@@ -15,50 +15,55 @@ import PastOffersScreen from './screens/PastOffersScreen';
 import ActiveOffersScreen from './screens/ActiveOffersScreen';
 
 class App extends Component {
-	render() {
-		return (
-			<Router>
-				<Navbar />
-				<Switch>
-					<Route exact path="/">
-						<HomeScreen />
-					</Route>
-					<Route exact path="/signup">
-						<SignupScreen />
-					</Route>
-					<Route exact path="/login">
-						<LoginScreen />
-					</Route>
-					<Route exact path="/feed">
-						<FeedScreen />
-					</Route>
-					<Route exact path="/profile">
-						<UserProfile />
-					</Route>
-					<Route exact path="/ItemDetail/:id">
-						<ItemDetailScreen />
-					</Route>
-					<Route exact path="/makeOffer">
-						<MakeOfferScreen />
-					</Route>
-					<Route exact path="/uploadItem">
-						<UploadItemScreen />
-					</Route>
-					<Route exact path="/messages">
-						<MessagesScreen />
-					</Route>
-					<Route exact path="/trade">
-						<UpForTradeScreen />
-					</Route>
-					<Route exact path="/pastOffers">
-						<PastOffersScreen />
-					</Route>
-					<Route exact path="/active-offers">
-						<ActiveOffersScreen />
-					</Route>
-				</Switch>
-			</Router>
-		);
-	}
+  render() {
+    return (
+      <Router>
+        <Navbar />
+        {/* <FeedScreen />g */}
+        {/* <ItemDetailScreen /> */}
+        {/* <!--<TestingScreen />  */}
+        {/* <UploadItemScreen />   */}
+        {/* <MakeOfferScreen /> */}
+        <Switch>
+          {/* <Route exact path="/">
+            <HomeScreen />
+          </Route> */}
+          <Route exact path="/signup">
+            <SignupScreen />
+          </Route>
+          <Route exact path="/login">
+            <LoginScreen />
+          </Route>
+          <Route exact path="/feed">
+            <FeedScreen />
+          </Route>
+          <Route exact path="/profile">
+            <UserProfile />
+          </Route>
+          <Route exact path="/ItemDetail/:id">
+            <ItemDetailScreen />
+          </Route>
+          <Route exact path="/makeOffer">
+            <MakeOfferScreen />
+          </Route>
+          <Route exact path="/uploadItem">
+            <UploadItemScreen />
+          </Route>
+          <Route exact path="/messages">
+            <MessagesScreen />
+          </Route>
+          <Route exact path="/trade">
+            <UpForTradeScreen />
+          </Route>
+          <Route exact path="/pastOffers">
+            <PastOffersScreen />
+          </Route>
+          <Route exact path="/active-offers">
+            <ActiveOffersScreen />
+          </Route>
+        </Switch>
+      </Router>
+    );
+  }
 }
 export default App;
