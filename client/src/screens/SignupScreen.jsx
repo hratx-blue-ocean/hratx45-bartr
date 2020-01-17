@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   MDBBtn,
   MDBContainer,
@@ -7,19 +7,19 @@ import {
   MDBCard,
   MDBCardBody,
   MDBCol
-} from 'mdbreact';
-import { Link } from 'react-router-dom';
+} from "mdbreact";
+import { Link } from "react-router-dom";
 
 class SignupScreen extends Component {
   constructor() {
     super();
     this.state = {
-      firstName: '',
-      lastName: '',
-      username: '',
-      password: '',
-      email: '',
-      zipcode: '',
+      firstName: "",
+      lastName: "",
+      username: "",
+      password: "",
+      email: "",
+      zipcode: "",
       image: null
     };
 
@@ -90,16 +90,17 @@ class SignupScreen extends Component {
   submit() {
     let data = new FormData();
 
-    data.append('first name', this.state.firstName);
-    data.append('last name', this.state.lastName);
-    data.append('username', this.state.username);
-    data.append('password', this.state.password);
-    data.append('email', this.state.email);
-    data.append('zipcode', this.state.zipcode);
+    data.append("first name", this.state.firstName);
+    data.append("last name", this.state.lastName);
+    data.append("username", this.state.username);
+    data.append("password", this.state.password);
+    data.append("email", this.state.email);
+    data.append("zipcode", this.state.zipcode);
+    data.append("image", this.state.image, this.state.image.name);
 
     axios
-      .post('http://localhost:3000/api/users/signup', data, {
-        headers: { 'Content-Type': 'multipart/form-data' }
+      .post("http://localhost:3000/api/users/signup", data, {
+        headers: { "Content-Type": "multipart/form-data" }
       })
       .then(result => console.log(result))
       .catch(error => console.log(error));

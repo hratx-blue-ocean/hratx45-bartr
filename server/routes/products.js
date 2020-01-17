@@ -49,8 +49,8 @@ Get Products Up for Trade
 */
 
 router.get("/productsUpForTrade", (req, res) => {
-  const productId = req.query.productId;
-  db.getProductsUpForTrade(productId)
+  const userId = req.query.userId;
+  db.getProductsUpForTrade(userId)
     .then(data => res.status(200).send(data))
     .catch(error => {
       console.log(error);
