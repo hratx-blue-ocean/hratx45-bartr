@@ -2,12 +2,26 @@
 
 #message-screen {
   #message-string {
+    overflow-y: scroll;
     border-top: 1px solid gray;
     cursor: pointer;
-  }
-  #topPartOfMessage {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    #closeButton {
+      font-size: 0.75em;
+      height: fit-content;
+    }
+    #replyButton {
+      font-size: 0.75em;
+      height: fit-content;
+    }
+    #reply-component {
+      #sendReplyButton {
+        font-size: 0.75em;
+        height: fit-content;
+        width: 100%;
+      }
+    }
+    .Ripple-parent {
+      overflow: visible;
+    }
   }
 }
