@@ -58,7 +58,7 @@ export const login = username => {
 	return (dispatch, getState) => {
 		dispatch({
 			type: 'FETCH_USER_ID',
-			payload: { username: username }
+			payload: { username: username, userId: userId }
 		});
 	};
 };

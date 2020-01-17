@@ -3,6 +3,21 @@ import { MDBBtn, MDBContainer, MDBListGroup, MDBRow, MDBCol } from 'mdbreact';
 import PastOffer from '../components/PastOffer';
 import { connect } from 'react-redux';
 
+const dataLayout = {
+	offer_id: 'int',
+	offerer: 'int',
+	offeree: 'int',
+	desired_product_id: 'int',
+	desired_product_name: 'text',
+	desired_product_image: 'image file',
+	offered_product_ids: 'array of ints',
+	offered_product_names: 'array of text names',
+	offer_made_date: 'date',
+	offer_closed_date: 'date',
+	status: 'pending, accepted, rejected',
+	message_thread_id: 'int'
+};
+
 const dummyData = [
 	{
 		Timestamp: Date.now() - Math.random() * 360000,
