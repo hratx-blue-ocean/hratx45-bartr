@@ -12,4 +12,20 @@ router.get("/", (req, res) => {
     });
 });
 
+
+router.post("/", (req, res) => {
+  db.postMessage(req.body)
+    
+    .then(() => res.sendStatus(200))
+    .catch(error => {
+      console.log(`FILE: messages.js () | error: \n`, error);
+      res.status(404).send(error);
+    });
+});
+
+
+
+
+
+
 module.exports = router;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import {
   MDBBtn,
   MDBRow,
@@ -9,25 +9,52 @@ import {
   MDBJumbotron,
   MDBCardTitle,
   MDBNavLink
-} from 'mdbreact';
+} from "mdbreact";
 
-import { connect, useSelector } from 'react-redux';
-import { getLocation } from '../actions/locationActions';
-import { fetchProductsTest } from '../actions/productsActions';
+import { connect, useSelector } from "react-redux";
+import { getLocation } from "../actions/locationActions";
+import {
+  fetchProductsTest,
+  fetchProductsByLatitudeLongitudeProximity
+} from "../actions/productsActions";
+
 
 const HomeScreen = props => {
-  const username = useSelector(store => store.username);
+  const userInfo = useSelector(store => store.userInfo);
+  const products = useSelector(store => store.products);
+  const location = useSelector(store => store.location);
+  //const [randomArray, setRandomArray] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
+  useEffect(() => {
+    props.fetchProductsByLatitudeLongitudeProximity(
+      location.latitude,
+      location.longitude,
+      10
+    );
+    // .then(() => {
+    //   let numProds = products.rows.length;
+    //   let numProdsArray = [];
+    //   if (numProds > 9) {
+    //     while (numProdsArray.length < 9) {
+    //       let checkNum = Math.floor(Math.random() * numProds);
+    //       if (numProdsArray.indexOf(checkNum) === -1) {
+    //         numProdsArray.push(checkNum);
+    //       }
+    //     }
+    //     setRandomArray(numProdsArray);
+    //   }
+    // });
+  }, [location]);
+  console.log("this is products ", products);
+
   return (
-    <div>
+    <div id="home-screen">
       <MDBContainer>
         <MDBRow>
           <MDBCol>
-            <MDBJumbotron style={{ padding: 0, margin: 0 }}>
+            <MDBJumbotron style={{ padding: 0, margin: 0 }} id="title-image">
               <MDBCol
                 className="text-white text-center py-0 px-0 my-0"
-                style={{
-                  backgroundImage: `url(https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/f_auto,q_auto,w_1100/v1555444084/shape/mentalfloss/istock_000016776361_full.jpg)`
-                }}
+
               >
                 <MDBCol className="py-5">
                   <MDBCardTitle className="h1-responsive pt-3 m-5 font-bold textWhite">
@@ -41,8 +68,14 @@ const HomeScreen = props => {
                     To begin, please login, sign up, or authorize your location
                   </p>
                   <MDBBtn onClick={() => props.getLocation()}>
-                    get location
+                    Get Location
                   </MDBBtn>
+                  <MDBNavLink to="/login">
+                    <MDBBtn>Log In</MDBBtn>
+                  </MDBNavLink>
+                  <MDBNavLink to="/signup">
+                    <MDBBtn>Sign Up</MDBBtn>
+                  </MDBNavLink>
                 </MDBCol>
               </MDBCol>
             </MDBJumbotron>
@@ -54,9 +87,7 @@ const HomeScreen = props => {
           <MDBCol md="6">
             <MDBNavLink
               to={
-                username.length > 0
-                  ? `/dist/ItemDetail/${props.item_id}`
-                  : '/dist/signup'
+                userInfo.length > 0 ? `/ItemDetail/${props.item_id}` : "/signup"
               }
             >
               <MDBView hover>
@@ -76,9 +107,7 @@ const HomeScreen = props => {
           <MDBCol md="6">
             <MDBNavLink
               to={
-                username.length > 0
-                  ? `/dist/ItemDetail/${props.item_id}`
-                  : '/dist/signup'
+                userInfo.length > 0 ? `/ItemDetail/${props.item_id}` : "/signup"
               }
             >
               <MDBView hover>
@@ -98,9 +127,7 @@ const HomeScreen = props => {
           <MDBCol md="12">
             <MDBNavLink
               to={
-                username.length > 0
-                  ? `/dist/ItemDetail/${props.item_id}`
-                  : '/dist/signup'
+                userInfo.length > 0 ? `/ItemDetail/${props.item_id}` : "/signup"
               }
             >
               <MDBView hover>
@@ -120,9 +147,7 @@ const HomeScreen = props => {
           <MDBCol md="4">
             <MDBNavLink
               to={
-                username.length > 0
-                  ? `/dist/ItemDetail/${props.item_id}`
-                  : '/dist/signup'
+                userInfo.length > 0 ? `/ItemDetail/${props.item_id}` : "/signup"
               }
             >
               <MDBView hover>
@@ -142,9 +167,7 @@ const HomeScreen = props => {
           <MDBCol md="4">
             <MDBNavLink
               to={
-                username.length > 0
-                  ? `/dist/ItemDetail/${props.item_id}`
-                  : '/dist/signup'
+                userInfo.length > 0 ? `/ItemDetail/${props.item_id}` : "/signup"
               }
             >
               <MDBView hover>
@@ -164,9 +187,9 @@ const HomeScreen = props => {
           <MDBCol md="4">
             <MDBNavLink
               to={
-                username.length > 0
+                userInfo.length > 0
                   ? `/dist/ItemDetail/${props.item_id}`
-                  : '/dist/signup'
+                  : "/dist/signup"
               }
             >
               <MDBView hover>
@@ -186,9 +209,9 @@ const HomeScreen = props => {
           <MDBCol md="6">
             <MDBNavLink
               to={
-                username.length > 0
+                userInfo.length > 0
                   ? `/dist/ItemDetail/${props.item_id}`
-                  : '/dist/signup'
+                  : "/dist/signup"
               }
             >
               <MDBView hover>
@@ -208,9 +231,9 @@ const HomeScreen = props => {
           <MDBCol md="6">
             <MDBNavLink
               to={
-                username.length > 0
+                userInfo.length > 0
                   ? `/dist/ItemDetail/${props.item_id}`
-                  : '/dist/signup'
+                  : "/dist/signup"
               }
             >
               <MDBView hover>
@@ -230,9 +253,9 @@ const HomeScreen = props => {
           <MDBCol md="12">
             <MDBNavLink
               to={
-                username.length > 0
+                userInfo.length > 0
                   ? `/dist/ItemDetail/${props.item_id}`
-                  : '/dist/signup'
+                  : "/dist/signup"
               }
             >
               <MDBView hover>
@@ -263,6 +286,8 @@ const mapStateToProps = state => {
  * How to provide access to redux store to component
  * export default connect(mapStateToProps, {FUNCTION_1, FUNCTION_2})(COMPONENT_NAME);
  */
-export default connect(mapStateToProps, { fetchProductsTest, getLocation })(
-  HomeScreen
-);
+export default connect(mapStateToProps, {
+  fetchProductsTest,
+  getLocation,
+  fetchProductsByLatitudeLongitudeProximity
+})(HomeScreen);
