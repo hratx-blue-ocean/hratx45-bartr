@@ -7,7 +7,8 @@ import {
   MDBModalBody,
   MDBModalHeader,
   MDBModalFooter,
-  MDBCard
+  MDBCard,
+  MDBCardTitle
 } from "mdbreact";
 
 import { connect } from "react-redux";
@@ -111,7 +112,7 @@ class MakeOfferForm extends PureComponent {
     data.append("offer_made_date", getDate());
     data.append("offer_closed_date", null);
     data.append("offerer_id", this.props.userId);
-    data.append("offeree_id", this.props.products.owner_id);
+    data.append("offeree_id", this.props.itemDetails.owner_id);
     data.append("desired_product_id", this.props.productId);
     data.append("message", this.state.message);
     ids.forEach(id => data.append("offered_product_id", id));
@@ -123,7 +124,37 @@ class MakeOfferForm extends PureComponent {
         <form className="md-form">
           <MDBContainer>
             <MDBCard className="makeOfferFormCard">
-              <MDBBtn color="default" onClick={this.toggle} className="buttonSelectItems">
+              <div className="desiredItemContainer">
+              <h3 className="sectionTitle">Chosen Item: </h3>
+                <MDBCard className="desiredItem">
+                  
+                  {this.props.itemDetails.photos &&
+                  this.props.itemDetails.photos.length > 0 ? (
+                    <div className="desiredItemImage">
+                      <img
+                        src={this.props.itemDetails.photos[0] || ""}
+                        width="60px"
+                        height="60px"
+                      />
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                  <div className="desiredItemInfo">
+                    <h4 className="desiredItemName">
+                      {this.props.itemDetails.product_name}
+                    </h4>
+                    <h4 className="desiredItemName">
+                      Value: <span>{this.props.itemDetails.value}</span>
+                    </h4>
+                  </div>
+                </MDBCard>
+              </div>
+              <MDBBtn
+                color="danger"
+                onClick={this.toggle}
+                className="buttonSelectItems"
+              >
                 Select Item(s) To Offer
               </MDBBtn>
               <MDBModal isOpen={this.state.modalOpen} toggle={this.toggle}>
@@ -162,10 +193,12 @@ class MakeOfferForm extends PureComponent {
               </MDBModal>
               {this.state.selectedItems.length > 0 ? (
                 <div className="selectedItemsContainer">
-                  <h3 className="youAreOffering">You're offering: </h3>
+                  <h3 className="sectionTitle">You're offering: </h3>
                   {this.state.selectedItems.map(item => (
                     <MDBCard className="selectedItem">
-                      <img src={item.image} width="50px" />
+                      <div className="selectedItemImage">
+                        <img src={item.image} width="50px" height="50px" />
+                      </div>
                       <div className="selectedItemInfo">
                         <h4 className="selectedItemName">{item.name}</h4>
                         <h4 className="selectedItemName">
@@ -186,7 +219,11 @@ class MakeOfferForm extends PureComponent {
                 value={this.state.message}
                 outline
               />
-              <MDBBtn color="danger" onClick={this.submit} className="buttonSubmit">
+              <MDBBtn
+                color="default"
+                onClick={this.submit}
+                className="buttonSubmit"
+              >
                 Send Your Offer!
               </MDBBtn>
             </MDBCard>
@@ -198,12 +235,12 @@ class MakeOfferForm extends PureComponent {
 }
 
 let mapStateToProps = state => {
-  let { userInfo, products } = state;
+  let { userInfo, itemDetails } = state;
 
   let username = userInfo.username;
   let userId = userInfo.userId;
 
-  return { products, username, userId };
+  return { itemDetails, username, userId };
 };
 
 export default connect(mapStateToProps)(MakeOfferForm);

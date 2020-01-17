@@ -45,7 +45,7 @@ export default class UploadItemForm extends PureComponent {
       fileList: []
     };
 
-    this.id = this.handleNameInput = this.handleNameInput.bind(this);
+   this.handleNameInput = this.handleNameInput.bind(this);
     this.handleValueInput = this.handleValueInput.bind(this);
     this.handleDescriptionInput = this.handleDescriptionInput.bind(this);
     this.handleDesiredTradeInput = this.handleDesiredTradeInput.bind(this);
