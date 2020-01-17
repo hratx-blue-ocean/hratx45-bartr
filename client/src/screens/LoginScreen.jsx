@@ -1,15 +1,23 @@
-import React, { Component } from "react";
-import { MDBBtn, MDBContainer, MDBInput } from "mdbreact";
-import { Link } from "react-router-dom";
-import { login } from "../actions/userActions";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import {
+	MDBBtn,
+	MDBContainer,
+	MDBInput,
+	MDBRow,
+	MDBCol,
+	MDBCard,
+	MDBCardBody
+} from 'mdbreact';
+import { Link } from 'react-router-dom';
+import { login } from '../actions/userActions';
+import { connect } from 'react-redux';
 
 class LoginScreen extends Component {
 	constructor() {
 		super();
 		this.state = {
-			username: "",
-			password: "",
+			username: '',
+			password: '',
 			authenticate: false
 		};
 
@@ -33,42 +41,57 @@ class LoginScreen extends Component {
 	}
 
 	clickHandler() {
-		this.props.login("collin");
+		this.props.login(this.state.username);
 	}
 
 	render() {
 		return (
-			<MDBContainer id="login-screen" fluid>
-				<div className="login-container">
-					<MDBContainer>Login</MDBContainer>
-					<form className="login-form">
-						<MDBInput
-							label="username"
-							icon="envelope"
-							onChange={this.usernameHandler}
-							group
-							type="username"
-							validate
-							error="wrong"
-							success="right"
-						/>
-						<MDBInput
-							label="password"
-							icon="lock"
-							onChange={this.passwordHandler}
-							group
-							type="password"
-							validate
-							error="wrong"
-							success="right"
-						/>
-						<Link to="/dist/feed">
-							<MDBBtn color="default" onClick={this.clickHandler}>
-								Login
-							</MDBBtn>
-						</Link>
-					</form>
-				</div>
+			<MDBContainer className="centered" id="login-screen" fluid>
+				<MDBCol md="4">
+					<MDBCard>
+						<MDBCardBody>
+							<form>
+								<p>Login</p>
+								<div>
+									<MDBInput
+										label="Username"
+										icon="user"
+										group
+										type="text"
+										validate
+										error="wrong"
+										success="right"
+										name="name"
+										value={this.state.name}
+										onInput={this.usernameHandler}
+									/>
+									<MDBInput
+										label="Password"
+										icon="lock"
+										group
+										type="password"
+										validate
+										error="wrong"
+										success="right"
+										name="password"
+										value={this.state.email}
+										onInput={this.passwordHandler}
+									/>
+								</div>
+								<div>
+									<Link to="/dist/feed">
+										<MDBBtn
+											color="danger"
+											onClick={this.clickHandler}
+										>
+											Login
+										</MDBBtn>
+									</Link>
+								</div>
+							</form>
+						</MDBCardBody>
+					</MDBCard>
+				</MDBCol>
 			</MDBContainer>
 		);
 	}

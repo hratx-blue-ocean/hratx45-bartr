@@ -1,9 +1,9 @@
-#past-transactions {
-	.past-transaction-item {
+#past-offers {
+	.past-offer-item {
 		display: flex;
 		justify-content: space-between;
 	}
-	.transaction-info-item {
+	.offer-info-item {
 		display: flex;
 		flex-direction: row;
 	}
@@ -12,7 +12,7 @@
 		flex-direction: row;
 		justify-content: space-around;
 	}
-	.transaction-info-label {
+	.offer-info-label {
 		display: flex;
 		flex-direction: row;
 	}
