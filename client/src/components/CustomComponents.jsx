@@ -77,6 +77,22 @@ export const Card = ({ className = '', children }) => (
 
 export const Icon = props => <MDBIcon {...props} />;
 
+export const Divider = ({ className = '', nopad = false, label = '' }) => (
+  <Grid className={className}>
+    <Row>
+      <Col>
+        <Row className="border-bottom"></Row>
+        <Row></Row>
+      </Col>
+      <Col>{label}</Col>
+      <Col>
+        <Row className="border-bottom"></Row>
+        <Row></Row>
+      </Col>
+    </Row>
+  </Grid>
+);
+
 export const AutoGrid = ({
   className = '',
   classNameCol = '',

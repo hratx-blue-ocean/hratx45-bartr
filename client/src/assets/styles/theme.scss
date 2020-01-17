@@ -23,6 +23,8 @@ $SOFT-GREY: #666670;
 $DARK-GREY: #444450;
 $OFF_BLACK: #111120;
 
+$CADET: #5f9ea0;
+
 $MAIN_LITE: #88c9cc;
 $MAIN_NORM: #5f9ea0; // $default-color
 $MAIN_DARK: #437172;
@@ -74,6 +76,9 @@ $SHAD_XTRA_B: rgba(0, 0, 0, 0.25);
   border-width: $MINI $I;
   &-thin {
     border-width: 1px $I;
+  }
+  &-bottom {
+    border-bottom: $HALF solid black $I;
   }
   &-double {
     border-style: double $I;
