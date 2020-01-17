@@ -30,7 +30,8 @@ const getProductsByUser = userId => {
 
 const getProductsUpForTrade = userId => {
   return pool.query({
-    text: `select * from products where user_id = ${userId} and up_for_trade='True'`
+    text: `select * from products INNER JOIN product_images 
+    ON products.product_id = product_images.product_id WHERE user_id = ${userId} and up_for_trade='True'`
   });
 };
 
