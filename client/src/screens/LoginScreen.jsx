@@ -28,19 +28,20 @@ class LoginScreen extends Component {
 
 	usernameHandler(e) {
 		let username = e.target.value;
-		this.setState = {
+		this.setState({
 			username: username
-		};
+		});
 	}
 
 	passwordHandler(e) {
 		let password = e.target.value;
-		this.setState = {
+		this.setState({
 			password: password
-		};
+		});
 	}
 
 	clickHandler() {
+		// for now, it only takes username, no auth
 		this.props.login(this.state.username);
 	}
 

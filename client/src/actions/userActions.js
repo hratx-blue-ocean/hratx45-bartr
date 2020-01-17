@@ -27,14 +27,11 @@ export const authenticateUser = (username, password) => {
 
 export const fetchUserInformationByUsername = username => {
 	return async (dispatch, getState) => {
-		const response = await paperclips.get(
-			'/users/userInformationUsername',
-			{
-				params: {
-					username: username
-				}
+		const response = await paperclips.get('/users/userInformationUsername', {
+			params: {
+				username: username
 			}
-		);
+		});
 		dispatch({
 			type: 'FETCH_USER_INFORMATION_BY_USERNAME',
 			payload: response.data
@@ -61,7 +58,7 @@ export const login = username => {
 	return (dispatch, getState) => {
 		dispatch({
 			type: 'FETCH_USER_ID',
-			payload: { username: username, userId: userId }
+			payload: { username: username }
 		});
 	};
 };
