@@ -79,11 +79,8 @@ class LoginScreen extends Component {
 									/>
 								</div>
 								<div>
-									<Link to="/dist/feed">
-										<MDBBtn
-											color="danger"
-											onClick={this.clickHandler}
-										>
+									<Link to="/feed">
+										<MDBBtn color="danger" onClick={this.clickHandler}>
 											Login
 										</MDBBtn>
 									</Link>

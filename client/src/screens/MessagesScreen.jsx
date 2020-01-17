@@ -8,7 +8,9 @@ class Messages extends React.Component {
     super(props);
     this.state = {
       currentUser: 10,
-      messageStrings: null
+      messageStrings: null,
+      msg1OtherUser: null,
+      msg2OtherUser: null
     };
     this.getUserMessageStrings = this.getUserMessageStrings.bind(this);
   }
@@ -24,8 +26,18 @@ class Messages extends React.Component {
         for (let i = 0; i < data.length; i++) {
           data[i].sender_id < this.state.currentUser ||
           data[i].recipient_id < this.state.currentUser
-            ? thread1.push(data[i])
-            : thread2.push(data[i]);
+            ? (() => {
+                thread1.push(data[i]);
+                return data[i].sender_id !== this.state.currentUser
+                  ? this.setState({ msg1OtherUser: data[i].sender_id })
+                  : null;
+              })()
+            : (() => {
+                thread2.push(data[i]);
+                return data[i].sender_id !== this.state.currentUser
+                  ? this.setState({ msg2OtherUser: data[i].sender_id })
+                  : null;
+              })();
         }
         return this.setState({
           messageStrings: [thread1, thread2]
@@ -49,6 +61,9 @@ class Messages extends React.Component {
                     key={key}
                     num={key}
                     messageString={messageString}
+                    currentUser={this.state.currentUser}
+                    msg1OtherUser={this.state.msg1OtherUser}
+                    msg2OtherUser={this.state.msg2OtherUser}
                   />
                 </MDBContainer>
               ))
