@@ -159,6 +159,7 @@ class SignupScreen extends Component {
       </MDBContainer>
     );
   }
+
   render() {
     return (
       <MDBContainer id="signup-screen" fluid>
@@ -207,7 +208,7 @@ class SignupScreen extends Component {
                     textFieldTitle="Upload Profile Picture"
                     btnColor="danger"
                   />
-                  <Link to="/dist/login">
+                  <Link to="/login">
                     <MDBBtn color="danger">Sign-Up</MDBBtn>
                   </Link>
                 </form>
