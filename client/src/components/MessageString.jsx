@@ -9,6 +9,7 @@ import {
 } from "mdbreact";
 import Message from "../components/Message.jsx";
 import ReplyMessage from "../components/ReplyMessage.jsx";
+import Axios from "axios";
 class MessageString extends React.Component {
   constructor(props) {
     super(props);
@@ -52,9 +53,6 @@ class MessageString extends React.Component {
     });
   }
 
-  sendReplyToDB() {
-    // ! send reply to database
-  }
   replyHandle(msg, recipient) {
     let arr = this.state.replies;
     let arr2 = this.state.currString;
@@ -72,14 +70,34 @@ class MessageString extends React.Component {
     this.setState({
       replies: arr
     });
-  }
 
-  // "sender_id": 0,
-  // "recipient_id": 1,
-  // "date": "2017-06-10_11:38:14",
-  // "message": "Thought four loss better out. Policy hair place. Guy only attack per have at various.",
-  // "sender_username": "Thomas_0",
-  // "recipient_username": "Bianca_1"
+    let dt = new Date();
+    let dateToSend = `${dt
+      .getFullYear()
+      .toString()
+      .padStart(4, "0")}-${(dt.getMonth() + 1).toString().padStart(2, "0")}-${dt
+      .getDate()
+      .toString()
+      .padStart(2, "0")} ${dt
+      .getHours()
+      .toString()
+      .padStart(2, "0")}:${dt
+      .getMinutes()
+      .toString()
+      .padStart(2, "0")}:${dt
+      .getSeconds()
+      .toString()
+      .padStart(2, "0")}`;
+    // ! send to db.
+    // Axios.post("/messages", {
+    //   body: {
+    //     senderId: this.props.currentUser,
+    //     recipientId: recipient,
+    //     date: dateToSend,
+    //     message: msg
+    //   }
+    // });
+  }
 
   componentDidMount() {
     this.setState({ currString: this.props.messageString });

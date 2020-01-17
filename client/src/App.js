@@ -18,10 +18,10 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Navbar />
         {/* <ItemDetailPage /> */}
         {/* <!--<TestingScreen />  */}
         {/* <UploadItemScreen /> */}
+        <Navbar />
         <Switch>
           <Route exact path="/">
             <HomeScreen />
