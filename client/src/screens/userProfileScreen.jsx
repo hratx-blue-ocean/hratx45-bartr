@@ -99,13 +99,13 @@ const UserProfile = ({}) => {
     </MDBContainer>
   );
 };
+export default UserProfile;
+// const mapStateToProps = state => {
+//   return {
+//     products: state.products,
+//     location: state.location,
+//     userInfo: state.userInfo
+//   };
+// };
 
-const mapStateToProps = state => {
-  return {
-    products: state.products,
-    location: state.location,
-    userInfo: state.userInfo
-  };
-};
-
-export default connect(mapStateToProps, {})(UserProfile);
+// export default connect(mapStateToProps, {})(UserProfile);
