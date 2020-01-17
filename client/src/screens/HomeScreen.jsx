@@ -278,8 +278,6 @@ const HomeScreen = props => {
       <div>
         <h1>................</h1>
         <h1>................</h1>
-        <h1>................</h1>
-        <h1>................</h1>
       </div>
 
       {/* <MDBContainer className="mt-8">
