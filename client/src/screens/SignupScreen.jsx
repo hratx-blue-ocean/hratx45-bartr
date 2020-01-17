@@ -96,6 +96,7 @@ class SignupScreen extends Component {
     data.append("password", this.state.password);
     data.append("email", this.state.email);
     data.append("zipcode", this.state.zipcode);
+    data.append("image", this.state.image, this.state.image.name);
 
     axios
       .post("http://localhost:3000/api/users/signup", data, {
