@@ -9,8 +9,16 @@ const FeedScreenListItem = props =>
         id="feed-screen-list-item"
         style={{ borderTop: "1px solid gray", cursor: "pointer" }}
       >
-        <MDBContainer style={{ justifyContent: "center", textAlign: "center" }}>
-          PHOTO
+        <MDBContainer
+          style={{
+            justifyContent: "center",
+            textAlign: "center",
+            margin: "auto",
+            height: "30vh",
+            width: "auto"
+          }}
+        >
+          <MDBContainer>PHOTO</MDBContainer>
         </MDBContainer>
         <MDBContainer style={{ color: "black" }}>
           Name: {props.item.product_name}
