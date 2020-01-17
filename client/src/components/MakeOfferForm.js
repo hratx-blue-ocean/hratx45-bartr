@@ -6,12 +6,36 @@ import {
   MDBModal,
   MDBModalBody,
   MDBModalHeader,
-  MDBModalFooter
+  MDBModalFooter,
+  MDBCard,
+  MDBCardTitle
 } from "mdbreact";
+
+import { connect } from "react-redux";
 
 import "../assets/styles/makeOfferForm.scss";
 
-export default class MakeOfferForm extends PureComponent {
+const getDate = () => {
+  let dt = new Date();
+  return `${dt
+    .getFullYear()
+    .toString()
+    .padStart(4, "0")}-${(dt.getMonth() + 1).toString().padStart(2, "0")}-${dt
+    .getDate()
+    .toString()
+    .padStart(2, "0")} ${dt
+    .getHours()
+    .toString()
+    .padStart(2, "0")}:${dt
+    .getMinutes()
+    .toString()
+    .padStart(2, "0")}:${dt
+    .getSeconds()
+    .toString()
+    .padStart(2, "0")}`;
+};
+
+class MakeOfferForm extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -44,12 +68,14 @@ export default class MakeOfferForm extends PureComponent {
         }
       ],
       indexMap: { 1: 0, 2: 1, 3: 2 },
-      selectedItems: []
+      selectedItems: [],
+      message: ""
     };
 
     this.toggle = this.toggle.bind(this);
     this.addToOffer = this.addToOffer.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
     this.submit = this.submit.bind(this);
   }
 
@@ -75,18 +101,21 @@ export default class MakeOfferForm extends PureComponent {
     this.setState({ availableItems }, () => this.forceUpdate());
   }
 
+  handleInputChange(e) {
+    this.setState({ message: e.target.value });
+  }
+
   submit() {
     let data = new FormData();
+    let ids = this.state.selectedItems.map(item => item.id);
 
-    // Offer: {id: 1, offerer: 43, offeree: 27, desiredItem: 7, offeredItem: 1, offeredItem: 2, date: new Date(), message: "Hi! When are you free to meet up and exchange?" }
-
-    data.append("date", new Date());
-    data.append("desiredItem", this.state.name);
-    data.append("value", this.state.value);
-    data.append("description", this.state.description);
-    data.append("desiredTrade", this.state.desiredTrade);
-    data.append("timeConstraints", this.state.timeConstraints);
-    this.state.fileList.forEach(file => data.append("file", file, file.name));
+    data.append("offer_made_date", getDate());
+    data.append("offer_closed_date", null);
+    data.append("offerer_id", this.props.userId);
+    data.append("offeree_id", this.props.itemDetails.owner_id);
+    data.append("desired_product_id", this.props.productId);
+    data.append("message", this.state.message);
+    ids.forEach(id => data.append("offered_product_id", id));
   }
 
   render() {
@@ -94,60 +123,124 @@ export default class MakeOfferForm extends PureComponent {
       <div id="makeOfferForm">
         <form className="md-form">
           <MDBContainer>
-            <MDBBtn color="default" onClick={this.toggle}>
-              Select Item(s) To Offer
-            </MDBBtn>
-            <MDBModal isOpen={this.state.modalOpen} toggle={this.toggle}>
-              <MDBModalHeader>Your Items</MDBModalHeader>
-              <MDBModalBody>
-                <ul>
-                  {this.state.availableItems.map((item, index) => (
-                    <li
-                      onClick={this.handleClick}
-                      className={item.selected ? "oneItem selected" : "oneItem"}
-                      id={item.id}
-                      key={index}
-                    >
-                      <div className="itemContainer">
-                        <div className="itemImage">
-                          <img width="100px" src={item.image} />
+            <MDBCard className="makeOfferFormCard">
+              <div className="desiredItemContainer">
+              <h3 className="sectionTitle">Item you've chosen: </h3>
+                <MDBCard className="desiredItem">
+                  
+                  {this.props.itemDetails.photos &&
+                  this.props.itemDetails.photos.length > 0 ? (
+                    <div className="desiredItemImage">
+                      <img
+                        src={this.props.itemDetails.photos[0] || ""}
+                        width="60px"
+                        height="60px"
+                      />
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                  <div className="desiredItemInfo">
+                    <h4 className="desiredItemName">
+                      {this.props.itemDetails.product_name}
+                    </h4>
+                    <h4 className="desiredItemName">
+                      Value: <span>{this.props.itemDetails.value}</span>
+                    </h4>
+                  </div>
+                </MDBCard>
+              </div>
+              <MDBBtn
+                color="danger"
+                onClick={this.toggle}
+                className="buttonSelectItems"
+              >
+                Select Item(s) To Offer
+              </MDBBtn>
+              <MDBModal isOpen={this.state.modalOpen} toggle={this.toggle}>
+                <MDBModalHeader>Your Items</MDBModalHeader>
+                <MDBModalBody>
+                  <ul>
+                    {this.state.availableItems.map((item, index) => (
+                      <li
+                        onClick={this.handleClick}
+                        className={
+                          item.selected ? "oneItem selected" : "oneItem"
+                        }
+                        id={item.id}
+                        key={index}
+                      >
+                        <div className="itemContainer">
+                          <div className="itemImage">
+                            <img width="100px" src={item.image} />
+                          </div>
+                          <div className="itemInfo">
+                            <h3>{item.name}</h3>
+                            <p>
+                              Value: <span>{item.value}</span>
+                            </p>
+                          </div>
                         </div>
-                        <div className="itemInfo">
-                          <h3>{item.name}</h3>
-                          <p>
-                            Value: <span>{item.value}</span>
-                          </p>
-                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </MDBModalBody>
+                <MDBModalFooter>
+                  <MDBBtn color="warning" onClick={this.addToOffer}>
+                    Add to Offer
+                  </MDBBtn>
+                </MDBModalFooter>
+              </MDBModal>
+              {this.state.selectedItems.length > 0 ? (
+                <div className="selectedItemsContainer">
+                  <h3 className="sectionTitle">You're offering: </h3>
+                  {this.state.selectedItems.map(item => (
+                    <MDBCard className="selectedItem">
+                      <div className="selectedItemImage">
+                        <img src={item.image} width="50px" height="50px" />
                       </div>
-                    </li>
+                      <div className="selectedItemInfo">
+                        <h4 className="selectedItemName">{item.name}</h4>
+                        <h4 className="selectedItemName">
+                          Value: <span>{item.value}</span>
+                        </h4>
+                      </div>
+                    </MDBCard>
                   ))}
-                </ul>
-              </MDBModalBody>
-              <MDBModalFooter>
-                <MDBBtn color="warning" onClick={this.addToOffer}>
-                  Add to Offer
-                </MDBBtn>
-              </MDBModalFooter>
-            </MDBModal>
-            <div className="selectedItemsContainer">
-              {this.state.selectedItems.map(item => (
-                <div className="selectedItem">
-                  <img src={item.image} width="50px" />
-                  <h4 className="selectedItemName">{item.name}</h4>
                 </div>
-              ))}
-            </div>
-            <MDBInput
-              type="textarea"
-              label="Send a message with your offer?"
-              outline
-            />
-            <MDBBtn color="danger" onClick={this.submit}>
-              Send Your Offer!
-            </MDBBtn>
+              ) : (
+                <></>
+              )}
+              <MDBInput
+                className="messageInput"
+                type="textarea"
+                label="Send a message with your offer?"
+                onChange={this.handleInputChange}
+                value={this.state.message}
+                outline
+              />
+              <MDBBtn
+                color="default"
+                onClick={this.submit}
+                className="buttonSubmit"
+              >
+                Send Your Offer!
+              </MDBBtn>
+            </MDBCard>
           </MDBContainer>
         </form>
       </div>
     );
   }
 }
+
+let mapStateToProps = state => {
+  let { userInfo, itemDetails } = state;
+
+  let username = userInfo.username;
+  let userId = userInfo.userId;
+
+  return { itemDetails, username, userId };
+};
+
+export default connect(mapStateToProps)(MakeOfferForm);
