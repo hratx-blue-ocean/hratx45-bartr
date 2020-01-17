@@ -28,67 +28,6 @@ $WARN_DARK: #ffaf66;
 $DANGER: $danger-color;
 $DANG_DARK: #d15345;
 
-// COLOR THEME HELPERS
-.cancel {
-  &.dark {
-    color: $BACKGROUND $I;
-    background-color: $DANGER $I;
-    &.border {
-      border-color: $DANG_DARK $I;
-    }
-  }
-  &.light {
-    color: $DANG_DARK $I;
-    background-color: $BACKGROUND $I;
-    &.border {
-      border-color: $DANG_DARK $I;
-    }
-  }
-}
-.warning {
-  &.dark {
-    color: $BACKGROUND $I;
-    background-color: $WARNING $I;
-    &.border {
-      border-color: $WARN_DARK $I;
-    }
-  }
-  &.light {
-    color: $WARNING $I;
-    background-color: $BACKGROUND $I;
-    &.border {
-      border-color: $WARNING $I;
-    }
-  }
-}
-.border {
-  border-style: solid $I;
-  border-width: $MINI $I;
-  &-double {
-    border-style: double $I;
-    border-width: $MINI $I;
-  }
-  &-dashed {
-    border-style: dashed $I;
-    border-width: $MINI $I;
-  }
-  &-dotted {
-    border-style: dotted $I;
-    border-width: $MINI $I;
-  }
-}
-.rounded {
-  border-radius: $MINI $I;
-  &-small {
-    border-radius: $MICRO $I;
-  }
-  &-med {
-    border-radius: $MINI $I;
-  }
-  &-large {
-    border-radius: $HALF $I;
-  }
-}
 // CONTENT ADJUSTMENT
 .center {
   display: flex;
@@ -109,6 +48,16 @@ $DANG_DARK: #d15345;
   }
 }
 // PADDING HELPERS
+.null-space {
+  padding: 0;
+  margin: 0;
+}
+.bucket-all-children {
+  & > * {
+    margin: 0;
+    padding: $____ $NORM $NORM $NORM;
+  }
+}
 .pad-none {
   padding: $____;
 }
@@ -131,6 +80,30 @@ $DANG_DARK: #d15345;
   }
   &-dubl {
     padding: $DUBL;
+  }
+}
+.pad-row {
+  padding: $NORM $____ $____ $NORM;
+  &-half {
+    padding: $HALF $____ $____ $HALF;
+  }
+  &-plus {
+    padding: $PLUS $____ $____ $PLUS;
+  }
+  &-dubl {
+    padding: $DUBL $____ $____ $DUBL;
+  }
+}
+.pad-col {
+  padding: $____ $NORM $NORM $____;
+  &-half {
+    padding: $____ $HALF $HALF $____;
+  }
+  &-plus {
+    padding: $____ $PLUS $PLUS $____;
+  }
+  &-dubl {
+    padding: $____ $DUBL $DUBL $____;
   }
 }
 // Pad Element on 3 sides,

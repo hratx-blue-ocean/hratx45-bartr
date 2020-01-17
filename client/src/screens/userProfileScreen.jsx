@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect, useSelector } from "react-redux";
 import data from "../dummy_data/products";
 import {
@@ -19,12 +19,18 @@ import {
 } from "mdbreact";
 //author -- Matt Lucas
 
-const UserProfile = ({}) => {
+const UserProfile = props => {
   const userInfo = useSelector(store => store.userInfo);
   const products = useSelector(store => store.products);
   const location = useSelector(store => store.location);
   const [collapse2, setCollapse2] = useState(false);
-  return (
+
+  useEffect(() => props.fetchUserInformationById(userInfo.userId), [
+    userInfo.userId
+  ]);
+  return userInfo.userId === -1 ? (
+    <MDBNavLink to="/login"></MDBNavLink>
+  ) : (
     <MDBContainer>
       <MDBRow>
         <MDBCol className="col-test"></MDBCol>
@@ -108,4 +114,6 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, {})(UserProfile);
+export default connect(mapStateToProps, { fetchUserInformationById })(
+  UserProfile
+);

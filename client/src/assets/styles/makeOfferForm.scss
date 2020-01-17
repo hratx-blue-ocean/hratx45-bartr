@@ -1,6 +1,20 @@
 @import "./variables.scss";
 
-#makeOfferForm {
+#makeOfferScreen {
+  h1 {
+    margin: 15px auto;
+  }
+
+  h3.youAreOffering {
+    font-weight: bold;
+    border-bottom: 1px solid $light-gray;
+    padding-bottom: 1.25rem;
+  }
+
+  .makeOfferFormCard {
+    padding: 10px;
+  }
+
   .oneItem,
   .itemContainer {
     display: flex;
@@ -8,38 +22,44 @@
   }
 
   .oneItem {
-      margin-bottom: 10px;
+    margin-bottom: 10px;
   }
 
- .selected {
-      outline: 3px solid #ffc793;
+  .selected {
+    outline: 3px solid #ffc793;
   }
 
   .form-check {
-      z-index: 500;
-      border: 2px solid black;
+    z-index: 500;
+    border: 2px solid black;
   }
 
   .itemSelector {
-      flex-basis: 25px;
-      flex-shrink: 0;
+    flex-basis: 25px;
+    flex-shrink: 0;
   }
 
   .selectedItemsContainer {
-      margin: 15px 0;
-      border: 2px solid #e5eaea;
-      padding: 15px;
+    margin: 15px 0;
+    border: 2px solid #e5eaea;
+    padding: 15px;
   }
 
   .selectedItem {
-      display: flex;
-      flex-direction: row;
-      margin: 10px;
-      justify-content: left;
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    justify-content: left;
+    padding: 10px;
+    border-bottom: 1px solid $light-gray;
   }
+
+  //   .selectedItemInfo {
+  //     display: flex;
+  //     flex-
+  //   }
 
   .selectedItemName {
-      margin-left: 10px;
+    margin-left: 10px;
   }
-
 }

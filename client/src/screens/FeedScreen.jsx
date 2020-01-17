@@ -2,15 +2,7 @@ import React from "react";
 import Axios from "axios";
 import FeedScreenListItem from "../components/FeedScreenListItem.jsx";
 import FeedScreenDropDown from "../components/FeedScreenDropDown.jsx";
-import {
-  MDBBtn,
-  MDBContainer,
-  MDBDropdown,
-  MDBDropdownItem,
-  MDBDropdownMenu,
-  MDBDropdownToggle,
-  MDBInput
-} from "mdbreact";
+import { MDBBtn, MDBContainer, MDBInput } from "mdbreact";
 
 class FeedScreen extends React.Component {
   constructor(props) {

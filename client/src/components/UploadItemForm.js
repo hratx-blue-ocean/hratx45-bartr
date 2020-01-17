@@ -10,6 +10,7 @@ import {
   MDBCardTitle,
   MDBCardBody
 } from "mdbreact";
+import {Link} from "react-router-dom";
 import axios from "axios";
 
 const getDate = () => {
@@ -45,7 +46,7 @@ export default class UploadItemForm extends PureComponent {
       fileList: []
     };
 
-    this.id = this.handleNameInput = this.handleNameInput.bind(this);
+   this.handleNameInput = this.handleNameInput.bind(this);
     this.handleValueInput = this.handleValueInput.bind(this);
     this.handleDescriptionInput = this.handleDescriptionInput.bind(this);
     this.handleDesiredTradeInput = this.handleDesiredTradeInput.bind(this);
@@ -101,13 +102,14 @@ export default class UploadItemForm extends PureComponent {
         headers: { "Content-Type": "multipart/form-data" }
       })
       .then(result => console.log(result))
+      .then(this.props.toggleConfirmationModal())
       .catch(error => console.log(error));
   }
 
   render() {
     return (
       <div>
-        <MDBCard>
+        <MDBCard className="postItemFormCard">
           {/* <MDBCardTitle>
             <h1>Post an Item</h1>
           </MDBCardTitle> */}
@@ -152,7 +154,7 @@ export default class UploadItemForm extends PureComponent {
                 btnColor="danger"
                 multiple
               />
-              <MDBBtn onClick={this.submit}>Upload Item</MDBBtn>
+              <MDBBtn onClick={this.submit}>Post Item</MDBBtn>
               <p>* = required</p>
             </form>
           </MDBCardBody>
