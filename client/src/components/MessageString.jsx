@@ -57,11 +57,17 @@ class MessageString extends React.Component {
   }
   replyHandle(msg, recipient) {
     let arr = this.state.replies;
+    let arr2 = this.state.currString;
+
     arr.unshift({
       sender_id: this.props.currentUser,
       recipient_id: recipient,
       date: new Date().toJSON(),
-      message: msg
+      message: msg,
+      sender_username: this.props.messageString[this.props.num]
+        .recipient_username,
+      recipient_username: this.props.messageString[this.props.num]
+        .sender_username
     });
     this.setState({
       replies: arr
