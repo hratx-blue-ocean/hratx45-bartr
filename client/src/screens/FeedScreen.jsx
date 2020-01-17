@@ -41,6 +41,7 @@ class FeedScreen extends React.Component {
             productsToDisplay: sortedArr.filter(a => a !== undefined).reverse()
           });
         }
+
         if (event === "Value (Lowest First)") {
           let arr = this.state.productsToDisplay;
           let sortedArr = [];
@@ -51,9 +52,11 @@ class FeedScreen extends React.Component {
             productsToDisplay: sortedArr.filter(a => a !== undefined)
           });
         }
+
         if (event === "Distance") {
           // ! sort by proximity
         }
+
         if (event === "Date (Oldest First)") {
           let arr = this.state.productsToDisplay;
           let newArr = arr.slice();
@@ -64,6 +67,7 @@ class FeedScreen extends React.Component {
             productsToDisplay: newArr
           });
         }
+
         if (event === "Date (Newest First)") {
           let arr = this.state.productsToDisplay;
           let newArr = arr.slice();
@@ -148,6 +152,9 @@ class FeedScreen extends React.Component {
   }
 
   render() {
+    // {
+    //   let test = useSelector(store => store.userInfo);
+    // }
     return (
       <MDBContainer id="feed-screen">
         <MDBInput

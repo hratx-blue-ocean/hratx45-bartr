@@ -1,5 +1,6 @@
 import React from "react";
-import { MDBContainer, MDBInput, MDBBtn } from "mdbreact";
+import { MDBContainer } from "mdbreact";
+import { connect, useSelector, getS } from "react-redux";
 
 const Message = props => (
   <MDBContainer>
