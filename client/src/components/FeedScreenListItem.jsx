@@ -19,7 +19,7 @@ const FeedScreenListItem = props =>
         style={{ marginTop: "10px", color: "black" }}
       >
         <MDBCardBody>
-          <MDBCard style={{ width: "45vh", textAlign: "center" }}>
+          <MDBCard style={{ width: "45vh", textAlign: "left" }}>
             <MDBCardImage
               className="img-fluid"
               src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
