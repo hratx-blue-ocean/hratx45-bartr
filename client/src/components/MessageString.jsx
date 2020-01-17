@@ -9,6 +9,7 @@ import {
 } from "mdbreact";
 import Message from "../components/Message.jsx";
 import ReplyMessage from "../components/ReplyMessage.jsx";
+import Axios from "axios";
 class MessageString extends React.Component {
   constructor(props) {
     super(props);
@@ -52,9 +53,6 @@ class MessageString extends React.Component {
     });
   }
 
-  sendReplyToDB() {
-    // ! send reply to database
-  }
   replyHandle(msg, recipient) {
     let arr = this.state.replies;
     let arr2 = this.state.currString;
@@ -72,14 +70,34 @@ class MessageString extends React.Component {
     this.setState({
       replies: arr
     });
-  }
 
-  // "sender_id": 0,
-  // "recipient_id": 1,
-  // "date": "2017-06-10_11:38:14",
-  // "message": "Thought four loss better out. Policy hair place. Guy only attack per have at various.",
-  // "sender_username": "Thomas_0",
-  // "recipient_username": "Bianca_1"
+    let dt = new Date();
+    let dateToSend = `${dt
+      .getFullYear()
+      .toString()
+      .padStart(4, "0")}-${(dt.getMonth() + 1).toString().padStart(2, "0")}-${dt
+      .getDate()
+      .toString()
+      .padStart(2, "0")} ${dt
+      .getHours()
+      .toString()
+      .padStart(2, "0")}:${dt
+      .getMinutes()
+      .toString()
+      .padStart(2, "0")}:${dt
+      .getSeconds()
+      .toString()
+      .padStart(2, "0")}`;
+    // ! send to db.
+    Axios.post("https://paperclip.link/api/messages", {
+      senderId: this.props.currentUser,
+      recipientId: recipient,
+      date: dateToSend,
+      message: msg
+    })
+      .then(console.log)
+      .catch(console.log);
+  }
 
   componentDidMount() {
     this.setState({ currString: this.props.messageString });
@@ -110,14 +128,14 @@ class MessageString extends React.Component {
               </MDBContainer>
             ) : null}
             <MDBContainer>
-              {this.state.replies
-                ? this.state.replies.map((message, key) => (
-                    <Message key={key} message={message} />
-                  ))
-                : null}
               {this.state.currString
                 ? this.state.currString.map((message, key) => (
                     <Message key={key} message={message} num={this.props.num} />
+                  ))
+                : null}
+              {this.state.replies
+                ? this.state.replies.map((message, key) => (
+                    <Message key={key} message={message} />
                   ))
                 : null}
             </MDBContainer>
@@ -138,8 +156,8 @@ class MessageString extends React.Component {
         </MDBModal>
       </MDBContainer>
     ) : (
-      <MDBContainer id="message-string" onClick={this.openMessage}>
-        <MDBContainer>
+      <MDBContainer id="unopenedMessage" onClick={this.openMessage}>
+        <MDBContainer id="innerUnopened">
           Messages with user:{" "}
           {this.props.messageString[this.props.num].sender_username}
         </MDBContainer>
