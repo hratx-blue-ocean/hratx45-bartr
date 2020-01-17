@@ -90,14 +90,6 @@ class SignupScreen extends Component {
   submit() {
     let data = new FormData();
 
-<<<<<<< HEAD
-    data.append('first name', this.state.firstName);
-    data.append('last name', this.state.lastName);
-    data.append('username', this.state.username);
-    data.append('password', this.state.password);
-    data.append('email', this.state.email);
-    data.append('zipcode', this.state.zipcode);
-=======
     data.append("first name", this.state.firstName);
     data.append("last name", this.state.lastName);
     data.append("username", this.state.username);
@@ -105,7 +97,6 @@ class SignupScreen extends Component {
     data.append("email", this.state.email);
     data.append("zipcode", this.state.zipcode);
     data.append("image", this.state.image, this.state.image.name);
->>>>>>> 3a051a1f2d9e79b7ce159faf3928103e231a53f5
 
     axios
       .post("http://localhost:3000/api/users/signup", data, {
