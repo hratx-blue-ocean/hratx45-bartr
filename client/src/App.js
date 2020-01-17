@@ -13,7 +13,6 @@ import MessagesScreen from './screens/MessagesScreen';
 import UpForTradeScreen from './screens/UpForTradeScreen';
 import PastOffersScreen from './screens/PastOffersScreen';
 import ActiveOffersScreen from './screens/ActiveOffersScreen';
-import ThemeSandbox from './screens/testing/ThemeSandbox';
 
 class App extends Component {
   render() {
