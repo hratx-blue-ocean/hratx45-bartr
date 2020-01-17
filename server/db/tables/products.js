@@ -24,6 +24,12 @@ const getProductsByCategory = categoryId => {
 /* Returns all products by user id */
 const getProductsByUser = userId => {
   return pool.query({
+    text: `select * from products where user_id = ${userId};`
+  });
+};
+
+const getProductsUpForTrade = userId => {
+  return pool.query({
     text: `select * from products where user_id = ${userId} and up_for_trade='True'`
   });
 };
@@ -113,7 +119,8 @@ module.exports = {
   getProductPhotosById,
   addNewProduct,
   getProductsByPostDate,
-  addNewProductPhotos
+  addNewProductPhotos,
+  getProductsUpForTrade
 };
 
 // Get products, username, 1 photo
