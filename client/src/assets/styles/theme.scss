@@ -1,0 +1,620 @@
+$I: !important;
+
+$____: 0;
+$MICR: 0.125rem;
+$MINI: 0.25rem;
+$HALF: 0.5rem;
+$NORM: 1rem;
+$PLUS: 1.5rem;
+$DUBL: 2rem;
+$TRPL: 3rem;
+
+$SEMI: 50%;
+$QRTR: 25%;
+
+$BACKGROUND: #fff;
+
+$OFF-WHITE: #e6f6f7; // $primary-color;
+$SECONDARY: #0d1414; // $secondary-color;
+
+$OFF_WHITE: #ddddee;
+$LITE-GREY: #bbbbcc;
+$SOFT-GREY: #666670;
+$DARK-GREY: #444450;
+$OFF_BLACK: #111120;
+
+$MAIN_LITE: #88c9cc;
+$MAIN_NORM: #5f9ea0; // $default-color
+$MAIN_DARK: #437172;
+
+$WARN_LITE: #ffe3ca;
+$WARN_NORM: #ffc793; // $warning-color; ffc793
+$WARN_DARK: #ffaf66;
+
+$DANG_LITE: #ed9e95;
+$DANG_NORM: #d87d72; // $danger-color;
+$DANG_DARK: #9b3327;
+
+$SHAD_LITE_A: rgba(0, 0, 0, 0.16);
+$SHAD_LITE_B: rgba(0, 0, 0, 0.12);
+$SHAD_DARK_A: rgba(0, 0, 0, 0.32);
+$SHAD_DARK_B: rgba(0, 0, 0, 0.24);
+$SHAD_XTRA_A: rgba(0, 0, 0, 0.35);
+$SHAD_XTRA_B: rgba(0, 0, 0, 0.25);
+
+.shadow {
+  box-shadow: 0 2px 6px 0 $SHAD_LITE_A, 0 2px 12px 0 $SHAD_LITE_B $I;
+  &:active {
+    box-shadow: 0 1px 4px 0 $SHAD_DARK_A, 0 1px 6px 0 $SHAD_DARK_B $I;
+  }
+  &-heavy:active {
+    box-shadow: 0 2px 5px 0 $SHAD_XTRA_A, 0 2px 10px 0 $SHAD_XTRA_B $I;
+  }
+  &-none {
+    box-shadow: none $I;
+    &:active {
+      box-shadow: none $I;
+    }
+  }
+  &-static {
+    box-shadow: 0 2px 6px 0 $SHAD_LITE_A, 0 2px 12px 0 $SHAD_LITE_B $I;
+    &:active {
+      box-shadow: 0 2px 6px 0 $SHAD_LITE_A, 0 2px 12px 0 $SHAD_LITE_B $I;
+    }
+  }
+}
+.outline-none {
+  outline: none $I;
+  &:active {
+    outline: none $I;
+  }
+}
+.border {
+  border-style: solid $I;
+  border-width: $MINI $I;
+  &-thin {
+    border-width: 1px $I;
+  }
+  &-double {
+    border-style: double $I;
+    border-width: $MINI $I;
+    &-thin {
+      border-width: 1px $I;
+    }
+  }
+  &-dashed {
+    border-style: dashed $I;
+    border-width: $MINI $I;
+    &-thin {
+      border-width: 1px $I;
+    }
+  }
+  &-dotted {
+    border-style: dotted $I;
+    border-width: $MINI $I;
+    &-thin {
+      border-width: 1px $I;
+    }
+  }
+}
+
+.color,
+.color.btn,
+.color.btn-default {
+  &-none {
+    color: none $I;
+    background-color: none $I;
+    border-color: none $I;
+    &.btn,
+    &.btn-default {
+      color: none $I;
+      background-color: none $I;
+      border-color: none $I;
+    }
+  }
+  &-inherit {
+    color: inherit $I;
+    background-color: inherit $I;
+    border-color: inherit $I;
+  }
+  &-danger-dark {
+    color: $OFF_WHITE $I;
+    background-color: $DANG_NORM $I;
+    border-color: $DANG_LITE $I;
+    &:active {
+      color: $OFF_WHITE $I;
+      background-color: $DANG_DARK $I;
+      border-color: $DANG-NORM $I;
+    }
+  }
+  &-default {
+    color: $OFF_WHITE $I;
+    background-color: $MAIN_NORM $I;
+    border-color: $MAIN_LITE $I;
+    &:active {
+      color: $OFF_WHITE $I;
+      background-color: $MAIN_DARK $I;
+      border-color: $MAIN-NORM $I;
+    }
+  }
+  &-border {
+    &-danger {
+      border-color: $DANG_NORM $I;
+      &:active {
+        border-color: $DANG_DARK $I;
+      }
+      &-lite {
+        border-color: $DANG_LITE $I;
+        &:active {
+          border-color: $DANG_NORM $I;
+        }
+      }
+      &-dark {
+        border-color: $DANG_DARK $I;
+        &:active {
+          border-color: $DANG_LITE $I;
+        }
+      }
+    }
+    &-warning {
+      border-color: $WARN_NORM $I;
+      &:active {
+        border-color: $WARN_DARK $I;
+      }
+      &-lite {
+        border-color: $WARN_LITE $I;
+        &:active {
+          border-color: $WARN_NORM $I;
+        }
+      }
+      &-dark {
+        border-color: $WARN_DARK $I;
+        &:active {
+          border-color: $WARN_LITE $I;
+        }
+      }
+    }
+    &-default {
+      border-color: $MAIN_NORM $I;
+      &:active {
+        border-color: $MAIN_DARK $I;
+      }
+      &-lite {
+        border-color: $MAIN_LITE $I;
+        &:active {
+          border-color: $MAIN_NORM $I;
+        }
+      }
+      &-dark {
+        border-color: $MAIN_DARK $I;
+        &:active {
+          border-color: $MAIN_LITE $I;
+        }
+      }
+    }
+    &-lite {
+      border-color: $LITE-GREY $I;
+    }
+  }
+}
+
+.rounded {
+  border-radius: $HALF $I;
+  &-small {
+    border-radius: $MINI $I;
+  }
+  &-med {
+    border-radius: $HALF $I;
+  }
+  &-large {
+    border-radius: $NORM $I;
+  }
+  &-extra {
+    border-radius: $PLUS $I;
+  }
+  &-super {
+    border-radius: $DUBL $I;
+  }
+  &-ball {
+    border-radius: $SEMI $I;
+  }
+  &-pill {
+    border-radius: $QRTR $I;
+  }
+}
+
+// CONTENT ADJUSTMENT
+.center {
+  display: flex $I;
+  justify-content: center $I;
+  align-items: center $I;
+  &-v {
+    display: flex $I;
+    justify-content: center $I;
+  }
+  &-h {
+    display: flex $I;
+    align-items: center $I;
+  }
+  &-vh {
+    display: flex $I;
+    justify-content: center $I;
+    align-items: center $I;
+  }
+}
+// PADDING HELPERS
+.null-space,
+.null-space.btn {
+  padding: 0 $I;
+  margin: 0 $I;
+}
+.bucket-all-children {
+  & > * {
+    margin: 0 $I;
+    padding: $____ $NORM $NORM $NORM $I;
+  }
+}
+.pad-none,
+.pad-none.btn {
+  padding: $____ $I;
+}
+.margin-none,
+.margin-none.btn {
+  margin: $____ $I;
+}
+.pad-all,
+.pad-all.btn {
+  padding: $NORM $I;
+  &-half {
+    padding: $HALF $I;
+  }
+  &-norm {
+    padding: $NORM $I;
+  }
+  &-plus {
+    padding: $PLUS $I;
+  }
+  &-dubl {
+    padding: $DUBL $I;
+  }
+}
+.pad-row {
+  padding: $NORM $____ $____ $NORM $I;
+  &-half {
+    padding: $HALF $____ $____ $HALF $I;
+  }
+  &-plus {
+    padding: $PLUS $____ $____ $PLUS $I;
+  }
+  &-dubl {
+    padding: $DUBL $____ $____ $DUBL $I;
+  }
+}
+.pad-col {
+  padding: $____ $NORM $NORM $____ $I;
+  &-half {
+    padding: $____ $HALF $HALF $____ $I;
+  }
+  &-plus {
+    padding: $____ $PLUS $PLUS $____ $I;
+  }
+  &-dubl {
+    padding: $____ $DUBL $DUBL $____ $I;
+  }
+}
+// Pad Element on 3 sides,
+// leaving a space on one side so siblings
+// dont double pad their common edge
+// Example usage:
+//   "pad-bucket"  -> 1rem padding on all sides but top
+//   "pad-bucket-plus" -> 1.5rem padding on all sides but top
+//   "pad-bucket-bottom-dubl" 2rem padding on all sides but bottom
+.pad-bucket {
+  padding: $____ $NORM $NORM $NORM $I;
+  &-half {
+    padding: $____ $HALF $HALF $HALF $I;
+  }
+  &-norm {
+    padding: $____ $NORM $NORM $NORM $I;
+  }
+  &-plus {
+    padding: $____ $PLUS $PLUS $PLUS $I;
+  }
+  &-dubl {
+    padding: $____ $DUBL $DUBL $DUBL $I;
+  }
+  &-top {
+    padding: $____ $NORM $NORM $NORM $I;
+    &-half {
+      padding: $____ $HALF $HALF $HALF $I;
+    }
+    &-norm {
+      padding: $____ $NORM $NORM $NORM $I;
+    }
+    &-plus {
+      padding: $____ $PLUS $PLUS $PLUS $I;
+    }
+    &-dubl {
+      padding: $____ $DUBL $DUBL $DUBL $I;
+    }
+  }
+  &-left {
+    padding: $NORM $NORM $NORM $____ $I;
+    &-half {
+      padding: $HALF $HALF $HALF $____ $I;
+    }
+    &-norm {
+      padding: $NORM $NORM $NORM $____ $I;
+    }
+    &-plus {
+      padding: $PLUS $PLUS $PLUS $____ $I;
+    }
+    &-dubl {
+      padding: $DUBL $DUBL $DUBL $____ $I;
+    }
+  }
+  &-right {
+    padding: $NORM $____ $NORM $NORM $I;
+    &-half {
+      padding: $HALF $____ $HALF $HALF $I;
+    }
+    &-norm {
+      padding: $NORM $____ $NORM $NORM $I;
+    }
+    &-plus {
+      padding: $PLUS $____ $PLUS $PLUS $I;
+    }
+    &-dubl {
+      padding: $DUBL $____ $DUBL $DUBL $I;
+    }
+  }
+  &-bottom {
+    padding: $NORM $NORM $____ $NORM $I;
+    &-half {
+      padding: $HALF $HALF $____ $HALF $I;
+    }
+    &-norm {
+      padding: $NORM $NORM $____ $NORM $I;
+    }
+    &-plus {
+      padding: $PLUS $PLUS $____ $PLUS $I;
+    }
+    &-dubl {
+      padding: $DUBL $DUBL $____ $DUBL $I;
+    }
+  }
+}
+// Pad Element on 1 side,
+// used when you only need padding on one side
+// Example usage:
+//   "pad-edge"  -> 1rem padding on bottom only
+//   "pad-edge-plus" -> 1.5rem padding on bottom only
+//   "pad-edge-top-dubl" 2rem padding on top only
+.pad-edge {
+  padding: $____ $____ $NORM $____ $I;
+  &-half {
+    padding: $____ $____ $HALF $____ $I;
+  }
+  &-norm {
+    padding: $____ $____ $NORM $____ $I;
+  }
+  &-plus {
+    padding: $____ $____ $PLUS $____ $I;
+  }
+  &-dubl {
+    padding: $____ $____ $DUBL $____ $I;
+  }
+  &-bottom {
+    padding: $____ $____ $NORM $____ $I;
+    &-half {
+      padding: $____ $____ $HALF $____ $I;
+    }
+    &-norm {
+      padding: $____ $____ $NORM $____ $I;
+    }
+    &-plus {
+      padding: $____ $____ $PLUS $____ $I;
+    }
+    &-dubl {
+      padding: $____ $____ $DUBL $____ $I;
+    }
+  }
+  &-left {
+    padding: $____ $____ $____ $NORM $I;
+    &-half {
+      padding: $____ $____ $____ $HALF $I;
+    }
+    &-norm {
+      padding: $____ $____ $____ $NORM $I;
+    }
+    &-plus {
+      padding: $____ $____ $____ $PLUS $I;
+    }
+    &-dubl {
+      padding: $____ $____ $____ $DUBL $I;
+    }
+  }
+  &-right {
+    padding: $____ $NORM $____ $____ $I;
+    &-half {
+      padding: $____ $HALF $____ $____ $I;
+    }
+    &-norm {
+      padding: $____ $NORM $____ $____ $I;
+    }
+    &-plus {
+      padding: $____ $PLUS $____ $____ $I;
+    }
+    &-dubl {
+      padding: $____ $DUBL $____ $____ $I;
+    }
+  }
+  &-top {
+    padding: $NORM $____ $____ $____ $I;
+    &-half {
+      padding: $HALF $____ $____ $____ $I;
+    }
+    &-norm {
+      padding: $NORM $____ $____ $____ $I;
+    }
+    &-plus {
+      padding: $PLUS $____ $____ $____ $I;
+    }
+    &-dubl {
+      padding: $DUBL $____ $____ $____ $I;
+    }
+  }
+}
+//
+// POSITION HELPERS
+//
+
+// Cause Element to float outside its designated area
+// Example usage:
+//   "clip"  -> Element shifts left and up 1rem
+//   "clip-half" -> Element shifts left and up 0.5rem
+//   "clip-right-up" -> Element shifts right and up 1rem
+//   "clip-right-down-plus" -> Element shifts right and down 1.5rem
+.clip {
+  position: relative $I;
+  left: -$NORM $I;
+  top: -$NORM $I;
+  &-half {
+    position: relative $I;
+    left: -$HALF $I;
+    top: -$HALF $I;
+  }
+  &-norm {
+    position: relative $I;
+    left: -$NORM $I;
+    top: -$NORM $I;
+  }
+  &-plus {
+    position: relative $I;
+    left: -$PLUS $I;
+    top: -$PLUS $I;
+  }
+  &-dubl {
+    position: relative $I;
+    left: -$DUBL $I;
+    top: -$DUBL $I;
+  }
+  &-left {
+    &-up {
+      position: relative $I;
+      left: -$NORM $I;
+      top: -$NORM $I;
+      &-half {
+        position: relative $I;
+        left: -$HALF $I;
+        top: -$HALF $I;
+      }
+      &-norm {
+        position: relative $I;
+        left: -$NORM $I;
+        top: -$NORM $I;
+      }
+      &-plus {
+        position: relative $I;
+        left: -$PLUS $I;
+        top: -$PLUS $I;
+      }
+      &-dubl {
+        position: relative $I;
+        left: -$DUBL $I;
+        top: -$DUBL $I;
+      }
+    }
+    &-down {
+      position: relative $I;
+      left: -$NORM $I;
+      top: $NORM $I;
+      &-half {
+        position: relative $I;
+        left: -$HALF $I;
+        top: $HALF $I;
+      }
+      &-norm {
+        position: relative $I;
+        left: -$NORM $I;
+        top: $NORM $I;
+      }
+      &-plus {
+        position: relative $I;
+        left: -$PLUS $I;
+        top: $PLUS $I;
+      }
+      &-dubl {
+        position: relative $I;
+        left: -$DUBL $I;
+        top: $DUBL $I;
+      }
+    }
+  }
+  &-right {
+    &-up {
+      position: relative $I;
+      left: $NORM $I;
+      top: -$NORM $I;
+      &-half {
+        position: relative $I;
+        left: $HALF $I;
+        top: -$HALF $I;
+      }
+      &-norm {
+        position: relative $I;
+        left: $NORM $I;
+        top: -$NORM $I;
+      }
+      &-plus {
+        position: relative $I;
+        left: $PLUS $I;
+        top: -$PLUS $I;
+      }
+      &-dubl {
+        position: relative $I;
+        left: $DUBL $I;
+        top: -$DUBL $I;
+      }
+    }
+    &-down {
+      position: relative $I;
+      left: $NORM $I;
+      top: $NORM $I;
+      &-half {
+        position: relative $I;
+        left: $HALF $I;
+        top: $HALF $I;
+      }
+      &-norm {
+        position: relative $I;
+        left: $NORM $I;
+        top: $NORM $I;
+      }
+      &-plus {
+        position: relative $I;
+        left: $PLUS $I;
+        top: $PLUS $I;
+      }
+      &-dubl {
+        position: relative $I;
+        left: $DUBL $I;
+        top: $DUBL $I;
+      }
+    }
+  }
+}
+.fixed-bottom {
+  position: fixed $I;
+}
+//
+// SIZE HELPERS
+//
+.width-contain {
+  width: 100% $I;
+  height: auto $I;
+}
+.fill {
+  width: 100% $I;
+  height: 100% $I;
+}

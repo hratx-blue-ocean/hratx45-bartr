@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Link, useHistory } from 'react-router-dom';
 import '../assets/styles/navbar.scss';
-import '../assets/styles/spacingHelpers.scss';
+import '../assets/styles/theme.scss';
 import {
   MDBNavbar,
   MDBNavbarBrand,
@@ -67,6 +67,9 @@ const Navbar = ({ title, location }) => {
               </MDBDropdownItem>
               <MDBDropdownItem>
                 <MDBNavLink to="/active-offers">Active Offers</MDBNavLink>
+              </MDBDropdownItem>
+              <MDBDropdownItem>
+                <MDBNavLink to="/theme">*THEME TEST*</MDBNavLink>
               </MDBDropdownItem>
             </MDBDropdownMenu>
           </MDBDropdown>

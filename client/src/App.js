@@ -13,6 +13,7 @@ import MessagesScreen from './screens/MessagesScreen';
 import UpForTradeScreen from './screens/UpForTradeScreen';
 import PastTransactionsScreen from './screens/PastTransactionsScreen';
 import ActiveOffersScreen from './screens/ActiveOffersScreen';
+import ThemeSandbox from './screens/testing/ThemeSandbox';
 
 class App extends Component {
   render() {
@@ -57,6 +58,9 @@ class App extends Component {
           </Route>
           <Route exact path="/active-offers">
             <ActiveOffersScreen />
+          </Route>
+          <Route exact path="/theme">
+            <ThemeSandbox />
           </Route>
         </Switch>
       </Router>

@@ -2,28 +2,26 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Link, useHistory } from 'react-router-dom';
 import {
-  MDBContainer,
-  MDBCard,
-  MDBCardBody,
-  MDBCardImage,
-  MDBCardTitle,
-  MDBCardText,
-  MDBRow,
-  MDBCol,
-  MDBView,
-  MDBIcon,
-  MDBBtn
-} from 'mdbreact';
-import '../assets/styles/spacingHelpers.scss';
+  Grid,
+  Row,
+  Col,
+  Card,
+  Button,
+  Icon
+} from '../components/CustomComponents';
+import { MDBPopover, MDBPopoverBody, MDBPopoverHeader, MDBBtn } from 'mdbreact';
+import '../assets/styles/theme.scss';
 
 const TradeItem = ({
+  className = '',
   data,
   onClick,
   onDelete,
   image,
-  ownItem = true,
-  showDelete = true
+  showLoc = true,
+  showDel = true
 }) => {
+  const [delOpen, setDelOpen] = useState(false);
   const {
     product_id,
     user_id,
@@ -32,51 +30,68 @@ const TradeItem = ({
     value,
     up_for_trade
   } = data;
-  const location = 'right behind you...';
+  const location = 'Austin, TX';
+  const contentSize = showDel ? '6' : '8';
   return (
-    <MDBCard className="trade-item rounded">
-      <MDBRow className="margin-none pad-none">
-        <MDBCol className="pad-none" size="4" xs="4">
+    <Card className={className}>
+      <Row nopad className="pad-none">
+        <Col nopad className="pad-none" mobile="4">
           <img
             src={image}
-            className="width-contain rounded clip-half box-shadow"
+            className="width-contain rounded clip-half shadow"
             alt={data.product_name}
           />
-        </MDBCol>
-        <MDBCol size="7" xs="7">
-          <MDBRow className="pad-none">
-            <MDBCol className="pad-none" size="12" xs="12">
+        </Col>
+        <Col nopad mobile={contentSize} className="pad-none">
+          <Row nopad className="pad-none">
+            <Col nopad className="pad-edge-top-half" mobile="12">
               {product_name}
-            </MDBCol>
-          </MDBRow>
-          <MDBRow className="pad-none">
-            <MDBCol className="pad-none" size="12" xs="12">
-              Worth: {value}
-            </MDBCol>
-          </MDBRow>
-          {!ownItem ? (
-            <MDBRow className="pad-none">
-              <MDBCol className="pad-none" size="12" xs="12">
+            </Col>
+          </Row>
+          <Row nopad className="pad-none">
+            <Col nopad className="pad-edge-top-half" mobile="12">
+              Value: {value}
+            </Col>
+          </Row>
+          {!showLoc ? (
+            <Row nopad className="pad-none">
+              <Col nopad className="pad-edge-top-half" mobile="12">
                 Location: {location}
-              </MDBCol>
-            </MDBRow>
+              </Col>
+            </Row>
           ) : (
             ''
           )}
-        </MDBCol>
-        {showDelete ? (
-          <MDBCol
-            className="pad-none cancel dark center border rounded"
-            size="1"
-            xs="1"
-          >
-            <MDBIcon className="cancel dark" far icon="times-circle" />
-          </MDBCol>
+        </Col>
+        {showDel ? (
+          <Col nopad mobile="2" className="center pad-all-half">
+            <MDBPopover
+              color="default"
+              placement="left"
+              popover
+              // isVisible={delOpen}
+            >
+              <MDBBtn
+                style={{ margin: '0' }}
+                className="pad-all-half fill color-none "
+              >
+                <Icon
+                  className="color-inherit"
+                  far
+                  icon="times-circle"
+                  size="3x"
+                />
+              </MDBBtn>
+              <MDBPopoverBody color="default" className="color-default">
+                YES YES YES YES YES
+              </MDBPopoverBody>
+            </MDBPopover>
+          </Col>
         ) : (
           ''
         )}
-      </MDBRow>
-    </MDBCard>
+      </Row>
+    </Card>
   );
 };
 export default TradeItem;
