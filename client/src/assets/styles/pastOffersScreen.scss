@@ -1,5 +1,9 @@
 #past-offers {
-	.past-offer-item {
+	.past-offerer {
+		display: flex;
+		justify-content: space-between;
+	}
+	.past-offeree {
 		display: flex;
 		justify-content: space-between;
 	}
@@ -10,7 +14,7 @@
 	.labels {
 		display: flex;
 		flex-direction: row;
-		justify-content: space-around;
+		justify-content: space-between;
 	}
 	.offer-info-label {
 		display: flex;

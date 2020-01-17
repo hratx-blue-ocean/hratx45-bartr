@@ -23,7 +23,7 @@ class App extends Component {
 				{/* <!--<TestingScreen />  */}
 				<Switch>
 					<Route exact path="/">
-						<HomeScreen />
+						{/* <HomeScreen /> */}
 						<PastOffersScreen />
 					</Route>
 					<Route exact path="/signup">
