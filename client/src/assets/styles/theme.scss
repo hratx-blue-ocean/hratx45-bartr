@@ -4,24 +4,31 @@ $____: 0;
 $MICR: 0.125rem;
 $MINI: 0.25rem;
 $HALF: 0.5rem;
+$LITL: 0.75rem;
 $NORM: 1rem;
+$LARG: 1.25rem;
 $PLUS: 1.5rem;
+$BIGR: 1.75rem;
 $DUBL: 2rem;
+$XTRA: 2.5rem;
 $TRPL: 3rem;
 
 $SEMI: 50%;
 $QRTR: 25%;
 
+$WHITE: #fff;
 $BACKGROUND: #fff;
 
 $OFF-WHITE: #e6f6f7; // $primary-color;
 $SECONDARY: #0d1414; // $secondary-color;
 
-$OFF_WHITE: #ddddee;
-$LITE-GREY: #bbbbcc;
-$SOFT-GREY: #666670;
-$DARK-GREY: #444450;
-$OFF_BLACK: #111120;
+$WHITE: #fff;
+$OFF_WHITE: #dddddd;
+$LITE-GREY: #bbbbbb;
+$SOFT-GREY: #666666;
+$DARK-GREY: #444444;
+$OFF_BLACK: #111111;
+$BLACK: #000;
 
 $CADET: #5f9ea0;
 
@@ -36,6 +43,11 @@ $WARN_DARK: #ffaf66;
 $DANG_LITE: #ed9e95;
 $DANG_NORM: #d87d72; // $danger-color;
 $DANG_DARK: #9b3327;
+
+$GOOD_LITE: #abce90;
+$GOOD_NORM: #6e8c58;
+
+$PURP_LITE: #6c7ac9;
 
 $SHAD_LITE_A: rgba(0, 0, 0, 0.16);
 $SHAD_LITE_B: rgba(0, 0, 0, 0.12);
@@ -54,6 +66,48 @@ $SHAD_XTRA_B: rgba(0, 0, 0, 0.25);
     object-position: 50% 50%;
     width: 100%;
     height: 20rem;
+  }
+}
+
+.font {
+  &-bold {
+    font-weight: bold $I;
+  }
+  &-bolder {
+    font-weight: bolder $I;
+  }
+  &-italic {
+    font-style: italic $I;
+  }
+  &-underline {
+    text-decoration: underline $I;
+  }
+  &-half {
+    font-size: $HALF $I;
+  }
+  &-small {
+    font-size: $LITL $I;
+  }
+  &-norm {
+    font-size: $NORM $I;
+  }
+  &-large {
+    font-size: $LARG $I;
+  }
+  &-plus {
+    font-size: $PLUS $I;
+  }
+  &-bigger {
+    font-size: $BIGR $I;
+  }
+  &-double {
+    font-size: $DUBL $I;
+  }
+  &-extra {
+    font-size: $XTRA $I;
+  }
+  &-triple {
+    font-size: $TRPL $I;
   }
 }
 
@@ -77,6 +131,12 @@ $SHAD_XTRA_B: rgba(0, 0, 0, 0.25);
       box-shadow: 0 2px 6px 0 $SHAD_LITE_A, 0 2px 12px 0 $SHAD_LITE_B $I;
     }
   }
+  &-static-up {
+    box-shadow: 0 -2px 6px 0 $SHAD_LITE_A, 0 -3px 12px 0 $SHAD_LITE_B $I;
+    &:active {
+      box-shadow: 0 -2px 6px 0 $SHAD_LITE_A, 0 -3px 12px 0 $SHAD_LITE_B $I;
+    }
+  }
 }
 .outline-none {
   outline: none $I;
@@ -88,7 +148,7 @@ $SHAD_XTRA_B: rgba(0, 0, 0, 0.25);
   border-style: solid $I;
   border-width: $MINI $I;
   &-thin {
-    border-width: 1px $I;
+    border-width: 2px $I;
   }
   &-bottom {
     border-bottom: $HALF solid black $I;
@@ -135,41 +195,42 @@ $SHAD_XTRA_B: rgba(0, 0, 0, 0.25);
     background-color: inherit $I;
     border-color: inherit $I;
   }
-  &-danger-dark {
+  &-danger {
     color: $OFF_WHITE $I;
     background-color: $DANG_NORM $I;
-    border-color: $DANG_LITE $I;
-    &:active {
-      color: $OFF_WHITE $I;
-      background-color: $DANG_DARK $I;
-      border-color: $DANG-NORM $I;
-    }
   }
   &-default {
     color: $OFF_WHITE $I;
     background-color: $MAIN_NORM $I;
-    border-color: $MAIN_LITE $I;
-    &:active {
-      color: $OFF_WHITE $I;
-      background-color: $MAIN_DARK $I;
-      border-color: $MAIN-NORM $I;
+  }
+  &-white {
+    color: $OFF_BLACK $I;
+    background-color: $WHITE $I;
+  }
+  &-purp {
+    color: $WHITE $I;
+    background-color: $PURP_LITE $I;
+    &-light {
+      color: $PURP_LITE $I;
+      border-color: $PURP_LITE;
+      background-color: $WHITE $I;
     }
   }
   &-border {
     &-danger {
       border-color: $DANG_NORM $I;
-      &:active {
+      &.btn:active {
         border-color: $DANG_DARK $I;
       }
       &-lite {
         border-color: $DANG_LITE $I;
-        &:active {
+        &.btn:active {
           border-color: $DANG_NORM $I;
         }
       }
       &-dark {
         border-color: $DANG_DARK $I;
-        &:active {
+        &.btn:active {
           border-color: $DANG_LITE $I;
         }
       }

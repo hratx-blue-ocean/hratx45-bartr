@@ -11,6 +11,8 @@ import {
   MDBCardTitle
 } from "mdbreact";
 
+import TradeItem from "./TradeItem";
+
 import { connect } from "react-redux";
 
 import "../assets/styles/makeOfferForm.scss";
@@ -44,7 +46,7 @@ class MakeOfferForm extends PureComponent {
       availableItems: [
         {
           id: 1,
-          name: "One paperclip",
+          product_name: "One paperclip",
           value: 936,
           image:
             "https://a.1stdibscdn.com/tiffany-co-paper-clip-14k-yellow-gold-vintage-fine-jewelry-money-mens-jewelry-for-sale/1121189/j_71011511563797289160/7101151_master.jpg",
@@ -52,7 +54,7 @@ class MakeOfferForm extends PureComponent {
         },
         {
           id: 2,
-          name: "Rare antique cute baby doll",
+          product_name: "Rare antique cute baby doll",
           value: 3,
           image:
             "http://crazysven.com/wp/wp-content/uploads/yapb_cache/weird_antiques_kewpie_lamp.bsn7luzlsw004wkc4cc0sw8co.6ylu316ao144c8c4woosog48w.th.JPG",
@@ -60,7 +62,7 @@ class MakeOfferForm extends PureComponent {
         },
         {
           id: 3,
-          name: "Nicholas Cage Christmas ornament",
+          product_name: "Nicholas Cage Christmas ornament",
           value: 10000,
           image:
             "https://i.etsystatic.com/18008672/r/il/5dd61b/2089294108/il_1588xN.2089294108_m951.jpg",
@@ -174,7 +176,8 @@ class MakeOfferForm extends PureComponent {
                         id={item.id}
                         key={index}
                       >
-                        <div className="itemContainer">
+                        <TradeItem data={item} showLoc={false} showDel={false}/>
+                        {/* <div className="itemContainer">
                           <div className="itemImage">
                             <img width="100px" src={item.image} />
                           </div>
@@ -184,7 +187,7 @@ class MakeOfferForm extends PureComponent {
                               Value: <span>{item.value}</span>
                             </p>
                           </div>
-                        </div>
+                        </div> */}
                       </li>
                     ))}
                   </ul>
@@ -204,7 +207,7 @@ class MakeOfferForm extends PureComponent {
                         <img src={item.image} width="50px" height="50px" />
                       </div>
                       <div className="selectedItemInfo">
-                        <h4 className="selectedItemName">{item.name}</h4>
+                        <h4 className="selectedItemName">{item.product_name}</h4>
                         <h4 className="selectedItemName">
                           Value: <span>{item.value}</span>
                         </h4>

@@ -34,13 +34,16 @@ export default class ItemDetailPicture extends PureComponent {
               this.props.photos.map((photo, index) => (
                 <MDBCarouselItem key={index} itemId={index + 1}>
                   {/* <MDBView className="carouselView"> */}
-                    <img src={photo.blob} className="mainImage" />
+                  <img src={photo.blob} className="mainImage" />
                   {/* </MDBView> */}
                 </MDBCarouselItem>
               ))
             ) : (
               <MDBCarouselItem itemId={1}>
-                  <img src="../assets/images/no_images.png" className="mainImage" />
+                <img
+                  src="https://paperclip.link/data/images/misc/no_images.png"
+                  className="mainImage"
+                />
               </MDBCarouselItem>
             )}
           </MDBCarouselInner>
