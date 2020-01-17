@@ -57,8 +57,8 @@ export const fetchUserInformationById = userId => {
 export const login = username => {
 	return (dispatch, getState) => {
 		dispatch({
-			type: 'FETCH_USER_ID',
-			payload: { username: username, userId: userId }
+			type: 'FETCH_USER_INFORMATION_BY_USERNAME',
+			payload: { username: username }
 		});
 	};
 };

@@ -10,7 +10,7 @@ const dataLayout = {
 	desired_product_id: 'int',
 	desired_product_name: 'text',
 	desired_product_image: 'image file',
-	offered_product_ids: 'array of ints',
+	offered_product_ids: '[]',
 	offered_product_names: 'array of text names',
 	offer_made_date: 'date',
 	offer_closed_date: 'date',

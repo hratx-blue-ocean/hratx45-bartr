@@ -11,6 +11,7 @@ import {
 import { Link } from 'react-router-dom';
 import { login } from '../actions/userActions';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 class LoginScreen extends Component {
 	constructor() {
@@ -42,6 +43,19 @@ class LoginScreen extends Component {
 
 	clickHandler() {
 		// for now, it only takes username, no auth
+		axios
+			.get('https://paperclip.link/api/users/userInformationUsername', {
+				params: {
+					username: this.state.username
+				}
+			})
+			.then(response => {
+				console.log('I WANT THIS RESPONSE', response.data);
+			})
+			.catch(error => {
+				console.log(error);
+			});
+
 		this.props.login(this.state.username);
 	}
 
