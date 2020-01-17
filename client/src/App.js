@@ -11,11 +11,8 @@ import UploadItemScreen from "./screens/UploadItemScreen";
 import MakeOfferScreen from "./screens/MakeOfferScreen";
 import MessagesScreen from "./screens/MessagesScreen";
 import UpForTradeScreen from "./screens/UpForTradeScreen";
-import PastTransactionsScreen from "./screens/PastTransactionsScreen";
+import PastOffersScreen from "./screens/PastOffersScreen";
 import ActiveOffersScreen from "./screens/ActiveOffersScreen";
-
-
-//HI SAM
 
 class App extends Component {
   render() {
@@ -56,8 +53,8 @@ class App extends Component {
           <Route exact path="/trade">
             <UpForTradeScreen />
           </Route>
-          <Route exact path="/past-transactions">
-            <PastTransactionsScreen />
+          <Route exact path="/pastOffers">
+            <PastOffersScreen />
           </Route>
           <Route exact path="/active-offers">
             <ActiveOffersScreen />

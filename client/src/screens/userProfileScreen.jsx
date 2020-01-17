@@ -33,7 +33,7 @@ const UserProfile = ({}) => {
           <MDBCard>
             <MDBContainer className="col-test">
               <MDBRow>
-                <MDBCol className="col-test">
+                <MDBCol md="12" className="col-test">
                   <MDBCardImage
                     src="https://ca.slack-edge.com/T2SVC7RB3-ULBGPCN2Y-ba2e48877a9b-512"
                     className="img-fluid img-thumbnail rounded mx-auto d-block"
@@ -53,13 +53,14 @@ const UserProfile = ({}) => {
               <hr />
               <MDBRow>
                 <MDBCol className="col-test">
-                  <MDBBtn>Your Items</MDBBtn>
+                  <MDBNavLink to="/trade">
+                    <MDBBtn>Your Items</MDBBtn>
+                  </MDBNavLink>
                 </MDBCol>
                 <MDBCol className="col-test">
-                  <MDBBtn>Wish List</MDBBtn>
-                </MDBCol>
-                <MDBCol className="col-test">
-                  <MDBBtn>Active Offers</MDBBtn>
+                  <MDBNavLink to="/active-offers">
+                    <MDBBtn>Active Offers</MDBBtn>
+                  </MDBNavLink>
                 </MDBCol>
               </MDBRow>
             </MDBContainer>
@@ -76,18 +77,6 @@ const UserProfile = ({}) => {
       <MDBContainer>
         <MDBCard>
           <MDBCollapseHeader
-            onClick={() => setCollapse1(collapse1 === false ? true : false)}
-            tag="h4"
-          >
-            Recent Activity
-          </MDBCollapseHeader>
-          <MDBCollapse id="collapse1" isOpen={collapse1}>
-            <MDBCardBody>
-              <p>Coming in Version 2.0!</p>
-            </MDBCardBody>
-          </MDBCollapse>
-
-          <MDBCollapseHeader
             onClick={() => setCollapse2(collapse2 === false ? true : false)}
             tag="h4"
           >
@@ -95,13 +84,13 @@ const UserProfile = ({}) => {
           </MDBCollapseHeader>
           <MDBCollapse id="collapse2" isOpen={collapse2}>
             <MDBCardBody>
-              <p>
+              <div>
                 You traded a paperclip for a house
                 <hr />
                 You traded a laptop for a used laptop
                 <hr />
                 You traded a pizza for a pineapple
-              </p>
+              </div>
             </MDBCardBody>
           </MDBCollapse>
         </MDBCard>

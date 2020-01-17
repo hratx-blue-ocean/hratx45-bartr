@@ -12,12 +12,10 @@ import ItemDetailMakeOfferButton from "../components/ItemDetailMakeOfferButton";
 import "../assets/styles/itemDetail.scss";
 
 let ItemDetailScreen = props => {
-  // let { id } = useParams();
-  // useEffect(() => {props.fetchProductsByProductId(id);}, [id])
-
+  let { id } = useParams();
   useEffect(() => {
-    props.fetchProductsByProductId(1);
-  }, []);
+    props.fetchProductsByProductId(id);
+  }, [id]);
 
   return (
     <div id="itemDetailScreen">
@@ -28,8 +26,8 @@ let ItemDetailScreen = props => {
           3 people have bid on this item
         </div> */}
       <div className="itemDetailImageContainer">
-        {/* <ItemDetailPicture photos={props.products.photos} /> */}
-        <ItemDetailPicture
+        <ItemDetailPicture photos={props.products.photos} />
+        {/* <ItemDetailPicture
           photos={[
             {
               blob:
@@ -44,7 +42,7 @@ let ItemDetailScreen = props => {
                 "https://static.boredpanda.com/blog/wp-content/uploads/2018/10/cutest-puppy-dog-pictures-coverimage.jpg"
             }
           ]}
-        />
+        /> */}
       </div>
       {/* <div className="itemImageCarouselContainer condensed">
         <ItemDetailCarousel />
