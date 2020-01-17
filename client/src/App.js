@@ -19,6 +19,7 @@ class App extends Component {
     return (
       <Router>
         <Navbar />
+        <MessagesScreen />
         {/* <ItemDetailPage /> */}
         {/* <!--<TestingScreen />  */}
         <Switch>
