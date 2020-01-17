@@ -1,0 +1,19 @@
+#home-screen {
+    #title-image {
+        background-image: linear-gradient(to right, rgba(0,0,0, 0.5), rgba(0,0,0, 0.5)), url("../images/paperclips.jpg");
+        background-size: cover;
+        .card-title {
+            font-weight: bold;
+            letter-spacing: .3rem;
+            font-size: 5rem;
+        }
+    }
+    p {
+        font-size: 3rem;
+    }
+    .btn {
+        font-size: 1.6rem;
+        border-radius: 1rem;
+        text-transform: none;
+    }
+}
