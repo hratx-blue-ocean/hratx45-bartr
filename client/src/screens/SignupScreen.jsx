@@ -90,7 +90,6 @@ class SignupScreen extends Component {
 	submit() {
 		let data = new FormData();
 
-<<<<<<< HEAD
     data.append("first name", this.state.firstName);
     data.append("last name", this.state.lastName);
     data.append("username", this.state.username);
@@ -160,7 +159,6 @@ class SignupScreen extends Component {
       </MDBContainer>
     );
   }
-=======
 		data.append('first name', this.state.firstName);
 		data.append('last name', this.state.lastName);
 		data.append('username', this.state.username);
@@ -169,7 +167,6 @@ class SignupScreen extends Component {
 		data.append('zipcode', this.state.zipcode);
 		data.append('image', this.state.image, this.state.image.name);
 	}
->>>>>>> 888eb5eb12fe785631f623b817272bfa36a23a07
 
 	render() {
 		return (
