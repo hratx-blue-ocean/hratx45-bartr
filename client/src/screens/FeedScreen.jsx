@@ -41,7 +41,6 @@ class FeedScreen extends React.Component {
             productsToDisplay: sortedArr.filter(a => a !== undefined).reverse()
           });
         }
-
         if (event === "Value (Lowest First)") {
           let arr = this.state.productsToDisplay;
           let sortedArr = [];
@@ -52,11 +51,9 @@ class FeedScreen extends React.Component {
             productsToDisplay: sortedArr.filter(a => a !== undefined)
           });
         }
-
         if (event === "Distance") {
           // ! sort by proximity
         }
-
         if (event === "Date (Oldest First)") {
           let arr = this.state.productsToDisplay;
           let newArr = arr.slice();
@@ -67,7 +64,6 @@ class FeedScreen extends React.Component {
             productsToDisplay: newArr
           });
         }
-
         if (event === "Date (Newest First)") {
           let arr = this.state.productsToDisplay;
           let newArr = arr.slice();
@@ -128,9 +124,7 @@ class FeedScreen extends React.Component {
   }
 
   getProducts() {
-    // Axios.get(`https://paperclip.link/api/testing/test-postgres/products`)
-    // ! ping db using the current logged-in user by location
-
+    // ! ping db using filter eventually, for now, this is unfiltered data
     Axios.get(`https://paperclip.link/api/testing/test-postgres/products`)
       .then(data =>
         this.setState({
@@ -152,9 +146,6 @@ class FeedScreen extends React.Component {
   }
 
   render() {
-    // {
-    //   let test = useSelector(store => store.userInfo);
-    // }
     return (
       <MDBContainer id="feed-screen">
         <MDBInput
@@ -192,14 +183,14 @@ class FeedScreen extends React.Component {
             </MDBBtn>
           </div>
         </div>
-        {console.log(this.state.productsToDisplay)}
+
         <div id="feedScreenProductListContainer">
           {this.state.productsToDisplay
             ? this.state.productsToDisplay.map((item, key) => (
                 <div
                   id="feedScreenListItem"
                   key={key}
-                  style={{ color: "black", cursor: "pointer" }}
+                  style={{ color: "black" }}
                 >
                   <FeedScreenListItem item={item} />
                 </div>
