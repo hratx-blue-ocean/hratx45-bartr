@@ -12,6 +12,12 @@ import {
 import { MDBPopover, MDBPopoverBody, MDBPopoverHeader, MDBBtn } from 'mdbreact';
 import '../assets/styles/theme.scss';
 
+/**
+ * Container for holing trade item
+ * @param {object} data - All item's data as an object
+ * @param {boolean} showLoc - SHow the Location if item
+ * @param {boolean} showDel - Show the delete item button (for own items)
+ */
 const TradeItem = ({
   className = '',
   data,
@@ -38,7 +44,7 @@ const TradeItem = ({
         <Col nopad className="pad-none" mobile="4">
           <img
             src={image}
-            className="image-fit-crop rounded clip-half shadow "
+            className="image-fit-clip rounded clip-half shadow "
             alt={data.product_name}
           />
         </Col>
