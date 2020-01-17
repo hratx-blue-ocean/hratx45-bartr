@@ -184,13 +184,13 @@ class FeedScreen extends React.Component {
           </div>
         </div>
 
-        <div id="feedScreenProductListContainer">
+        <div id="feedScreenProductListContainer" style={{ marginTop: "15px" }}>
           {this.state.productsToDisplay
             ? this.state.productsToDisplay.map((item, key) => (
                 <div
                   id="feedScreenListItem"
                   key={key}
-                  style={{ color: "black" }}
+                  style={{ color: "black", alignSelf: "center" }}
                 >
                   <FeedScreenListItem item={item} />
                 </div>
