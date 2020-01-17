@@ -19,10 +19,10 @@ class App extends Component {
     return (
       <Router>
         <Navbar />
-        {/* <FeedScreen /> */}
-        {/* <ItemDetailPage /> */}
+        {/* <ItemDetailScreen /> */}
         {/* <!--<TestingScreen />  */}
-        {/* <UploadItemScreen /> */}
+        {/* <UploadItemScreen />   */}
+        {/* <MakeOfferScreen /> */}
         <Switch>
           <Route exact path="/">
             <HomeScreen />

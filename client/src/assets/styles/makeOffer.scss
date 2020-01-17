@@ -1,0 +1,97 @@
+@import "./variables.scss";
+
+#makeOfferScreen {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+
+  h1 {
+    margin: 15px auto;
+  }
+
+  h3.sectionTitle {
+    font-weight: bold;
+    border-bottom: 1px solid $light-gray;
+    padding-bottom: 1.25rem;
+  }
+
+  .makeOfferFormCard {
+    padding: 12.5px;
+    width: 85vw;
+  }
+
+  .md-form {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0 5px;
+  }
+
+  .oneItem,
+  .itemContainer {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .oneItem {
+    margin-bottom: 10px;
+  }
+
+  .selected {
+    outline: 3px solid #ffc793;
+  }
+
+  .form-check {
+    z-index: 500;
+    border: 2px solid black;
+  }
+
+  .itemSelector {
+    flex-basis: 25px;
+    flex-shrink: 0;
+  }
+
+  .selectedItemsContainer, .desiredItemContainer {
+    margin: 15px 0;
+    border: 2px solid #e5eaea;
+    padding: 15px;
+  }
+
+  .selectedItem, .desiredItem {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    justify-content: left;
+    padding: 10px;
+    border-bottom: 1px solid $light-gray;
+  }
+
+  //   .selectedItemInfo {
+  //     display: flex;
+  //     flex-
+  //   }
+
+  .selectedItemName {
+    margin-left: 10px;
+  }
+
+  .selectedItemImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .buttonSelectItems {
+    margin-bottom: 15px;
+    margin-top: 10px;
+  }
+
+  .buttonSubmit {
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+
+  .messageInput {
+    margin: 5px auto;
+  }
+}
