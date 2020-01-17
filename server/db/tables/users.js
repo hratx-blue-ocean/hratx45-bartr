@@ -16,14 +16,18 @@ const getHashByUsername = username => {
 };
 
 const getUserDataById = userId => {
-  let sql = `SELECT user_id, username, email, first_name, last_name, phone_number, 
-  age, profile_photo, state, address, city, zip_code, latitude, longitude FROM users WHERE user_id=${userId}`;
+  let sql = `SELECT users.user_id, username, email, first_name, last_name, phone_number,
+  age, profile_photo_id, state, address, city, zip_code, latitude, longitude, photo_id, image 
+  FROM users INNER JOIN profile_photos ON users.profile_photo_id = profile_photos.photo_id WHERE users.user_id=${userId}`;
   return pool.query({ text: sql });
 };
 
+//
+
 const getUserDataByUsername = userName => {
-  let sql = `SELECT user_id, username, email, first_name, last_name, phone_number, 
-    age, profile_photo,  state, address, city, zip_code, latitude, longitude FROM users WHERE username='${userName}'`;
+  let sql = `SELECT users.user_id, username, email, first_name, last_name, phone_number,
+  age, profile_photo_id, state, address, city, zip_code, latitude, longitude, photo_id, image 
+  FROM users INNER JOIN profile_photos ON users.profile_photo_id = profile_photos.photo_id WHERE users.username='${userName}'`;
   return pool.query({ text: sql });
 };
 

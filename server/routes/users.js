@@ -5,7 +5,7 @@ const upload = multer();
 
 const db = require("../db/tables/users.js");
 
-router.post("/signup", (req, res) => {
+router.post("/signup", upload.single(), (req, res) => {
   let item = req.body;
   console.log(item);
   res.send("ok");

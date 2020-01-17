@@ -80,20 +80,23 @@ router.post("/product", upload.array("image"), (req, res) => {
     .then(result => {
       console.log(result);
       //get id of inserted from result
-      let promises = [];
-      for (let i = 0; i < base64Array.length; i++) {
-        promises.push(db.addNewProductPhotos(id, base64Array[i]));
-      }
-      Promise.all(promises)
-        .then(result => {
-          res.status(200).send("ok");
-        })
-        .catch(errror => res.status(400).send(error));
+      // let promises = [];
+      // for (let i = 0; i < base64Array.length; i++) {
+      //   promises.push(db.addNewProductPhotos(id, base64Array[i]));
+      // }
+      // Promise.all(promises)
+      //   .then(result => {
+      //     res.status(200).send("ok");
+      res.status(200).send(result);
+
+      // })
+      // .catch(errror => res.status(400).send(error));
     })
     .catch(error => {
+      console.log(error);
       res.status(400).send(error);
     });
-  res.status(200).send(base64Array);
+  // res.status(200).send(base64Array);
 });
 
 module.exports = router;

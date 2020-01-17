@@ -93,9 +93,9 @@ const getProductsByProximityByLongLat = (
 };
 
 const addNewProduct = item => {
-  let sql = `INSERT INTO users (user_id, product_name, product_description, value, up_for_trade, sold, posted_date)
-   VALUES (${item.owner_id}, ${item.name}, '${item.description}', '${item.value}',
-   'TRUE', 'FALSE', ${item.date});`;
+  let sql = `INSERT INTO products (user_id, product_name, product_description, value, up_for_trade, sold, posted_date)
+   VALUES (${item.owner_id}, '${item.name}', '${item.description}', '${item.value}',
+   'TRUE', 'FALSE', '${item.date}');`;
   return pool.query({ text: sql });
 };
 
@@ -103,11 +103,6 @@ const addNewProductPhotos = (itemId, photoString) => {
   let sql = `INSERT INTO product_images(product_id, image) VALUES (${itemId}, '${photoString}')`;
   return pool.query({ text: sql });
 };
-
-/* Returns all products with username, and one photo */
-const getProductsList = () => {};
-
-//not currently handling desired trades
 
 module.exports = {
   getProductById,

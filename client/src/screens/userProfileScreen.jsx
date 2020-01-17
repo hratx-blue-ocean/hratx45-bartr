@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import data from "../dummy_data/products";
 import {
   MDBBtn,
@@ -100,13 +100,13 @@ const UserProfile = ({}) => {
     </MDBContainer>
   );
 };
+export default UserProfile;
+// const mapStateToProps = state => {
+//   return {
+//     products: state.products,
+//     location: state.location,
+//     userInfo: state.userInfo
+//   };
+// };
 
-const mapStateToProps = state => {
-  return {
-    products: state.products,
-    location: state.location,
-    userInfo: state.userInfo
-  };
-};
-
-export default connect(mapStateToProps, {})(UserProfile);
+// export default connect(mapStateToProps, {})(UserProfile);
