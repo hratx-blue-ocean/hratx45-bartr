@@ -128,14 +128,14 @@ class MessageString extends React.Component {
               </MDBContainer>
             ) : null}
             <MDBContainer>
-              {this.state.replies
-                ? this.state.replies.map((message, key) => (
-                    <Message key={key} message={message} />
-                  ))
-                : null}
               {this.state.currString
                 ? this.state.currString.map((message, key) => (
                     <Message key={key} message={message} num={this.props.num} />
+                  ))
+                : null}
+              {this.state.replies
+                ? this.state.replies.map((message, key) => (
+                    <Message key={key} message={message} />
                   ))
                 : null}
             </MDBContainer>
