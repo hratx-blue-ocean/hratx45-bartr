@@ -42,6 +42,22 @@ router.get("/itemsByPostDate", (req, res) => {
     .catch(error => res.status(400).send(error));
 });
 
+/*
+========================================
+Get Products Up for Trade
+========================================
+*/
+
+router.get("/productsUpForTrade", (req, res) => {
+  const userId = req.query.userId;
+  db.getProductsUpForTrade(userId)
+    .then(data => res.status(200).send(data))
+    .catch(error => {
+      console.log(error);
+      res.status(400).send(error);
+    });
+});
+
 /* 
 ========================================
 Sends full data for  item detail page

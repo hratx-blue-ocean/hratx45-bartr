@@ -2,15 +2,8 @@ import React from 'react';
 import Axios from 'axios';
 import FeedScreenListItem from '../components/FeedScreenListItem.jsx';
 import FeedScreenDropDown from '../components/FeedScreenDropDown.jsx';
-import {
-	MDBBtn,
-	MDBContainer,
-	MDBDropdown,
-	MDBDropdownItem,
-	MDBDropdownMenu,
-	MDBDropdownToggle,
-	MDBInput
-} from 'mdbreact';
+import { MDBBtn, MDBContainer, MDBInput } from 'mdbreact';
+import { store } from '../index';
 
 class FeedScreen extends React.Component {
 	constructor(props) {
@@ -151,6 +144,7 @@ class FeedScreen extends React.Component {
 
 	componentDidMount() {
 		this.getProducts();
+		console.log('!!!!!!', store.getState());
 	}
 
 	render() {
@@ -192,13 +186,13 @@ class FeedScreen extends React.Component {
 					</div>
 				</div>
 
-				<div id="feedScreenProductListContainer">
+				<div id="feedScreenProductListContainer" style={{ marginTop: '15px' }}>
 					{this.state.productsToDisplay
 						? this.state.productsToDisplay.map((item, key) => (
 								<div
 									id="feedScreenListItem"
 									key={key}
-									style={{ color: 'black' }}
+									style={{ color: 'black', alignSelf: 'center' }}
 								>
 									<FeedScreenListItem item={item} />
 								</div>

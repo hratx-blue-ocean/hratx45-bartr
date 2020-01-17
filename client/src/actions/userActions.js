@@ -34,7 +34,7 @@ export const fetchUserInformationByUsername = username => {
 		});
 		dispatch({
 			type: 'FETCH_USER_INFORMATION_BY_USERNAME',
-			payload: response.data
+			payload: { userInfo: response.data.rows[0] }
 		});
 	};
 };
@@ -53,12 +53,25 @@ export const fetchUserInformationById = userId => {
 	};
 };
 
-// * Ben and Collin Login Action
-export const login = username => {
-	return (dispatch, getState) => {
-		dispatch({
-			type: 'FETCH_USER_INFORMATION_BY_USERNAME',
-			payload: { username: username }
-		});
-	};
-};
+// export const fetchUserInformationByUsername = username => {
+// 	return async (dispatch, getState) => {
+// 		const response = await paperclips.get('/users/userInformationUsername', {
+// 			params: {
+// 				username: username
+// 			}
+// 		});
+// 		dispatch({
+// 			type: 'FETCH_USER_INFORMATION_BY_USERNAME',
+// 			payload: { userInfo: response.data }
+// 		});
+// 	};
+// };
+
+// export const login = userInfo => {
+// 	return (dispatch, getState) => {
+// 		dispatch({
+// 			type: 'FETCH_USER_INFORMATION_BY_USERNAME',
+// 			payload: { userInfo: userInfo }
+// 		});
+// 	};
+// };

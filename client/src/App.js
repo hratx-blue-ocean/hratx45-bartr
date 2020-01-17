@@ -19,14 +19,9 @@ class App extends Component {
 		return (
 			<Router>
 				<Navbar />
-				{/* <ItemDetailScreen /> */}
-				{/* <!--<TestingScreen />  */}
-				{/* <UploadItemScreen />   */}
-				{/* <MakeOfferScreen /> */}
 				<Switch>
 					<Route exact path="/">
-						{/* <HomeScreen /> */}
-						<PastOffersScreen />
+						<HomeScreen />
 					</Route>
 					<Route exact path="/signup">
 						<SignupScreen />

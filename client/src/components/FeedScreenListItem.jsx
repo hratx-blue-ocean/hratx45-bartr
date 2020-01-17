@@ -1,31 +1,42 @@
 import React from "react";
 import {
-  MDBBtn,
   MDBContainer,
-  MDBDropdown,
-  MDBDropdownItem,
-  MDBDropdownMenu,
-  MDBDropdownToggle,
-  MDBInput
+  MDBCol,
+  MDBCard,
+  MDBCardImage,
+  MDBCardBody,
+  MDBCardTitle,
+  MDBCardText,
+  MDBBtn
 } from "mdbreact";
 import { Link } from "react-router-dom";
 
 const FeedScreenListItem = props =>
   props.item.public ? (
     <Link to={`/ItemDetail/${props.item.product_id}`}>
-      <MDBContainer
-        id="feed-screen-list-item"
-        style={{ borderTop: "1px solid gray" }}
-      >
-        <MDBContainer>Name: {props.item.product_name}</MDBContainer>
-        {/* <MDBContainer className="font-italic">
-        {props.item.product_description}
-      </MDBContainer> */}
-        <MDBContainer>Value: {+props.item.value}</MDBContainer>
-        <MDBContainer>Date Posted: {props.item.posted_date}</MDBContainer>
-        <MDBContainer>
-          Available? {props.item.up_for_trade === "True" ? "Yes" : "No"}
-        </MDBContainer>
+      <MDBContainer id="feed-screen-list-item" style={{ marginTop: "10px" }}>
+        <MDBCardBody>
+          <MDBCard style={{ width: "45vh", textAlign: "center" }}>
+            <MDBCardImage
+              className="img-fluid"
+              src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
+              waves
+            />
+            <MDBCardTitle style={{ marginTop: "5px" }}>
+              Name: {props.item.product_name}
+            </MDBCardTitle>
+            <MDBCardText>
+              <MDBContainer>Value: {+props.item.value}</MDBContainer>
+              <MDBContainer style={{ color: "black" }}>
+                Date Posted: {props.item.posted_date}
+              </MDBContainer>
+              <MDBContainer style={{ color: "black" }}>
+                Available? {props.item.up_for_trade === "True" ? "Yes" : "No"}
+              </MDBContainer>
+            </MDBCardText>
+            <MDBBtn href="#">MDBBtn</MDBBtn>
+          </MDBCard>
+        </MDBCardBody>
       </MDBContainer>
     </Link>
   ) : null;
