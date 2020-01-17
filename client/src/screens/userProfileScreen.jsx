@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import data from "../dummy_data/products";
 import {
   MDBBtn,
@@ -24,7 +24,6 @@ const UserProfile = ({}) => {
   const products = useSelector(store => store.products);
   const location = useSelector(store => store.location);
   const [collapse2, setCollapse2] = useState(false);
-  console.log(userInfo);
   return (
     <MDBContainer>
       <MDBRow>
