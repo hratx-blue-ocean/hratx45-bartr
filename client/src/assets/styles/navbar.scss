@@ -1,24 +1,26 @@
 @import '../scss/mdb.scss';
 
-.main-color {
-  color: $secondary_color;
-  background-color: $default_color;
+#nav-drawer {
+  position: fixed !important;
+  z-index: 900 !important;
+  bottom: 0rem !important;
+  width: 100vw !important;
+  height: 23rem !important;
+  left: 0 !important;
+  padding: 1rem 0 7.5rem 0;
+  transition: transform 0.25s ease-in-out;
+  transform: translateY(23rem);
+  &.open-true {
+    transform: translateY(-0.5rem);
+  }
 }
 
 #nav-bar {
-  position: fixed;
-  z-index: 1000;
-  color: $secondary-color;
-  background-color: $default_color;
-  height: 6rem;
-  width: 100vw;
-  bottom: 0;
-  left: 0;
-  .title {
-    font-size: 2rem;
-    font-weight: bold;
-  }
-  .back-button {
-    font-size: 2rem;
-  }
+  position: fixed !important;
+  z-index: 1000 !important;
+  height: 7.5rem !important;
+  width: 100vw !important;
+  bottom: -1rem !important;
+  padding: 1rem 0 2.5rem 0 !important;
+  left: 0 !important;
 }
