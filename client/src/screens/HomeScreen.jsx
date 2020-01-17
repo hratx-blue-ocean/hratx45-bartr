@@ -18,6 +18,7 @@ import {
   fetchProductsByLatitudeLongitudeProximity
 } from "../actions/productsActions";
 
+
 const HomeScreen = props => {
   const userInfo = useSelector(store => store.userInfo);
   const products = useSelector(store => store.products);
@@ -46,16 +47,14 @@ const HomeScreen = props => {
   console.log("this is products ", products);
 
   return (
-    <div>
+    <div id="home-screen">
       <MDBContainer>
         <MDBRow>
           <MDBCol>
-            <MDBJumbotron style={{ padding: 0, margin: 0 }}>
+            <MDBJumbotron style={{ padding: 0, margin: 0 }} id="title-image">
               <MDBCol
                 className="text-white text-center py-0 px-0 my-0"
-                style={{
-                  backgroundImage: `url(https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/f_auto,q_auto,w_1100/v1555444084/shape/mentalfloss/istock_000016776361_full.jpg)`
-                }}
+
               >
                 <MDBCol className="py-5">
                   <MDBCardTitle className="h1-responsive pt-3 m-5 font-bold textWhite">
@@ -69,13 +68,13 @@ const HomeScreen = props => {
                     To begin, please login, sign up, or authorize your location
                   </p>
                   <MDBBtn onClick={() => props.getLocation()}>
-                    get location
+                    Get Location
                   </MDBBtn>
                   <MDBNavLink to="/login">
-                    <MDBBtn>log in</MDBBtn>
+                    <MDBBtn>Log In</MDBBtn>
                   </MDBNavLink>
                   <MDBNavLink to="/signup">
-                    <MDBBtn>sign out</MDBBtn>
+                    <MDBBtn>Sign Up</MDBBtn>
                   </MDBNavLink>
                 </MDBCol>
               </MDBCol>
