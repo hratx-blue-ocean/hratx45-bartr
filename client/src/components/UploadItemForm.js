@@ -9,6 +9,26 @@ import {
 } from "mdbreact";
 import axios from "axios";
 
+const getDate = () => {
+  let dt = new Date();
+  return `${dt
+    .getFullYear()
+    .toString()
+    .padStart(4, "0")}-${(dt.getMonth() + 1).toString().padStart(2, "0")}-${dt
+    .getDate()
+    .toString()
+    .padStart(2, "0")} ${dt
+    .getHours()
+    .toString()
+    .padStart(2, "0")}:${dt
+    .getMinutes()
+    .toString()
+    .padStart(2, "0")}:${dt
+    .getSeconds()
+    .toString()
+    .padStart(2, "0")}`;
+};
+
 export default class UploadItemForm extends PureComponent {
   constructor(props) {
     super(props);
@@ -21,10 +41,8 @@ export default class UploadItemForm extends PureComponent {
       timeConstraints: "",
       fileList: []
     };
-    
-    this.id = 
 
-    this.handleNameInput = this.handleNameInput.bind(this);
+    this.id = this.handleNameInput = this.handleNameInput.bind(this);
     this.handleValueInput = this.handleValueInput.bind(this);
     this.handleDescriptionInput = this.handleDescriptionInput.bind(this);
     this.handleDesiredTradeInput = this.handleDesiredTradeInput.bind(this);
@@ -65,7 +83,7 @@ export default class UploadItemForm extends PureComponent {
   submit() {
     let data = new FormData();
 
-    data.append("date", new Date());
+    data.append("date", getDate());
     data.append("name", this.state.name);
     data.append("value", this.state.value);
     data.append("description", this.state.description);
@@ -136,5 +154,3 @@ export default class UploadItemForm extends PureComponent {
     );
   }
 }
-
-
