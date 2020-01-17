@@ -22,6 +22,7 @@ class App extends Component {
         <MessagesScreen />
         {/* <ItemDetailPage /> */}
         {/* <!--<TestingScreen />  */}
+        {/* <UploadItemScreen /> */}
         <Switch>
           <Route exact path="/">
             <HomeScreen />
