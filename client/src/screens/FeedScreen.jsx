@@ -2,15 +2,7 @@ import React from "react";
 import Axios from "axios";
 import FeedScreenListItem from "../components/FeedScreenListItem.jsx";
 import FeedScreenDropDown from "../components/FeedScreenDropDown.jsx";
-import {
-  MDBBtn,
-  MDBContainer,
-  MDBDropdown,
-  MDBDropdownItem,
-  MDBDropdownMenu,
-  MDBDropdownToggle,
-  MDBInput
-} from "mdbreact";
+import { MDBBtn, MDBContainer, MDBInput } from "mdbreact";
 
 class FeedScreen extends React.Component {
   constructor(props) {
@@ -132,7 +124,9 @@ class FeedScreen extends React.Component {
   }
 
   getProducts() {
-    // ! ping db using filter eventually, for now, this is unfiltered data
+    // Axios.get(`https://paperclip.link/api/testing/test-postgres/products`)
+    // ! ping db using the current logged-in user by location
+
     Axios.get(`https://paperclip.link/api/testing/test-postgres/products`)
       .then(data =>
         this.setState({
@@ -191,14 +185,14 @@ class FeedScreen extends React.Component {
             </MDBBtn>
           </div>
         </div>
-
+        {console.log(this.state.productsToDisplay)}
         <div id="feedScreenProductListContainer">
           {this.state.productsToDisplay
             ? this.state.productsToDisplay.map((item, key) => (
                 <div
                   id="feedScreenListItem"
                   key={key}
-                  style={{ color: "black" }}
+                  style={{ color: "black", cursor: "pointer" }}
                 >
                   <FeedScreenListItem item={item} />
                 </div>
