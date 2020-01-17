@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { MDBContainer, MDBCol, MDBRow } from 'mdbreact';
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { MDBContainer, MDBCol, MDBRow } from "mdbreact";
 // import Navbar from '../components/Navbar';
 // import userDb from '../dummy_data/users';
-import productDb from '../dummy_data/products';
-import Searchbar from '../components/Searchbar';
-import TradeItem from '../components/TradeItem';
-import { Grid, Row, Col } from '../components/CustomComponents';
-import '../assets/styles/upForTradeScreen.scss';
-import '../assets/styles/theme.scss';
+import productDb from "../dummy_data/products";
+import Searchbar from "../components/Searchbar";
+import TradeItem from "../components/TradeItem";
+import { Grid, Row, Col } from "../components/CustomComponents";
+import "../assets/styles/upForTradeScreen.scss";
+import "../assets/styles/theme.scss";
 
 const UpForTradeScreen = () => {
   const { userName, userId, userItems } = useSelector(store => store.userInfo);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   return (
     <Grid nopad fluid id="up-for-trade-screen" className="pad-edge-top">
       <Row>
@@ -32,7 +32,7 @@ const UpForTradeScreen = () => {
             <TradeItem
               data={p}
               image={
-                'https://i.kym-cdn.com/entries/icons/mobile/000/025/765/Screen_Shot_2018-03-23_at_1.55.44_PM.jpg'
+                "https://i.kym-cdn.com/entries/icons/mobile/000/025/765/Screen_Shot_2018-03-23_at_1.55.44_PM.jpg"
               }
             />
           </Col>
