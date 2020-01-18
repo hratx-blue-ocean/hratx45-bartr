@@ -19,11 +19,14 @@ const FeedScreenListItem = props =>
     >
       <MDBCardBody>
         <MDBCard style={{ width: "75vw", textAlign: "left" }}>
-          <MDBCardImage
-            className="img-fluid"
-            src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
-            waves
-          />
+          <Link to={`/ItemDetail/${props.item.product_id}`}>
+            <MDBCardImage
+              className="img-fluid"
+              src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
+              waves
+              style={{ width: "100%" }}
+            />
+          </Link>
           <MDBCardTitle
             style={{
               marginTop: "5px",
