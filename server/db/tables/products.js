@@ -103,26 +103,31 @@ const getProductsByProximityByLongLat = (
 };
 
 /* Add new product */
-const addNewProduct = item => {
-  let sql = `INSERT INTO products (user_id, product_name, product_description, value, up_for_trade, sold, posted_date)
-   VALUES (${item.owner_id}, '${item.name}', '${item.description}', '${item.value}',
-   'TRUE', 'FALSE', '${item.date}');`;
+const addNewProduct = (id, item) => {
+  let sql = `INSERT INTO products (product_id, product_photo_id, user_id, product_name, product_description, value, up_for_trade, sold, posted_date)
+   VALUES (${id}, ${id}, ${item.owner_id}, '${item.name}', '${item.description}', '${item.value}',
+   'TRUE', 'FALSE', '${item.date}') RETURNING product_id;`;
   return pool.query({ text: sql });
 };
 
 /* Add new product photos */
-const addNewProductPhotos = (itemId, photoString) => {
-  let sql = `INSERT INTO product_images(product_id, image) VALUES (${itemId}, '${photoString}')`;
+const addNewProductPhotos = (itemId, imagePath) => {
+  let sql = `INSERT INTO product_images(product_id, image) VALUES (${itemId}, '${imagePath}')`;
   return pool.query({ text: sql });
 };
 
-
-const getProductPhotosByProductId = (productId) => {
+const getProductPhotosByProductId = productId => {
   return pool.query({
     text: `select * from product_images where product_id = (
         select product_photo_id from products where product_id = ${productId}
     );
     `
+  });
+};
+
+const getCurrentMaxId = () => {
+  return pool.query({
+    text: `select product_id from products ORDER BY product_id DESC LIMIT 1`
   });
 };
 
@@ -137,7 +142,8 @@ module.exports = {
   addNewProduct,
   getProductsByPostDate,
   addNewProductPhotos,
-  getProductsUpForTrade
+  getProductsUpForTrade,
+  getCurrentMaxId
 };
 
 // Get products, username, 1 photo

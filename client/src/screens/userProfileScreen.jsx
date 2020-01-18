@@ -25,12 +25,13 @@ import {
 } from '../actions/productsActions';
 import { fetchUserInformationById } from '../actions/userActions';
 import '../assets/styles/UserProfileScreen.scss';
-//author -- Matt Lucas
+import { store } from '../index';
 
 const UserProfile = props => {
   const userInfo = useSelector(store => store.userInfo);
   const products = useSelector(store => store.products);
   const location = useSelector(store => store.location);
+  console.log('userInfo', userInfo);
 
   return userInfo.userId === -1 ? (
     <div>
@@ -97,8 +98,6 @@ const UserProfile = props => {
           </div>
         </MDBNavLink>
       </MDBContainer>
-      <h1>..........</h1>
-      <h1>..........</h1>
     </div>
   );
 };

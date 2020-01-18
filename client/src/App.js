@@ -21,15 +21,15 @@ class App extends Component {
       <Router>
         <Navbar />
         {/* <FeedScreen /> */}
-        {/* <MessagesScreen /> */}
         {/* <ItemDetailScreen /> */}
         {/* <!--<TestingScreen />  */}
         {/* <UploadItemScreen />   */}
         {/* <MakeOfferScreen /> */}
         <Switch>
           <Route exact path="/">
+            <UserProfile />
             {/* <HomeScreen /> */}
-            <LoginScreen />
+            {/* <LoginScreen /> */}
           </Route>
           <Route exact path="/signup">
             <SignupScreen />
@@ -65,6 +65,7 @@ class App extends Component {
             <ActiveOffersScreen />
           </Route>
         </Switch>
+        <div className="navbuffer"> </div>
       </Router>
     );
   }

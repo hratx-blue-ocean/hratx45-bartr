@@ -74,11 +74,10 @@ const HomeScreen = props => {
               <MDBCol className="text-white text-center py-0 px-0 my-0">
                 <MDBCol className="py-0">
                   <MDBCardTitle className="h1-responsive pt-3 m-5 font-bold textWhite">
-                    Welcome to paperclips!
+                    paperclips
                   </MDBCardTitle>
-                  <p className="mx-5 mb-5 textWhite">
-                    The ultimate marketplace for currency-less bartering and
-                    trading
+                  <p className="mx-0 mb-0 textWhite">
+                    currency-less trading is our blue ocean
                   </p>
                   <MDBBtn onClick={() => props.getLocation()}>
                     Get Location
@@ -87,7 +86,7 @@ const HomeScreen = props => {
                     <MDBBtn>Log In</MDBBtn>
                   </MDBNavLink>
                   <MDBNavLink to="/signup">
-                    <MDBBtn>Sign Up</MDBBtn>
+                    <MDBBtn color="secondary">Sign Up</MDBBtn>
                   </MDBNavLink>
                 </MDBCol>
               </MDBCol>
@@ -105,48 +104,72 @@ const HomeScreen = props => {
         >
           <MDBCarouselInner>
             <MDBCarouselItem itemId="1">
-              <MDBView>
-                <img
-                  className="d-block w-100"
-                  src={`${products.rows[randomArray[0]].image}`}
-                  alt={products.rows[randomArray[0]].product_name}
-                />
-                <MDBMask overlay="black-light" />
-              </MDBView>
-              <MDBCarouselCaption>
-                <h3 className="h3-responsive">our staff picks</h3>
-                <p>{products.rows[randomArray[0]].product_name}</p>
-              </MDBCarouselCaption>
+              <MDBNavLink
+                to={
+                  userInfo.userId === -1
+                    ? '/login'
+                    : `/ItemDetail/${products[randomArray[0]].product_id}`
+                }
+              >
+                <MDBView>
+                  <img
+                    className="d-block w-100"
+                    src={`${products[randomArray[0]].photos[0]}`}
+                    alt={products[randomArray[0]].product_name}
+                  />
+                  <MDBMask overlay="black-light" />
+                </MDBView>
+                <MDBCarouselCaption>
+                  <h3 className="h3-responsive">our staff picks</h3>
+                  <p>{products[randomArray[0]].product_name}</p>
+                </MDBCarouselCaption>
+              </MDBNavLink>
             </MDBCarouselItem>
 
             <MDBCarouselItem itemId="2">
-              <MDBView>
-                <img
-                  className="d-block w-100"
-                  src={`${products.rows[randomArray[1]].image}`}
-                  alt={products.rows[randomArray[1]].product_name}
-                />
-                <MDBMask overlay="black-light" />
-              </MDBView>
-              <MDBCarouselCaption>
-                <h3 className="h3-responsive">our staff picks</h3>
-                <p>{products.rows[randomArray[1]].product_name}</p>
-              </MDBCarouselCaption>
+              <MDBNavLink
+                to={
+                  userInfo.userId === -1
+                    ? '/login'
+                    : `/ItemDetail/${products[randomArray[1]].product_id}`
+                }
+              >
+                <MDBView>
+                  <img
+                    className="d-block w-100"
+                    src={`${products[randomArray[1]].photos[0]}`}
+                    alt={products[randomArray[1]].product_name}
+                  />
+                  <MDBMask overlay="black-light" />
+                </MDBView>
+                <MDBCarouselCaption>
+                  <h3 className="h3-responsive">our staff picks</h3>
+                  <p>{products[randomArray[1]].product_name}</p>
+                </MDBCarouselCaption>
+              </MDBNavLink>
             </MDBCarouselItem>
 
             <MDBCarouselItem itemId="3">
-              <MDBView>
-                <img
-                  className="d-block w-100"
-                  src={`${products.rows[randomArray[2]].image}`}
-                  alt={`${products.rows[randomArray[2]].product_name}`}
-                />
-                <MDBMask overlay="black-light" />
-              </MDBView>
-              <MDBCarouselCaption>
-                <h3 className="h3-responsive">our staff picks</h3>
-                <p>{products.rows[randomArray[2]].product_name}</p>
-              </MDBCarouselCaption>
+              <MDBNavLink
+                to={
+                  userInfo.userId === -1
+                    ? '/login'
+                    : `/ItemDetail/${products[randomArray[2]].product_id}`
+                }
+              >
+                <MDBView>
+                  <img
+                    className="d-block w-100"
+                    src={`${products[randomArray[2]].photos[0]}`}
+                    alt={`${products[randomArray[2]].product_name}`}
+                  />
+                  <MDBMask overlay="black-light" />
+                </MDBView>
+                <MDBCarouselCaption>
+                  <h3 className="h3-responsive">our staff picks</h3>
+                  <p>{products[randomArray[2]].product_name}</p>
+                </MDBCarouselCaption>
+              </MDBNavLink>
             </MDBCarouselItem>
           </MDBCarouselInner>
         </MDBCarousel>
@@ -166,126 +189,170 @@ const HomeScreen = props => {
           <MDBCarouselInner>
             <MDBRow>
               <MDBCarouselItem itemId="1">
-                <MDBCol md="6">
-                  <MDBCard className="mb-2">
-                    <MDBCardImage
-                      className="img-fluid"
-                      src={`${products.rows[randomArray[3]].image}`}
-                    />
-                    <MDBCardBody>
-                      <MDBCardTitle>
-                        {products.rows[randomArray[3]].product_name}
-                      </MDBCardTitle>
-                      <MDBCardText>
-                        {products.rows[randomArray[3]].product_description}
-                      </MDBCardText>
-                    </MDBCardBody>
-                  </MDBCard>
-                </MDBCol>
+                <MDBNavLink
+                  to={
+                    userInfo.userId === -1
+                      ? '/login'
+                      : `/ItemDetail/${products[randomArray[3]].product_id}`
+                  }
+                >
+                  <MDBCol md="6">
+                    <MDBCard className="mb-2">
+                      <MDBCardImage
+                        className="img-fluid d-block w-100"
+                        src={`${products[randomArray[3]].photos[0]}`}
+                      />
+                      <MDBCardBody>
+                        <MDBCardTitle>
+                          {products[randomArray[3]].product_name}
+                        </MDBCardTitle>
+                        <MDBCardText>
+                          {products[randomArray[3]].product_description}
+                        </MDBCardText>
+                      </MDBCardBody>
+                    </MDBCard>
+                  </MDBCol>
+                </MDBNavLink>
               </MDBCarouselItem>
 
               <MDBCarouselItem itemId="2">
-                <MDBCol md="6">
-                  <MDBCard className="mb-2">
-                    <MDBCardImage
-                      className="img-fluid"
-                      src={`${products.rows[randomArray[4]].image}`}
-                    />
-                    <MDBCardBody>
-                      <MDBCardTitle>
-                        {products.rows[randomArray[4]].product_name}
-                      </MDBCardTitle>
-                      <MDBCardText>
-                        {products.rows[randomArray[4]].product_description}
-                      </MDBCardText>
-                    </MDBCardBody>
-                  </MDBCard>
-                </MDBCol>
+                <MDBNavLink
+                  to={
+                    userInfo.userId === -1
+                      ? '/login'
+                      : `/ItemDetail/${products[randomArray[4]].product_id}`
+                  }
+                >
+                  <MDBCol md="6">
+                    <MDBCard className="mb-2">
+                      <MDBCardImage
+                        className="img-fluid d-block w-100"
+                        src={`${products[randomArray[4]].photos[0]}`}
+                      />
+                      <MDBCardBody>
+                        <MDBCardTitle>
+                          {products[randomArray[4]].product_name}
+                        </MDBCardTitle>
+                        <MDBCardText>
+                          {products[randomArray[4]].product_description}
+                        </MDBCardText>
+                      </MDBCardBody>
+                    </MDBCard>
+                  </MDBCol>
+                </MDBNavLink>
               </MDBCarouselItem>
 
               <MDBCarouselItem itemId="3">
-                <MDBCol md="6">
-                  <MDBCard className="mb-2">
-                    <MDBCardImage
-                      className="img-fluid"
-                      src={`${products.rows[randomArray[5]].image}`}
-                    />
-                    <MDBCardBody>
-                      <MDBCardTitle>
-                        {products.rows[randomArray[5]].product_name}
-                      </MDBCardTitle>
-                      <MDBCardText>
-                        {products.rows[randomArray[5]].product_description}
-                      </MDBCardText>
-                    </MDBCardBody>
-                  </MDBCard>
-                </MDBCol>
+                <MDBNavLink
+                  to={
+                    userInfo.userId === -1
+                      ? '/login'
+                      : `/ItemDetail/${products[randomArray[5]].product_id}`
+                  }
+                >
+                  <MDBCol md="6">
+                    <MDBCard className="mb-2">
+                      <MDBCardImage
+                        className="img-fluid d-block w-100"
+                        src={`${products[randomArray[5]].photos[0]}`}
+                      />
+                      <MDBCardBody>
+                        <MDBCardTitle>
+                          {products[randomArray[5]].product_name}
+                        </MDBCardTitle>
+                        <MDBCardText>
+                          {products[randomArray[5]].product_description}
+                        </MDBCardText>
+                      </MDBCardBody>
+                    </MDBCard>
+                  </MDBCol>
+                </MDBNavLink>
               </MDBCarouselItem>
 
               <MDBCarouselItem itemId="4">
-                <MDBCol md="6">
-                  <MDBCard className="mb-2">
-                    <MDBCardImage
-                      className="img-fluid"
-                      src={`${products.rows[randomArray[6]].image}`}
-                    />
-                    <MDBCardBody>
-                      <MDBCardTitle>
-                        {products.rows[randomArray[6]].product_name}
-                      </MDBCardTitle>
-                      <MDBCardText>
-                        {products.rows[randomArray[6]].product_description}
-                      </MDBCardText>
-                    </MDBCardBody>
-                  </MDBCard>
-                </MDBCol>
+                <MDBNavLink
+                  to={
+                    userInfo.userId === -1
+                      ? '/login'
+                      : `/ItemDetail/${products[randomArray[6]].product_id}`
+                  }
+                >
+                  <MDBCol md="6">
+                    <MDBCard className="mb-2">
+                      <MDBCardImage
+                        className="img-fluid d-block w-100"
+                        src={`${products[randomArray[6]].photos[0]}`}
+                      />
+                      <MDBCardBody>
+                        <MDBCardTitle>
+                          {products[randomArray[6]].product_name}
+                        </MDBCardTitle>
+                        <MDBCardText>
+                          {products[randomArray[6]].product_description}
+                        </MDBCardText>
+                      </MDBCardBody>
+                    </MDBCard>
+                  </MDBCol>
+                </MDBNavLink>
               </MDBCarouselItem>
 
               <MDBCarouselItem itemId="5">
-                <MDBCol md="6">
-                  <MDBCard className="mb-2">
-                    <MDBCardImage
-                      className="img-fluid"
-                      src={`${products.rows[randomArray[7]].image}`}
-                    />
-                    <MDBCardBody>
-                      <MDBCardTitle>
-                        {products.rows[randomArray[7]].product_name}
-                      </MDBCardTitle>
-                      <MDBCardText>
-                        {products.rows[randomArray[7]].product_description}
-                      </MDBCardText>
-                    </MDBCardBody>
-                  </MDBCard>
-                </MDBCol>
+                <MDBNavLink
+                  to={
+                    userInfo.userId === -1
+                      ? '/login'
+                      : `/ItemDetail/${products[randomArray[7]].product_id}`
+                  }
+                >
+                  <MDBCol md="6">
+                    <MDBCard className="mb-2">
+                      <MDBCardImage
+                        className="img-fluid d-block w-100"
+                        src={`${products[randomArray[7]].photos[0]}`}
+                      />
+                      <MDBCardBody>
+                        <MDBCardTitle>
+                          {products[randomArray[7]].product_name}
+                        </MDBCardTitle>
+                        <MDBCardText>
+                          {products[randomArray[7]].product_description}
+                        </MDBCardText>
+                      </MDBCardBody>
+                    </MDBCard>
+                  </MDBCol>
+                </MDBNavLink>
               </MDBCarouselItem>
 
               <MDBCarouselItem itemId="6">
-                <MDBCol md="6">
-                  <MDBCard className="mb-2">
-                    <MDBCardImage
-                      className="img-fluid"
-                      src={`${products.rows[randomArray[8]].image}`}
-                    />
-                    <MDBCardBody>
-                      <MDBCardTitle>
-                        {products.rows[randomArray[8]].product_name}
-                      </MDBCardTitle>
-                      <MDBCardText>
-                        {products.rows[randomArray[8]].product_description}
-                      </MDBCardText>
-                    </MDBCardBody>
-                  </MDBCard>
-                </MDBCol>
+                <MDBNavLink
+                  to={
+                    userInfo.userId === -1
+                      ? '/login'
+                      : `/ItemDetail/${products[randomArray[8]].product_id}`
+                  }
+                >
+                  <MDBCol md="6">
+                    <MDBCard className="mb-2">
+                      <MDBCardImage
+                        className="img-fluid d-block w-100"
+                        src={`${products[randomArray[8]].photos[0]}`}
+                      />
+                      <MDBCardBody>
+                        <MDBCardTitle>
+                          {products[randomArray[8]].product_name}
+                        </MDBCardTitle>
+                        <MDBCardText>
+                          {products[randomArray[8]].product_description}
+                        </MDBCardText>
+                      </MDBCardBody>
+                    </MDBCard>
+                  </MDBCol>
+                </MDBNavLink>
               </MDBCarouselItem>
             </MDBRow>
           </MDBCarouselInner>
         </MDBCarousel>
       </MDBContainer>
-      <div>
-        <h1>................</h1>
-        <h1>................</h1>
-      </div>
 
       {/* <MDBContainer className="mt-8">
         <MDBRow>

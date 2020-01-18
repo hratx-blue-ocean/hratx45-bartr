@@ -4,6 +4,7 @@ import FeedScreenListItem from "../components/FeedScreenListItem.jsx";
 import FeedScreenDropDown from "../components/FeedScreenDropDown.jsx";
 import { MDBBtn, MDBContainer, MDBInput } from "mdbreact";
 import { store } from "../index";
+import { useSelector, connect } from "react-redux";
 
 class FeedScreen extends React.Component {
   constructor(props) {
@@ -146,33 +147,14 @@ class FeedScreen extends React.Component {
     });
   }
 
-  getUser() {
-    this.setState({ userInfo: store.getState().userInfo });
-  }
-
-  pageCheck() {
-    if (this.state.userInfo) {
-      if (this.state.userInfo.userId > -1) {
-        this.setState({
-          isReady: true
-        });
-      } else {
-        console.log("inner if");
-        setTimeout(this.pageCheck, 1000);
-      }
-    } else {
-      setTimeout(this.pageCheck, 1000);
-    }
-  }
-
   componentDidMount() {
     this.getProducts();
-    this.getUser();
-    // this.pageCheck();
+    console.log("!!!!!!", store.getState());
   }
 
   render() {
-    return this.state.isReady ? (
+    console.log("GABEEEE", this.props);
+    return (
       <MDBContainer id="feed-screen">
         <MDBInput
           label="Search by Keyword"
@@ -210,10 +192,7 @@ class FeedScreen extends React.Component {
           </div>
         </div>
 
-        <div
-          id="feedScreenProductListContainer"
-          style={{ marginTop: "15px", height: "70vh" }}
-        >
+        <div id="feedScreenProductListContainer" style={{ marginTop: "15px" }}>
           {this.state.productsToDisplay
             ? this.state.productsToDisplay.map((item, key) => (
                 <div
@@ -227,10 +206,17 @@ class FeedScreen extends React.Component {
             : null}
         </div>
       </MDBContainer>
-    ) : (
-      <MDBContainer>Loading</MDBContainer>
     );
   }
 }
 
-export default FeedScreen;
+const mapStateToProps = state => {
+  console.log("state console.log", state);
+  return {
+    products: state.products,
+    location: state.location,
+    userInfo: state.userInfo
+  };
+};
+
+export default connect(mapStateToProps, {})(FeedScreen);
