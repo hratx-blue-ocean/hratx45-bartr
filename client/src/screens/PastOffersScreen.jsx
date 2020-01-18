@@ -1,12 +1,20 @@
-import React, { Component } from 'react';
-import { MDBBtn, MDBContainer, MDBListGroup, MDBRow, MDBCol } from 'mdbreact';
-import PastOffer from '../components/PastOffer';
-import { connect } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { MDBContainer, MDBCol, MDBRow, MDBCollapse, MDBBtn } from 'mdbreact';
+import {
+  Grid,
+  Col,
+  Row,
+  Divider,
+  Button
+} from '../components/CustomComponents';
+import Searchbar from '../components/Searchbar';
+import TradeItem from '../components/TradeItem';
 
 const dummyData = [
   {
     Timestamp: Date.now() - Math.random() * 360000,
-    Status: 'Offered',
+    Status: 'Completed',
     MessageThreadID: 1,
     Offerer: {
       id: 2,
@@ -39,7 +47,7 @@ const dummyData = [
   },
   {
     Timestamp: Date.now() - Math.random() * 360000,
-    Status: 'Offered',
+    Status: 'Completed',
     MessageThreadID: 2,
     Offerer: {
       id: 2,
@@ -76,7 +84,7 @@ const dummyData = [
   },
   {
     Timestamp: Date.now() - Math.random() * 360000,
-    Status: 'Offered',
+    Status: 'Completed',
     MessageThreadID: 3,
     Offerer: {
       id: 1,
@@ -103,83 +111,217 @@ const dummyData = [
   }
 ];
 
-const dataLayout = {
-  offer_id: 'int',
-  offerer: 'int',
-  offeree: 'int',
-  desired_product_id: 'int',
-  desired_product_name: 'text',
-  desired_product_image: 'image file',
-  offered_product_ids: '[]',
-  offered_product_names: 'array of text names',
-  status: 'pending, accepted, rejected'
+const ActiveOffersScreen = () => {
+  const user = 2;
+  const other = 1;
+  const [open, setOpen] = useState('');
+  const dispatch = useDispatch();
+  return (
+    <Grid fluid nopad id="active-offers-screen" className="pad-edge-top">
+      <Row>
+        <Col className="center font-double font-bold" mobile="12">
+          Past Offers
+        </Col>
+      </Row>
+
+      <Row>
+        <Col className="center font-plus font-bold" mobile="12">
+          Offers You've Made
+        </Col>
+      </Row>
+
+      <Row>
+        <Col className="center" mobile="12">
+          <Grid>
+            {dummyData
+              .filter(offer => offer.Offerer.id === user)
+              .map((o, i) => (
+                <Row key={i} nopad className="pad-none">
+                  <Col nopad className="pad-edge-bottom-half" mobile="12">
+                    <Grid>
+                      <MDBBtn
+                        style={{ margin: '0' }}
+                        className="pad-all-half fill font-large"
+                        color="default"
+                        onClick={() =>
+                          setOpen(
+                            open === `collapse_yours${i}`
+                              ? ''
+                              : `collapse_yours${i}`
+                          )
+                        }
+                      >
+                        {`${o.Offerer.items.length} item${
+                          o.Offerer.items.length !== 1 ? 's' : ''
+                        } offered for their ${o.Offeree.items[0].name}`}
+                      </MDBBtn>
+                      <MDBCollapse
+                        className="margin-none pad-edge-top fill"
+                        id={`collapse_yours${i}`}
+                        isOpen={open}
+                      >
+                        <Row key={i}>
+                          <Col
+                            className="pad-none center"
+                            mobile="12"
+                            tablet="6"
+                          >
+                            <Grid>
+                              <Divider label="Their Items" />
+                              {o.Offeree.items.map((item, i) => (
+                                <Row>
+                                  <Col nopad className="pad-edge-bottom">
+                                    <TradeItem
+                                      data={{
+                                        product_name: item.name,
+                                        value: item.value
+                                      }}
+                                      showDel={false}
+                                      onClick={() => {}}
+                                      image={item.image}
+                                    />
+                                  </Col>
+                                </Row>
+                              ))}
+                            </Grid>
+                          </Col>
+                          <Col
+                            className="pad-none center"
+                            mobile="12"
+                            tablet="6"
+                          >
+                            <Grid>
+                              <Divider label="Your Items" />
+                              {o.Offerer.items.map((item, i) => (
+                                <Row>
+                                  <Col
+                                    mobile="12"
+                                    nopad
+                                    className="pad-edge-bottom"
+                                  >
+                                    <TradeItem
+                                      data={{
+                                        product_name: item.name,
+                                        value: item.value
+                                      }}
+                                      showDel={false}
+                                      onClick={() => {}}
+                                      image={item.image}
+                                    />
+                                  </Col>
+                                </Row>
+                              ))}
+                            </Grid>
+                          </Col>
+                        </Row>
+                      </MDBCollapse>
+                    </Grid>
+                  </Col>
+                </Row>
+              ))}
+          </Grid>
+        </Col>
+      </Row>
+
+      <Row>
+        <Col className="center font-plus font-bold" mobile="12">
+          Offers You've Recieved
+        </Col>
+      </Row>
+
+      <Row>
+        <Col className="center" mobile="12">
+          <Grid>
+            {dummyData
+              .filter(offer => offer.Offerer.id === other)
+              .map((o, i) => (
+                <Row key={i} nopad className="pad-none">
+                  <Col nopad className="pad-edge-bottom-half" mobile="12">
+                    <Grid>
+                      <MDBBtn
+                        style={{ margin: '0' }}
+                        className="pad-all-half fill font-large"
+                        color="default"
+                        onClick={() =>
+                          setOpen(
+                            open === `collapse_theirs${i}`
+                              ? ''
+                              : `collapse_theirs${i}`
+                          )
+                        }
+                      >
+                        {`${o.Offerer.items.length} item${
+                          o.Offerer.items.length !== 1 ? 's' : ''
+                        } offered for your ${o.Offeree.items[0].name}`}
+                      </MDBBtn>
+                      <MDBCollapse
+                        className="margin-none pad-edge-top fill"
+                        id={`collapse_theirs${i}`}
+                        isOpen={open}
+                      >
+                        <Row key={i}>
+                          <Col
+                            className="pad-none center"
+                            mobile="12"
+                            tablet="6"
+                          >
+                            <Grid>
+                              <Divider label="Their Items" />
+                              {o.Offerer.items.map((item, i) => (
+                                <Row>
+                                  <Col nopad className="pad-edge-bottom">
+                                    <TradeItem
+                                      data={{
+                                        product_name: item.name,
+                                        value: item.value
+                                      }}
+                                      showDel={false}
+                                      onClick={() => {}}
+                                      image={item.image}
+                                    />
+                                  </Col>
+                                </Row>
+                              ))}
+                            </Grid>
+                          </Col>
+                          <Col
+                            className="pad-none center"
+                            mobile="12"
+                            tablet="6"
+                          >
+                            <Grid>
+                              <Divider label="Your Items" />
+                              {o.Offeree.items.map((item, i) => (
+                                <Row>
+                                  <Col
+                                    mobile="12"
+                                    nopad
+                                    className="pad-edge-bottom"
+                                  >
+                                    <TradeItem
+                                      data={{
+                                        product_name: item.name,
+                                        value: item.value
+                                      }}
+                                      showDel={false}
+                                      onClick={() => {}}
+                                      image={item.image}
+                                    />
+                                  </Col>
+                                </Row>
+                              ))}
+                            </Grid>
+                          </Col>
+                        </Row>
+                      </MDBCollapse>
+                    </Grid>
+                  </Col>
+                </Row>
+              ))}
+          </Grid>
+        </Col>
+      </Row>
+    </Grid>
+  );
 };
-
-const dummyData2 = [
-  {
-    offer_id: 73,
-    offerer: 'David',
-    offeree: 'Gabe',
-    desired_product_id: 1,
-    desired_product_image:
-      'https://stripedspatula.com/wp-content/uploads/2018/12/homemade-pita-chips-10-500x500.jpg',
-    desired_product_name: 'Pita chips',
-    offered_product_ids: [1, 2, 3],
-    offered_product_names: ['HEB Hot Pie', 'Yeti'],
-    status: 'accepted'
-  },
-  {
-    offer_id: 81,
-    offerer: 'Collin',
-    offeree: 'Ben',
-    desired_product_id: 2,
-    desired_product_image:
-      'https://www.traderjoes.com/TJ_CMS_Content/Images/Digin/Uploads/65556-super-sour-scandinavian-swimmers.jpg',
-    desired_product_name: 'Scandinavian Swimmers',
-    offered_product_ids: [4, 5, 6],
-    offered_product_names: ['Cliff Bar'],
-    status: 'rejected'
-  },
-  {
-    offer_id: 102,
-    offerer: 'Matt',
-    offeree: 'Sam',
-    desired_product_id: 3,
-    desired_product_image:
-      'https://torchystacos.com/wp-content/uploads/damn-good-tacos-min.png',
-    desired_product_name: 'Torchys Tacos',
-    offered_product_ids: [7, 8, 9],
-    offered_product_names: ['Meal pal promo'],
-    status: 'accepted'
-  }
-];
-
-class PastOffersScreen extends Component {
-  constructor() {
-    super();
-    // ! I need offers ID, offerer/offeree, item, status
-    this.state = {
-      username: '',
-      offersIDs: []
-    };
-  }
-
-  render() {
-    return (
-      <div className="centered container">
-        <MDBContainer fluid id="past-offers">
-          {dummyData2.map((item, index) => {
-            return <PastOffer item={item} index={index} />;
-          })}
-        </MDBContainer>
-      </div>
-    );
-  }
-}
-
-const mapStateToProps = state => {
-  const { loggedInUserInfo } = state;
-  return { loggedInUserInfo };
-};
-
-export default connect(mapStateToProps, {})(PastOffersScreen);
+export default ActiveOffersScreen;
