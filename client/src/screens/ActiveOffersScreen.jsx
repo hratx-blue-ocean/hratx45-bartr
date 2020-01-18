@@ -178,11 +178,11 @@ const ActiveOffersScreen = () => {
                                     <TradeItem
                                       data={{
                                         product_name: item.name,
-                                        value: item.value
+                                        value: item.value,
+                                        image: item.image
                                       }}
                                       showDel={false}
                                       onClick={() => {}}
-                                      image={item.image}
                                     />
                                   </Col>
                                 </Row>
@@ -206,37 +206,15 @@ const ActiveOffersScreen = () => {
                                     <TradeItem
                                       data={{
                                         product_name: item.name,
-                                        value: item.value
+                                        value: item.value,
+                                        image: item.image
                                       }}
                                       showDel={false}
                                       onClick={() => {}}
-                                      image={item.image}
                                     />
                                   </Col>
                                 </Row>
                               ))}
-                              <Row>
-                                <Col
-                                  nopad
-                                  mobile="6"
-                                  className="pad-edge-right"
-                                >
-                                  <Button
-                                    color="green"
-                                    className="fill font-double font-bold"
-                                  >
-                                    Accept
-                                  </Button>
-                                </Col>
-                                <Col nopad mobile="6" className="pad-none">
-                                  <Button
-                                    color="danger"
-                                    className="fill font-double font-bold"
-                                  >
-                                    Reject
-                                  </Button>
-                                </Col>
-                              </Row>
                             </Grid>
                           </Col>
                         </Row>
@@ -299,11 +277,11 @@ const ActiveOffersScreen = () => {
                                     <TradeItem
                                       data={{
                                         product_name: item.name,
-                                        value: item.value
+                                        value: item.value,
+                                        image: item.image
                                       }}
                                       showDel={false}
                                       onClick={() => {}}
-                                      image={item.image}
                                     />
                                   </Col>
                                 </Row>
@@ -327,11 +305,11 @@ const ActiveOffersScreen = () => {
                                     <TradeItem
                                       data={{
                                         product_name: item.name,
-                                        value: item.value
+                                        value: item.value,
+                                        image: item.image
                                       }}
                                       showDel={false}
                                       onClick={() => {}}
-                                      image={item.image}
                                     />
                                   </Col>
                                 </Row>
@@ -343,7 +321,7 @@ const ActiveOffersScreen = () => {
                                   className="pad-edge-right"
                                 >
                                   <Button
-                                    color="green"
+                                    color="success"
                                     className="fill font-double font-bold"
                                   >
                                     Accept

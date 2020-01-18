@@ -13,6 +13,7 @@ import MessagesScreen from './screens/MessagesScreen';
 import UpForTradeScreen from './screens/UpForTradeScreen';
 import PastOffersScreen from './screens/PastOffersScreen';
 import ActiveOffersScreen from './screens/ActiveOffersScreen';
+import './assets/styles/global.scss';
 
 class App extends Component {
   render() {
@@ -25,9 +26,9 @@ class App extends Component {
         {/* <UploadItemScreen />   */}
         {/* <MakeOfferScreen /> */}
         <Switch>
-          {/* <Route exact path="/">
+          <Route exact path="/">
             <HomeScreen />
-          </Route> */}
+          </Route>
           <Route exact path="/signup">
             <SignupScreen />
           </Route>

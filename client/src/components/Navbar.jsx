@@ -35,36 +35,42 @@ const collapseType = 'collapse2';
 
 const Navbar = ({ title, location }) => {
   const [isOpen, setOpen] = useState('false');
+  const { userId } = useSelector(store => store.userInfo);
   const history = useHistory();
   console.log('re-render, browser location: ', location);
   // const newMessages = useSelector(store => store.messages).unread;
   return (
     <>
-      <Grid
-        id="nav-bar"
-        nopad
-        className="color-purp rounded-large shadow-static-up"
-      >
-        <Row>
-          <Col className="center" mobile="2">
-            <Icon
-              icon="arrow-alt-circle-left"
-              size="2x"
-              onClick={() => history.goBack()}
-            />
-          </Col>
-          <Col className="center font-bold font-triple" mobile="8">
-            Paperclips
-          </Col>
-          <Col className="pad-all margin-none center" mobile="2">
-            <MDBIcon
-              icon="bars"
-              size="2x"
-              onClick={() => setOpen(isOpen === 'false' ? 'true' : 'false')}
-            />
-          </Col>
-        </Row>
-      </Grid>
+      {' '}
+      {userId !== -1 ? (
+        <Grid
+          id="nav-bar"
+          nopad
+          className="color-purp rounded-large shadow-static-up"
+        >
+          <Row>
+            <Col className="center" mobile="2">
+              <Icon
+                icon="arrow-alt-circle-left"
+                size="2x"
+                onClick={() => history.goBack()}
+              />
+            </Col>
+            <Col className="center font-bold font-triple" mobile="8">
+              Paperclips
+            </Col>
+            <Col className="pad-all margin-none center" mobile="2">
+              <MDBIcon
+                icon="bars"
+                size="2x"
+                onClick={() => setOpen(isOpen === 'false' ? 'true' : 'false')}
+              />
+            </Col>
+          </Row>
+        </Grid>
+      ) : (
+        ''
+      )}
       <Grid
         id="nav-drawer"
         nopad
