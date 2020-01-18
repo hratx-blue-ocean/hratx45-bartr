@@ -8,8 +8,7 @@ import {
   Divider,
   Button
 } from '../components/CustomComponents';
-import Searchbar from '../components/Searchbar';
-import TradeItem from '../components/TradeItem';
+import PastOffer from '../components/PastOffer';
 
 const dummyData = [
   {
@@ -111,7 +110,7 @@ const dummyData = [
   }
 ];
 
-const ActiveOffersScreen = () => {
+const PastOffersScreen = () => {
   const user = 2;
   const other = 1;
   const [open, setOpen] = useState('');
@@ -169,7 +168,7 @@ const ActiveOffersScreen = () => {
                               {o.Offeree.items.map((item, i) => (
                                 <Row>
                                   <Col nopad className="pad-edge-bottom">
-                                    <TradeItem
+                                    <PastOffer
                                       data={{
                                         product_name: item.name,
                                         value: item.value
@@ -197,7 +196,7 @@ const ActiveOffersScreen = () => {
                                     nopad
                                     className="pad-edge-bottom"
                                   >
-                                    <TradeItem
+                                    <PastOffer
                                       data={{
                                         product_name: item.name,
                                         value: item.value
@@ -266,7 +265,7 @@ const ActiveOffersScreen = () => {
                               {o.Offerer.items.map((item, i) => (
                                 <Row>
                                   <Col nopad className="pad-edge-bottom">
-                                    <TradeItem
+                                    <PastOffer
                                       data={{
                                         product_name: item.name,
                                         value: item.value
@@ -294,7 +293,7 @@ const ActiveOffersScreen = () => {
                                     nopad
                                     className="pad-edge-bottom"
                                   >
-                                    <TradeItem
+                                    <PastOffer
                                       data={{
                                         product_name: item.name,
                                         value: item.value
@@ -320,4 +319,4 @@ const ActiveOffersScreen = () => {
     </Grid>
   );
 };
-export default ActiveOffersScreen;
+export default PastOffersScreen;
