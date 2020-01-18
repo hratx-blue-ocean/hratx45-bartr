@@ -74,20 +74,18 @@ const FeedScreenListItem = props =>
             >
               Posted: {props.item.posted_date}
             </MDBContainer>
-            <MDBContainer
-              style={{
-                width: "auto",
-                marginRight: "3px",
-                marginBottom: "5px",
-                float: "right"
-              }}
-            >
-              <Link to={`/ItemDetail/${props.item.product_id}`}>
-                <MDBBtn style={{ width: "100%", justifyContent: "center" }}>
-                  View Item...
-                </MDBBtn>
-              </Link>
-            </MDBContainer>
+
+            <Link to={`/ItemDetail/${props.item.product_id}`}>
+              <MDBBtn
+                style={{
+                  width: "100%",
+                  justifyContent: "center",
+                  float: "right"
+                }}
+              >
+                View Item...
+              </MDBBtn>
+            </Link>
           </MDBContainer>
         </MDBCard>
       </MDBCardBody>
