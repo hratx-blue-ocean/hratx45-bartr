@@ -24,9 +24,21 @@ router.get("/userIdProximity", (req, res) => {
 router.get("/locationProximity", (req, res) => {
   const {longitude, latitude, proximity} = req.query;
   db.getProductsByProximityByLongLat(longitude, latitude, proximity)
-    .then(data => res.status(200).send(data))
-    .catch(error => res.status(404).send(error));
+    .then(result => {
+      return db.addPhotosToProductRows(result.rows);
+    })
+    .then(result => {
+    	res.status(200).send(result);
+    })
+    .catch(error => {
+    	res.status(404).send(error);
+    })
 });
+
+
+
+
+
 
 /* Returns products by their posting date */
 router.get("/itemsByPostDate", (req, res) => {
@@ -41,7 +53,6 @@ router.get("/productsUpForTrade", (req, res) => {
   db.getProductsUpForTrade(userId)
     .then(data => res.status(200).send(data))
     .catch(error => {
-      console.log(error);
       res.status(400).send(error);
     });
 });
