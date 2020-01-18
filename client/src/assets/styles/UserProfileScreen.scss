@@ -1,12 +1,59 @@
 @import '../scss/mdb.scss';
-.nav-link {
-  padding: 0;
+@import './variables.scss';
+
+#userProfileScreen {
+  .nav-link {
+    padding: 0;
+  }
+
+  .card.profileCard.my-5 {
+    padding: 15px !important;
+    margin-top: 0px !important;
+  }
+
+  .userName {
+    display: flex;
+    justify-content: center;
+    margin: 30px auto 15px auto;
+    font-family: Arial;
+    font-weight: bold;
+    
+  }
+
+  .userCardInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .username, .location {
+    margin-bottom: 0px;
+    padding: 5px auto;
+  }
+
+  .username {
+    font-size: 1.75rem;
+  }
+
+  .location{
+    font-size: 1.3rem;
+  }
+  
+  .seemore {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+  }
+
+  .userCardButtons {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .seeMoreLink {
+    display: flex;
+    justify-content: center;
+  }
 }
 
-.seemore {
-  display: flex;
-
-  cursor: pointer;
-  align-items: flex-end;
-  color: secondary;
-}
