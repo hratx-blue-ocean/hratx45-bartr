@@ -48,11 +48,11 @@ const FeedScreenListItem = props =>
             </MDBContainer>
             {props.item.up_for_trade === "True" ? (
               <MDBContainer style={{ color: "green", textAlign: "right" }}>
-                AVAIL
+                Available
               </MDBContainer>
             ) : (
               <MDBContainer style={{ color: "red", textAlign: "right" }}>
-                NOT AVAIL
+                Not Available
               </MDBContainer>
             )}
           </MDBCardText>
