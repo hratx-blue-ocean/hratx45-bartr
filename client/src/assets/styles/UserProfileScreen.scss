@@ -1,0 +1,12 @@
+@import '../scss/mdb.scss';
+.nav-link {
+  padding: 0;
+}
+
+.seemore {
+  display: flex;
+
+  cursor: pointer;
+  align-items: flex-end;
+  color: secondary;
+}

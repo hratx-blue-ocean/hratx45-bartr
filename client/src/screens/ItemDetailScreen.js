@@ -44,8 +44,8 @@ let ItemDetailScreen = props => {
         /> */}
       </div>
       <div className="itemValueContainer">
-        <h4>
-          Value: <span>{props.itemDetails.value}</span>
+        <h4 className="itemDetailBold">
+          Value: <span className="itemDetailBold">{props.itemDetails.value}</span>
         </h4>
       </div>
       <div className="makeOfferButtonContainer">
