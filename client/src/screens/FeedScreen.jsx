@@ -127,8 +127,13 @@ class FeedScreen extends React.Component {
   }
 
   getProducts() {
-    // ! ping db using filter eventually, for now, this is unfiltered data
-    Axios.get(`https://paperclip.link/api/testing/test-postgres/products`)
+    Axios.get(`https://paperclip.link/api/products/locationProximity`, {
+      params: {
+        latitude: 30.266666,
+        longitude: -97.73333,
+        proximity: 100
+      }
+    })
       .then(data =>
         this.setState({
           productsToDisplay: data.data,

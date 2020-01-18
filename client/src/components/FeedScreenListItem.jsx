@@ -22,7 +22,7 @@ const FeedScreenListItem = props =>
           <Link to={`/ItemDetail/${props.item.product_id}`}>
             <MDBCardImage
               className="img-fluid"
-              src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
+              src={props.item.photos[0]}
               waves
               style={{ width: "100%" }}
             />
