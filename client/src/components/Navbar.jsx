@@ -57,7 +57,7 @@ const Navbar = ({ title, location }) => {
               />
             </Col>
             <Col className="center font-bold font-triple" mobile="8">
-              <Link to="/feed">
+              <Link to="/feed" className="logoLink">
                 <img
                   src="https://paperclip.link/data/images/misc/logo_white.png"
                   width="75%"
