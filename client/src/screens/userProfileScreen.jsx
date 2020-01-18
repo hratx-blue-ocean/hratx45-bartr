@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect, useSelector } from 'react-redux';
-import data from '../dummy_data/products';
-import PastOffersScreen from './PastOffersScreen';
+import UserProfilePastOffers from '../components/UserProfilePastOffers';
 import {
   MDBBtn,
   MDBCard,
@@ -19,11 +18,7 @@ import {
   MDBNavLink,
   MDBSpinner
 } from 'mdbreact';
-import {
-  fetchProductsTest,
-  fetchProductsByLatitudeLongitudeProximity
-} from '../actions/productsActions';
-import { fetchUserInformationById } from '../actions/userActions';
+import { fetchProductsByLatitudeLongitudeProximity } from '../actions/productsActions';
 import '../assets/styles/UserProfileScreen.scss';
 import { store } from '../index';
 
@@ -31,7 +26,6 @@ const UserProfile = props => {
   const userInfo = useSelector(store => store.userInfo);
   const products = useSelector(store => store.products);
   const location = useSelector(store => store.location);
-  console.log('userInfo', userInfo);
 
   return userInfo.user_id === -1 ? (
     <div>
@@ -47,7 +41,8 @@ const UserProfile = props => {
   ) : (
     <div>
       <h2>
-        Hello {userInfo.first_name} {userInfo.last_name}!
+        Hello {props.userInfo.userInfo.first_name}{' '}
+        {props.userInfo.userInfo.last_name}!
       </h2>
       <MDBContainer>
         <MDBRow>
@@ -55,17 +50,18 @@ const UserProfile = props => {
             <MDBCard className="my-5">
               <MDBCardImage
                 top
-                src={`${userInfo.image}`}
+                src={`${props.userInfo.userInfo.image}`}
                 className="img-fluid img-thumbnail rounded mx-auto d-block"
               />
               <MDBRow>
                 <MDBCol>
                   <MDBCardTitle>
-                    {userInfo.city}, {userInfo.state}
+                    {props.userInfo.userInfo.city},{' '}
+                    {props.userInfo.userInfo.state}
                   </MDBCardTitle>
                 </MDBCol>
                 <MDBCol>
-                  <MDBCardText>{userInfo.username}</MDBCardText>
+                  <MDBCardText>{props.userInfo.userInfo.username}</MDBCardText>
                 </MDBCol>
               </MDBRow>
               <hr />
@@ -91,7 +87,7 @@ const UserProfile = props => {
             </MDBCard>
           </MDBCol>
         </MDBRow>
-        <PastOffersScreen />
+        <UserProfilePastOffers />
         <MDBNavLink to="/pastOffers">
           <div className="seemore">
             <font color="#EFBAED">See More</font>
@@ -111,6 +107,5 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps, {
-  fetchUserInformationById,
   fetchProductsByLatitudeLongitudeProximity
 })(UserProfile);
