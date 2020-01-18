@@ -104,8 +104,7 @@ class MessageString extends React.Component {
       <MDBContainer id="message-string">
         <MDBModal isOpen={this.state.messageOpen}>
           <MDBModalHeader>
-            Messages with user:{" "}
-            {this.props.messageString[this.props.num].sender_username}
+            Messages with user: {this.props.messageString.sender_username}
           </MDBModalHeader>
           <MDBModalBody>
             <MDBContainer style={{ overflowY: "scroll", height: "70vh" }}>
@@ -115,17 +114,12 @@ class MessageString extends React.Component {
                     messageString={this.props.messageString}
                     num={this.props.num}
                     replyHandle={this.replyHandle}
-                    recipient={
-                      this.props.num === 0
-                        ? this.props.msg1OtherUser
-                        : this.props.msg2OtherUser
-                    }
                   />
                 </MDBContainer>
               ) : null}
               <MDBContainer>
                 {this.state.currString
-                  ? this.state.currString.map((message, key) => (
+                  ? this.state.currString.messages.map((message, key) => (
                       <Message
                         key={key}
                         message={message}
@@ -159,8 +153,7 @@ class MessageString extends React.Component {
     ) : (
       <MDBContainer id="unopenedMessage" onClick={this.openMessage}>
         <MDBContainer id="innerUnopened">
-          Messages with user:{" "}
-          {this.props.messageString[this.props.num].sender_username}
+          Messages with user: {this.props.messageString.sender_username}
         </MDBContainer>
       </MDBContainer>
     );
