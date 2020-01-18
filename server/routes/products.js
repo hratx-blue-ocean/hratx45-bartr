@@ -3,53 +3,41 @@ const router = express.Router();
 const multer = require("multer");
 const upload = multer();
 const Promise = require("bluebird");
-const fs = Promise.promisifyAll(require("fs"));
+// const fs = Promise.promisifyAll(require("fs"));
 
 router.use(express.json());
 const db = require("../db/tables/products.js");
-/*
-========================================
-Sends list item information by distance
-========================================
-*/
 
+// TODO: Add owners username
+// --------------------------------------------------------------------------------------------------
+
+/* Returns products by proximity using user id */
 router.get("/userIdProximity", (req, res) => {
-  let userId = req.query.userId;
-  let distance = req.query.proximity;
+  const {userId, distance} = req.query;
   db.getProductsByProximityByUserId(userId, distance)
     .then(data => res.status(200).send(data))
     .catch(error => res.status(404).send(error));
 });
 
+
+/* Returns products by latitude and longitude */
 router.get("/locationProximity", (req, res) => {
-  const longitude = req.query.longitude;
-  const latitude = req.query.latitude;
-  const proximity = req.query.proximity;
+  const {longitude, latitude, proximity} = req.query;
   db.getProductsByProximityByLongLat(longitude, latitude, proximity)
     .then(data => res.status(200).send(data))
     .catch(error => res.status(404).send(error));
 });
 
-/*
-========================================
-Sends list item by post date
-========================================
-*/
-
+/* Returns products by their posting date */
 router.get("/itemsByPostDate", (req, res) => {
   db.getProductsByPostDate()
     .then(data => res.status(200).send(data))
     .catch(error => res.status(400).send(error));
 });
 
-/*
-========================================
-Get Products Up for Trade
-========================================
-*/
-
+/* Returns products up fro trade by user id */
 router.get("/productsUpForTrade", (req, res) => {
-  const userId = req.query.userId;
+  const {userId} = req.query;
   db.getProductsUpForTrade(userId)
     .then(data => res.status(200).send(data))
     .catch(error => {
@@ -58,31 +46,29 @@ router.get("/productsUpForTrade", (req, res) => {
     });
 });
 
-/* 
-========================================
-Sends full data for  item detail page
-========================================
-*/
-
-router.get("/productId", (req, res) => {
-  const productId = req.query.productId;
-  console.log(productId);
+/* Returns product info by product id*/
+router.get('/productId', (req, res) => {
+  const {productId} = req.query;
+  let response = {
+    rows: [],
+    images: []
+  };
   db.getProductById(productId)
     .then(data => {
-      console.log(data);
-      res.status(200).send(data);
+      response.rows = data.rows;
+      return db.getProductPhotosByProductId(productId);
+    })
+    .then(data => {
+      response.images = data.rows;
+      res.status(200).send(response);
     })
     .catch(error => {
       res.status(404).send(error);
     });
 });
 
-/* 
-========================================
-Sends all photos for item detail page
-========================================
- */
 
+/* Sends all photos for item detail page */
 router.get("/productPhotos", (req, res) => {
   const productId = req.query.productId;
   db.getProductPhotosById(productId)
@@ -95,17 +81,10 @@ router.get("/productPhotos", (req, res) => {
     });
 });
 
-/*
-========================================
- Post new product to database 
- ========================================
- */
-
+/* */
 router.post("/product", upload.array("image"), (req, res) => {
   const item = req.body;
   const files = req.files;
-  console.log(item);
-  console.log(files);
   let base64Array = [];
   for (let i = 0; i < files.length; i++) {
     let image =
@@ -138,8 +117,8 @@ router.post("/product", upload.array("image"), (req, res) => {
   // res.status(200).send(base64Array);
 });
 
-/*Extra Routes*/
 
+/*Extra Routes*/
 router.get("/category", (req, res) => {
   const categoryId = req.query.categoryId;
   db.getProductsByCategory(categoryId)
@@ -154,6 +133,12 @@ router.get("/productsByUser", (req, res) => {
     .catch(error => res.status(400).send(error));
 });
 
+
+module.exports = router;
+
+
+
+// --------------------------------------------------------------------------------------------------
 // router.get("/internalBase64", (req, res) => {
 //   const images = [
 //     "/Users/alyssawadley/Documents/GitHub/hratx45-bartr/server/public/assets/testing/images/profiles/1.jpg",
@@ -187,5 +172,3 @@ router.get("/productsByUser", (req, res) => {
 //       res.status(400).send(error);
 //     });
 // });
-
-module.exports = router;
