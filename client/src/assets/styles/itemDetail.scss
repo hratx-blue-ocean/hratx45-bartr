@@ -37,7 +37,6 @@
 
   .itemInfoContainer {
     margin: 0;
-    
   }
 
   .itemValueContainer {
@@ -54,28 +53,29 @@
   }
 
   .carouselContainer {
-      display: flex;
+    display: flex;
+    justify-content: center;
   }
 
   .imageCarousel {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-grow: 0;
-      height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 0;
+    height: 30vh;
   }
 
   .carouselItem {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .carousel-item.active.carousel-slide-item {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
   }
 
   .imageWindow {
@@ -134,19 +134,19 @@
     margin-left: 15px;
   }
 
-  .itemPostedDateContainer p, itemPostedDateContainer > span {
+  .itemPostedDateContainer p,
+  itemPostedDateContainer > span {
     display: inline-block;
     color: $dark-gray;
     font-size: 1rem;
   }
 
   .carousel-fade .carousel-item {
-      display: flex !important;
+    display: flex !important;
   }
 
   h4.itemDetailBold {
     font-family: Arial, sans-serif;
     font-weight: 700;
   }
-
 }
