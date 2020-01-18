@@ -62,6 +62,7 @@ router.get("/productId", (req, res) => {
       res.status(200).send(response);
     })
     .catch(error => {
+      console.log(error);
       res.status(404).send(error);
     });
 });
@@ -79,39 +80,43 @@ router.get("/productPhotos", (req, res) => {
     });
 });
 
-/* */
+/*upload new product */
 router.post("/product", upload.array("image"), (req, res) => {
   const item = req.body;
-  console.log(item);
   const files = req.files;
-  console.log(files);
-  const basePath =
-    "/Users/alyssawadley/Documents/GitHub/hratx45-bartr/server/public/data/images/client_uploads/";
+  const basePath = "https://paperclip.link/data/images/client_uploads/";
   const filePaths = [];
-  // for (let i = 0; i < files.length; i++) {
-  //   fs.writeFile(basePath + )
-  // }
-  // db.addNewProduct(item)
-  //   .then(result => {
-  //     // console.log(result);
-  //     // //get id of inserted from result
-  //     // // let promises = [];
-  //     // // for (let i = 0; i < base64Array.length; i++) {
-  //     // //   promises.push(db.addNewProductPhotos(id, base64Array[i]));
-  //     // // }
-  //     // // Promise.all(promises)
-  //     // //   .then(result => {
-  //     // //     res.status(200).send("ok");
-  //     res.status(200).send(result);
+  const promisesArray = [];
 
-  //     })
-  //     .catch(errror => res.status(400).send(error));
-  //   })
-  //   .catch(error => {
-  //     console.log(error);
-  //     res.status(400).send(error);
-  //   });
-  res.status(200).send(base64Array);
+  for (let i = 0; i < files.length; i++) {
+    let fullPath = basePath + files[i].originalname;
+    promisesArray.push(fs.writeFileAsync(fullPath, files[i].buffer));
+    filePaths.push(fullPath);
+  }
+  Promise.all(promisesArray)
+    .then(data => {
+      db.getCurrentMaxId().then(result => {
+        const newId = result.rows[0].product_id + 1;
+        console.log(newId);
+        db.addNewProduct(newId, item).then(result => {
+          let imagePromiseArray = [];
+          for (let i = 0; i < filePaths.length; i++) {
+            console.log(filePaths[i]);
+            imagePromiseArray.push(db.addNewProductPhotos(newId, filePaths[i]));
+          }
+          Promise.all(imagePromiseArray)
+            .then(result => res.send("upload successful"))
+            .catch(error => {
+              console.log(error);
+              res.status(400).send("error in item upload");
+            });
+        });
+      });
+    })
+    .catch(error => {
+      console.log(error);
+      res.status(400).send("error in item upload");
+    });
 });
 
 /*Extra Routes*/
