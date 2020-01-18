@@ -215,6 +215,20 @@ const ActiveOffersScreen = () => {
                                   </Col>
                                 </Row>
                               ))}
+                              <Row>
+                                <Col
+                                  nopad
+                                  mobile="12"
+                                  className="pad-edge-right"
+                                >
+                                  <Button
+                                    color="warning"
+                                    className="fill font-double font-bold"
+                                  >
+                                    Cancel
+                                  </Button>
+                                </Col>
+                              </Row>
                             </Grid>
                           </Col>
                         </Row>
