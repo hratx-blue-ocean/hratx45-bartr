@@ -1,6 +1,8 @@
 const pool = require('../postgres');
 
+// --------------------------------------------------------------------------------------------------
 
+/* Returns wish list products by user id */
 const getWishListProductsByUserId = (userId) => {
   return pool.query(
     {

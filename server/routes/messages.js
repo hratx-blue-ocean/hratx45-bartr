@@ -2,9 +2,11 @@ const express = require("express");
 const router = express.Router();
 const db = require("../db/tables/messages.js");
 
+// --------------------------------------------------------------------------------------------------
 
+/* Returns messages by user id  */
 router.get("/", (req, res) => {
-  const userId = req.query.userId;
+  const {userId} = req.query;
   db.getMessagesByUserId(userId)
     .then(data => res.status(200).send(data.rows))
     .catch(error => {
@@ -12,7 +14,7 @@ router.get("/", (req, res) => {
     });
 });
 
-
+/* Posts message */
 router.post("/", (req, res) => {
   db.postMessage(req.body)
     

@@ -1,5 +1,8 @@
 const pool = require("../postgres");
 
+// --------------------------------------------------------------------------------------------------
+
+/* Add new user */
 const addNewUser = user => {
   let sql = `INSERT INTO users (username, email, password, first_name, last_name, phone_number, 
         age, state, address, city, zip_code, latitude, longitude) VALUES ('${user.username}', '${user.email}', 
@@ -9,12 +12,14 @@ const addNewUser = user => {
   return pool.query({ text: sql });
 };
 
+/* Returns hash by username */
 const getHashByUsername = username => {
   return pool.query({
     text: `SELECT password FROM users WHERE username=${username}`
   });
 };
 
+/* Returns user data by id */
 const getUserDataById = userId => {
   let sql = `SELECT users.user_id, username, email, first_name, last_name, phone_number,
   age, profile_photo_id, state, address, city, zip_code, latitude, longitude, photo_id, image 
@@ -22,8 +27,7 @@ const getUserDataById = userId => {
   return pool.query({ text: sql });
 };
 
-//
-
+/* Returns user data by username*/
 const getUserDataByUsername = userName => {
   let sql = `SELECT users.user_id, username, email, first_name, last_name, phone_number,
   age, profile_photo_id, state, address, city, zip_code, latitude, longitude, photo_id, image 
@@ -31,6 +35,7 @@ const getUserDataByUsername = userName => {
   return pool.query({ text: sql });
 };
 
+/* Returns username by id */
 const getUsernameById = userId => {
   return pool.query({
     text: `SELECT username FROM users WHERE user_id=${userId}`
