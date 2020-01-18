@@ -1,4 +1,4 @@
-const pool = require("../postgres");
+const pool = require('../postgres');
 
 // --------------------------------------------------------------------------------------------------
 
@@ -42,10 +42,19 @@ const getUsernameById = userId => {
   });
 };
 
+const getUsernamesByIdList = idList => {
+  return pool.query({
+    text: `SELECT user_id, username FROM users WHERE user_id IN (${idList.join(
+      ', '
+    )})`
+  });
+};
+
 module.exports = {
   addNewUser,
   getHashByUsername,
   getUserDataById,
   getUserDataByUsername,
-  getUsernameById
+  getUsernameById,
+  getUsernamesByIdList
 };
