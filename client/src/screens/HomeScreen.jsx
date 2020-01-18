@@ -74,7 +74,10 @@ const HomeScreen = props => {
               <MDBCol className="text-white text-center py-0 px-0 my-0">
                 <MDBCol className="py-0">
                   <MDBCardTitle className="h1-responsive pt-3 m-5 font-bold textWhite">
-                    paperclips
+                    <img
+                      src="https://paperclip.link/data/images/misc/logo_white.png"
+                      width="75%"
+                    />
                   </MDBCardTitle>
                   <p className="mx-0 mb-0 textWhite">
                     currency-less trading is our blue ocean
