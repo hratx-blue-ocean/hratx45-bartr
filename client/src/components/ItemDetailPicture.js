@@ -1,11 +1,11 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent } from 'react';
 import {
   MDBContainer,
   MDBCarouselItem,
   MDBCarousel,
   MDBCarouselInner,
   MDBView
-} from "mdbreact";
+} from 'mdbreact';
 
 export default class ItemDetailPicture extends PureComponent {
   constructor(props) {
@@ -41,7 +41,7 @@ export default class ItemDetailPicture extends PureComponent {
             ) : (
               <MDBCarouselItem itemId={1}>
                 <img
-                  src="../assets/images/no_images.png"
+                  src="https://paperclip.link/data/images/misc/no_images.png"
                   className="mainImage"
                 />
               </MDBCarouselItem>

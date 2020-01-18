@@ -1,16 +1,16 @@
-import React from "react";
-import Axios from "axios";
-import FeedScreenListItem from "../components/FeedScreenListItem.jsx";
-import FeedScreenDropDown from "../components/FeedScreenDropDown.jsx";
-import { MDBBtn, MDBContainer, MDBInput } from "mdbreact";
-import { store } from "../index.js";
+import React from 'react';
+import Axios from 'axios';
+import FeedScreenListItem from '../components/FeedScreenListItem.jsx';
+import FeedScreenDropDown from '../components/FeedScreenDropDown.jsx';
+import { MDBBtn, MDBContainer, MDBInput } from 'mdbreact';
+import { store } from '../index';
 
 class FeedScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       filterOn: false,
-      currentFilterText: "Distance",
+      currentFilterText: 'Distance',
       productsToDisplay: [],
       productHoldWhileFiltered: [],
       input: null,
@@ -32,7 +32,7 @@ class FeedScreen extends React.Component {
         productHoldWhileFiltered: this.state.productsToDisplay
       },
       () => {
-        if (event === "Value (Highest First)") {
+        if (event === 'Value (Highest First)') {
           let arr = this.state.productsToDisplay;
           let sortedArr = [];
           for (let i = 0; i < arr.length; i++) {
@@ -42,7 +42,7 @@ class FeedScreen extends React.Component {
             productsToDisplay: sortedArr.filter(a => a !== undefined).reverse()
           });
         }
-        if (event === "Value (Lowest First)") {
+        if (event === 'Value (Lowest First)') {
           let arr = this.state.productsToDisplay;
           let sortedArr = [];
           for (let i = 0; i < arr.length; i++) {
@@ -52,10 +52,10 @@ class FeedScreen extends React.Component {
             productsToDisplay: sortedArr.filter(a => a !== undefined)
           });
         }
-        if (event === "Distance") {
+        if (event === 'Distance') {
           // ! sort by proximity
         }
-        if (event === "Date (Oldest First)") {
+        if (event === 'Date (Oldest First)') {
           let arr = this.state.productsToDisplay;
           let newArr = arr.slice();
           newArr.sort(
@@ -65,7 +65,7 @@ class FeedScreen extends React.Component {
             productsToDisplay: newArr
           });
         }
-        if (event === "Date (Newest First)") {
+        if (event === 'Date (Newest First)') {
           let arr = this.state.productsToDisplay;
           let newArr = arr.slice();
           newArr.sort(
@@ -80,9 +80,9 @@ class FeedScreen extends React.Component {
   }
 
   search(keyword = null) {
-    if (!keyword || typeof keyword !== "string") {
+    if (!keyword || typeof keyword !== 'string') {
       this.setState({
-        error: "Please enter a keyword."
+        error: 'Please enter a keyword.'
       });
       return;
     } else {
@@ -106,7 +106,7 @@ class FeedScreen extends React.Component {
       ? this.setState(
           {
             productsToDisplay: this.state.productHoldWhileFiltered,
-            currentFilterText: "Distance",
+            currentFilterText: 'Distance',
             error: null,
             filterOn: false
           },
@@ -118,7 +118,7 @@ class FeedScreen extends React.Component {
             })
         )
       : this.setState({
-          currentFilterText: "Distance",
+          currentFilterText: 'Distance',
           error: null,
           filterOn: false
         });
@@ -144,7 +144,7 @@ class FeedScreen extends React.Component {
 
   componentDidMount() {
     this.getProducts();
-    console.log(store.getState());
+    console.log('!!!!!!', store.getState());
   }
 
   render() {
@@ -169,7 +169,7 @@ class FeedScreen extends React.Component {
           Search
         </MDBBtn>
 
-        <div style={{ position: "absolute" }}>
+        <div style={{ position: 'absolute' }}>
           {this.state.error ? this.state.error : null}
         </div>
         <div id="entireDropDownContainer">
@@ -186,13 +186,13 @@ class FeedScreen extends React.Component {
           </div>
         </div>
 
-        <div id="feedScreenProductListContainer" style={{ marginTop: "15px" }}>
+        <div id="feedScreenProductListContainer" style={{ marginTop: '15px' }}>
           {this.state.productsToDisplay
             ? this.state.productsToDisplay.map((item, key) => (
                 <div
                   id="feedScreenListItem"
                   key={key}
-                  style={{ color: "black", alignSelf: "center" }}
+                  style={{ color: 'black', alignSelf: 'center' }}
                 >
                   <FeedScreenListItem item={item} />
                 </div>

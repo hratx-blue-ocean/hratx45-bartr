@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 import {
 	MDBBtn,
 	MDBContainer,
@@ -9,17 +9,19 @@ import {
 	MDBCardBody
 } from 'mdbreact';
 import { Link } from 'react-router-dom';
-import { login } from '../actions/userActions';
+import { fetchUserInformationByUsername } from '../actions/userActions';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import { store } from '../index';
 
 class LoginScreen extends Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
 			username: '',
 			password: '',
-			authenticate: false
+			authenticate: false,
+			userInfo: {}
 		};
 
 		this.usernameHandler = this.usernameHandler.bind(this);
@@ -42,21 +44,7 @@ class LoginScreen extends Component {
 	}
 
 	clickHandler() {
-		// for now, it only takes username, no auth
-		axios
-			.get('https://paperclip.link/api/users/userInformationUsername', {
-				params: {
-					username: this.state.username
-				}
-			})
-			.then(response => {
-				console.log('I WANT THIS RESPONSE', response.data);
-			})
-			.catch(error => {
-				console.log(error);
-			});
-
-		this.props.login(this.state.username);
+		this.props.fetchUserInformationByUsername(this.state.username);
 	}
 
 	render() {
@@ -109,5 +97,15 @@ class LoginScreen extends Component {
 	}
 }
 
+const mapStateToProps = state => {
+	return {
+		products: state.products,
+		locations: state.location,
+		userInfo: state.userInfo
+	};
+};
+
 // * mapstatetoprops, mapdispatchtoprops (action creators)
-export default connect(null, { login })(LoginScreen);
+export default connect(mapStateToProps, { fetchUserInformationByUsername })(
+	LoginScreen
+);

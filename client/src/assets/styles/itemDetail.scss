@@ -71,11 +71,19 @@
     align-items: center;
   }
 
+<<<<<<< HEAD
   .carousel-item.active.carousel-slide-item.carouselView {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 50px;
+=======
+  .carousel-item.active.carousel-slide-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 50px;
+>>>>>>> 0a454d7838866e8ea3a02ac9b270c5bb692dad3e
   }
 
   .imageWindow {
