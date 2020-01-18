@@ -1,5 +1,7 @@
 const pool = require('../postgres');
 
+// --------------------------------------------------------------------------------------------------
+
 /* Get all messages by user id */
 const getMessagesByUserId = (userId) => {
   let sql = `
@@ -16,6 +18,8 @@ const getMessagesByUserId = (userId) => {
   });
 };
 
+
+/* Post message */
 const postMessage = (body) => {
   const { senderId, recipientId, date, message} = body;
   let sql = `
