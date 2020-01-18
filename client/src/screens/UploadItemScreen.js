@@ -34,7 +34,7 @@ export default class UploadItemScreen extends PureComponent {
         <UploadItemForm toggleConfirmationModal={this.toggleConfirmation} />
         <MDBModal
           isOpen={this.state.modalOpen}
-          toggle={this.toggle}
+          toggle={this.toggleConfirmation}
           size="fluid"
           centered
           className="confirmationModal"

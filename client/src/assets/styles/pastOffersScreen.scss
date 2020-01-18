@@ -1,23 +1,33 @@
 #past-offers {
-	.past-offerer {
-		display: flex;
-		justify-content: space-between;
-	}
-	.past-offeree {
-		display: flex;
-		justify-content: space-between;
-	}
-	.offer-info-item {
-		display: flex;
-		flex-direction: row;
-	}
-	.labels {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-	}
-	.offer-info-label {
-		display: flex;
-		flex-direction: row;
-	}
+  .container {
+    display: flex;
+    overflow: hidden;
+    flex-direction: row;
+    text-align: center;
+  }
+  .card {
+    max-width: 100%;
+    height: auto;
+    width: auto;
+  }
+  .past-offer-list {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+  }
+  .past-offer-desired-name {
+    font-size: 5px;
+  }
+  .past-offer-desired-container {
+    display: flex;
+    flex-direction: row;
+  }
+  .past-offer-traded,
+  .past-offer-for {
+    font-size: 12px;
+  }
+  .past-offer-image {
+    width: 30px;
+    height: 30px;
+  }
 }
