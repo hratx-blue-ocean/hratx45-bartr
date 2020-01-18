@@ -1,4 +1,4 @@
-const pool = require('../postgres');
+const pool = require("../postgres");
 
 // --------------------------------------------------------------------------------------------------
 
@@ -43,9 +43,10 @@ const getUsernameById = userId => {
 };
 
 const getUsernamesByIdList = idList => {
+  if (idList.length === 0) return Promise.resolve({ rows: [] });
   return pool.query({
     text: `SELECT user_id, username FROM users WHERE user_id IN (${idList.join(
-      ', '
+      ", "
     )})`
   });
 };
