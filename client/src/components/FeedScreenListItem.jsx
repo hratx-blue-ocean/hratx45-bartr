@@ -44,7 +44,7 @@ const FeedScreenListItem = props =>
                 marginTop: "-5px"
               }}
             >
-              Value: ${props.item.value.toLocaleString()}
+              Value: {props.item.value.toLocaleString()}
             </MDBContainer>
             {props.item.up_for_trade === "True" ? (
               <MDBContainer style={{ color: "green", textAlign: "right" }}>
