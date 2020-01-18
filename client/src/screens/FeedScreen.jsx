@@ -23,8 +23,6 @@ class FeedScreen extends React.Component {
     this.search = this.search.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.clearFilters = this.clearFilters.bind(this);
-    this.getUser = this.getUser.bind(this);
-    this.pageCheck = this.pageCheck.bind(this);
   }
 
   handleFilterTextChange(event) {
@@ -190,7 +188,10 @@ class FeedScreen extends React.Component {
           </div>
         </div>
 
-        <div id="feedScreenProductListContainer" style={{ marginTop: "15px" }}>
+        <div
+          id="feedScreenProductListContainer"
+          style={{ marginTop: "15px", height: "75vh" }}
+        >
           {this.state.productsToDisplay
             ? this.state.productsToDisplay.map((item, key) => (
                 <div
