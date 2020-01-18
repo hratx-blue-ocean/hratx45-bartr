@@ -56,7 +56,7 @@ class Messages extends React.Component {
         <MDBContainer id="messageScreenListOfMessagesContainer">
           {this.state.messageStrings
             ? this.state.messageStrings.map((messageString, key) => (
-                <MDBContainer key={key}>
+                <MDBContainer key={key} style={{ backgroundColor: "red" }}>
                   <MessageString
                     key={key}
                     num={key}
