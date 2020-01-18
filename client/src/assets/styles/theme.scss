@@ -321,6 +321,15 @@ $SHAD_XTRA_B: rgba(0, 0, 0, 0.25);
     align-items: center $I;
   }
 }
+
+.align-right {
+  text-align: right;
+  justify-content: right;
+}
+.align-center {
+  text-align: center;
+  justify-content: center;
+}
 // PADDING HELPERS
 .null-space,
 .null-space.btn {

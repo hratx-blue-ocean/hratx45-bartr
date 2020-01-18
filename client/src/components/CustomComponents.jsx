@@ -7,6 +7,7 @@ import {
   MDBIcon,
   MDBLink
 } from 'mdbreact';
+import { Link as rLink } from 'react-router-dom';
 import '../assets/styles/spacingHelpers.scss';
 import '../assets/styles/theme.scss';
 
@@ -118,8 +119,14 @@ export const Divider = ({
   </Grid>
 );
 
-export const Link = ({ id = '', className = '', to = '#', children }) => (
-  <MDBLink id={id} className={className} to={to}>
+export const Link = ({
+  id = '',
+  className = '',
+  to = '#',
+  children,
+  onClick
+}) => (
+  <MDBLink id={id} className={className} to={to} onClick={onClick}>
     {children}
   </MDBLink>
 );

@@ -178,11 +178,11 @@ const ActiveOffersScreen = () => {
                                     <TradeItem
                                       data={{
                                         product_name: item.name,
-                                        value: item.value
+                                        value: item.value,
+                                        image: item.image
                                       }}
                                       showDel={false}
                                       onClick={() => {}}
-                                      image={item.image}
                                     />
                                   </Col>
                                 </Row>
@@ -206,11 +206,11 @@ const ActiveOffersScreen = () => {
                                     <TradeItem
                                       data={{
                                         product_name: item.name,
-                                        value: item.value
+                                        value: item.value,
+                                        image: item.image
                                       }}
                                       showDel={false}
                                       onClick={() => {}}
-                                      image={item.image}
                                     />
                                   </Col>
                                 </Row>
@@ -222,7 +222,7 @@ const ActiveOffersScreen = () => {
                                   className="pad-edge-right"
                                 >
                                   <Button
-                                    color="green"
+                                    color="success"
                                     className="fill font-double font-bold"
                                   >
                                     Accept
@@ -299,11 +299,11 @@ const ActiveOffersScreen = () => {
                                     <TradeItem
                                       data={{
                                         product_name: item.name,
-                                        value: item.value
+                                        value: item.value,
+                                        image: item.image
                                       }}
                                       showDel={false}
                                       onClick={() => {}}
-                                      image={item.image}
                                     />
                                   </Col>
                                 </Row>
@@ -327,11 +327,11 @@ const ActiveOffersScreen = () => {
                                     <TradeItem
                                       data={{
                                         product_name: item.name,
-                                        value: item.value
+                                        value: item.value,
+                                        image: item.image
                                       }}
                                       showDel={false}
                                       onClick={() => {}}
-                                      image={item.image}
                                     />
                                   </Col>
                                 </Row>
@@ -343,7 +343,7 @@ const ActiveOffersScreen = () => {
                                   className="pad-edge-right"
                                 >
                                   <Button
-                                    color="green"
+                                    color="success"
                                     className="fill font-double font-bold"
                                   >
                                     Accept

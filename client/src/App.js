@@ -20,16 +20,16 @@ class App extends Component {
       <Router>
         <Navbar />
         {/* <FeedScreen /> */}
-        <MessagesScreen />
-
+        {/* <MessagesScreen /> */}
         {/* <ItemDetailScreen /> */}
         {/* <!--<TestingScreen />  */}
         {/* <UploadItemScreen />   */}
         {/* <MakeOfferScreen /> */}
         <Switch>
-          {/* <Route exact path="/">
-            <HomeScreen />
-          </Route> */}
+          <Route exact path="/">
+            {/* <HomeScreen /> */}
+            <LoginScreen />
+          </Route>
           <Route exact path="/signup">
             <SignupScreen />
           </Route>

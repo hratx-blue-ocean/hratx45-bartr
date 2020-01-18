@@ -1,5 +1,7 @@
 const pool = require("../postgres");
 
+// --------------------------------------------------------------------------------------------------
+
 /* Returns products by their id*/
 const getProductById = productId => {
   return pool.query({
@@ -28,6 +30,7 @@ const getProductsByUser = userId => {
   });
 };
 
+/* Rertuns products up for trade */
 const getProductsUpForTrade = userId => {
   return pool.query({
     text: `select * from products INNER JOIN product_images 
@@ -99,6 +102,7 @@ const getProductsByProximityByLongLat = (
   return pool.query({ text: sql });
 };
 
+/* Add new product */
 const addNewProduct = item => {
   let sql = `INSERT INTO products (user_id, product_name, product_description, value, up_for_trade, sold, posted_date)
    VALUES (${item.owner_id}, '${item.name}', '${item.description}', '${item.value}',
@@ -106,9 +110,20 @@ const addNewProduct = item => {
   return pool.query({ text: sql });
 };
 
+/* Add new product photos */
 const addNewProductPhotos = (itemId, photoString) => {
   let sql = `INSERT INTO product_images(product_id, image) VALUES (${itemId}, '${photoString}')`;
   return pool.query({ text: sql });
+};
+
+
+const getProductPhotosByProductId = (productId) => {
+  return pool.query({
+    text: `select * from product_images where product_id = (
+        select product_photo_id from products where product_id = ${productId}
+    );
+    `
+  });
 };
 
 module.exports = {
@@ -118,6 +133,7 @@ module.exports = {
   getProductsByProximityByUserId,
   getProductsByProximityByLongLat,
   getProductPhotosById,
+  getProductPhotosByProductId,
   addNewProduct,
   getProductsByPostDate,
   addNewProductPhotos,
