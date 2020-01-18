@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   MDBRow,
   MDBCol,
@@ -6,20 +6,22 @@ import {
   MDBBtn,
   MDBIcon,
   MDBLink
-} from 'mdbreact';
-import { Link as rLink } from 'react-router-dom';
-import '../assets/styles/spacingHelpers.scss';
-import '../assets/styles/theme.scss';
+} from "mdbreact";
+import { Link as rLink } from "react-router-dom";
+import "../assets/styles/spacingHelpers.scss";
+import "../assets/styles/theme.scss";
 
 /**
  * Container for holding Row and Col tags cleanly, built upon MDBContainer
+ * @param {string} id - id of the element
  * @param {string} className - Any custom classes to apply
+ * @param {boolean} nopad - Set compononet to NOT apply default padding
  */
-export const Grid = ({ id = '', className = '', nopad = false, children }) => (
+export const Grid = ({ id = "", className = "", nopad = false, children }) => (
   <MDBContainer
     id={id}
     fluid
-    className={`${nopad ? '' : 'null-space'} ${className}`}
+    className={`${nopad ? "" : "null-space"} ${className}`}
   >
     {children}
   </MDBContainer>
@@ -28,12 +30,14 @@ export const Grid = ({ id = '', className = '', nopad = false, children }) => (
 /**
  * Container for holding Col tags,
  * not recommended to put elements directly in Rows without Cols
+ * @param {boolean} nopad - Set compononet to NOT apply default padding
+ * @param {string} id - id of the element
  * @param {string} className - Any custom classes to apply
  */
-export const Row = ({ id = '', className = '', nopad = false, children }) => (
+export const Row = ({ id = "", className = "", nopad = false, children }) => (
   <MDBRow
     id={id}
-    className={`margin-none ${nopad ? '' : 'pad-edge-left'} ${className}`}
+    className={`margin-none ${nopad ? "" : "pad-edge-left"} ${className}`}
   >
     {children}
   </MDBRow>
@@ -43,44 +47,54 @@ export const Row = ({ id = '', className = '', nopad = false, children }) => (
  * A container for holding design elements and resizing based on screen size.
  * The device parameters specify how many columns (out of 12)
  * the element should span when viewed on that device size.
- * @param {string} className - Any custom classes to apply
+ * @param {boolean} nopad - Set compononet to NOT apply default padding
  * @param {number} mobile - The number of columns the element should span on mobile
  * @param {number} tablet - The number of columns the element should span on tablet
  * @param {number} desktop - The number of columns the element should span on desktop
+ * @param {string} id - id of the element
+ * @param {string} className - Any custom classes to apply
  */
 export const Col = ({
-  id = '',
-  className = '',
+  id = "",
+  className = "",
   children,
   nopad = false,
-  mobile = '',
-  tablet = '',
-  desktop = ''
+  mobile = "",
+  tablet = "",
+  desktop = ""
 }) => (
   <MDBCol
     id={id}
     size={mobile}
     md={tablet}
     xl={desktop}
-    className={`margin-none ${nopad ? '' : 'pad-col'} ${className}`}
+    className={`margin-none ${nopad ? "" : "pad-col"} ${className}`}
   >
     {children}
   </MDBCol>
 );
 
+/**
+ * Button component build upon MDBBtn. Margins have been
+ * nullified and padding normalized to 0.5 rem on the inside
+ * @param {string} color - theme color tou use for the button
+ * @param {string} id - id of the element
+ * @param {string} className - Any custom classes to apply
+ * @param {string} onClick - function to run on click
+ */
 export const Button = ({
-  id = '',
-  className = '',
-  color = '',
+  id = "",
+  className = "",
+  color = "",
   onClick,
   children
 }) => (
   <MDBBtn
     id={id}
-    className={`pad-all-half rounded ${className}`}
+    className={`pad-all-half ${className}`}
     color={color}
     style={{
-      margin: '0'
+      margin: "0"
     }}
     onClick={onClick}
   >
@@ -88,7 +102,14 @@ export const Button = ({
   </MDBBtn>
 );
 
-export const Card = ({ id = '', className = '', children }) => (
+/**
+ * Basic panel component with no margins, rounded corners,
+ * drop shadow, and thin border. Built upon MDBContainer.
+ * Can be used in place of Grid to hold rows and cols.
+ * @param {string} id - id of the element
+ * @param {string} className - Any custom classes to apply
+ */
+export const Card = ({ id = "", className = "", children }) => (
   <MDBContainer
     id={id}
     fluid
@@ -98,13 +119,25 @@ export const Card = ({ id = '', className = '', children }) => (
   </MDBContainer>
 );
 
+/**
+ * Basic wrapper for MDBIcon, all props are inherited
+ * @param {string} icon - Name of icon to use from MDBIcon list
+ */
 export const Icon = props => <MDBIcon {...props} />;
 
+/**
+ * A divider component that consists of a centered text string
+ * with horizonal-rules on each side.
+ * @param {string} label - The text to display in the divider
+ * @param {boolean} nopad - Set compononet to NOT apply default padding
+ * @param {string} id - id of the element
+ * @param {string} className - Any custom classes to apply
+ */
 export const Divider = ({
-  id = '',
-  className = '',
+  id = "",
+  className = "",
   nopad = false,
-  label = ''
+  label = ""
 }) => (
   <Grid id={id} className={className}>
     <Row>
@@ -119,10 +152,17 @@ export const Divider = ({
   </Grid>
 );
 
+/**
+ * Basic wrapper for MDBLink
+ * @param {string} to - The react router path to redirect to
+ * @param {string} id - id of the element
+ * @param {string} className - Any custom classes to apply
+ * @param {string} onClick - function to run on click
+ */
 export const Link = ({
-  id = '',
-  className = '',
-  to = '#',
+  id = "",
+  className = "",
+  to = "#",
   children,
   onClick
 }) => (
@@ -131,14 +171,25 @@ export const Link = ({
   </MDBLink>
 );
 
+/**
+ * An EZ solution for rendering items into a grid, simply specify the col settings
+ * and class names, then place the items you want to be in the grid as child elements
+ * @param {boolean} nopad - Set compononet to NOT apply default padding
+ * @param {number} mobile - The number of columns the element should span on mobile
+ * @param {number} tablet - The number of columns the element should span on tablet
+ * @param {number} desktop - The number of columns the element should span on desktop
+ * @param {string} id - id of the element
+ * @param {string} className - Any custom classes to apply to PARENT CLASS
+ * @param {string} classNameCol - Any custom classes to apply to EACH CHILD COL
+ */
 export const AutoGrid = ({
-  id = '',
-  className = '',
-  classNameCol = '',
+  id = "",
+  className = "",
+  classNameCol = "",
   children,
-  mobile = '',
-  tablet = '',
-  desktop = ''
+  mobile = "",
+  tablet = "",
+  desktop = ""
 }) => (
   <Grid id={id} className={className}>
     <Row>
