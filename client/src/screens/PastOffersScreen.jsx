@@ -74,10 +74,10 @@ const dummyData = [
       id: 1,
       items: [
         {
-          name: 'McLaren 720S Spider',
-          value: '720',
+          name: 'Trader Joes Scandinavian Swimmers',
+          value: '10000',
           image:
-            'https://cars.mclaren.com/content/dam/mclaren-automotive/models/720s/720s-spider/overview/1920x1080/720s-Spider.jpg'
+            'https://www.traderjoes.com/TJ_CMS_Content/Images/Digin/Uploads/65556-super-sour-scandinavian-swimmers.jpg'
         }
       ]
     }
@@ -151,9 +151,7 @@ const ActiveOffersScreen = () => {
                           )
                         }
                       >
-                        {`${o.Offerer.items.length} item${
-                          o.Offerer.items.length !== 1 ? 's' : ''
-                        } offered for their ${o.Offeree.items[0].name}`}
+                        {`${o.Offeree.items[0].name}`}
                       </MDBBtn>
                       <MDBCollapse
                         className="margin-none pad-edge-top fill"
@@ -250,9 +248,7 @@ const ActiveOffersScreen = () => {
                           )
                         }
                       >
-                        {`${o.Offerer.items.length} item${
-                          o.Offerer.items.length !== 1 ? 's' : ''
-                        } offered for your ${o.Offeree.items[0].name}`}
+                        {`${o.Offeree.items[0].name}`}
                       </MDBBtn>
                       <MDBCollapse
                         className="margin-none pad-edge-top fill"
