@@ -98,8 +98,6 @@ const UserProfile = props => {
           </div>
         </MDBNavLink>
       </MDBContainer>
-      <h1>..........</h1>
-      <h1>..........</h1>
     </div>
   );
 };

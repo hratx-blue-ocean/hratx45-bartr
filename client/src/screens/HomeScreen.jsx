@@ -108,14 +108,14 @@ const HomeScreen = props => {
               <MDBView>
                 <img
                   className="d-block w-100"
-                  src={`${products.rows[randomArray[0]].image}`}
-                  alt={products.rows[randomArray[0]].product_name}
+                  src={`${products[randomArray[0]].photos[0]}`}
+                  alt={products[randomArray[0]].product_name}
                 />
                 <MDBMask overlay="black-light" />
               </MDBView>
               <MDBCarouselCaption>
                 <h3 className="h3-responsive">our staff picks</h3>
-                <p>{products.rows[randomArray[0]].product_name}</p>
+                <p>{products[randomArray[0]].product_name}</p>
               </MDBCarouselCaption>
             </MDBCarouselItem>
 
@@ -123,14 +123,14 @@ const HomeScreen = props => {
               <MDBView>
                 <img
                   className="d-block w-100"
-                  src={`${products.rows[randomArray[1]].image}`}
-                  alt={products.rows[randomArray[1]].product_name}
+                  src={`${products[randomArray[1]].photos[0]}`}
+                  alt={products[randomArray[1]].product_name}
                 />
                 <MDBMask overlay="black-light" />
               </MDBView>
               <MDBCarouselCaption>
                 <h3 className="h3-responsive">our staff picks</h3>
-                <p>{products.rows[randomArray[1]].product_name}</p>
+                <p>{products[randomArray[1]].product_name}</p>
               </MDBCarouselCaption>
             </MDBCarouselItem>
 
@@ -138,14 +138,14 @@ const HomeScreen = props => {
               <MDBView>
                 <img
                   className="d-block w-100"
-                  src={`${products.rows[randomArray[2]].image}`}
-                  alt={`${products.rows[randomArray[2]].product_name}`}
+                  src={`${products[randomArray[2]].photos[0]}`}
+                  alt={`${products[randomArray[2]].product_name}`}
                 />
                 <MDBMask overlay="black-light" />
               </MDBView>
               <MDBCarouselCaption>
                 <h3 className="h3-responsive">our staff picks</h3>
-                <p>{products.rows[randomArray[2]].product_name}</p>
+                <p>{products[randomArray[2]].product_name}</p>
               </MDBCarouselCaption>
             </MDBCarouselItem>
           </MDBCarouselInner>
@@ -169,15 +169,15 @@ const HomeScreen = props => {
                 <MDBCol md="6">
                   <MDBCard className="mb-2">
                     <MDBCardImage
-                      className="img-fluid"
-                      src={`${products.rows[randomArray[3]].image}`}
+                      className="img-fluid d-block w-100"
+                      src={`${products[randomArray[3]].photos[0]}`}
                     />
                     <MDBCardBody>
                       <MDBCardTitle>
-                        {products.rows[randomArray[3]].product_name}
+                        {products[randomArray[3]].product_name}
                       </MDBCardTitle>
                       <MDBCardText>
-                        {products.rows[randomArray[3]].product_description}
+                        {products[randomArray[3]].product_description}
                       </MDBCardText>
                     </MDBCardBody>
                   </MDBCard>
@@ -188,15 +188,15 @@ const HomeScreen = props => {
                 <MDBCol md="6">
                   <MDBCard className="mb-2">
                     <MDBCardImage
-                      className="img-fluid"
-                      src={`${products.rows[randomArray[4]].image}`}
+                      className="img-fluid d-block w-100"
+                      src={`${products[randomArray[4]].photos[0]}`}
                     />
                     <MDBCardBody>
                       <MDBCardTitle>
-                        {products.rows[randomArray[4]].product_name}
+                        {products[randomArray[4]].product_name}
                       </MDBCardTitle>
                       <MDBCardText>
-                        {products.rows[randomArray[4]].product_description}
+                        {products[randomArray[4]].product_description}
                       </MDBCardText>
                     </MDBCardBody>
                   </MDBCard>
@@ -207,15 +207,15 @@ const HomeScreen = props => {
                 <MDBCol md="6">
                   <MDBCard className="mb-2">
                     <MDBCardImage
-                      className="img-fluid"
-                      src={`${products.rows[randomArray[5]].image}`}
+                      className="img-fluid d-block w-100"
+                      src={`${products[randomArray[5]].photos[0]}`}
                     />
                     <MDBCardBody>
                       <MDBCardTitle>
-                        {products.rows[randomArray[5]].product_name}
+                        {products[randomArray[5]].product_name}
                       </MDBCardTitle>
                       <MDBCardText>
-                        {products.rows[randomArray[5]].product_description}
+                        {products[randomArray[5]].product_description}
                       </MDBCardText>
                     </MDBCardBody>
                   </MDBCard>
@@ -226,15 +226,15 @@ const HomeScreen = props => {
                 <MDBCol md="6">
                   <MDBCard className="mb-2">
                     <MDBCardImage
-                      className="img-fluid"
-                      src={`${products.rows[randomArray[6]].image}`}
+                      className="img-fluid d-block w-100"
+                      src={`${products[randomArray[6]].photos[0]}`}
                     />
                     <MDBCardBody>
                       <MDBCardTitle>
-                        {products.rows[randomArray[6]].product_name}
+                        {products[randomArray[6]].product_name}
                       </MDBCardTitle>
                       <MDBCardText>
-                        {products.rows[randomArray[6]].product_description}
+                        {products[randomArray[6]].product_description}
                       </MDBCardText>
                     </MDBCardBody>
                   </MDBCard>
@@ -245,15 +245,15 @@ const HomeScreen = props => {
                 <MDBCol md="6">
                   <MDBCard className="mb-2">
                     <MDBCardImage
-                      className="img-fluid"
-                      src={`${products.rows[randomArray[7]].image}`}
+                      className="img-fluid d-block w-100"
+                      src={`${products[randomArray[7]].photos[0]}`}
                     />
                     <MDBCardBody>
                       <MDBCardTitle>
-                        {products.rows[randomArray[7]].product_name}
+                        {products[randomArray[7]].product_name}
                       </MDBCardTitle>
                       <MDBCardText>
-                        {products.rows[randomArray[7]].product_description}
+                        {products[randomArray[7]].product_description}
                       </MDBCardText>
                     </MDBCardBody>
                   </MDBCard>
@@ -264,15 +264,15 @@ const HomeScreen = props => {
                 <MDBCol md="6">
                   <MDBCard className="mb-2">
                     <MDBCardImage
-                      className="img-fluid"
-                      src={`${products.rows[randomArray[8]].image}`}
+                      className="img-fluid d-block w-100"
+                      src={`${products[randomArray[8]].photos[0]}`}
                     />
                     <MDBCardBody>
                       <MDBCardTitle>
-                        {products.rows[randomArray[8]].product_name}
+                        {products[randomArray[8]].product_name}
                       </MDBCardTitle>
                       <MDBCardText>
-                        {products.rows[randomArray[8]].product_description}
+                        {products[randomArray[8]].product_description}
                       </MDBCardText>
                     </MDBCardBody>
                   </MDBCard>
@@ -282,10 +282,6 @@ const HomeScreen = props => {
           </MDBCarouselInner>
         </MDBCarousel>
       </MDBContainer>
-      <div>
-        <h1>................</h1>
-        <h1>................</h1>
-      </div>
 
       {/* <MDBContainer className="mt-8">
         <MDBRow>
