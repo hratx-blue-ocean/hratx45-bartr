@@ -1,34 +1,34 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { MDBContainer, MDBCol, MDBRow, MDBCollapse, MDBBtn } from 'mdbreact';
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { MDBContainer, MDBCol, MDBRow, MDBCollapse, MDBBtn } from "mdbreact";
 import {
   Grid,
   Col,
   Row,
   Divider,
   Button
-} from '../components/CustomComponents';
-import PastOffer from './PastOffer';
+} from "../components/CustomComponents";
+import PastOffer from "./PastOffer";
 
 const dummyData = [
   {
     Timestamp: Date.now() - Math.random() * 360000,
-    Status: 'Completed',
+    Status: "Completed",
     MessageThreadID: 1,
     Offerer: {
       id: 2,
       items: [
         {
-          name: 'used hair',
-          value: '2',
+          name: "used hair",
+          value: "2",
           image:
-            'https://image.shutterstock.com/image-photo/scrap-hair-after-cutting-barber-260nw-1474957202.jpg'
+            "https://images-na.ssl-images-amazon.com/images/I/813u3Usgf5L._SY550_.jpg"
         },
         {
-          name: 'old bike',
-          value: '7',
+          name: "old bike",
+          value: "7",
           image:
-            'https://www.featurepics.com/StockImage/20081008/old-bike-stock-picture-924047.jpg'
+            "https://www.featurepics.com/StockImage/20081008/old-bike-stock-picture-924047.jpg"
         }
       ]
     },
@@ -36,36 +36,37 @@ const dummyData = [
       id: 1,
       items: [
         {
-          name: 'McLaren 720S Spider',
-          value: '720',
+          name: "McLaren 720S Spider",
+          value: "720",
           image:
-            'https://cars.mclaren.com/content/dam/mclaren-automotive/models/720s/720s-spider/overview/1920x1080/720s-Spider.jpg'
+            "https://cars.mclaren.com/content/dam/mclaren-automotive/models/720s/720s-spider/overview/1920x1080/720s-Spider.jpg"
         }
       ]
     }
   },
   {
     Timestamp: Date.now() - Math.random() * 360000,
-    Status: 'Completed',
+    Status: "Completed",
     MessageThreadID: 2,
     Offerer: {
       id: 2,
       items: [
         {
-          name: 'broken doll',
-          value: '13',
+          name: "tea bags",
+          value: "3",
           image:
-            'https://images.fineartamerica.com/images-medium-large-5/broken-doll-katie-victoria-tolley.jpg'
+            "https://naturesrawtruth.org/wp-content/uploads/2018/08/what-paper-used-tea-bags-800x800.jpg"
         },
         {
-          name: 'competitive hot dog eating mask',
-          value: '18',
-          image: 'https://pbs.twimg.com/media/Dl5rolBVAAA9cjM.jpg'
+          name: "hot dog",
+          value: "2",
+          image:
+            "https://s23991.pcdn.co/wp-content/uploads/2018/05/best-hot-dog.jpg"
         },
         {
-          name: 'the rest of this bag of cheetos',
-          value: '5',
-          image: 'https://i.redd.it/v11q4xffh4y11.jpg'
+          name: "the rest of this bag of cheetos",
+          value: "5",
+          image: "https://i.redd.it/v11q4xffh4y11.jpg"
         }
       ]
     },
@@ -73,26 +74,26 @@ const dummyData = [
       id: 1,
       items: [
         {
-          name: 'Trader Joes Scandinavian Swimmers',
-          value: '10000',
+          name: "Trader Joes Scandinavian Swimmers",
+          value: "10000",
           image:
-            'https://www.traderjoes.com/TJ_CMS_Content/Images/Digin/Uploads/65556-super-sour-scandinavian-swimmers.jpg'
+            "https://www.traderjoes.com/TJ_CMS_Content/Images/Digin/Uploads/65556-super-sour-scandinavian-swimmers.jpg"
         }
       ]
     }
   },
   {
     Timestamp: Date.now() - Math.random() * 360000,
-    Status: 'Completed',
+    Status: "Completed",
     MessageThreadID: 3,
     Offerer: {
       id: 1,
       items: [
         {
-          name: 'This friendly gesture',
-          value: '0',
+          name: "Eclipse",
+          value: "5",
           image:
-            'https://nationalpostcom.files.wordpress.com/2019/06/flip-2.png?w=780'
+            "https://images-na.ssl-images-amazon.com/images/I/71ayXmdorhL._SL1500_.jpg"
         }
       ]
     },
@@ -100,26 +101,26 @@ const dummyData = [
       id: 2,
       items: [
         {
-          name: 'old bike',
-          value: '7',
+          name: "old bike",
+          value: "7",
           image:
-            'https://www.featurepics.com/StockImage/20081008/old-bike-stock-picture-924047.jpg'
+            "https://www.featurepics.com/StockImage/20081008/old-bike-stock-picture-924047.jpg"
         }
       ]
     }
   },
   {
     Timestamp: Date.now() - Math.random() * 360000,
-    Status: 'Completed',
+    Status: "Completed",
     MessageThreadID: 3,
     Offerer: {
       id: 1,
       items: [
         {
-          name: 'Camelbak Bottle',
-          value: '20',
+          name: "Camelbak Bottle",
+          value: "20",
           image:
-            'https://www.ems.com/on/demandware.static/-/Sites-vestis-master-catalog/default/dwd0b50b0f/product/images/1350/217/1350217/1350217_933_main.jpg'
+            "https://www.ems.com/on/demandware.static/-/Sites-vestis-master-catalog/default/dwd0b50b0f/product/images/1350/217/1350217/1350217_933_main.jpg"
         }
       ]
     },
@@ -127,10 +128,10 @@ const dummyData = [
       id: 2,
       items: [
         {
-          name: 'Samsung Galaxy s8',
-          value: '800',
+          name: "Samsung Galaxy s8",
+          value: "800",
           image:
-            'https://images-na.ssl-images-amazon.com/images/I/61p06cO0CPL._AC_SX425_.jpg'
+            "https://images-na.ssl-images-amazon.com/images/I/61p06cO0CPL._AC_SX425_.jpg"
         }
       ]
     }
@@ -138,7 +139,7 @@ const dummyData = [
 ];
 
 const UserProfilePastOffers = () => {
-  const [open, setOpen] = useState('');
+  const [open, setOpen] = useState("");
   const dispatch = useDispatch();
   return (
     <Grid fluid nopad id="active-offers-screen" className="pad-edge-top">
@@ -155,13 +156,13 @@ const UserProfilePastOffers = () => {
                 <Col nopad className="pad-edge-bottom-half" mobile="12">
                   <Grid>
                     <MDBBtn
-                      style={{ margin: '0' }}
+                      style={{ margin: "0" }}
                       className="pad-all-half fill font-large"
                       color="default"
                       onClick={() =>
                         setOpen(
                           open === `collapse_yours${i}`
-                            ? ''
+                            ? ""
                             : `collapse_yours${i}`
                         )
                       }
