@@ -6,12 +6,16 @@
     height: 100px;
     padding: auto;
     overflow-y: scroll;
-    border-top: 1px solid gray;
+    border-top: 3px solid $default-color;
+    border-left: 3px solid $default-color;
     cursor: pointer;
+    margin-top: 5px;
+    box-shadow: 10px 5px 5px $default-color;
     #message-string {
       overflow-y: scroll;
       border-top: 1px solid gray;
       cursor: pointer;
+
       #closeButton {
         font-size: 0.75em;
         height: fit-content;

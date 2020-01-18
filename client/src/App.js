@@ -19,9 +19,9 @@ class App extends Component {
     return (
       <Router>
         <Navbar />
-        <FeedScreen />
-        {/* <MessagesScreen /> */}
         {/* <FeedScreen /> */}
+        <MessagesScreen />
+
         {/* <ItemDetailScreen /> */}
         {/* <!--<TestingScreen />  */}
         {/* <UploadItemScreen />   */}
