@@ -2,11 +2,13 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const upload = multer();
-
 const db = require('../db/tables/users.js');
 
+// --------------------------------------------------------------------------------------------------
+
+/* Signup route */
 router.post('/signup', upload.single(), (req, res) => {
-	let item = req.body;
+	const item = req.body;
 	console.log(item);
 	res.send('ok');
 });
@@ -14,8 +16,9 @@ router.post('/signup', upload.single(), (req, res) => {
 // router.get("/authentication", (req, res) => {
 // });
 
+/* */
 router.get('/userInformationUsername', (req, res) => {
-	let username = req.query.username;
+	const {username} = req.query;
 	console.log(username);
 	db.getUserDataByUsername(username)
 		.then(data => res.status(200).send(data))
@@ -25,8 +28,9 @@ router.get('/userInformationUsername', (req, res) => {
 		});
 });
 
+/* */
 router.get('/userInformationId', (req, res) => {
-	let userId = req.query.id;
+	const userId = req.query.id;
 	db.getUserDataById(userId)
 		.then(data => res.status(200).send(data))
 		.catch(error => {
