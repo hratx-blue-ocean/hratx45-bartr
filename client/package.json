@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "NODE_ENV=production webpack -d --watch & live-server --port=9000 --watch=dist --mount=/:dist/ --open=/",
-    "dev": "NODE_ENV=development webpack -d --watch & live-server --port=9000 --watch=dist --mount=/:dist/ --open=/",
+    "dev": "NODE_ENV=development webpack -d --watch & live-server --port=9000 --watch=dist --mount=/:dist/ --cors --open=/",
     "build": "NODE_ENV=production webpack -p",
     "deploy": "NODE_ENV=production webpack -p && node s3_uploader.js"
   },

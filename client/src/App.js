@@ -26,9 +26,16 @@ class App extends Component {
         {/* <UploadItemScreen />   */}
         {/* <MakeOfferScreen /> */}
         <Switch>
+<<<<<<< HEAD
           {/* <Route exact path="/">
             <HomeScreen />
           </Route> */}
+=======
+          <Route exact path="/">
+            {/* <HomeScreen /> */}
+            <LoginScreen />
+          </Route>
+>>>>>>> f906ebfcc2646421482a75b95b545360f5c75c33
           <Route exact path="/signup">
             <SignupScreen />
           </Route>

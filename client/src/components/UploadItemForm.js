@@ -134,7 +134,7 @@ export default class UploadItemForm extends PureComponent {
                 value={this.state.description}
                 size="lg"
               />
-              <MDBInput
+              {/* <MDBInput
                 label="Desired Trade(s)"
                 onChange={this.handleDesiredTradeInput}
                 value={this.state.desiredTrade}
@@ -145,16 +145,16 @@ export default class UploadItemForm extends PureComponent {
                 onChange={this.handleTimeConstraintInput}
                 value={this.state.timeConstraints}
                 size="lg"
-              />
+              /> */}
               <MDBFileInput
                 getValue={this.handleFileInput}
                 className="imageInput"
                 btnTitle="Choose File(s)"
                 textFieldTitle="Upload Images"
-                btnColor="danger"
+                btnColor="warning"
                 multiple
               />
-              <MDBBtn onClick={this.submit}>Post Item</MDBBtn>
+              <MDBBtn color="primary" onClick={this.submit}>Post Item</MDBBtn>
               <p>* = required</p>
             </form>
           </MDBCardBody>
