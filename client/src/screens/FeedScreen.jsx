@@ -24,7 +24,6 @@ class FeedScreen extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.clearFilters = this.clearFilters.bind(this);
     this.getUser = this.getUser.bind(this);
-    this.pageCheck = this.pageCheck.bind(this);
   }
 
   handleFilterTextChange(event) {
