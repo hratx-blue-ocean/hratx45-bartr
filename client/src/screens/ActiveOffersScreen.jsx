@@ -215,28 +215,6 @@ const ActiveOffersScreen = () => {
                                   </Col>
                                 </Row>
                               ))}
-                              <Row>
-                                <Col
-                                  nopad
-                                  mobile="6"
-                                  className="pad-edge-right"
-                                >
-                                  <Button
-                                    color="success"
-                                    className="fill font-double font-bold"
-                                  >
-                                    Accept
-                                  </Button>
-                                </Col>
-                                <Col nopad mobile="6" className="pad-none">
-                                  <Button
-                                    color="danger"
-                                    className="fill font-double font-bold"
-                                  >
-                                    Reject
-                                  </Button>
-                                </Col>
-                              </Row>
                             </Grid>
                           </Col>
                         </Row>
