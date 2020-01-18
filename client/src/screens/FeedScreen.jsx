@@ -3,6 +3,7 @@ import Axios from "axios";
 import FeedScreenListItem from "../components/FeedScreenListItem.jsx";
 import FeedScreenDropDown from "../components/FeedScreenDropDown.jsx";
 import { MDBBtn, MDBContainer, MDBInput } from "mdbreact";
+import { store } from "../index.js";
 
 class FeedScreen extends React.Component {
   constructor(props) {
@@ -143,6 +144,7 @@ class FeedScreen extends React.Component {
 
   componentDidMount() {
     this.getProducts();
+    console.log(store.getState());
   }
 
   render() {
