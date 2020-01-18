@@ -209,7 +209,6 @@ class FeedScreen extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log("state console.log", state);
   return {
     products: state.products,
     location: state.location,

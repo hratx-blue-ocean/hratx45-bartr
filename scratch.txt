@@ -1,1 +1,16 @@
 git pull origin proximity-api
+
+CREATE TABLE offers (
+  offer_id SERIAL PRIMARY KEY,
+  offerer_id INTEGER NOT NULL,
+  offeree_id INTEGER NOT NULL,
+  desired_product_id INTEGER,
+  offered_product_ids INTEGER[],
+  offer_made_date DATE NOT NULL,
+  message TEXT,
+  status TEXT NOT NULL,
+  message_thread_id INTEGER,
+  offer_closed_date DATE
+);
+
+INSERT INTO offers VALUES (2, 9, 11, 42, ARRAY[10,11,12], NOW(), 'pls giv', 'pending', 1, null);
