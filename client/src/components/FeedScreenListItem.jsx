@@ -22,7 +22,7 @@ const FeedScreenListItem = props =>
           <Link to={`/ItemDetail/${props.item.product_id}`}>
             <MDBCardImage
               className="img-fluid"
-              src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
+              src={props.item.photos[0]}
               waves
               style={{ width: "100%" }}
             />
@@ -44,7 +44,7 @@ const FeedScreenListItem = props =>
                 marginTop: "-5px"
               }}
             >
-              Value: ${props.item.value.toLocaleString()}
+              Value: {props.item.value.toLocaleString()}
             </MDBContainer>
             {props.item.up_for_trade === "True" ? (
               <MDBContainer style={{ color: "green", textAlign: "right" }}>
