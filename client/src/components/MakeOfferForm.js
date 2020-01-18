@@ -125,6 +125,7 @@ class MakeOfferForm extends PureComponent {
   }
 
   render() {
+    console.log("User items on Make Offer Form page: ", this.props.userItems)
     return (
       <div id="makeOfferForm">
         <form className="md-form">
@@ -196,17 +197,6 @@ class MakeOfferForm extends PureComponent {
                             showLoc={false}
                             showDel={false}
                           />
-                          {/* <div className="itemContainer">
-                          <div className="itemImage">
-                            <img width="100px" src={item.image} />
-                          </div>
-                          <div className="itemInfo">
-                            <h3>{item.name}</h3>
-                            <p>
-                              Value: <span>{item.value}</span>
-                            </p>
-                          </div>
-                        </div> */}
                         </li>
                       )
                     )}
@@ -264,12 +254,12 @@ class MakeOfferForm extends PureComponent {
 }
 
 let mapStateToProps = state => {
-  let { userInfo, itemDetails } = state;
+  let { userInfo, itemDetails, userItems } = state;
 
   let username = userInfo.username;
   let userId = userInfo.userId;
 
-  return { itemDetails, username, userId };
+  return { itemDetails, username, userId, userItems };
 };
 
 export default connect(mapStateToProps)(MakeOfferForm);

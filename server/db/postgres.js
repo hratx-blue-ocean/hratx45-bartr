@@ -14,6 +14,7 @@ if (process.env.NODE_ENV === 'production') {
   
 } else {
   config = require('./config');
+  // config = require('./tempConfig');
 }
 
 const pool = new Pool(config);
