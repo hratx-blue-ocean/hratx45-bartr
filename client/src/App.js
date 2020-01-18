@@ -27,9 +27,10 @@ class App extends Component {
         {/* <MakeOfferScreen /> */}
         <Switch>
           <Route exact path="/">
-            <UserProfile />
+            {/* <UserProfile /> */}
             {/* <HomeScreen /> */}
-            {/* <LoginScreen /> */}
+            {/* <UserProfile /> */}
+            <LoginScreen />
           </Route>
           <Route exact path="/signup">
             <SignupScreen />

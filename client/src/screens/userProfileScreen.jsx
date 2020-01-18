@@ -39,59 +39,62 @@ const UserProfile = props => {
       </MDBNavLink>
     </div>
   ) : (
-    <div>
-      <h2>
-        Hello {props.userInfo.userInfo.first_name}{' '}
-        {props.userInfo.userInfo.last_name}!
-      </h2>
+    <div id="userProfileScreen">
+      <div className="userName">
+        <h2>
+          {props.userInfo.userInfo.first_name}{' '}
+          {props.userInfo.userInfo.last_name}
+        </h2>
+      </div>
       <MDBContainer>
         <MDBRow>
           <MDBCol>
-            <MDBCard className="my-5">
+            <MDBCard style={{margin: "0 !important"}} className="profileCard my-5">
               <MDBCardImage
                 top
                 src={`${props.userInfo.userInfo.image}`}
                 className="img-fluid img-thumbnail rounded mx-auto d-block"
               />
-              <MDBRow>
-                <MDBCol>
-                  <MDBCardTitle>
+              <MDBRow className="userCardInfo">
+                {/* <MDBCol> */}
+                <MDBCardText className="username">{props.userInfo.userInfo.username}</MDBCardText>
+                  <MDBCardTitle className="location">
                     {props.userInfo.userInfo.city},{' '}
                     {props.userInfo.userInfo.state}
                   </MDBCardTitle>
-                </MDBCol>
-                <MDBCol>
-                  <MDBCardText>{props.userInfo.userInfo.username}</MDBCardText>
-                </MDBCol>
+                {/* </MDBCol> */}
+                {/* <MDBCol> */}
+                  
+                {/* </MDBCol> */}
               </MDBRow>
               <hr />
-              <MDBRow>
-                <MDBCol>
+              <MDBRow className="userCardButtons">
+                {/* <MDBCol> */}
                   <MDBNavLink to="/trade">
-                    <MDBBtn>Your Items</MDBBtn>
+                    <MDBBtn color="primary">Your Items</MDBBtn>
                   </MDBNavLink>
-                </MDBCol>
+                {/* </MDBCol> */}
 
-                <MDBCol>
+                {/* <MDBCol> */}
                   <MDBNavLink to="/uploadItem">
-                    <MDBBtn color="secondary">Upload Item</MDBBtn>
+                    <MDBBtn color="primary">Upload Item</MDBBtn>
                   </MDBNavLink>
-                </MDBCol>
+                {/* </MDBCol> */}
 
-                <MDBCol>
+                {/* <MDBCol> */}
                   <MDBNavLink to="/active-offers">
-                    <MDBBtn>Active Offers</MDBBtn>
+                    <MDBBtn color="primary">Active Offers</MDBBtn>
                   </MDBNavLink>
-                </MDBCol>
+                {/* </MDBCol> */}
               </MDBRow>
             </MDBCard>
           </MDBCol>
         </MDBRow>
         <UserProfilePastOffers />
-        <MDBNavLink to="/pastOffers">
-          <div className="seemore">
-            <font color="#EFBAED">See More</font>
-          </div>
+        <MDBNavLink className="seeMoreLink" to="/pastOffers">
+          <MDBBtn color="primary" className="seemore">
+            See More
+          </MDBBtn>
         </MDBNavLink>
       </MDBContainer>
     </div>
