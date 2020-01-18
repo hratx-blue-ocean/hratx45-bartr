@@ -18,13 +18,13 @@ class App extends Component {
   render() {
     return (
       <Router>
+        <PastOffersScreen />
         <Navbar />
         {/* <FeedScreen />g */}
         {/* <ItemDetailScreen /> */}
         {/* <!--<TestingScreen />  */}
         {/* <UploadItemScreen />   */}
         {/* <MakeOfferScreen /> */}
-        <PastOffersScreen />
         <Switch>
           {/* <Route exact path="/">
             <HomeScreen />
