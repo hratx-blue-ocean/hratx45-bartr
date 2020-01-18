@@ -31,27 +31,17 @@ const UserProfile = props => {
   const userInfo = useSelector(store => store.userInfo);
   const products = useSelector(store => store.products);
   const location = useSelector(store => store.location);
-  const [switch1, setSwitch1] = useState(false);
 
-  useEffect(() => {
-    if (switch1 === false) {
-      props.fetchUserInformationById(userInfo.userId);
-      props.fetchProductsByLatitudeLongitudeProximity(30.26498, -97.7466, 100);
-      setTimeout(() => setSwitch1(true), 5000);
-    }
-  }, []);
-  useEffect(() => {
-    console.log(userInfo);
-    console.log(products);
-  }, [userInfo, products]);
-
-  return switch1 === false ? (
+  return userInfo.userId === -1 ? (
     <div>
-      {/* loading <hr /> if not logged in, please login
-      <MDBNavLink to="/login">
-        <MDBBtn>Log in</MDBBtn>
-      </MDBNavLink> */}
-      <MDBSpinner crazy big />
+      You are not logged in. Please Sign up or log in.
+      <hr />
+      <MDBNavLink to="/signup">
+        <MDBBtn>Sign Up</MDBBtn>
+      </MDBNavLink>
+      <MDBNavLink to="login">
+        <MDBBtn>Log In</MDBBtn>
+      </MDBNavLink>
     </div>
   ) : (
     <div>
@@ -101,6 +91,11 @@ const UserProfile = props => {
           </MDBCol>
         </MDBRow>
         <PastOffersScreen />
+        <MDBNavLink to="/pastOffers">
+          <div className="seemore">
+            <font color="#EFBAED">See More</font>
+          </div>
+        </MDBNavLink>
       </MDBContainer>
       <h1>..........</h1>
       <h1>..........</h1>
