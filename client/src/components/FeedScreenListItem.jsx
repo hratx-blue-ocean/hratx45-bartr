@@ -32,12 +32,12 @@ const FeedScreenListItem = props =>
               textAlign: "center",
               marginTop: "5px",
               fontWeight: "bold",
-              fontSize: "1em"
+              fontSize: "1.3em"
             }}
           >
             {props.item.product_name}
           </MDBCardTitle>
-          <MDBCardText style={{ fontWeight: "100" }}>
+          <MDBCardText style={{ fontWeight: "100", height: "auto" }}>
             <MDBContainer
               style={{
                 textAlign: "center",
@@ -46,11 +46,15 @@ const FeedScreenListItem = props =>
             >
               Value: ${props.item.value.toLocaleString()}
             </MDBContainer>
-            <MDBContainer
-              style={{ color: "black", textAlign: "right", marginTop: "10%" }}
-            >
-              Available? {props.item.up_for_trade === "True" ? "Yes" : "No"}
-            </MDBContainer>
+            {props.item.up_for_trade === "True" ? (
+              <MDBContainer style={{ color: "green", textAlign: "right" }}>
+                AVAIL
+              </MDBContainer>
+            ) : (
+              <MDBContainer style={{ color: "red", textAlign: "right" }}>
+                NOT AVAIL
+              </MDBContainer>
+            )}
           </MDBCardText>
           <MDBContainer
             style={{
@@ -64,7 +68,8 @@ const FeedScreenListItem = props =>
                 color: "black",
                 padding: "0",
                 width: "auto",
-                fontSize: "x-small"
+                fontSize: "x-small",
+                marginTop: "auto"
               }}
             >
               Posted: {props.item.posted_date}

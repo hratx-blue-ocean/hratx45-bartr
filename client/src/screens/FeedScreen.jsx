@@ -14,13 +14,17 @@ class FeedScreen extends React.Component {
       productsToDisplay: [],
       productHoldWhileFiltered: [],
       input: null,
-      error: null
+      error: null,
+      userInfo: null,
+      isReady: true
     };
     this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
     this.getProducts = this.getProducts.bind(this);
     this.search = this.search.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.clearFilters = this.clearFilters.bind(this);
+    this.getUser = this.getUser.bind(this);
+    this.pageCheck = this.pageCheck.bind(this);
   }
 
   handleFilterTextChange(event) {
@@ -142,13 +146,33 @@ class FeedScreen extends React.Component {
     });
   }
 
+  getUser() {
+    this.setState({ userInfo: store.getState().userInfo });
+  }
+
+  pageCheck() {
+    if (this.state.userInfo) {
+      if (this.state.userInfo.userId > -1) {
+        this.setState({
+          isReady: true
+        });
+      } else {
+        console.log("inner if");
+        setTimeout(this.pageCheck, 1000);
+      }
+    } else {
+      setTimeout(this.pageCheck, 1000);
+    }
+  }
+
   componentDidMount() {
     this.getProducts();
-    //  setInterval(store.getState().us)
+    this.getUser();
+    // this.pageCheck();
   }
 
   render() {
-    return (
+    return this.state.isReady ? (
       <MDBContainer id="feed-screen">
         <MDBInput
           label="Search by Keyword"
@@ -203,6 +227,8 @@ class FeedScreen extends React.Component {
             : null}
         </div>
       </MDBContainer>
+    ) : (
+      <MDBContainer>Loading</MDBContainer>
     );
   }
 }
