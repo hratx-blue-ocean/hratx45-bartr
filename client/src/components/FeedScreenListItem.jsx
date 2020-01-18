@@ -32,7 +32,7 @@ const FeedScreenListItem = props =>
                 marginLeft: "10px"
               }}
             >
-              Name: {props.item.product_name}
+              {props.item.product_name}
             </MDBCardTitle>
             <MDBCardText>
               <MDBContainer>
