@@ -1,4 +1,5 @@
 const pool = require("../postgres");
+const _ = require('underscore');
 
 // --------------------------------------------------------------------------------------------------
 
@@ -80,11 +81,15 @@ const getProductsByProximityByLongLat = (
   limit = 50
 ) => {
   let sql = `
-      select b.username, a.*, c.image from
-                                          products as a,
-                                          users as b,
-                                          product_images as c
-      where a.user_id in (
+      select p.*,
+             users.latitude,
+             users.longitude,
+             users.zip_code,
+             users.username
+      from
+          products as p
+              INNER JOIN users on (users.user_id = p.user_id)
+      where p.user_id in (
           SELECT user_id
           FROM users
           WHERE ST_DWithin(
@@ -93,14 +98,23 @@ const getProductsByProximityByLongLat = (
                         ${miles} *1609,
                         false
                     )
-      )
-        and a.sold = 'False'
-        and a.public = 'True'
-        and a.user_id = b.user_id
-        and a.product_id = c.product_id
-      limit ${limit};`;
+      ) limit ${limit};`;
   return pool.query({ text: sql });
 };
+
+
+
+const addPhotosToProductRows = (rows) => {
+  return pool.query({ text: 'select * from product_images;' })
+    .then(result => {
+      for(let row of rows) {
+        row['photos'] = _.pluck(_.where(result.rows, {product_id: row['product_photo_id']}), 'image');
+      }
+      return rows;
+    })
+  
+};
+
 
 /* Add new product */
 const addNewProduct = item => {
@@ -137,7 +151,8 @@ module.exports = {
   addNewProduct,
   getProductsByPostDate,
   addNewProductPhotos,
-  getProductsUpForTrade
+  getProductsUpForTrade,
+  addPhotosToProductRows
 };
 
 // Get products, username, 1 photo
