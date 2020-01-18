@@ -57,7 +57,12 @@ const Navbar = ({ title, location }) => {
               />
             </Col>
             <Col className="center font-bold font-triple" mobile="8">
-              <img src="https://paperclip.link/data/images/misc/logo_white.png" width="75%"/>
+              <Link to="/feed">
+                <img
+                  src="https://paperclip.link/data/images/misc/logo_white.png"
+                  width="75%"
+                />
+              </Link>
             </Col>
             <Col className="pad-all margin-none center" mobile="2">
               <MDBIcon
