@@ -20,10 +20,10 @@ import '../assets/styles/theme.scss';
  */
 const TradeItem = ({
   className = '',
+  id = '',
   data,
   onClick,
   onDelete,
-  image,
   showLoc = true,
   showDel = true
 }) => {
@@ -34,12 +34,13 @@ const TradeItem = ({
     category_id,
     product_name,
     value,
-    up_for_trade
+    up_for_trade,
+    image,
+    location
   } = data;
-  const location = 'Austin, TX';
   const contentSize = showDel ? '6' : '8';
   return (
-    <Card className={className}>
+    <Card id={id} className={className}>
       <Row nopad className="pad-none">
         <Col nopad className="pad-edge-right-half" mobile="4">
           <img
