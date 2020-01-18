@@ -26,7 +26,6 @@ const UserProfile = props => {
   const userInfo = useSelector(store => store.userInfo);
   const products = useSelector(store => store.products);
   const location = useSelector(store => store.location);
-  console.log('COLLIN', props);
 
   return userInfo.user_id === -1 ? (
     <div>
