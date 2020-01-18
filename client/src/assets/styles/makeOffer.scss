@@ -1,6 +1,7 @@
 @import "./variables.scss";
 
 #makeOfferScreen {
+  color: #0f111c;
   display: flex;
   flex-direction: column;
   justify-items: center;
@@ -38,7 +39,7 @@
   }
 
   .selected {
-    outline: 3px solid #ffc793;
+    outline: 3px solid #f9d181;
   }
 
   .form-check {
@@ -53,7 +54,7 @@
 
   .selectedItemsContainer, .desiredItemContainer {
     margin: 15px 0;
-    border: 2px solid #e5eaea;
+    border: 2px solid $light-gray;
     padding: 15px;
   }
 

@@ -157,7 +157,7 @@ class MakeOfferForm extends PureComponent {
                 </MDBCard>
               </div>
               <MDBBtn
-                color="danger"
+                color="warning"
                 onClick={this.toggle}
                 className="buttonSelectItems"
               >
@@ -227,7 +227,7 @@ class MakeOfferForm extends PureComponent {
                 outline
               />
               <MDBBtn
-                color="default"
+                color="primary"
                 onClick={this.submit}
                 className="buttonSubmit"
               >

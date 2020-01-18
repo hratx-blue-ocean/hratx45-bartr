@@ -44,22 +44,22 @@ export default class UploadItemScreen extends PureComponent {
           </div>
           <div className="modalButtons">
             <Link to="/trade">
-              <MDBBtn color="default" className="modalButton">
+              <MDBBtn color="primary" className="modalButton">
                 See Your Items
               </MDBBtn>
             </Link>
             <Link to="/active-offers">
-              <MDBBtn color="default" className="modalButton">
+              <MDBBtn color="primary" className="modalButton">
                 See Your Offers
               </MDBBtn>
             </Link>
             <Link to="/profile">
-              <MDBBtn color="default" className="modalButton">
+              <MDBBtn color="primary" className="modalButton">
                 Back to Profile
               </MDBBtn>
             </Link>
             <Link to="/feed">
-              <MDBBtn color="default" className="modalButton">
+              <MDBBtn color="primary" className="modalButton">
                 Home
               </MDBBtn>
             </Link>

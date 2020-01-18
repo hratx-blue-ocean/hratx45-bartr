@@ -53,7 +53,7 @@ const Navbar = ({ title, location }) => {
               onClick={() => history.goBack()}
             />
           </Col>
-          <Col className="center font-bold font-triple" mobile="8">
+          <Col className="center font-bold font-triple" mobile="8" >
             Paperclips
           </Col>
           <Col className="pad-all margin-none center" mobile="2">

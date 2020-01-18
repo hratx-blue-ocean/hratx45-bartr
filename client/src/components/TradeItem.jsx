@@ -56,7 +56,7 @@ const TradeItem = ({
             <Col nopad className="pad-edge-top-half font-bigger" mobile="12">
               Value: {value}
             </Col>
-            {!showLoc ? (
+            {showLoc ? (
               <Col nopad className="pad-edge-top-half font-bigger" mobile="12">
                 Location: {location}
               </Col>
