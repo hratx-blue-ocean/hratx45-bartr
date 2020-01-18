@@ -74,7 +74,7 @@ const UserProfile = props => {
 
                 <MDBCol>
                   <MDBNavLink to="/uploadItem">
-                    <MDBBtn color="secondary">Upload Item</MDBBtn>
+                    <MDBBtn color="secondary">Post Item</MDBBtn>
                   </MDBNavLink>
                 </MDBCol>
 

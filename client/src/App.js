@@ -28,7 +28,6 @@ class App extends Component {
         <Switch>
           <Route exact path="/">
             <HomeScreen />
-            {/* <LoginScreen /> */}
           </Route>
           <Route exact path="/signup">
             <SignupScreen />

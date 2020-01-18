@@ -149,7 +149,6 @@ class FeedScreen extends React.Component {
   }
 
   render() {
-    console.log("GABEEEE", this.props);
     return (
       <MDBContainer id="feed-screen">
         <MDBInput
@@ -210,7 +209,10 @@ class FeedScreen extends React.Component {
 }
 
 const mapStateToProps = state => {
+<<<<<<< HEAD
+=======
   console.log("state console.log", state);
+>>>>>>> 11abe125d1cd5e17d4a3d06d1b148ab74a34eab1
   return {
     products: state.products,
     location: state.location,
