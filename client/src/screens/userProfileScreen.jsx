@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect, useSelector } from 'react-redux';
 import data from '../dummy_data/products';
+import PastOffersScreen from './PastOffersScreen';
 import {
   MDBBtn,
   MDBCard,
@@ -35,7 +36,7 @@ const UserProfile = props => {
   useEffect(() => {
     if (switch1 === false) {
       props.fetchUserInformationById(userInfo.userId);
-      props.fetchProductsByLatitudeLongitudeProximity(30.26498, -97.7466, 10);
+      props.fetchProductsByLatitudeLongitudeProximity(30.26498, -97.7466, 100);
       setTimeout(() => setSwitch1(true), 5000);
     }
   }, []);
@@ -99,22 +100,7 @@ const UserProfile = props => {
             </MDBCard>
           </MDBCol>
         </MDBRow>
-        <MDBContainer>
-          <MDBCard>
-            <MDBCollapseHeader tag="h4">Completed Barters</MDBCollapseHeader>
-            <MDBCollapse id="collapse2" isOpen={true}>
-              <MDBCardBody>
-                <div>
-                  You traded a paperclip for a house
-                  <hr />
-                  You traded a laptop for a used laptop
-                  <hr />
-                  You traded a pizza for a pineapple
-                </div>
-              </MDBCardBody>
-            </MDBCollapse>
-          </MDBCard>
-        </MDBContainer>
+        <PastOffersScreen />
       </MDBContainer>
       <h1>..........</h1>
       <h1>..........</h1>
