@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   MDBBtn,
   MDBContainer,
@@ -7,20 +7,20 @@ import {
   MDBCard,
   MDBCardBody,
   MDBCol
-} from 'mdbreact';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
+} from "mdbreact";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 class SignupScreen extends Component {
   constructor() {
     super();
     this.state = {
-      firstName: '',
-      lastName: '',
-      username: '',
-      password: '',
-      email: '',
-      zipcode: '',
+      firstName: "",
+      lastName: "",
+      username: "",
+      password: "",
+      email: "",
+      zipcode: "",
       image: null
     };
 
@@ -94,32 +94,27 @@ class SignupScreen extends Component {
 
   uploadHandler(e) {
     let image = e;
-    this.setState(
-      {
-        image: image
-      },
-      () => {
-        console.log(this.state.image);
-      }
-    );
+    this.setState({
+      image: image
+    });
   }
 
   submit() {
     let data = new FormData();
 
-    data.append('first name', this.state.firstName);
-    data.append('last name', this.state.lastName);
-    data.append('username', this.state.username);
-    data.append('password', this.state.password);
-    data.append('email', this.state.email);
-    data.append('city', this.state.city);
-    data.append('state', this.state.state);
-    data.append('zipcode', this.state.zipcode);
-    data.append('image', this.state.image, this.state.image.name);
+    data.append("first name", this.state.firstName);
+    data.append("last name", this.state.lastName);
+    data.append("username", this.state.username);
+    data.append("password", this.state.password);
+    data.append("email", this.state.email);
+    data.append("city", this.state.city);
+    data.append("state", this.state.state);
+    data.append("zipcode", this.state.zipcode);
+    data.append("image", this.state.image, this.state.image.name);
 
     axios
-      .post('http://localhost:3000/api/users/signup', data, {
-        headers: { 'Content-Type': 'multipart/form-data' }
+      .post("http://localhost:3000/api/users/signup", data, {
+        headers: { "Content-Type": "multipart/form-data" }
       })
       .then(result => console.log(result))
       .catch(error => console.log(error));
