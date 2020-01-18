@@ -17,6 +17,7 @@ import {
   MDBListGroupItem,
   MDBNavLink
 } from "mdbreact";
+import { fetchUserInformationById } from "../actions/userActions";
 //author -- Matt Lucas
 
 const UserProfile = props => {
@@ -24,12 +25,25 @@ const UserProfile = props => {
   const products = useSelector(store => store.products);
   const location = useSelector(store => store.location);
   const [collapse2, setCollapse2] = useState(false);
+  const [switch1, setSwitch1] = useState(false);
 
-  useEffect(() => props.fetchUserInformationById(userInfo.userId), [
-    userInfo.userId
-  ]);
-  return userInfo.userId === -1 ? (
-    <MDBNavLink to="/login"></MDBNavLink>
+  useEffect(() => {
+    if (switch1 === false) {
+      props.fetchUserInformationById(userInfo.userId);
+      setTimeout(() => setSwitch1(true), 1000);
+    }
+  }, []);
+  useEffect(() => {
+    console.log(userInfo);
+  }, [userInfo]);
+
+  return switch1 === false ? (
+    <div>
+      loading <hr /> if not logged in, please login
+      <MDBNavLink to="/login">
+        <MDBBtn>Log in</MDBBtn>
+      </MDBNavLink>
+    </div>
   ) : (
     <MDBContainer>
       <MDBRow>
@@ -42,7 +56,7 @@ const UserProfile = props => {
               <MDBRow>
                 <MDBCol md="12" className="col-test">
                   <MDBCardImage
-                    src="https://ca.slack-edge.com/T2SVC7RB3-ULBGPCN2Y-ba2e48877a9b-512"
+                    // src={`${userInfo.rows[0].image}`}
                     className="img-fluid img-thumbnail rounded mx-auto d-block"
                   />
                 </MDBCol>
