@@ -69,7 +69,9 @@ const FeedScreenListItem = props =>
                 padding: "0",
                 width: "auto",
                 fontSize: "x-small",
-                marginTop: "auto"
+                marginTop: "auto",
+                marginRight: "0",
+                marginLeft: "0"
               }}
             >
               Posted: {props.item.posted_date}
