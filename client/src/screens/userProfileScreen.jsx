@@ -33,7 +33,7 @@ const UserProfile = props => {
   const location = useSelector(store => store.location);
   console.log('userInfo', userInfo);
 
-  return userInfo.userId === -1 ? (
+  return userInfo.user_id === -1 ? (
     <div>
       You are not logged in. Please Sign up or log in.
       <hr />
@@ -47,7 +47,7 @@ const UserProfile = props => {
   ) : (
     <div>
       <h2>
-        Hello {userInfo.rows[0].first_name} {userInfo.rows[0].last_name}!
+        Hello {userInfo.first_name} {userInfo.last_name}!
       </h2>
       <MDBContainer>
         <MDBRow>
@@ -55,17 +55,17 @@ const UserProfile = props => {
             <MDBCard className="my-5">
               <MDBCardImage
                 top
-                src={`${userInfo.rows[0].image}`}
+                src={`${userInfo.image}`}
                 className="img-fluid img-thumbnail rounded mx-auto d-block"
               />
               <MDBRow>
                 <MDBCol>
                   <MDBCardTitle>
-                    {userInfo.rows[0].city}, {userInfo.rows[0].state}
+                    {userInfo.city}, {userInfo.state}
                   </MDBCardTitle>
                 </MDBCol>
                 <MDBCol>
-                  <MDBCardText>{userInfo.rows[0].username}</MDBCardText>
+                  <MDBCardText>{userInfo.username}</MDBCardText>
                 </MDBCol>
               </MDBRow>
               <hr />
