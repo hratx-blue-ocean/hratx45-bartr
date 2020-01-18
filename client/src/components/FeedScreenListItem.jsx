@@ -47,9 +47,15 @@ const FeedScreenListItem = props =>
               Available? {props.item.up_for_trade === "True" ? "Yes" : "No"}
             </MDBContainer>
           </MDBCardText>
-          <Link to={`/ItemDetail/${props.item.product_id}`}>
-            <MDBBtn>View...</MDBBtn>
-          </Link>
+          <MDBContainer
+            style={{ width: "auto", marginRight: "3px", marginBottom: "5px" }}
+          >
+            <Link to={`/ItemDetail/${props.item.product_id}`}>
+              <MDBBtn style={{ width: "100%", justifyContent: "center" }}>
+                View Item...
+              </MDBBtn>
+            </Link>
+          </MDBContainer>
         </MDBCard>
       </MDBCardBody>
     </MDBContainer>
