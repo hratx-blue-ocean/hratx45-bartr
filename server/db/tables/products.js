@@ -1,9 +1,18 @@
-const pool = require("../postgres");
+const pool = require('../postgres');
 
 /* Returns products by their id*/
 const getProductById = productId => {
   return pool.query({
     text: `select * from products where product_id = ${productId};`
+  });
+};
+
+/* Returns products matching any in a list of ids*/
+const getProductsByIdList = productIds => {
+  return pool.query({
+    text: `select * from products where product_id IN (${productIds.join(
+      ', '
+    )});`
   });
 };
 
@@ -38,7 +47,7 @@ const getProductsUpForTrade = userId => {
 /* Returns 50 products by post date */
 const getProductsByPostDate = () => {
   return pool.query({
-    text: "select * from products ORDER BY posted_date DESC LIMIT 50;"
+    text: 'select * from products ORDER BY posted_date DESC LIMIT 50;'
   });
 };
 
@@ -113,6 +122,7 @@ const addNewProductPhotos = (itemId, photoString) => {
 
 module.exports = {
   getProductById,
+  getProductsByIdList,
   getProductsByCategory,
   getProductsByUser,
   getProductsByProximityByUserId,
