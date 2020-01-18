@@ -6,7 +6,7 @@ import { MDBContainer, MDBCol, MDBRow } from 'mdbreact';
 import productDb from '../dummy_data/products';
 import Searchbar from '../components/Searchbar';
 import TradeItem from '../components/TradeItem';
-import { Grid, Row, Col } from '../components/CustomComponents';
+import { Grid, Row, Col, Link } from '../components/CustomComponents';
 import '../assets/styles/upForTradeScreen.scss';
 import '../assets/styles/theme.scss';
 
@@ -32,7 +32,9 @@ const UpForTradeScreen = () => {
           .filter(p => p.product_name.includes(searchTerm))
           .map(p => (
             <Col mobile="12" tablet="6" desktop="4">
-              <TradeItem data={p} showLoc={false} showDel={true} />
+              <Link to={`/ItemDetail/${p.product_id}`}>
+                <TradeItem data={p} showLoc={false} showDel={true} />
+              </Link>
             </Col>
           ))}
       </Row>

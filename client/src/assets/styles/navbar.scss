@@ -5,13 +5,13 @@
   z-index: 990 !important;
   bottom: 0rem !important;
   width: 100% !important;
-  height: 27rem !important;
+  height: auto !important;
   left: 0 !important;
-  padding: 1rem 0 7.5rem 0;
+  padding: 1rem 0 6.5rem 0;
   transition: transform 0.25s ease-in-out;
   transform: translateY(27rem);
   &.open-true {
-    transform: translateY(-0.5rem);
+    transform: translateY(0rem);
   }
 }
 
@@ -43,5 +43,3 @@
     display: none;
   }
 }
-
-

@@ -32,13 +32,10 @@ class MessageString extends React.Component {
   }
 
   closeMessage() {
-    this.setState(
-      {
-        messageOpen: false,
-        replyOpen: false
-      },
-      () => this.props.resetRecipientID
-    );
+    this.setState({
+      messageOpen: false,
+      replyOpen: false
+    });
   }
 
   replyToMessage() {
@@ -55,7 +52,6 @@ class MessageString extends React.Component {
 
   replyHandle(msg, recipient) {
     let arr = this.state.replies;
-    let arr2 = this.state.currString;
 
     arr.unshift({
       sender_id: this.props.currentUser,
@@ -112,32 +108,37 @@ class MessageString extends React.Component {
             {this.props.messageString[this.props.num].sender_username}
           </MDBModalHeader>
           <MDBModalBody>
-            {" "}
-            {this.state.replyOpen ? (
+            <MDBContainer style={{ overflowY: "scroll", height: "70vh" }}>
+              {this.state.replyOpen ? (
+                <MDBContainer>
+                  <ReplyMessage
+                    messageString={this.props.messageString}
+                    num={this.props.num}
+                    replyHandle={this.replyHandle}
+                    recipient={
+                      this.props.num === 0
+                        ? this.props.msg1OtherUser
+                        : this.props.msg2OtherUser
+                    }
+                  />
+                </MDBContainer>
+              ) : null}
               <MDBContainer>
-                <ReplyMessage
-                  messageString={this.props.messageString}
-                  num={this.props.num}
-                  replyHandle={this.replyHandle}
-                  recipient={
-                    this.props.num === 0
-                      ? this.props.msg1OtherUser
-                      : this.props.msg2OtherUser
-                  }
-                />
+                {this.state.currString
+                  ? this.state.currString.map((message, key) => (
+                      <Message
+                        key={key}
+                        message={message}
+                        num={this.props.num}
+                      />
+                    ))
+                  : null}
+                {this.state.replies
+                  ? this.state.replies.map((message, key) => (
+                      <Message key={key} message={message} />
+                    ))
+                  : null}
               </MDBContainer>
-            ) : null}
-            <MDBContainer>
-              {this.state.currString
-                ? this.state.currString.map((message, key) => (
-                    <Message key={key} message={message} num={this.props.num} />
-                  ))
-                : null}
-              {this.state.replies
-                ? this.state.replies.map((message, key) => (
-                    <Message key={key} message={message} />
-                  ))
-                : null}
             </MDBContainer>
           </MDBModalBody>
           <MDBModalFooter>

@@ -8,8 +8,8 @@ import {
 
 const FeedScreenDropDown = props => (
   <MDBDropdown>
-    <MDBDropdownToggle caret color="primary">
-      Filter by...
+    <MDBDropdownToggle caret color="primary" style={{ width: "auto" }}>
+      Filter
     </MDBDropdownToggle>
     <MDBDropdownMenu basic>
       <MDBDropdownItem

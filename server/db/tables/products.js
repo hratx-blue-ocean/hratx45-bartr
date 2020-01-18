@@ -1,4 +1,5 @@
-const pool = require('../postgres');
+const pool = require("../postgres");
+const _ = require('underscore');
 
 // --------------------------------------------------------------------------------------------------
 
@@ -6,15 +7,6 @@ const pool = require('../postgres');
 const getProductById = productId => {
   return pool.query({
     text: `select * from products where product_id = ${productId};`
-  });
-};
-
-/* Returns products matching any in a list of ids*/
-const getProductsByIdList = productIds => {
-  return pool.query({
-    text: `select * from products where product_id IN (${productIds.join(
-      ', '
-    )});`
   });
 };
 
@@ -50,7 +42,7 @@ const getProductsUpForTrade = userId => {
 /* Returns 50 products by post date */
 const getProductsByPostDate = () => {
   return pool.query({
-    text: 'select * from products ORDER BY posted_date DESC LIMIT 50;'
+    text: "select * from products ORDER BY posted_date DESC LIMIT 50;"
   });
 };
 
@@ -89,11 +81,15 @@ const getProductsByProximityByLongLat = (
   limit = 50
 ) => {
   let sql = `
-      select b.username, a.*, c.image from
-                                          products as a,
-                                          users as b,
-                                          product_images as c
-      where a.user_id in (
+      select p.*,
+             users.latitude,
+             users.longitude,
+             users.zip_code,
+             users.username
+      from
+          products as p
+              INNER JOIN users on (users.user_id = p.user_id)
+      where p.user_id in (
           SELECT user_id
           FROM users
           WHERE ST_DWithin(
@@ -102,30 +98,40 @@ const getProductsByProximityByLongLat = (
                         ${miles} *1609,
                         false
                     )
-      )
-        and a.sold = 'False'
-        and a.public = 'True'
-        and a.user_id = b.user_id
-        and a.product_id = c.product_id
-      limit ${limit};`;
+      ) limit ${limit};`;
   return pool.query({ text: sql });
 };
 
+
+
+const addPhotosToProductRows = (rows) => {
+  return pool.query({ text: 'select * from product_images;' })
+    .then(result => {
+      for(let row of rows) {
+        row['photos'] = _.pluck(_.where(result.rows, {product_id: row['product_photo_id']}), 'image');
+      }
+      return rows;
+    })
+  
+};
+
+
 /* Add new product */
-const addNewProduct = (id, item) => {
-  let sql = `INSERT INTO products (product_id, product_photo_id, user_id, product_name, product_description, value, up_for_trade, sold, posted_date)
-   VALUES (${id}, ${id}, ${item.owner_id}, '${item.name}', '${item.description}', '${item.value}',
-   'TRUE', 'FALSE', '${item.date}') RETURNING product_id;`;
+const addNewProduct = item => {
+  let sql = `INSERT INTO products (user_id, product_name, product_description, value, up_for_trade, sold, posted_date)
+   VALUES (${item.owner_id}, '${item.name}', '${item.description}', '${item.value}',
+   'TRUE', 'FALSE', '${item.date}');`;
   return pool.query({ text: sql });
 };
 
 /* Add new product photos */
-const addNewProductPhotos = (itemId, imagePath) => {
-  let sql = `INSERT INTO product_images(product_id, image) VALUES (${itemId}, '${imagePath}')`;
+const addNewProductPhotos = (itemId, photoString) => {
+  let sql = `INSERT INTO product_images(product_id, image) VALUES (${itemId}, '${photoString}')`;
   return pool.query({ text: sql });
 };
 
-const getProductPhotosByProductId = productId => {
+
+const getProductPhotosByProductId = (productId) => {
   return pool.query({
     text: `select * from product_images where product_id = (
         select product_photo_id from products where product_id = ${productId}
@@ -134,15 +140,8 @@ const getProductPhotosByProductId = productId => {
   });
 };
 
-const getCurrentMaxId = () => {
-  return pool.query({
-    text: `select product_id from products ORDER BY product_id DESC LIMIT 1`
-  });
-};
-
 module.exports = {
   getProductById,
-  getProductsByIdList,
   getProductsByCategory,
   getProductsByUser,
   getProductsByProximityByUserId,
@@ -153,7 +152,7 @@ module.exports = {
   getProductsByPostDate,
   addNewProductPhotos,
   getProductsUpForTrade,
-  getCurrentMaxId
+  addPhotosToProductRows
 };
 
 // Get products, username, 1 photo

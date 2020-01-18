@@ -1,11 +1,11 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent } from 'react';
 import {
   MDBContainer,
   MDBCarouselItem,
   MDBCarousel,
   MDBCarouselInner,
   MDBView
-} from "mdbreact";
+} from 'mdbreact';
 
 export default class ItemDetailPicture extends PureComponent {
   constructor(props) {
