@@ -32,13 +32,10 @@ class MessageString extends React.Component {
   }
 
   closeMessage() {
-    this.setState(
-      {
-        messageOpen: false,
-        replyOpen: false
-      },
-      () => this.props.resetRecipientID
-    );
+    this.setState({
+      messageOpen: false,
+      replyOpen: false
+    });
   }
 
   replyToMessage() {
@@ -55,7 +52,6 @@ class MessageString extends React.Component {
 
   replyHandle(msg, recipient) {
     let arr = this.state.replies;
-    let arr2 = this.state.currString;
 
     arr.unshift({
       sender_id: this.props.currentUser,
