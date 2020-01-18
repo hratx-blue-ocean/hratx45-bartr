@@ -53,7 +53,10 @@ class Messages extends React.Component {
     return (
       <MDBContainer id="message-screen">
         <MDBContainer style={{ textAlign: "center" }}>Inbox</MDBContainer>
-        <MDBContainer id="messageScreenListOfMessagesContainer">
+        <MDBContainer
+          id="messageScreenListOfMessagesContainer"
+          style={{ marginTop: "-5px" }}
+        >
           {this.state.messageStrings
             ? this.state.messageStrings.map((messageString, key) => (
                 <MDBContainer key={key}>
