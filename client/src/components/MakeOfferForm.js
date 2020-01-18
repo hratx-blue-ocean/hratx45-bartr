@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent } from 'react';
 import {
   MDBContainer,
   MDBBtn,
@@ -9,32 +9,32 @@ import {
   MDBModalFooter,
   MDBCard,
   MDBCardTitle
-} from "mdbreact";
+} from 'mdbreact';
 
-import TradeItem from "./TradeItem";
+import TradeItem from './TradeItem';
 
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
-import "../assets/styles/makeOfferForm.scss";
+import '../assets/styles/makeOfferForm.scss';
 
 const getDate = () => {
   let dt = new Date();
   return `${dt
     .getFullYear()
     .toString()
-    .padStart(4, "0")}-${(dt.getMonth() + 1).toString().padStart(2, "0")}-${dt
+    .padStart(4, '0')}-${(dt.getMonth() + 1).toString().padStart(2, '0')}-${dt
     .getDate()
     .toString()
-    .padStart(2, "0")} ${dt
+    .padStart(2, '0')} ${dt
     .getHours()
     .toString()
-    .padStart(2, "0")}:${dt
+    .padStart(2, '0')}:${dt
     .getMinutes()
     .toString()
-    .padStart(2, "0")}:${dt
+    .padStart(2, '0')}:${dt
     .getSeconds()
     .toString()
-    .padStart(2, "0")}`;
+    .padStart(2, '0')}`;
 };
 
 class MakeOfferForm extends PureComponent {
@@ -46,32 +46,32 @@ class MakeOfferForm extends PureComponent {
       availableItems: [
         {
           id: 1,
-          product_name: "One paperclip",
+          product_name: 'One paperclip',
           value: 936,
           image:
-            "https://a.1stdibscdn.com/tiffany-co-paper-clip-14k-yellow-gold-vintage-fine-jewelry-money-mens-jewelry-for-sale/1121189/j_71011511563797289160/7101151_master.jpg",
+            'https://a.1stdibscdn.com/tiffany-co-paper-clip-14k-yellow-gold-vintage-fine-jewelry-money-mens-jewelry-for-sale/1121189/j_71011511563797289160/7101151_master.jpg',
           selected: false
         },
         {
           id: 2,
-          product_name: "Rare antique cute baby doll",
+          product_name: 'Rare antique cute baby doll',
           value: 3,
           image:
-            "http://crazysven.com/wp/wp-content/uploads/yapb_cache/weird_antiques_kewpie_lamp.bsn7luzlsw004wkc4cc0sw8co.6ylu316ao144c8c4woosog48w.th.JPG",
+            'http://crazysven.com/wp/wp-content/uploads/yapb_cache/weird_antiques_kewpie_lamp.bsn7luzlsw004wkc4cc0sw8co.6ylu316ao144c8c4woosog48w.th.JPG',
           selected: false
         },
         {
           id: 3,
-          product_name: "Nicholas Cage Christmas ornament",
+          product_name: 'Nicholas Cage Christmas ornament',
           value: 10000,
           image:
-            "https://i.etsystatic.com/18008672/r/il/5dd61b/2089294108/il_1588xN.2089294108_m951.jpg",
+            'https://i.etsystatic.com/18008672/r/il/5dd61b/2089294108/il_1588xN.2089294108_m951.jpg',
           selected: false
         }
       ],
       indexMap: { 1: 0, 2: 1, 3: 2 },
       selectedItems: [],
-      message: ""
+      message: ''
     };
 
     this.toggle = this.toggle.bind(this);
@@ -111,13 +111,13 @@ class MakeOfferForm extends PureComponent {
     let data = new FormData();
     let ids = this.state.selectedItems.map(item => item.id);
 
-    data.append("offer_made_date", getDate());
-    data.append("offer_closed_date", null);
-    data.append("offerer_id", this.props.userId);
-    data.append("offeree_id", this.props.itemDetails.owner_id);
-    data.append("desired_product_id", this.props.productId);
-    data.append("message", this.state.message);
-    ids.forEach(id => data.append("offered_product_id", id));
+    data.append('offer_made_date', getDate());
+    data.append('offer_closed_date', null);
+    data.append('offerer_id', this.props.userId);
+    data.append('offeree_id', this.props.itemDetails.owner_id);
+    data.append('desired_product_id', this.props.productId);
+    data.append('message', this.state.message);
+    ids.forEach(id => data.append('offered_product_id', id));
 
     //axios post request
 
@@ -131,20 +131,19 @@ class MakeOfferForm extends PureComponent {
           <MDBContainer>
             <MDBCard className="makeOfferFormCard">
               <div className="desiredItemContainer">
-              <h3 className="sectionTitle">Item you've chosen: </h3>
+                <h3 className="sectionTitle">Item you've chosen: </h3>
                 <MDBCard className="desiredItem">
-                  
                   {this.props.itemDetails.photos &&
                   this.props.itemDetails.photos.length > 0 ? (
                     <div className="desiredItemImage">
                       <img
-                        src={this.props.itemDetails.photos[0] || ""}
+                        src={this.props.itemDetails.photos[0] || ''}
                         width="60px"
                         height="60px"
                       />
                     </div>
                   ) : (
-                    ""
+                    ''
                   )}
                   <div className="desiredItemInfo">
                     <h4 className="desiredItemName">
@@ -163,21 +162,41 @@ class MakeOfferForm extends PureComponent {
               >
                 Select Item(s) To Offer
               </MDBBtn>
-              <MDBModal isOpen={this.state.modalOpen} toggle={this.toggle}>
+              <MDBModal
+                isOpen={this.state.modalOpen}
+                toggle={this.toggle}
+                size="fluid"
+                className="selectionModal"
+              >
                 <MDBModalHeader>Your Items</MDBModalHeader>
                 <MDBModalBody>
                   <ul>
-                    {this.state.availableItems.map((item, index) => (
-                      <li
-                        onClick={this.handleClick}
-                        className={
-                          item.selected ? "oneItem selected" : "oneItem"
-                        }
-                        id={item.id}
-                        key={index}
-                      >
-                        <TradeItem data={item} showLoc={false} showDel={false}/>
-                        {/* <div className="itemContainer">
+                    {this.state.availableItems.map(
+                      (item, index, availableItems) => (
+                        <li
+                          onClick={this.handleClick}
+                          className={
+                            item.selected
+                              ? index === 0
+                                ? 'oneItem selected first'
+                                : index === availableItems.length - 1
+                                ? 'oneItem selected last'
+                                : 'oneItem selected'
+                              : index === 0
+                              ? 'oneItem first'
+                              : index === availableItems.length - 1
+                              ? 'oneItem  last'
+                              : 'oneItem'
+                          }
+                          id={item.id}
+                          key={index}
+                        >
+                          <TradeItem
+                            data={item}
+                            showLoc={false}
+                            showDel={false}
+                          />
+                          {/* <div className="itemContainer">
                           <div className="itemImage">
                             <img width="100px" src={item.image} />
                           </div>
@@ -188,8 +207,9 @@ class MakeOfferForm extends PureComponent {
                             </p>
                           </div>
                         </div> */}
-                      </li>
-                    ))}
+                        </li>
+                      )
+                    )}
                   </ul>
                 </MDBModalBody>
                 <MDBModalFooter>
@@ -207,7 +227,9 @@ class MakeOfferForm extends PureComponent {
                         <img src={item.image} width="50px" height="50px" />
                       </div>
                       <div className="selectedItemInfo">
-                        <h4 className="selectedItemName">{item.product_name}</h4>
+                        <h4 className="selectedItemName">
+                          {item.product_name}
+                        </h4>
                         <h4 className="selectedItemName">
                           Value: <span>{item.value}</span>
                         </h4>

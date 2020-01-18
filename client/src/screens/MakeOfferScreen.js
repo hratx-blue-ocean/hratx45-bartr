@@ -40,7 +40,7 @@ class MakeOfferScreen extends PureComponent {
           <MakeOfferForm toggleConfirmationModal={this.toggleConfirmation} />
           <MDBModal
             isOpen={this.state.modalOpen}
-            toggle={this.toggle}
+            toggle={this.toggleConfirmation}
             size="fluid"
             centered
             className="confirmationModal"

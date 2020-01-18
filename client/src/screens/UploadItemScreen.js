@@ -34,7 +34,7 @@ export default class UploadItemScreen extends PureComponent {
         <UploadItemForm toggleConfirmationModal={this.toggleConfirmation} />
         <MDBModal
           isOpen={this.state.modalOpen}
-          toggle={this.toggle}
+          toggle={this.toggleConfirmation}
           size="fluid"
           centered
           className="confirmationModal"
@@ -44,22 +44,22 @@ export default class UploadItemScreen extends PureComponent {
           </div>
           <div className="modalButtons">
             <Link to="/trade">
-              <MDBBtn color="primary" className="modalButton">
+              <MDBBtn color="default" className="modalButton">
                 See Your Items
               </MDBBtn>
             </Link>
             <Link to="/active-offers">
-              <MDBBtn color="primary" className="modalButton">
+              <MDBBtn color="default" className="modalButton">
                 See Your Offers
               </MDBBtn>
             </Link>
             <Link to="/profile">
-              <MDBBtn color="primary" className="modalButton">
+              <MDBBtn color="default" className="modalButton">
                 Back to Profile
               </MDBBtn>
             </Link>
             <Link to="/feed">
-              <MDBBtn color="primary" className="modalButton">
+              <MDBBtn color="default" className="modalButton">
                 Home
               </MDBBtn>
             </Link>

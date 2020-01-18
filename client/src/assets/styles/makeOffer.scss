@@ -35,7 +35,19 @@
   }
 
   .oneItem {
-    margin-bottom: 10px;
+    margin: 20px auto;
+  }
+
+  .oneItem.first {
+    margin-top: 10px;
+  }
+
+  .oneItem.last {
+    margin-bottom: 0px;
+  }
+
+  .container-fluid {
+    height: 100px;
   }
 
   .selected {
@@ -67,6 +79,15 @@
     border-bottom: 1px solid $light-gray;
   }
 
+  .selectionModal {
+    height: 75vh;
+    overflow: scroll;
+  }
+
+  .modal-title {
+    font-size: 1.75rem;
+  }
+
   //   .selectedItemInfo {
   //     display: flex;
   //     flex-
@@ -96,7 +117,7 @@
     margin: 5px auto;
   }
 
-  .modal-content {
+  .confirmationModal .modal-content {
     height: 50vh;
     padding: 15px;
     display: grid;
@@ -104,20 +125,20 @@
     grid-row-gap: 2.5rem;
   }
 
-  .modalTitle {
+  .confirmationModal .modalTitle {
     display: flex;
     justify-content: center;
     align-items: flex-end;
   }
 
-  .modalButtons {
+  .confirmationModal .modalButtons {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
   }
 
-  .modalButton {
+  .confirmationModal .modalButton {
     margin: 5px auto;
   }
 }
