@@ -1,5 +1,5 @@
 const pool = require("../postgres");
-const _ = require('underscore');
+const _ = require("underscore");
 
 // --------------------------------------------------------------------------------------------------
 
@@ -28,6 +28,13 @@ const getProductsByCategory = categoryId => {
 const getProductsByUser = userId => {
   return pool.query({
     text: `select * from products where user_id = ${userId};`
+  });
+};
+
+const getProductsByIdList = idList => {
+  if (idList.length === 0) return Promise.resolve({ rows: [] });
+  return pool.query({
+    text: `SELECT * FROM products WHERE product_id IN (${idList.join(", ")})`
   });
 };
 
@@ -102,19 +109,17 @@ const getProductsByProximityByLongLat = (
   return pool.query({ text: sql });
 };
 
-
-
-const addPhotosToProductRows = (rows) => {
-  return pool.query({ text: 'select * from product_images;' })
-    .then(result => {
-      for(let row of rows) {
-        row['photos'] = _.pluck(_.where(result.rows, {product_id: row['product_photo_id']}), 'image');
-      }
-      return rows;
-    })
-  
+const addPhotosToProductRows = rows => {
+  return pool.query({ text: "select * from product_images;" }).then(result => {
+    for (let row of rows) {
+      row["photos"] = _.pluck(
+        _.where(result.rows, { product_id: row["product_photo_id"] }),
+        "image"
+      );
+    }
+    return rows;
+  });
 };
-
 
 /* Add new product */
 const addNewProduct = item => {
@@ -130,8 +135,7 @@ const addNewProductPhotos = (itemId, photoString) => {
   return pool.query({ text: sql });
 };
 
-
-const getProductPhotosByProductId = (productId) => {
+const getProductPhotosByProductId = productId => {
   return pool.query({
     text: `select * from product_images where product_id = (
         select product_photo_id from products where product_id = ${productId}
@@ -152,7 +156,8 @@ module.exports = {
   getProductsByPostDate,
   addNewProductPhotos,
   getProductsUpForTrade,
-  addPhotosToProductRows
+  addPhotosToProductRows,
+  getProductsByIdList
 };
 
 // Get products, username, 1 photo
