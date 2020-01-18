@@ -1,111 +1,116 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect, useSelector } from 'react-redux';
 import data from '../dummy_data/products';
+import PastOffersScreen from './PastOffersScreen';
 import {
-	MDBBtn,
-	MDBCard,
-	MDBCardBody,
-	MDBCardImage,
-	MDBCardTitle,
-	MDBCardText,
-	MDBRow,
-	MDBCol,
-	MDBContainer,
-	MDBCollapse,
-	MDBCollapseHeader,
-	MDBListGroup,
-	MDBListGroupItem,
-	MDBNavLink
+  MDBBtn,
+  MDBCard,
+  MDBCardBody,
+  MDBCardImage,
+  MDBCardTitle,
+  MDBCardText,
+  MDBRow,
+  MDBCol,
+  MDBContainer,
+  MDBCollapse,
+  MDBCollapseHeader,
+  MDBListGroup,
+  MDBListGroupItem,
+  MDBNavLink,
+  MDBSpinner
 } from 'mdbreact';
-//author -- Matt Lucas
+import {
+  fetchProductsTest,
+  fetchProductsByLatitudeLongitudeProximity
+} from '../actions/productsActions';
+import { fetchUserInformationById } from '../actions/userActions';
+import '../assets/styles/UserProfileScreen.scss';
+import { store } from '../index';
 
-const UserProfile = ({}) => {
-	const userInfo = useSelector(store => store.userInfo);
-	const products = useSelector(store => store.products);
-	const location = useSelector(store => store.location);
-	const [collapse2, setCollapse2] = useState(false);
-	return (
-		<MDBContainer>
-			<MDBRow>
-				<MDBCol className="col-test"></MDBCol>
-			</MDBRow>
-			<MDBRow>
-				<MDBCol className="col-test">
-					<MDBCard>
-						<MDBContainer className="col-test">
-							<MDBRow>
-								<MDBCol md="12" className="col-test">
-									<MDBCardImage
-										src="https://ca.slack-edge.com/T2SVC7RB3-ULBGPCN2Y-ba2e48877a9b-512"
-										className="img-fluid img-thumbnail rounded mx-auto d-block"
-									/>
-								</MDBCol>
-							</MDBRow>
-							<MDBRow>
-								<MDBCol className="col-test">
-									<MDBCardTitle>Austin, TX</MDBCardTitle>
-								</MDBCol>
-							</MDBRow>
-							<MDBRow>
-								<MDBCol className="col-test">
-									<MDBCardText>Arohan Dutt</MDBCardText>
-								</MDBCol>
-							</MDBRow>
-							<hr />
-							<MDBRow>
-								<MDBCol className="col-test">
-									<MDBNavLink to="/trade">
-										<MDBBtn>Your Items</MDBBtn>
-									</MDBNavLink>
-								</MDBCol>
-								<MDBCol className="col-test">
-									<MDBNavLink to="/active-offers">
-										<MDBBtn>Active Offers</MDBBtn>
-									</MDBNavLink>
-								</MDBCol>
-							</MDBRow>
-						</MDBContainer>
-					</MDBCard>
-				</MDBCol>
-			</MDBRow>
-			<MDBRow>
-				<MDBCol className="text-center">
-					<MDBNavLink to="/uploadItem">
-						<MDBBtn>Upload an Item</MDBBtn>
-					</MDBNavLink>
-				</MDBCol>
-			</MDBRow>
-			<MDBContainer>
-				<MDBCard>
-					<MDBCollapseHeader
-						onClick={() => setCollapse2(collapse2 === false ? true : false)}
-						tag="h4"
-					>
-						Completed Barters
-					</MDBCollapseHeader>
-					<MDBCollapse id="collapse2" isOpen={collapse2}>
-						<MDBCardBody>
-							<div>
-								You traded a paperclip for a house
-								<hr />
-								You traded a laptop for a used laptop
-								<hr />
-								You traded a pizza for a pineapple
-							</div>
-						</MDBCardBody>
-					</MDBCollapse>
-				</MDBCard>
-			</MDBContainer>
-		</MDBContainer>
-	);
+const UserProfile = props => {
+  const userInfo = useSelector(store => store.userInfo);
+  const products = useSelector(store => store.products);
+  const location = useSelector(store => store.location);
+  console.log('userInfo', userInfo);
+
+  return userInfo.user_id === -1 ? (
+    <div>
+      You are not logged in. Please Sign up or log in.
+      <hr />
+      <MDBNavLink to="/signup">
+        <MDBBtn>Sign Up</MDBBtn>
+      </MDBNavLink>
+      <MDBNavLink to="login">
+        <MDBBtn>Log In</MDBBtn>
+      </MDBNavLink>
+    </div>
+  ) : (
+    <div>
+      <h2>
+        Hello {userInfo.first_name} {userInfo.last_name}!
+      </h2>
+      <MDBContainer>
+        <MDBRow>
+          <MDBCol>
+            <MDBCard className="my-5">
+              <MDBCardImage
+                top
+                src={`${userInfo.image}`}
+                className="img-fluid img-thumbnail rounded mx-auto d-block"
+              />
+              <MDBRow>
+                <MDBCol>
+                  <MDBCardTitle>
+                    {userInfo.city}, {userInfo.state}
+                  </MDBCardTitle>
+                </MDBCol>
+                <MDBCol>
+                  <MDBCardText>{userInfo.username}</MDBCardText>
+                </MDBCol>
+              </MDBRow>
+              <hr />
+              <MDBRow>
+                <MDBCol>
+                  <MDBNavLink to="/trade">
+                    <MDBBtn>Your Items</MDBBtn>
+                  </MDBNavLink>
+                </MDBCol>
+
+                <MDBCol>
+                  <MDBNavLink to="/uploadItem">
+                    <MDBBtn color="secondary">Upload Item</MDBBtn>
+                  </MDBNavLink>
+                </MDBCol>
+
+                <MDBCol>
+                  <MDBNavLink to="/active-offers">
+                    <MDBBtn>Active Offers</MDBBtn>
+                  </MDBNavLink>
+                </MDBCol>
+              </MDBRow>
+            </MDBCard>
+          </MDBCol>
+        </MDBRow>
+        <PastOffersScreen />
+        <MDBNavLink to="/pastOffers">
+          <div className="seemore">
+            <font color="#EFBAED">See More</font>
+          </div>
+        </MDBNavLink>
+      </MDBContainer>
+    </div>
+  );
 };
-export default UserProfile;
-// const mapStateToProps = state => {
-//   return {
-//     products: state.products,
-//     location: state.location,
-//     userInfo: state.userInfo
-//   };
-// };
 
-// export default connect(mapStateToProps, {})(UserProfile);
+const mapStateToProps = state => {
+  return {
+    products: state.products,
+    location: state.location,
+    userInfo: state.userInfo
+  };
+};
+
+export default connect(mapStateToProps, {
+  fetchUserInformationById,
+  fetchProductsByLatitudeLongitudeProximity
+})(UserProfile);

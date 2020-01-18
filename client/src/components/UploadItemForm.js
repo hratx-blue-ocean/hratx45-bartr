@@ -10,7 +10,7 @@ import {
   MDBCardTitle,
   MDBCardBody
 } from "mdbreact";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 const getDate = () => {
@@ -46,7 +46,7 @@ export default class UploadItemForm extends PureComponent {
       fileList: []
     };
 
-   this.handleNameInput = this.handleNameInput.bind(this);
+    this.handleNameInput = this.handleNameInput.bind(this);
     this.handleValueInput = this.handleValueInput.bind(this);
     this.handleDescriptionInput = this.handleDescriptionInput.bind(this);
     this.handleDesiredTradeInput = this.handleDesiredTradeInput.bind(this);
@@ -98,7 +98,7 @@ export default class UploadItemForm extends PureComponent {
     this.state.fileList.forEach(file => data.append("image", file, file.name));
 
     axios
-      .post("http://localhost:3000/api/productsNew/product", data, {
+      .post("https://paperclip.link/api/products/product", data, {
         headers: { "Content-Type": "multipart/form-data" }
       })
       .then(result => console.log(result))
@@ -134,7 +134,7 @@ export default class UploadItemForm extends PureComponent {
                 value={this.state.description}
                 size="lg"
               />
-              <MDBInput
+              {/* <MDBInput
                 label="Desired Trade(s)"
                 onChange={this.handleDesiredTradeInput}
                 value={this.state.desiredTrade}
@@ -145,16 +145,16 @@ export default class UploadItemForm extends PureComponent {
                 onChange={this.handleTimeConstraintInput}
                 value={this.state.timeConstraints}
                 size="lg"
-              />
+              /> */}
               <MDBFileInput
                 getValue={this.handleFileInput}
                 className="imageInput"
                 btnTitle="Choose File(s)"
                 textFieldTitle="Upload Images"
-                btnColor="danger"
+                btnColor="warning"
                 multiple
               />
-              <MDBBtn onClick={this.submit}>Post Item</MDBBtn>
+              <MDBBtn color="primary" onClick={this.submit}>Post Item</MDBBtn>
               <p>* = required</p>
             </form>
           </MDBCardBody>
