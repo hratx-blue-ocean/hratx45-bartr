@@ -75,53 +75,91 @@ const Navbar = ({ title, location }) => {
             <Link
               to="/profile"
               className="margin-none pad-none color-purp-light font-double font-bold"
+              onClick={() => setOpen('false')}
             >
-              Profile
+              <Row nopad className="pad-none">
+                <Col mobile="10" nopad className="pad-none align-right">
+                  Profile
+                </Col>
+                <Col mobile="2" nopad className="pad-none align-center">
+                  <Icon icon="user" size="lg" />
+                </Col>
+              </Row>
             </Link>
           </Col>
           <Col mobile="12">
             <Link
               to="/feed"
               className="margin-none pad-none color-purp-light font-double font-bold"
+              onClick={() => {
+                setOpen('false');
+              }}
             >
-              Feed
+              <Row nopad className="pad-none">
+                <Col mobile="10" nopad className="pad-none align-right">
+                  Feed
+                </Col>
+                <Col mobile="2" nopad className="pad-none align-center">
+                  <Icon icon="rss" size="lg" />
+                </Col>
+              </Row>
             </Link>
           </Col>
           <Col mobile="12">
             <Link
               to="/messages"
               className="margin-none pad-none color-purp-light font-double font-bold"
+              onClick={() => setOpen('false')}
             >
-              Messages
+              <Row nopad className="pad-none">
+                <Col mobile="10" nopad className="pad-none align-right">
+                  Messages
+                </Col>
+                <Col mobile="2" nopad className="pad-none align-center">
+                  <Icon icon="comments" size="lg" />
+                </Col>
+              </Row>
             </Link>
           </Col>
           <Col mobile="12">
             <Link
               to="/trade"
               className="margin-none pad-none color-purp-light font-double font-bold"
+              onClick={() => setOpen('false')}
             >
-              Up For Trade
+              <Row nopad className="pad-none">
+                <Col mobile="10" nopad className="pad-none align-right">
+                  Up For Trade
+                </Col>
+                <Col mobile="2" nopad className="pad-none align-center">
+                  <Icon icon="exchange-alt" size="lg" />
+                </Col>
+              </Row>
             </Link>
           </Col>
           <Col mobile="12">
-            <Col mobile="10">
-              <Link
-                to="/active-offers"
-                className="margin-none pad-none color-purp-light font-double font-bold"
-              >
-                Active Offers
-              </Link>
-            </Col>
-            <Col mobile="2">
-              <Icon
-                icon="arrow-alt-circle-left"
-                size="2x"
-                onClick={() => history.goBack()}
-              />
-            </Col>
+            <Link
+              to="/active-offers"
+              className="margin-none pad-none color-purp-light font-double font-bold"
+              onClick={() => setOpen('false')}
+            >
+              <Row nopad className="pad-none">
+                <Col mobile="10" nopad className="pad-none align-right">
+                  Active Offers
+                </Col>
+                <Col mobile="2" nopad className="pad-none align-center">
+                  <Icon icon="fire-alt" size="lg" />
+                </Col>
+              </Row>
+            </Link>
           </Col>
         </Row>
       </Grid>
+      <div
+        id="nav-modal"
+        className={`open-${isOpen}`}
+        onClick={() => setOpen('false')}
+      />
     </>
   );
 };
