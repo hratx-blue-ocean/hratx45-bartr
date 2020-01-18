@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { MDBContainer, MDBCol, MDBRow, MDBCollapse, MDBBtn } from 'mdbreact';
-import { Grid, Col, Row, Divider } from '../components/CustomComponents';
+import {
+  Grid,
+  Col,
+  Row,
+  Divider,
+  Button
+} from '../components/CustomComponents';
 // import Navbar from '../components/Navbar';
 // import userDb from "../dummy_data/users";
 // import productDb from "../dummy_data/products";
@@ -113,16 +119,17 @@ const ActiveOffersScreen = () => {
   const user = 2;
   const other = 1;
   const [open, setOpen] = useState('');
+  const dispatch = useDispatch();
   return (
     <Grid fluid nopad id="active-offers-screen" className="pad-edge-top">
       <Row>
-        <Col className="center" mobile="12">
+        <Col className="center font-double font-bold" mobile="12">
           Active Offers
         </Col>
       </Row>
 
       <Row>
-        <Col className="center" mobile="12">
+        <Col className="center font-plus font-bold" mobile="12">
           Offers You've Made
         </Col>
       </Row>
@@ -138,7 +145,7 @@ const ActiveOffersScreen = () => {
                     <Grid>
                       <MDBBtn
                         style={{ margin: '0' }}
-                        className="pad-all-half fill"
+                        className="pad-all-half fill font-large"
                         color="default"
                         onClick={() =>
                           setOpen(
@@ -158,6 +165,30 @@ const ActiveOffersScreen = () => {
                         isOpen={open}
                       >
                         <Row key={i}>
+                          <Col
+                            className="pad-none center"
+                            mobile="12"
+                            tablet="6"
+                          >
+                            <Grid>
+                              <Divider label="Their Items" />
+                              {o.Offeree.items.map((item, i) => (
+                                <Row>
+                                  <Col nopad className="pad-edge-bottom">
+                                    <TradeItem
+                                      data={{
+                                        product_name: item.name,
+                                        value: item.value
+                                      }}
+                                      showDel={false}
+                                      onClick={() => {}}
+                                      image={item.image}
+                                    />
+                                  </Col>
+                                </Row>
+                              ))}
+                            </Grid>
+                          </Col>
                           <Col
                             className="pad-none center"
                             mobile="12"
@@ -184,8 +215,77 @@ const ActiveOffersScreen = () => {
                                   </Col>
                                 </Row>
                               ))}
+                              <Row>
+                                <Col
+                                  nopad
+                                  mobile="6"
+                                  className="pad-edge-right"
+                                >
+                                  <Button
+                                    color="green"
+                                    className="fill font-double font-bold"
+                                  >
+                                    Accept
+                                  </Button>
+                                </Col>
+                                <Col nopad mobile="6" className="pad-none">
+                                  <Button
+                                    color="danger"
+                                    className="fill font-double font-bold"
+                                  >
+                                    Reject
+                                  </Button>
+                                </Col>
+                              </Row>
                             </Grid>
                           </Col>
+                        </Row>
+                      </MDBCollapse>
+                    </Grid>
+                  </Col>
+                </Row>
+              ))}
+          </Grid>
+        </Col>
+      </Row>
+
+      <Row>
+        <Col className="center font-plus font-bold" mobile="12">
+          Offers You've Recieved
+        </Col>
+      </Row>
+
+      <Row>
+        <Col className="center" mobile="12">
+          <Grid>
+            {dummyData
+              .filter(offer => offer.Offerer.id === other)
+              .map((o, i) => (
+                <Row key={i} nopad className="pad-none">
+                  <Col nopad className="pad-edge-bottom-half" mobile="12">
+                    <Grid>
+                      <MDBBtn
+                        style={{ margin: '0' }}
+                        className="pad-all-half fill font-large"
+                        color="default"
+                        onClick={() =>
+                          setOpen(
+                            open === `collapse_theirs${i}`
+                              ? ''
+                              : `collapse_theirs${i}`
+                          )
+                        }
+                      >
+                        {`${o.Offerer.items.length} item${
+                          o.Offerer.items.length !== 1 ? 's' : ''
+                        } offered for your ${o.Offeree.items[0].name}`}
+                      </MDBBtn>
+                      <MDBCollapse
+                        className="margin-none pad-edge-top fill"
+                        id={`collapse_theirs${i}`}
+                        isOpen={open}
+                      >
+                        <Row key={i}>
                           <Col
                             className="pad-none center"
                             mobile="12"
@@ -193,7 +293,7 @@ const ActiveOffersScreen = () => {
                           >
                             <Grid>
                               <Divider label="Their Items" />
-                              {o.Offeree.items.map((item, i) => (
+                              {o.Offerer.items.map((item, i) => (
                                 <Row>
                                   <Col nopad className="pad-edge-bottom">
                                     <TradeItem
@@ -210,96 +310,54 @@ const ActiveOffersScreen = () => {
                               ))}
                             </Grid>
                           </Col>
-                        </Row>
-                      </MDBCollapse>
-                    </Grid>
-                  </Col>
-                </Row>
-              ))}
-          </Grid>
-        </Col>
-      </Row>
-
-      <Row>
-        <Col className="center" mobile="12">
-          Offers You've Recieved
-        </Col>
-      </Row>
-
-      <Row>
-        <Col className="center" mobile="12">
-          <Grid>
-            {dummyData
-              .filter(offer => offer.Offerer.id === other)
-              .map((o, i) => (
-                <Row key={i}>
-                  <Col nopad className="pad-edge-bottom-half" mobile="12">
-                    <Grid>
-                      <MDBBtn
-                        style={{ margin: '0' }}
-                        className="pad-all-half fill"
-                        onClick={() =>
-                          setOpen(
-                            open === `collapse_theirs${i}`
-                              ? ''
-                              : `collapse_theirs${i}`
-                          )
-                        }
-                      >
-                        {`${o.Offerer.items.length} item${
-                          o.Offerer.items.length !== 1 ? 's' : ''
-                        } offered for your ${o.Offeree.items[0].name}`}
-                      </MDBBtn>
-                      <MDBCollapse
-                        className="margin-none pad-none fill"
-                        id={`collapse_theirs${i}`}
-                        isOpen={open}
-                      >
-                        <Row key={i}>
                           <Col
-                            className="margin-none pad-none center"
+                            className="pad-none center"
                             mobile="12"
                             tablet="6"
                           >
                             <Grid>
-                              {o.Offerer.items.map((item, i) => (
-                                <Row>
-                                  <Col mobile="12">
-                                    <TradeItem
-                                      data={{
-                                        product_name: item.name,
-                                        value: item.value
-                                      }}
-                                      showDelete={false}
-                                      onClick={() => {}}
-                                      image={item.image}
-                                    />
-                                  </Col>
-                                </Row>
-                              ))}
-                            </Grid>
-                          </Col>
-                          <Col
-                            className="margin-none pad-none center"
-                            mobile="12"
-                            tablet="6"
-                          >
-                            <Grid>
+                              <Divider label="Your Items" />
                               {o.Offeree.items.map((item, i) => (
                                 <Row>
-                                  <Col mobile="12">
+                                  <Col
+                                    mobile="12"
+                                    nopad
+                                    className="pad-edge-bottom"
+                                  >
                                     <TradeItem
                                       data={{
                                         product_name: item.name,
                                         value: item.value
                                       }}
-                                      showDelete={false}
+                                      showDel={false}
                                       onClick={() => {}}
                                       image={item.image}
                                     />
                                   </Col>
                                 </Row>
                               ))}
+                              <Row>
+                                <Col
+                                  nopad
+                                  mobile="6"
+                                  className="pad-edge-right"
+                                >
+                                  <Button
+                                    color="green"
+                                    className="fill font-double font-bold"
+                                  >
+                                    Accept
+                                  </Button>
+                                </Col>
+                                <Col nopad mobile="6" className="pad-none">
+                                  <Button
+                                    color="danger"
+                                    className="fill font-double font-bold"
+                                  >
+                                    Reject
+                                  </Button>
+                                </Col>
+                              </Row>
                             </Grid>
                           </Col>
                         </Row>

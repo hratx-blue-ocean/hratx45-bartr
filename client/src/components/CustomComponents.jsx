@@ -1,5 +1,12 @@
 import React from 'react';
-import { MDBRow, MDBCol, MDBContainer, MDBBtn, MDBIcon } from 'mdbreact';
+import {
+  MDBRow,
+  MDBCol,
+  MDBContainer,
+  MDBBtn,
+  MDBIcon,
+  MDBLink
+} from 'mdbreact';
 import '../assets/styles/spacingHelpers.scss';
 import '../assets/styles/theme.scss';
 
@@ -7,8 +14,12 @@ import '../assets/styles/theme.scss';
  * Container for holding Row and Col tags cleanly, built upon MDBContainer
  * @param {string} className - Any custom classes to apply
  */
-export const Grid = ({ className = '', children }) => (
-  <MDBContainer fluid className={`null-space ${className}`}>
+export const Grid = ({ id = '', className = '', nopad = false, children }) => (
+  <MDBContainer
+    id={id}
+    fluid
+    className={`${nopad ? '' : 'null-space'} ${className}`}
+  >
     {children}
   </MDBContainer>
 );
@@ -18,8 +29,9 @@ export const Grid = ({ className = '', children }) => (
  * not recommended to put elements directly in Rows without Cols
  * @param {string} className - Any custom classes to apply
  */
-export const Row = ({ className = '', nopad = false, children }) => (
+export const Row = ({ id = '', className = '', nopad = false, children }) => (
   <MDBRow
+    id={id}
     className={`margin-none ${nopad ? '' : 'pad-edge-left'} ${className}`}
   >
     {children}
@@ -36,6 +48,7 @@ export const Row = ({ className = '', nopad = false, children }) => (
  * @param {number} desktop - The number of columns the element should span on desktop
  */
 export const Col = ({
+  id = '',
   className = '',
   children,
   nopad = false,
@@ -44,6 +57,7 @@ export const Col = ({
   desktop = ''
 }) => (
   <MDBCol
+    id={id}
     size={mobile}
     md={tablet}
     xl={desktop}
@@ -53,8 +67,15 @@ export const Col = ({
   </MDBCol>
 );
 
-export const Button = ({ className = '', color = '', onClick, children }) => (
+export const Button = ({
+  id = '',
+  className = '',
+  color = '',
+  onClick,
+  children
+}) => (
   <MDBBtn
+    id={id}
     className={`pad-all-half rounded ${className}`}
     color={color}
     style={{
@@ -66,8 +87,9 @@ export const Button = ({ className = '', color = '', onClick, children }) => (
   </MDBBtn>
 );
 
-export const Card = ({ className = '', children }) => (
+export const Card = ({ id = '', className = '', children }) => (
   <MDBContainer
+    id={id}
     fluid
     className={`null-space rounded shadow-static border-thin color-border-lite ${className}`}
   >
@@ -77,8 +99,13 @@ export const Card = ({ className = '', children }) => (
 
 export const Icon = props => <MDBIcon {...props} />;
 
-export const Divider = ({ className = '', nopad = false, label = '' }) => (
-  <Grid className={className}>
+export const Divider = ({
+  id = '',
+  className = '',
+  nopad = false,
+  label = ''
+}) => (
+  <Grid id={id} className={className}>
     <Row>
       <Col>
         <hr />
@@ -91,7 +118,14 @@ export const Divider = ({ className = '', nopad = false, label = '' }) => (
   </Grid>
 );
 
+export const Link = ({ id = '', className = '', to = '#', children }) => (
+  <MDBLink id={id} className={className} to={to}>
+    {children}
+  </MDBLink>
+);
+
 export const AutoGrid = ({
+  id = '',
   className = '',
   classNameCol = '',
   children,
@@ -99,7 +133,7 @@ export const AutoGrid = ({
   tablet = '',
   desktop = ''
 }) => (
-  <Grid className={className}>
+  <Grid id={id} className={className}>
     <Row>
       {children.map(child => (
         <Col

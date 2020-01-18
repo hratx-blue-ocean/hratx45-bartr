@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 import {
   MDBBtn,
   MDBRow,
@@ -17,14 +17,14 @@ import {
   MDBCardImage,
   MDBCardBody,
   MDBCardText
-} from "mdbreact";
-import ReduxThunk from "redux-thunk";
-import { connect, useSelector } from "react-redux";
-import { getLocation } from "../actions/locationActions";
+} from 'mdbreact';
+import ReduxThunk from 'redux-thunk';
+import { connect, useSelector } from 'react-redux';
+import { getLocation } from '../actions/locationActions';
 import {
   fetchProductsTest,
   fetchProductsByLatitudeLongitudeProximity
-} from "../actions/productsActions";
+} from '../actions/productsActions';
 
 const HomeScreen = props => {
   const userInfo = useSelector(store => store.userInfo);
@@ -54,10 +54,16 @@ const HomeScreen = props => {
       .then(() => setProductsFound(true));
   }, [location]);
 
-  console.log("this is products", products);
+  console.log('this is products', products);
 
   return !productsFound ? (
-    <div>loading</div>
+    <div>
+      {' '}
+      <MDBSpinner crazy />
+      <MDBSpinner crazy />
+      <MDBSpinner crazy />
+      <MDBSpinner crazy />{' '}
+    </div>
   ) : (
     <div id="home-screen">
       <MDBContainer>
