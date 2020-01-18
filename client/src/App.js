@@ -24,6 +24,7 @@ class App extends Component {
         {/* <!--<TestingScreen />  */}
         {/* <UploadItemScreen />   */}
         {/* <MakeOfferScreen /> */}
+        <PastOffersScreen />
         <Switch>
           {/* <Route exact path="/">
             <HomeScreen />
