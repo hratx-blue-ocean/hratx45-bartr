@@ -34,9 +34,20 @@ export const Grid = ({ id = "", className = "", nopad = false, children }) => (
  * @param {string} id - id of the element
  * @param {string} className - Any custom classes to apply
  */
-export const Row = ({ id = "", className = "", nopad = false, children }) => (
+export const Row = ({
+  id = "",
+  className = "",
+  nopad = false,
+  start,
+  end,
+  center,
+  children
+}) => (
   <MDBRow
     id={id}
+    start={start}
+    center={center}
+    end={end}
     className={`margin-none ${nopad ? "" : "pad-edge-left"} ${className}`}
   >
     {children}
@@ -60,13 +71,20 @@ export const Col = ({
   children,
   nopad = false,
   mobile = "",
+  bigMobile = "",
   tablet = "",
-  desktop = ""
+  bigTablet = "",
+  desktop = "",
+  center = false,
+  left = false,
+  right = false
 }) => (
   <MDBCol
     id={id}
     size={mobile}
+    sm={bigMobile}
     md={tablet}
+    lg={bigTablet}
     xl={desktop}
     className={`margin-none ${nopad ? "" : "pad-col"} ${className}`}
   >

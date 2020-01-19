@@ -287,6 +287,10 @@ $SHAD_XTRA_B: rgba(0, 0, 0, 0.25);
   }
   &-large {
     border-radius: $NORM $I;
+    &-top {
+      border-top-left-radius: $NORM $I;
+      border-top-right-radius: $NORM $I;
+    }
   }
   &-extra {
     border-radius: $PLUS $I;
@@ -322,9 +326,16 @@ $SHAD_XTRA_B: rgba(0, 0, 0, 0.25);
   }
 }
 
+.flex-end {
+  align-items: flex-end;
+}
 .align-right {
   text-align: right;
   justify-content: right;
+}
+.align-left {
+  text-align: left;
+  justify-content: left;
 }
 .align-center {
   text-align: center;
