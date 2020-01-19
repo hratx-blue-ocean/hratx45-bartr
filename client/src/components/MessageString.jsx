@@ -104,7 +104,10 @@ class MessageString extends React.Component {
       <MDBContainer id="message-string">
         <MDBModal isOpen={this.state.messageOpen}>
           <MDBModalHeader>
-            Messages with user: {this.props.messageString.sender_username}
+            Messages with user:{" "}
+            {this.props.messageString.user_one_id === this.props.currentUser
+              ? this.props.messageString.user_two_name
+              : this.props.messageString.user_one_name}
           </MDBModalHeader>
           <MDBModalBody>
             <MDBContainer style={{ overflowY: "scroll", height: "70vh" }}>
@@ -122,6 +125,7 @@ class MessageString extends React.Component {
                   ? this.state.currString.messages.map((message, key) => (
                       <Message
                         key={key}
+                        currString={this.state.currString}
                         message={message}
                         num={this.props.num}
                       />
