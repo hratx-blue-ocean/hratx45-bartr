@@ -84,7 +84,6 @@ class MessageString extends React.Component {
       .getSeconds()
       .toString()
       .padStart(2, "0")}`;
-    // ! send to db.
     Axios.post("https://paperclip.link/api/messages", {
       senderId: this.props.currentUser,
       recipientId: recipient,
@@ -157,7 +156,10 @@ class MessageString extends React.Component {
     ) : (
       <MDBContainer id="unopenedMessage" onClick={this.openMessage}>
         <MDBContainer id="innerUnopened">
-          Messages with user: {this.props.messageString.sender_username}
+          Messages with user:{" "}
+          {this.props.messageString.user_one_id === this.props.currentUser
+            ? this.props.messageString.user_two_name
+            : this.props.messageString.user_one_name}
         </MDBContainer>
       </MDBContainer>
     );

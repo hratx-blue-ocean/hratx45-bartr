@@ -15,7 +15,7 @@ class Messages extends React.Component {
 
   getUserMessageStrings() {
     Axios.get(
-      ` http://paperclip.link/api/messages/threads?userId=${this.state.currentUser}`
+      `http://paperclip.link/api/messages/threads?userId=${this.state.currentUser}`
     )
 
       .then(data => data.data)
