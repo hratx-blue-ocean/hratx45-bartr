@@ -95,7 +95,9 @@ class MessageString extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({ currString: this.props.messageString });
+    this.setState({ currString: this.props.messageString }, () =>
+      console.log(this.state.currString)
+    );
   }
 
   render() {
@@ -167,6 +169,18 @@ class MessageString extends React.Component {
           {this.props.messageString.user_one_id === this.props.currentUser
             ? this.props.messageString.user_two_name
             : this.props.messageString.user_one_name}
+          <MDBContainer
+            style={{ fontSize: "small", color: "gray", padding: 0 }}
+          >
+            <MDBContainer style={{ padding: 0 }}>
+              {this.props.messageString.messages.length > 0
+                ? `${this.props.messageString.messages[0].message.slice(
+                    0,
+                    40
+                  )}...`
+                : null}
+            </MDBContainer>
+          </MDBContainer>
         </MDBContainer>
       </MDBContainer>
     );

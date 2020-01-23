@@ -7,7 +7,9 @@
     padding: auto;
     overflow-y: scroll;
     cursor: pointer;
-    margin-top: 15px;
+    margin: 0;
+    padding: 1rem;
+
     #message-string {
       overflow-y: scroll;
       border-top: 1px solid gray;
