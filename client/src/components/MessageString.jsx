@@ -52,20 +52,20 @@ class MessageString extends React.Component {
 
   replyHandle(msg, recipient) {
     let arr = this.state.replies;
-
-    arr.unshift({
-      sender_id: this.props.currentUser,
-      recipient_id: recipient,
-      date: new Date().toJSON(),
-      message: msg,
-      sender_username: this.props.messageString[this.props.num]
-        .recipient_username,
-      recipient_username: this.props.messageString[this.props.num]
-        .sender_username
-    });
-    this.setState({
-      replies: arr
-    });
+    console.log("run");
+    // arr.unshift({
+    //   sender_id: this.props.currentUser,
+    //   recipient_id: recipient,
+    //   date: new Date().toJSON(),
+    //   message: msg,
+    //   sender_username: this.props.messageString[this.props.num]
+    //     .recipient_username,
+    //   recipient_username: this.props.messageString[this.props.num]
+    //     .sender_username
+    // });
+    // this.setState({
+    //   replies: arr
+    // });
 
     let dt = new Date();
     let dateToSend = `${dt
@@ -116,6 +116,7 @@ class MessageString extends React.Component {
                     messageString={this.props.messageString}
                     num={this.props.num}
                     replyHandle={this.replyHandle}
+                    currentUser={this.props.currentUser}
                   />
                 </MDBContainer>
               ) : null}
@@ -127,6 +128,7 @@ class MessageString extends React.Component {
                         currString={this.state.currString}
                         message={message}
                         num={this.props.num}
+                        currentUser={this.props.currentUser}
                       />
                     ))
                   : null}
