@@ -1,4 +1,15 @@
-const pool = require('../postgres');
+const pool = require("../postgres");
+
+/* Get all active offers by user id */
+const getAllOffersByUserId = userId => {
+  let sql = `
+    SELECT * FROM offers 
+    WHERE (offerer_id = $1 OR offeree_id = $1)`;
+  return pool.query({
+    text: sql,
+    values: [userId]
+  });
+};
 
 /* Get all active offers by user id */
 const getActiveOffersByUserId = userId => {
@@ -26,5 +37,6 @@ const getClosedOffersByUserId = userId => {
 
 module.exports = {
   getClosedOffersByUserId,
-  getActiveOffersByUserId
+  getActiveOffersByUserId,
+  getAllOffersByUserId
 };

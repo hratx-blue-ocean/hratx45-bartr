@@ -1,9 +1,9 @@
 // https://mdbootstrap.com/docs/react/navigation/navbar/
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { BrowserRouter as Router, useHistory } from 'react-router-dom';
-import '../assets/styles/navbar.scss';
-import '../assets/styles/theme.scss';
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { BrowserRouter as Router, useHistory } from "react-router-dom";
+import "../assets/styles/navbar.scss";
+import "../assets/styles/theme.scss";
 import {
   MDBNavbar,
   MDBNavbarBrand,
@@ -21,7 +21,7 @@ import {
   MDBDropdownItem,
   MDBDropdownToggle,
   MDBIcon
-} from 'mdbreact';
+} from "mdbreact";
 import {
   Row,
   Col,
@@ -29,22 +29,22 @@ import {
   Icon,
   Button,
   Link
-} from '../components/CustomComponents';
+} from "../components/CustomComponents";
 
-const collapseType = 'collapse2';
+const collapseType = "collapse2";
 
 const Navbar = ({ title, location }) => {
-  const [isOpen, setOpen] = useState('false');
+  const [isOpen, setOpen] = useState("false");
   const { userId } = useSelector(store => store.userInfo);
   const history = useHistory();
-  console.log('re-render, browser location: ', location);
+  console.log("re-render, browser location: ", location);
   // const newMessages = useSelector(store => store.messages).unread;
   return (
     <>
       <Grid
         id="nav-bar"
         nopad
-        className="color-purp rounded-large shadow-static-up"
+        className="color-purp rounded-large-top shadow-static-up pad-edge-top"
       >
         <Row>
           <Col className="center" mobile="2">
@@ -55,10 +55,10 @@ const Navbar = ({ title, location }) => {
             />
           </Col>
           <Col className="center font-bold font-triple" mobile="8">
-            <Link to="/" className="logoLink">
+            <Link to="/" className="logo-link pad-none">
               <img
                 src="https://paperclip.link/data/images/misc/logo_white.png"
-                width="75%"
+                className="nav-logo"
               />
             </Link>
           </Col>
@@ -66,7 +66,7 @@ const Navbar = ({ title, location }) => {
             <MDBIcon
               icon="bars"
               size="2x"
-              onClick={() => setOpen(isOpen === 'false' ? 'true' : 'false')}
+              onClick={() => setOpen(isOpen === "false" ? "true" : "false")}
             />
           </Col>
         </Row>
@@ -76,124 +76,142 @@ const Navbar = ({ title, location }) => {
         nopad
         className={`color-default rounded-large shadow-static-up open-${isOpen} color-purp-light border-thin`}
       >
-        <Row>
+        <Row center className="">
           {userId !== -1 ? (
             <>
-              <Col mobile="12">
+              <Col
+                mobile="12"
+                bigMobile="4"
+                desktop="2"
+                className="align-center"
+              >
                 <Link
-                  to="/profile"
+                  to="/f"
                   className="margin-none pad-none color-purp-light font-double font-bold"
-                  onClick={() => setOpen('false')}
+                  onClick={() => {
+                    setOpen("false");
+                  }}
                 >
-                  <Row nopad className="pad-none">
-                    <Col mobile="10" nopad className="pad-none align-right">
-                      Profile
-                    </Col>
-                    <Col mobile="2" nopad className="pad-none align-center">
-                      <Icon icon="user" size="lg" />
-                    </Col>
-                  </Row>
+                  Home
+                  <Icon icon="home" size="lg" className="pad-edge-left" />
                 </Link>
               </Col>
-              <Col mobile="12">
+              <Col
+                mobile="12"
+                bigMobile="4"
+                desktop="2"
+                className="align-center"
+              >
                 <Link
                   to="/feed"
                   className="margin-none pad-none color-purp-light font-double font-bold"
                   onClick={() => {
-                    setOpen('false');
+                    setOpen("false");
                   }}
                 >
-                  <Row nopad className="pad-none">
-                    <Col mobile="10" nopad className="pad-none align-right">
-                      Feed
-                    </Col>
-                    <Col mobile="2" nopad className="pad-none align-center">
-                      <Icon icon="rss" size="lg" />
-                    </Col>
-                  </Row>
+                  Feed
+                  <Icon icon="rss" size="lg" className="pad-edge-left" />
                 </Link>
               </Col>
-              <Col mobile="12">
+              <Col
+                mobile="12"
+                bigMobile="4"
+                desktop="2"
+                className="align-center"
+              >
                 <Link
                   to="/messages"
                   className="margin-none pad-none color-purp-light font-double font-bold"
-                  onClick={() => setOpen('false')}
+                  onClick={() => setOpen("false")}
                 >
-                  <Row nopad className="pad-none">
-                    <Col mobile="10" nopad className="pad-none align-right">
-                      Messages
-                    </Col>
-                    <Col mobile="2" nopad className="pad-none align-center">
-                      <Icon icon="comments" size="lg" />
-                    </Col>
-                  </Row>
+                  Messages
+                  <Icon icon="comments" size="lg" className="pad-edge-left" />
                 </Link>
               </Col>
-              <Col mobile="12">
+              <Col
+                mobile="12"
+                bigMobile="4"
+                desktop="2"
+                className="align-center"
+              >
                 <Link
                   to="/trade"
                   className="margin-none pad-none color-purp-light font-double font-bold"
-                  onClick={() => setOpen('false')}
+                  onClick={() => setOpen("false")}
                 >
-                  <Row nopad className="pad-none">
-                    <Col mobile="10" nopad className="pad-none align-right">
-                      Up For Trade
-                    </Col>
-                    <Col mobile="2" nopad className="pad-none align-center">
-                      <Icon icon="exchange-alt" size="lg" />
-                    </Col>
-                  </Row>
+                  Up For Trade
+                  <Icon
+                    icon="exchange-alt"
+                    size="lg"
+                    className="pad-edge-left"
+                  />
                 </Link>
               </Col>
-              <Col mobile="12">
+              <Col
+                mobile="12"
+                bigMobile="4"
+                desktop="2"
+                className="align-center"
+              >
                 <Link
                   to="/active-offers"
                   className="margin-none pad-none color-purp-light font-double font-bold"
-                  onClick={() => setOpen('false')}
+                  onClick={() => setOpen("false")}
                 >
-                  <Row nopad className="pad-none">
-                    <Col mobile="10" nopad className="pad-none align-right">
-                      Active Offers
-                    </Col>
-                    <Col mobile="2" nopad className="pad-none align-center">
-                      <Icon icon="fire-alt" size="lg" />
-                    </Col>
-                  </Row>
+                  Active Offers
+                  <Icon icon="fire-alt" size="lg" className="pad-edge-left" />
+                </Link>
+              </Col>
+              <Col
+                mobile="12"
+                bigMobile="4"
+                desktop="2"
+                className="align-center"
+              >
+                <Link
+                  to="/profile"
+                  className="margin-none pad-none color-purp-light font-double font-bold"
+                  onClick={() => setOpen("false")}
+                >
+                  Profile
+                  <Icon icon="user" size="lg" className="pad-edge-left" />
                 </Link>
               </Col>
             </>
           ) : (
             <>
-              <Col mobile="12">
+              <Col
+                mobile="12"
+                bigMobile="4"
+                desktop="2"
+                className="align-center"
+              >
                 <Link
                   to="/login"
                   className="margin-none pad-none color-purp-light font-double font-bold"
-                  onClick={() => setOpen('false')}
+                  onClick={() => setOpen("false")}
                 >
-                  <Row nopad className="pad-none">
-                    <Col mobile="10" nopad className="pad-none align-right">
-                      Login
-                    </Col>
-                    <Col mobile="2" nopad className="pad-none align-center">
-                      <Icon icon="sign-in-alt" size="lg" />
-                    </Col>
-                  </Row>
+                  Login
+                  <Icon
+                    icon="sign-in-alt"
+                    size="lg"
+                    className="pad-edge-left"
+                  />
                 </Link>
               </Col>
-              <Col mobile="12">
+              <Col
+                mobile="12"
+                bigMobile="4"
+                desktop="2"
+                className="align-center"
+              >
                 <Link
                   to="/"
                   className="margin-none pad-none color-purp-light font-double font-bold"
-                  onClick={() => setOpen('false')}
+                  onClick={() => setOpen("false")}
                 >
-                  <Row nopad className="pad-none">
-                    <Col mobile="10" nopad className="pad-none align-right">
-                      Home
-                    </Col>
-                    <Col mobile="2" nopad className="pad-none align-center">
-                      <Icon icon="home" size="lg" />
-                    </Col>
-                  </Row>
+                  Home
+                  <Icon icon="home" size="lg" className="pad-edge-left" />
                 </Link>
               </Col>
             </>
@@ -203,7 +221,7 @@ const Navbar = ({ title, location }) => {
       <div
         id="nav-modal"
         className={`open-${isOpen}`}
-        onClick={() => setOpen('false')}
+        onClick={() => setOpen("false")}
       />
     </>
   );
