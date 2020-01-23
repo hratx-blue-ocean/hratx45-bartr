@@ -12,7 +12,7 @@ export const fetchItemDetailsByItemId = prodId => {
           productId: prodId
         }
       });
-      let data = response.data.rows[0];
+      let data = response.data.rows[0] || {};
   
       data.photos = photos.data.rows;
       console.log("data in fetchItemDetailsByItemId dispatcher: ", data);

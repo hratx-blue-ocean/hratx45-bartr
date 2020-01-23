@@ -15,6 +15,8 @@ import TradeItem from './TradeItem';
 
 import { connect } from 'react-redux';
 
+import {fetchProductsUpForTradeByUserId} from '../actions/productsActions';
+
 import '../assets/styles/makeOfferForm.scss';
 
 const getDate = () => {
@@ -81,12 +83,22 @@ class MakeOfferForm extends PureComponent {
     this.submit = this.submit.bind(this);
   }
 
+  componentDidMount() {
+    fetchProductsUpForTradeByUserId(this.props.userId);
+  }
+
+  componentDidUpdate (prevProps) {
+    if (this.props.userItems !== prevProps.userItems) {
+      this.setState({availableItems: this.props.userItems})
+    }
+  }
+
   toggle() {
     this.setState({ modalOpen: !this.state.modalOpen });
   }
 
   addToOffer() {
-    let { availableItems, selectedItems } = this.state;
+    let { selectedItems, availableItems } = this.state;
     selectedItems = availableItems.filter(item => item.selected);
     this.setState({ selectedItems }, () => {
       this.toggle();
@@ -94,7 +106,7 @@ class MakeOfferForm extends PureComponent {
   }
 
   handleClick(e) {
-    let { indexMap, availableItems } = this.state;
+    let { indexMap, availableItems} = this.state;
     let id = e.currentTarget.id;
 
     availableItems[indexMap[id]].selected = !availableItems[indexMap[id]]
@@ -133,7 +145,7 @@ class MakeOfferForm extends PureComponent {
             <MDBCard className="makeOfferFormCard">
               <div className="desiredItemContainer">
                 <h3 className="sectionTitle">Item you've chosen: </h3>
-                <MDBCard className="desiredItem">
+                {/* <MDBCard className="desiredItem">
                   {this.props.itemDetails.photos &&
                   this.props.itemDetails.photos.length > 0 ? (
                     <div className="desiredItemImage">
@@ -152,6 +164,25 @@ class MakeOfferForm extends PureComponent {
                     </h4>
                     <h4 className="desiredItemName">
                       Value: <span>{this.props.itemDetails.value}</span>
+                    </h4>
+                  </div>
+                </MDBCard> */}
+                <MDBCard className="desiredItem">
+                  
+                    <div className="desiredItemImage">
+                      <img
+                        src="https://images-na.ssl-images-amazon.com/images/I/81PkJiEPmvL._AC_SL1500_.jpg"
+                        width="60px"
+                        height="60px"
+                      />
+                    </div>
+                 
+                  <div className="desiredItemInfo">
+                    <h4 className="desiredItemName">
+                      Daddy saddle!
+                    </h4>
+                    <h4 className="desiredItemName">
+                      Value: <span>10</span>
                     </h4>
                   </div>
                 </MDBCard>
@@ -262,4 +293,4 @@ let mapStateToProps = state => {
   return { itemDetails, username, userId, userItems };
 };
 
-export default connect(mapStateToProps)(MakeOfferForm);
+export default connect(mapStateToProps, {fetchProductsUpForTradeByUserId})(MakeOfferForm);
