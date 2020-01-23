@@ -2,45 +2,31 @@ import React from "react";
 import Axios from "axios";
 import { MDBContainer } from "mdbreact";
 import MessageString from "../components/MessageString.jsx";
+import { useSelector, connect } from "react-redux";
 
 class Messages extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentUser: 10,
-      messageStrings: null,
-      msg1OtherUser: null,
-      msg2OtherUser: null
+      // currentUser: 9,
+      messageStrings: null
     };
     this.getUserMessageStrings = this.getUserMessageStrings.bind(this);
   }
 
   getUserMessageStrings() {
     Axios.get(
-      `https://paperclip.link/api/messages?userId=${this.state.currentUser}`
+      `http://paperclip.link/api/messages/threads?userId=${this.props.userInfo.userInfo.user_id}`
     )
+
       .then(data => data.data)
       .then(data => {
-        let thread1 = [];
-        let thread2 = [];
+        let arr = [];
         for (let i = 0; i < data.length; i++) {
-          data[i].sender_id < this.state.currentUser ||
-          data[i].recipient_id < this.state.currentUser
-            ? (() => {
-                thread1.push(data[i]);
-                return data[i].sender_id !== this.state.currentUser
-                  ? this.setState({ msg1OtherUser: data[i].sender_id })
-                  : null;
-              })()
-            : (() => {
-                thread2.push(data[i]);
-                return data[i].sender_id !== this.state.currentUser
-                  ? this.setState({ msg2OtherUser: data[i].sender_id })
-                  : null;
-              })();
+          arr.push(data[i]);
         }
         return this.setState({
-          messageStrings: [thread1, thread2]
+          messageStrings: arr
         });
       });
   }
@@ -64,9 +50,7 @@ class Messages extends React.Component {
                     key={key}
                     num={key}
                     messageString={messageString}
-                    currentUser={this.state.currentUser}
-                    msg1OtherUser={this.state.msg1OtherUser}
-                    msg2OtherUser={this.state.msg2OtherUser}
+                    currentUser={this.props.userInfo.userInfo.user_id}
                   />
                 </MDBContainer>
               ))
@@ -76,4 +60,14 @@ class Messages extends React.Component {
     );
   }
 }
-export default Messages;
+// export default Messages;
+
+const mapStateToProps = state => {
+  return {
+    products: state.products,
+    location: state.location,
+    userInfo: state.userInfo
+  };
+};
+
+export default connect(mapStateToProps, {})(Messages);

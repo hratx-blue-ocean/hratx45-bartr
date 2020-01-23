@@ -6,11 +6,10 @@
     height: 100px;
     padding: auto;
     overflow-y: scroll;
-    border-top: 3px solid $default-color;
-    border-left: 3px solid $default-color;
     cursor: pointer;
-    margin-top: 5px;
-    box-shadow: 10px 5px 5px $default-color;
+    margin: 0;
+    padding: 1rem;
+
     #message-string {
       overflow-y: scroll;
       border-top: 1px solid gray;

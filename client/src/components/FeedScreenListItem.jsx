@@ -69,6 +69,7 @@ const FeedScreenListItem = props =>
                 padding: "0",
                 width: "auto",
                 fontSize: "x-small",
+                color: "gray",
                 marginTop: "auto",
                 marginRight: "0",
                 marginLeft: "0"

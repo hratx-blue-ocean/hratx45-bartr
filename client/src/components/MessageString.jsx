@@ -52,20 +52,20 @@ class MessageString extends React.Component {
 
   replyHandle(msg, recipient) {
     let arr = this.state.replies;
-
-    arr.unshift({
-      sender_id: this.props.currentUser,
-      recipient_id: recipient,
-      date: new Date().toJSON(),
-      message: msg,
-      sender_username: this.props.messageString[this.props.num]
-        .recipient_username,
-      recipient_username: this.props.messageString[this.props.num]
-        .sender_username
-    });
-    this.setState({
-      replies: arr
-    });
+    console.log("run");
+    // arr.unshift({
+    //   sender_id: this.props.currentUser,
+    //   recipient_id: recipient,
+    //   date: new Date().toJSON(),
+    //   message: msg,
+    //   sender_username: this.props.messageString[this.props.num]
+    //     .recipient_username,
+    //   recipient_username: this.props.messageString[this.props.num]
+    //     .sender_username
+    // });
+    // this.setState({
+    //   replies: arr
+    // });
 
     let dt = new Date();
     let dateToSend = `${dt
@@ -84,7 +84,6 @@ class MessageString extends React.Component {
       .getSeconds()
       .toString()
       .padStart(2, "0")}`;
-    // ! send to db.
     Axios.post("https://paperclip.link/api/messages", {
       senderId: this.props.currentUser,
       recipientId: recipient,
@@ -96,7 +95,9 @@ class MessageString extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({ currString: this.props.messageString });
+    this.setState({ currString: this.props.messageString }, () =>
+      console.log(this.state.currString)
+    );
   }
 
   render() {
@@ -105,7 +106,9 @@ class MessageString extends React.Component {
         <MDBModal isOpen={this.state.messageOpen}>
           <MDBModalHeader>
             Messages with user:{" "}
-            {this.props.messageString[this.props.num].sender_username}
+            {this.props.messageString.user_one_id === this.props.currentUser
+              ? this.props.messageString.user_two_name
+              : this.props.messageString.user_one_name}
           </MDBModalHeader>
           <MDBModalBody>
             <MDBContainer style={{ overflowY: "scroll", height: "70vh" }}>
@@ -115,21 +118,19 @@ class MessageString extends React.Component {
                     messageString={this.props.messageString}
                     num={this.props.num}
                     replyHandle={this.replyHandle}
-                    recipient={
-                      this.props.num === 0
-                        ? this.props.msg1OtherUser
-                        : this.props.msg2OtherUser
-                    }
+                    currentUser={this.props.currentUser}
                   />
                 </MDBContainer>
               ) : null}
               <MDBContainer>
                 {this.state.currString
-                  ? this.state.currString.map((message, key) => (
+                  ? this.state.currString.messages.map((message, key) => (
                       <Message
                         key={key}
+                        currString={this.state.currString}
                         message={message}
                         num={this.props.num}
+                        currentUser={this.props.currentUser}
                       />
                     ))
                   : null}
@@ -157,10 +158,29 @@ class MessageString extends React.Component {
         </MDBModal>
       </MDBContainer>
     ) : (
-      <MDBContainer id="unopenedMessage" onClick={this.openMessage}>
+      <MDBContainer
+        id="unopenedMessage"
+        className="rounded-large shadow"
+        onClick={this.openMessage}
+        style={{ margin: "1rem", border: "2px solid #6c7ac9" }}
+      >
         <MDBContainer id="innerUnopened">
           Messages with user:{" "}
-          {this.props.messageString[this.props.num].sender_username}
+          {this.props.messageString.user_one_id === this.props.currentUser
+            ? this.props.messageString.user_two_name
+            : this.props.messageString.user_one_name}
+          <MDBContainer
+            style={{ fontSize: "small", color: "gray", padding: 0 }}
+          >
+            <MDBContainer style={{ padding: 0 }}>
+              {this.props.messageString.messages.length > 0
+                ? `${this.props.messageString.messages[0].message.slice(
+                    0,
+                    40
+                  )}...`
+                : null}
+            </MDBContainer>
+          </MDBContainer>
         </MDBContainer>
       </MDBContainer>
     );
