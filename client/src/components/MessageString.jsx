@@ -158,9 +158,9 @@ class MessageString extends React.Component {
     ) : (
       <MDBContainer
         id="unopenedMessage"
-        className="rounded-large shadow color-border-purple border"
+        className="rounded-large shadow"
         onClick={this.openMessage}
-        style={{ margin: "1rem" }}
+        style={{ margin: "1rem", border: "2px solid #6c7ac9" }}
       >
         <MDBContainer id="innerUnopened">
           Messages with user:{" "}
