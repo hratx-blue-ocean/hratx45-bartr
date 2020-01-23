@@ -156,7 +156,12 @@ class MessageString extends React.Component {
         </MDBModal>
       </MDBContainer>
     ) : (
-      <MDBContainer id="unopenedMessage" onClick={this.openMessage}>
+      <MDBContainer
+        id="unopenedMessage"
+        className="rounded-large shadow color-border-purple border"
+        onClick={this.openMessage}
+        style={{ margin: "1rem" }}
+      >
         <MDBContainer id="innerUnopened">
           Messages with user:{" "}
           {this.props.messageString.user_one_id === this.props.currentUser
